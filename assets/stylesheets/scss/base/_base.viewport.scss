@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Viewport
+   ========================================================================== */
+
+/**
+ * Enable automatic content scaling in IE 10, see: http://j.mp/TT6lHf
+ * In Metro IE10 snap mode works most of the time correct when using: "width: device-width;",
+ * but it doesn't always work as meant on Windows Phone 8 (e.g. Nokia Lumia 820).
+ * To fix this issue on Windows Phone 8 for now see: http://trentwalton.com/?p=5994
+ */
+
+@viewport { width: device-width; }

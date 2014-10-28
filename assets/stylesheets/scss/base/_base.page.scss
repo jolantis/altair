@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Base HTML
+   ========================================================================== */
+
+/**
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from variables. The `font-size` is calculated to exist
+ *    in %, the `line-height` is calculated to exist unitlessly.
+ * 2. Font-size is set to `small` size (without mq) for browsers that don't
+ *    cut the mustard (aka `no-ctm`).
+ * 3. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 4. Ensure the page always fills at least the entire height of the viewport.
+ */
+
+html {
+	@include base-font($base-font-percentages); // [1], [2]
+	@include sans-font(400);
+
+	line-height: $base-line-height;
+	// overflow-y: auto; // [3]
+	min-height: 100%; // [4]
+	color: $color-base-black;
+	background-color: $background-color;
+}

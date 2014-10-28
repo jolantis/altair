@@ -1,0 +1,79 @@
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+// Stacks
+// --------------------------------------------------------------------------
+
+$sans-font:                     "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
+$serif-font:                    "Lucida Bright", "LucidaBright", Georgia, serif;
+$mono-font:                     Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif;
+$heading-font:                  "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold", "Arial Narrow Bold", "ArialNarrow-Bold", "Arial Narrow", "ArialNarrow", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+$icon-font:                     "Fontello";
+
+// Base
+// --------------------------------------------------------------------------
+
+$base-font-size:                16px;
+$base-line-height:              1.5;
+$base-font-percentages: (
+	small                       88%,                                            // <= mobile
+	compact                     94%,                                            // <= tablet portrait
+	medium                      100%,                                           // <= base/default (dektop/tablet landscape)
+	large                       106%,
+	wide                        113%,
+	huge                        125%
+);
+
+// Type (modular) scale
+// --------------------------------------------------------------------------
+
+// Defaults
+
+$ms-ratio:                      $augmented-fourth;
+$ms-ratio-alt:                  $golden;
+
+// Modular scale
+
+// $ms-up0: $base-font-size;
+// $ms-up1: $ms-up0                * $ms-ratio;
+// $ms-up2: $ms-up1                * $ms-ratio;
+// $ms-up3: $ms-up2                * $ms-ratio;
+// $ms-up4: $ms-up3                * $ms-ratio;
+// $ms-up5: $ms-up4                * $ms-ratio;
+// $ms-up6: $ms-up5                * $ms-ratio;
+// $ms-up7: $ms-up6                * $ms-ratio;
+// $ms-up8: $ms-up7                * $ms-ratio;
+// $ms-down1: $base-font-size      / $ms-ratio;
+// $ms-down2: $ms-down1            / $ms-ratio;
+// $ms-down3: $ms-down2            / $ms-ratio;
+
+// Multiple ratio scale
+
+$ms-up0: $base-font-size;
+$ms-up1: $ms-up0                * $ms-ratio;
+$ms-up2: $ms-up0                * $ms-ratio-alt;
+$ms-up3: $ms-up1                * $ms-ratio;
+$ms-up4: $ms-up2                * $ms-ratio-alt;
+$ms-up5: $ms-up3                * $ms-ratio;
+$ms-up6: $ms-up4                * $ms-ratio-alt;
+$ms-up7: $ms-up5                * $ms-ratio;
+$ms-up8: $ms-up6                * $ms-ratio-alt;
+// $ms-down1: $base-font-size      / $ms-ratio;
+// $ms-down2: $ms-down1            / $ms-ratio;
+// $ms-down3: $ms-down2            / $ms-ratio;
+
+// Typeplate scale (http://typeplate.com)
+
+// $ms-up0: $base-font-size;
+// $ms-up1: $base-font-size        * 1.1667;
+// $ms-up2: $base-font-size        * 1.3333;
+// $ms-up3: $base-font-size        * 2;
+// $ms-up4: $base-font-size        * 2.6667;
+// $ms-up5: $base-font-size        * 3.3333;
+// $ms-up6: $base-font-size        * 4;
+// $ms-up7: $base-font-size        * 5;
+// $ms-up8: $base-font-size        * 6.5;
+$ms-down1: $base-font-size      / 1.1667;
+$ms-down2: $base-font-size      / 1.3333;
+$ms-down3: $base-font-size      / 2;

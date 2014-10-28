@@ -1,0 +1,19 @@
+/**
+	Humans responsible & Colophon
+	http://humanstxt.org
+**/
+
+/**	TEAM **/
+	<your title>: <your name>
+	Site:
+	Twitter:
+	Location:
+
+/**	THANKS **/
+	Names (& URL):
+
+/**	SITE **/
+	Standards: HTML5, CSS3
+	Components: Mobile Detect, Modernizr, Selectivzr, jQuery, Zepto etc.
+	Software: Kirby CMS
+	Webfonts: TeX Gyre Adventor Regular & Bold (license: http://www.fontsquirrel.com/license/TeX-Gyre-Adventor)

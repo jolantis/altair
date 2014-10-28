@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Block grid
+   ========================================================================== */
+
+/**
+ * Loosely based on:
+ * - https://github.com/suitcss/grid/
+ * - https://github.com/suitcss/grid-layouts/
+ * - http://suitcss.github.io/grid-layouts/ <= EXAMPLE
+ *
+ * Browser support:
+ * - Google Chrome (latest)
+ * - Opera (latest)
+ * - Firefox 4+
+ * - Safari 5+
+ * - Internet Explorer 9+
+ *
+ * DO NOT apply dimension or offset utilities to the `BlockGrid` element. All cell
+ * widths and offsets should be applied to child grid cells.
+ *
+ * Example HTML:
+ * <div class="BlockGrid BlockGrid--small1col BlockGrid--compact2col BlockGrid--medium4col">
+ *   <div class="BlockGrid-cell BlockGrid-cell--1"></div>
+ *   <div class="BlockGrid-cell BlockGrid-cell--2"></div>
+ *   <div class="BlockGrid-cell BlockGrid-cell--3"></div>
+ *   <div class="BlockGrid-cell BlockGrid-cell--4"></div>
+ * </div>
+ */
+
+/**
+ * BlockGrid container
+ *
+ * All content must be contained within child `BlockGrid-cell` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ * 2. Ensure consistent default alignment.
+ * 3. Remove inter-cell whitespace that appears between `inline-block` child
+ *    elements.
+ */
+
+.BlockGrid {
+	display: block; // [1]
+	padding: 0; // [1]
+	margin: 0; // [1]
+	text-align: left; // [2]
+	font-size: 0; // [3]
+}
+
+/**
+ * Modifier: center align all grid cells
+ */
+
+.BlockGrid--alignCenter {
+	text-align: center;
+}
+
+/**
+ * Modifier: right align all grid cells
+ */
+
+.BlockGrid--alignRight {
+	text-align: right;
+}
+
+/**
+ * Modifier: middle-align grid cells
+ */
+
+.BlockGrid--alignMiddle > .BlockGrid-cell {
+	vertical-align: middle;
+}
+
+/**
+ * Modifier: bottom-align grid cells
+ */
+
+.BlockGrid--alignBottom > .BlockGrid-cell {
+	vertical-align: bottom;
+}
+
+/**
+ * BlockGrid cell
+ *
+ * No explicit width by default. Rely on combining `BlockGrid-cell` with a dimension
+ * utility or a component class that extends 'grid'.
+ *
+ * 1. Fundamentals of the non-float grid layout mechanism.
+ * 2. Make cells full-width by default.
+ * 3. Controls vertical positioning of units.
+ * 4. Keeps content correctly aligned with the grid direction.
+ * 5. Reset font size change made in `Grid`.
+ */
+
+.BlockGrid-cell {
+	display: inline-block; // [1]
+	margin: 0;
+	padding: 0;
+	width: 100%; // [2]
+	vertical-align: top; // [3]
+	text-align: left; // [4]
+	font-size: 1rem; // [5]
+}
+
+/**
+ * Modifier: horizontally center one unit
+ *
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `BlockGrid` object.
+ */
+
+.BlockGrid-cell--center {
+	display: block;
+	margin: 0 auto;
+}
+
+/**
+ * BlockGrid gutter
+ */
+
+/* Em gutter */
+
+.BlockGrid--withGutter {
+	margin-right: rhythm(-.5); /* Removes the `gutter` right */
+	margin-left: rhythm(-.5); /* Removes the `gutter` right */
+
+	& > .BlockGrid-cell {
+		padding-right: rhythm(.5);
+		padding-left: rhythm(.5);
+	}
+}
+
+/* Percentage gutter */
+
+.BlockGrid--withGutterPercentage {
+	margin-right: -.5 * $grid-gutter-percentage; /* Removes the `gutter` right */
+	margin-left: -.5 * $grid-gutter-percentage; /* Removes the `gutter` right */
+
+	& > .BlockGrid-cell {
+		padding-right: .5 * $grid-gutter-percentage;
+		padding-left: .5 * $grid-gutter-percentage;
+	}
+}
+
+/**
+ * Responsive block grid sizes
+ */
+
+// Small and up is the default layout-cel width of 100%!
+
+/* Compact and up */
+
+@include breakpoint(compact) {
+	// Split layout into 2 columns
+	.BlockGrid--compact2col > .BlockGrid-cell { width: 50% !important; }
+}
+
+/* Medium and up */
+
+@include breakpoint(medium) {
+	// Split into 3 columns, 3:1 ratio
+	.BlockGrid--medium3to1 > .BlockGrid-cell--1,
+	.BlockGrid--medium3to1 > .BlockGrid-cell--3 { width: percentage(2/3) !important; }
+	.BlockGrid--medium3to1 > .BlockGrid-cell--2,
+	.BlockGrid--medium3to1 > .BlockGrid-cell--4 { width: percentage(1/3) !important; }
+}
+
+/* Large and up */
+
+@include breakpoint(large) {
+	// Split into 4 columns
+	.BlockGrid--large4col > .BlockGrid-cell { width: 25% !important; }
+}

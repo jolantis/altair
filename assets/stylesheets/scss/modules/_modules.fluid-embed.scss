@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Fluid embed (http://j.mp/GIHbnu)
+   ========================================================================== */
+
+/**
+ * Fluid, intrinsic ratio embeds
+ *
+ * For use with media embeds – such as videos, slideshows, or even images –
+ * that need to retain a specific aspect ratio but adapt to the width of their
+ * containing element.
+ *
+ * Example HTML:
+ * <div class="FluidEmbed FluidEmbed--16by9">
+ *   <iframe class="FluidEmbed-item" src="…"></iframe>
+ * </div>
+ *
+ * <div class="FluidEmbed FluidEmbed--16by9">
+ *   [iframe|object|embed|img]
+ * </div>
+ */
+
+.FluidEmbed {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+/**
+ * A pseudo-element shunt is used to provide support for `max-height`. The
+ * `max-height` property has no affect when using a percentage-padding to set
+ * the aspect ratio.
+ */
+
+.FluidEmbed:before {
+	content: "";
+	display: block;
+	width: 100%;
+}
+
+/**
+ * Modifier: Different aspect ratio for different breakpoints
+ */
+
+/* 3:2 aspect ratio for small and below */
+
+.FluidEmbed--3by2:before {
+	padding-bottom: percentage(2/3) !important;
+}
+
+.FluidEmbed--16by9:before {
+	padding-bottom: percentage(9/16) !important;
+}
+
+/* 16:9 aspect ratio for compact breakpoint */
+
+@include breakpoint(compact) {
+	.FluidEmbed--compact16by9:before { padding-bottom: percentage(9/16) !important; }
+}
+
+/* 2:1 aspect ratio for medium breakpoint and up */
+
+@include breakpoint(medium) {
+	.FluidEmbed--medium2by1:before { padding-bottom: percentage(1/2) !important; }
+}
+
+/* 3:1 aspect ratio for medium breakpoint and up */
+
+@include breakpoint(large) {
+	.FluidEmbed--large3by1:before { padding-bottom: percentage(1/3) !important; }
+}
+
+/**
+ * Descendant: media element
+ *
+ * Utility of the component is improved by provide an explicit descendant
+ * class. However, it will work automatically for iframes, embeds, and objects
+ * to account for times when you cannot modify the attributes for 3rd party
+ * widget code.
+ */
+
+.FluidEmbed-item,
+.FluidEmbed iframe,
+.FluidEmbed embed,
+.FluidEmbed object,
+.FluidEmbed img {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/**
+ * Cover (background) image
+ *
+ * http://nicolasgallagher.com/flexible-css-cover-images/
+ * http://codepen.io/necolas/pen/Aksni
+ *
+ * Example HTML:
+ * <div class="CoverImage FluidEmbed FluidEmbed--16by9"
+ *   style="background-image:url(cover.jpg)">
+ * </div>
+ *
+ */
+
+.CoverImage {
+	margin: 0 auto rhythm(1);
+	// max-width: 62rem; // set to your liking
+	min-height: 20rem; // set to your liking
+	background-position: 50%;
+	background-size: cover; // contain
+	background-repeat: no-repeat;
+}

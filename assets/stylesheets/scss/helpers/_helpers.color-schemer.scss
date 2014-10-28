@@ -1,0 +1,624 @@
+// --------------------------------------------------------------------------
+// Color schemer
+// --------------------------------------------------------------------------
+// URL: https://github.com/Team-Sass/color-schemer
+// --------------------------------------------------------------------------
+// Last updated: 2014-03-24
+// --------------------------------------------------------------------------
+
+// Usage
+// --------------------------------------------------------------------------
+// Drop these functions in wherever you want to use a color from the scheme.
+// You can manipulate them further to make them work with your design. These
+// should be considered a good starting point as you might want to tweak a
+// little further.
+//   cs-primary($color);
+//   cs-secondary($color);
+//   cs-tertiary($color);
+//   cs-quadrary($color);
+//
+// You can change the result of the functions above by (re)setting the
+// global variables, like this:
+//   cs-primary($color, $cs-scheme, $cs-hue-offset, $cs-brightness-offset);
+//
+// Color functions
+//   tint($color, $amount) — Mixes the color with white. Most designers are much more comfortable with this than lighten().
+//   shade($color, $amount) — Same as above but adds black. Designers might prefer it over darken().
+//   equalize($color) — Returns a fully saturated color.
+//   set-red($color, $red) — Sets the amount of red in a color.
+//   set-green($color, $green) — Sets the amount of green in a color.
+//   set-blue($color, $blue) — Sets the amount of blue in a color.
+//   set-hue($color, $hue) — Sets the hue of a color.
+//   set-saturation($color, $saturation) — Sets the saturation of a color.
+//   set-lightness($color, $lightness) — Sets the lightness of a color.
+//   set-alpha($color, $alpha) — Sets the alpha of a color.
+//
+// RYB color functions
+// Color schemer adds a number of functions to manipulate the red yellow and blue
+// color wheel. Computer color is calculated in red green and blue which is more
+// technically correct but artists and designers have been using RYB for ages to
+// come up with better color relationships.
+//   ryb-hue($color) — Will find the hue of a color on the RYB color wheel.
+//   set-ryb-hue($color, $hue) — Sets the hue of a color based on the RYB color wheel.
+//   ryb-adjust-hue($color, $degrees) — Will adjust the hue of a color around the RYB color wheel.
+//   ryb-complement($color) — Finds the RYB complement of a color.
+//   ryb-invert($color) — Inverts a color around the RYB color wheel.
+//
+// CMYK color function:
+//   cmyk($cyan,$magenta,$yellow>,$color-base-black);
+
+// Blend modes (_tools.blend-modes)
+// --------------------------------------------------------------------------
+
+// @import "tools.blend-modes";
+
+// Defaults
+// --------------------------------------------------------------------------
+
+$cs-primary:                    rgb(0,0,255) !default;
+$cs-scheme:                     mono !default;                                  // possible color schemes are 'mono', 'complement', 'triad', 'tetrad', 'analogic' and 'accented-analogic'
+$cs-hue-offset:                 30 !default;
+$cs-brightness-offset:          false !default;
+$cs-color-model:                rgb !default;                                   // possible options are 'rgb' or 'ryb' (a complement adjusted to roughly match; traditional color theory instead of RGB theory, so the complement of red will be green)
+$cs-colorblind:                 normal !default;
+$cs-harmonize-mode:             null !default;
+$cs-harmonize-color:            $cs-primary !default;
+$cs-harmonize-amount:           10% !default;
+
+// Interpolation (_interpolation.scss)
+// --------------------------------------------------------------------------
+
+@function cs-interpolate($value, $units: 360, $stops: $ryb-interpolation) {
+
+	// Loop numbers out of scale back into the scale.
+	@while $value >= 360 {
+		$value: $value - 360;
+	}
+	@while $value < 0 {
+		$value: $value + 360;
+	}
+
+	// Find out how many units in each stop
+	$cs-color-deg: $units / length($stops);
+
+	// Count through stops
+	$cs-deg-count: $cs-color-deg;
+	$cs-stop-count: 1;
+
+	// Add the first stop to the end so it will be
+	// interpolated with the last stop.
+	$stops: append($stops, nth($stops, 1));
+
+	// Start interpolating
+	@for $i from 0 through length($stops) {
+		@if $value < $cs-deg-count {
+			@return cs-mix(nth($stops, $cs-stop-count + 1), nth($stops, $cs-stop-count), abs(percentage(($cs-deg-count - $value) / $cs-color-deg) - 100 ), $model: rgb);
+		}
+
+		// If the value is not in this stop, loop up to another stop.
+		@else {
+			$cs-deg-count: $cs-deg-count + $cs-color-deg;
+			$cs-stop-count: $cs-stop-count + 1
+		}
+	}
+}
+
+// CMYK (_cmyk.scss)
+// --------------------------------------------------------------------------
+
+@function cmyk($cyan, $magenta, $yellow, $color-base-black) {
+
+	// Get the color values out of white
+	$cyan    : mix(cyan   , white, $cyan   );
+	$magenta : mix(magenta, white, $magenta);
+	$yellow  : mix(yellow , white, $yellow );
+	$color-base-black   : mix(black  , white, $color-base-black  );
+
+	// Subtract the colors from white
+	$color: white - invert($cyan) - invert($magenta) - invert($yellow) - invert($color-base-black);
+
+
+	@return $color;
+}
+
+// RYB (_ryb.scss)
+// --------------------------------------------------------------------------
+
+$ryb-interpolation: #FF0000 #FF4900 #FF7400 #FF9200 #FFAA00 #FFBF00 #FFD300 #FFE800 #FFFF00 #CCF600 #9FEE00 #67E300 #00CC00 #00AF64 #009999 #0B61A4 #1240AB #1B1BB3 #3914AF #530FAD #7109AA #A600A6 #CD0074 #E40045;
+
+// RYB color interpolation
+@function find-ryb($hue) {
+
+	// remove units on $hue
+	@if unit($hue) == deg { $hue: $hue / 1deg; }
+
+	// return an interpolated hue
+	@return hue(cs-interpolate($hue));
+}
+
+// Find the RYB hue instead of RGB hue of a color.
+
+// map of the RYB offset
+$ryb-offset: 0 1 2 3 5 6 7 8 9 10 11 13 14 15 16 17 18 19 19 20 21 21 22 23 23 24 25 25 26 27 27 28 28 29 29 30 30 31 31 32 32 32 33 33 34 34 35 35 35 36 36 37 37 37 38 38 38 39 39 40 40 40 41 41 41 42 42 42 43 43 43 44 44 44 45 45 45 46 46 46 47 47 47 47 48 48 48 49 49 49 50 50 50 51 51 51 52 52 52 53 53 53 54 54 54 55 55 55 56 56 56 57 57 57 58 58 59 59 59 60 60 61 61 62 63 63 64 65 65 66 67 68 68 69 70 70 71 72 72 73 73 74 75 75 76 77 77 78 79 79 80 81 82 82 83 84 85 86 87 88 88 89 90 91 92 93 95 96 98 100 102 104 105 107 109 111 113 115 116 118 120 122 125 127 129 131 134 136 138 141 143 145 147 150 152 154 156 158 159 161 163 165 166 168 170 171 173 175 177 178 180 182 184 185 187 189 191 192 194 196 198 199 201 203 205 206 207 208 209 210 212 213 214 215 216 217 218 219 220 221 222 223 224 226 227 228 229 230 232 233 234 235 236 238 239 240 241 242 243 244 245 246 247 248 249 250 251 251 252 253 254 255 256 257 257 258 259 260 260 261 262 263 264 264 265 266 267 268 268 269 270 271 272 273 274 274 275 276 277 278 279 280 282 283 284 286 287 289 290 292 293 294 296 297 299 300 302 303 305 307 309 310 312 314 316 317 319 321 323 324 326 327 328 329 330 331 332 333 334 336 337 338 339 340 341 342 343 344 345 347 348 349 350 352 353 354 355 356 358 359 360;
+
+// loop through the map to find the matching hue.
+@function ryb-hue($color) {
+	@for $i from 1 through length($ryb-offset) {
+		@if nth($ryb-offset, $i) > hue($color) {
+			@return $i - 2deg;
+		}
+	}
+}
+
+// Changes the hue of a color.
+@function ryb-adjust-hue($color, $degrees) {
+
+	// Convert precentag to degrees.
+	@if unit($degrees) == "%" {
+		$degrees: 360 * ($degrees / 100%);
+	}
+
+	// Start at the current hue and loop in the adjustment.
+	$hue-adjust: (ryb-hue($color) + $degrees) / 1deg;
+
+	@return hsl(hue(cs-interpolate($hue-adjust)), saturation($color), lightness($color));
+}
+
+@function ryba($red, $yellow, $blue, $alpha) {
+	$hue: 0;
+	$saturation: 0;
+	$lightness: percentage(($red + $yellow + $blue) / (255 * 3));
+	@if $red == $yellow and $yellow == $blue {
+		@return hsla(0, 0, $lightness, $alpha);
+	}
+	@if $red >= $yellow and $red >= $blue {
+		$hue: 0;
+	}
+	@elseif $yellow >= $red and $yellow >= $blue {
+		$hue: 360 / 3;
+	}
+	@elseif $blue >= $red and $blue >= $yellow {
+		$hue: 360 / 3 * 2;
+	}
+	@return hsla(hue(cs-interpolate($hue)), 100%, 50%, 1);
+}
+
+@function ryb($red, $yellow, $blue) {
+	@return ryba($red, $yellow, $blue, 1);
+}
+
+@function set-ryb-hue($color, $hue) {
+	@return hsla(hue(cs-interpolate($hue)), saturation($color), lightness($color), alpha($color));
+}
+
+// Returns the complement of a color.
+@function ryb-complement($color) {
+	@return ryb-adjust-hue($color, 180deg);
+}
+
+// Returns the inverse of a color.
+@function ryb-invert($color) {
+	@return ryb-adjust-hue(hsl(hue($color), saturation(invert($color)), lightness(invert($color))), 180deg);
+}
+
+// Colorblind (__colorblind.scss)
+// --------------------------------------------------------------------------
+
+@function cs-colorblind($color, $mode: $cs-colorblind) {
+
+	// Refrence: http://www.w3.org/TR/AERT#color-contrast
+
+	// Deuteranopia
+	@if $mode == deuteranopia {
+		@return $color;
+	}
+
+	// Protanopia
+	@if $mode == protanopia {
+		@return $color;
+	}
+
+	// Tritanopia
+	@if $mode == tritanopia {
+		@return $color;
+	}
+
+
+	// Return color if no color blind mode.
+	@else {
+		@return $color;
+	}
+}
+
+@function cs-cb($color, $mode: $cs-colorblind) {
+	@return cs-colorblind($color, $mode);
+}
+
+// Equalize (_equalize.scss)
+// --------------------------------------------------------------------------
+
+// Color equalize credit to Mason Wendell:
+// https://github.com/canarymason/The-Coding-Designers-Survival-Kit/blob/master/sass/partials/lib/variables/_color_schemes.sass
+@function equalize($color) {
+	@return hsl(hue($color), 100%, 50%);
+}
+
+// Mix (_mix.scss)
+// --------------------------------------------------------------------------
+
+@function cs-mix($color1, $color2, $percent: 50%, $model: $cs-color-model) {
+
+	$decimal           : abs($percent - 100%) / 100%;
+	$hue-offset        : ();
+
+	@if $model == rgb {
+		$hue-offset        : (hue($color1) - hue($color2)) * $decimal;
+		@if (hue($color1) - hue($color2)) * .5 < -90deg {
+			$hue-offset      : (hue($color1) + 360deg - hue($color2)) * $decimal;
+		}
+		@if (hue($color1) - hue($color2)) * .5 > 90deg {
+			$hue-offset      : (hue($color1) - 360deg - hue($color2)) * $decimal;
+		}
+	}
+
+	@if $model == ryb {
+		$hue-offset        : (ryb-hue($color1) - ryb-hue($color2)) * $decimal;
+		@if (ryb-hue($color1) - ryb-hue($color2)) * .5 < -90deg {
+			$hue-offset      : (ryb-hue($color1) + 360deg - ryb-hue($color2)) * $decimal;
+		}
+		@if (ryb-hue($color1) - ryb-hue($color2)) * .5 > 90deg {
+			$hue-offset      : (ryb-hue($color1) - 360deg - ryb-hue($color2)) * $decimal;
+		}
+	}
+
+	$saturation-offset : (saturation($color1) - saturation($color2)) * $decimal;
+	$lightness-offset  : (lightness($color1) - lightness($color2)) * $decimal;
+
+	@if $model == ryb {
+		$color1: ryb-adjust-hue($color1, $hue-offset * -1);
+	}
+	@else {
+		$color1: adjust-hue($color1, $hue-offset * -1);
+	}
+
+	$color1: set-saturation($color1, saturation($color1) - $saturation-offset);
+	$color1: set-lightness($color1, lightness($color1) - $lightness-offset);
+
+	@return $color1;
+}
+
+// Tint/Shade (_tint-shade.scss)
+// --------------------------------------------------------------------------
+
+// Add percentage of white to a color
+@function tint($color, $percent) {
+	@return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent) {
+	@return mix(black, $color, $percent);
+}
+
+// Color adjustments (_color-adjustments.scss)
+// --------------------------------------------------------------------------
+
+// RGB functions
+@function set-red($color, $red) {
+	@return rgba($red, green($color), blue($color), alpha($color));
+}
+
+@function set-green($color, $green) {
+	@return rgba(red($color), $green, blue($color), alpha($color));
+}
+
+@function set-blue($color, $blue) {
+	@return rgba(red($color), green($color), $blue, alpha($color));
+}
+
+
+// HSL Functions
+@function set-hue($color, $hue) {
+	@return hsla($hue, saturation($color), lightness($color), alpha($color));
+}
+
+@function set-saturation($color, $saturation) {
+	@return hsla(hue($color), $saturation, lightness($color), alpha($color));
+}
+
+@function set-lightness($color, $lightness) {
+	@return hsla(hue($color), saturation($color), $lightness, alpha($color));
+}
+
+@function set-alpha($color, $alpha) {
+	@return hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+// Harmonize (_harmonize.scss)
+// --------------------------------------------------------------------------
+
+@function cs-harmonize($background, $foreground: $cs-harmonize-color, $mode: $cs-harmonize-mode, $amount: $cs-harmonize-amount) {
+	$blend: null;
+	@if ($mode == normal) {
+		$blend: blend-normal($foreground, $background); }
+	@else if ($mode == multiply) {
+		$blend: blend-multiply($foreground, $background); }
+	@else if ($mode == lighten) {
+		$blend: blend-lighten($foreground, $background); }
+	@else if ($mode == darken) {
+		$blend: blend-darken($foreground, $background); }
+	@else if ($mode == darkercolor) {
+		$blend: blend-darkercolor($foreground, $background); }
+	@else if ($mode == lightercolor) {
+		$blend: blend-lightercolor($foreground, $background); }
+	@else if ($mode == lineardodge) {
+		$blend: blend-lineardodge($foreground, $background); }
+	@else if ($mode == linearburn) {
+		$blend: blend-linearburn($foreground, $background); }
+	@else if ($mode == difference) {
+		$blend: blend-difference($foreground, $background); }
+	@else if ($mode == screen) {
+		$blend: blend-screen($foreground, $background); }
+	@else if ($mode == exclusion) {
+		$blend: blend-exclusion($foreground, $background); }
+	@else if ($mode == overlay) {
+		$blend: blend-overlay($foreground, $background); }
+	@else if ($mode == softlight) {
+		$blend: blend-softlight($foreground, $background); }
+	@else if ($mode == hardlight) {
+		$blend: blend-hardlight($foreground, $background); }
+	@else if ($mode == colordodge) {
+		$blend: blend-colordodge($foreground, $background); }
+	@else if ($mode == colorburn) {
+		$blend: blend-colorburn($foreground, $background); }
+	@else if ($mode == linearlight) {
+		$blend: blend-linearlight($foreground, $background); }
+	@else if ($mode == vividlight) {
+		$blend: blend-vividlight($foreground, $background); }
+	@else if ($mode == pinlight) {
+		$blend: blend-pinlight($foreground, $background); }
+	@else if ($mode == hardmix) {
+		$blend: blend-hardmix($foreground, $background); }
+	@else if ($mode == colorblend) {
+		$blend: blend-colorblend($foreground, $background); }
+	@else if ($mode == dissolve) {
+		$blend: blend-dissolve($foreground, $background); }
+	@else if ($mode == divide) {
+		$blend: blend-divide($foreground, $background); }
+	@else if ($mode == hue) {
+		$blend: blend-hue($foreground, $background); }
+	@else if ($mode == luminosity) {
+		$blend: blend-luminosity($foreground, $background); }
+	@else if ($mode == saturation) {
+		$blend: blend-saturation($foreground, $background); }
+	@else if ($mode == subtract) {
+		$blend: blend-subtract($foreground, $background); }
+	$mixed: mix($blend, $background, $amount);
+	@return $mixed;
+}
+
+// Color schemer (_color-schemer.scss)
+// --------------------------------------------------------------------------
+
+// brightness and hue offsets are based on the lightness and saturation of the color
+// unless defined otherwise.
+@function cs-brightness-offset($cs-brightness-offset) {
+	@if $cs-brightness-offset == false {
+		// find the difference between lightness
+		@return lightness($cs-primary) - lightness(invert($cs-primary));
+	}
+	@else {
+		@return $cs-brightness-offset;
+	}
+}
+
+// Harmonized or Unaltered Color
+@function clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount) {
+	@if $cs-harmonize-mode != null {
+		@return cs-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	} @else {
+		@return $color;
+	}
+}
+
+// Primary color
+@function cs-primary($cs-primary:$cs-primary, $cs-scheme:$cs-scheme, $cs-hue-offset:$cs-hue-offset, $cs-brightness-offset:$cs-brightness-offset, $cs-harmonize-mode:$cs-harmonize-mode, $cs-harmonize-color:$cs-harmonize-color, $cs-harmonize-amount:$cs-harmonize-amount) {
+	@return clean-or-harmonize($cs-primary, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+}
+
+// Secondary color scheme
+@function cs-secondary($cs-primary:$cs-primary, $cs-scheme:$cs-scheme, $cs-hue-offset:$cs-hue-offset, $cs-brightness-offset:$cs-brightness-offset, $cs-harmonize-mode:$cs-harmonize-mode, $cs-harmonize-color:$cs-harmonize-color, $cs-harmonize-amount:$cs-harmonize-amount) {
+	$cs-brightness-offset: cs-brightness-offset($cs-brightness-offset);
+
+	// mono
+	@if $cs-scheme == mono {
+		@if $cs-brightness-offset < 0 {
+			$color: lighten($cs-primary, abs($cs-brightness-offset));
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: darken($cs-primary, abs($cs-brightness-offset));
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// complement
+	@if $cs-scheme == complement {
+		@if $cs-color-model == ryb {
+			$color: ryb-complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// triad
+	@if $cs-scheme == triad {
+		@if $cs-color-model == ryb {
+			$color: ryb-adjust-hue(ryb-complement($cs-primary), $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: adjust-hue(complement($cs-primary), $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// tetrad
+	@if $cs-scheme == tetrad {
+		@if $cs-color-model == ryb {
+			$color: ryb-adjust-hue($cs-primary, $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: adjust-hue($cs-primary, $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// analogic
+	@if $cs-scheme == analogic or $cs-scheme == accented-analogic {
+		@if $cs-color-model == ryb {
+			$color: ryb-adjust-hue($cs-primary, $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: adjust-hue($cs-primary, $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+}
+
+// Tertiary color scheme
+@function cs-tertiary($cs-primary:$cs-primary, $cs-scheme:$cs-scheme, $cs-hue-offset:$cs-hue-offset, $cs-brightness-offset:$cs-brightness-offset, $cs-harmonize-mode:$cs-harmonize-mode, $cs-harmonize-color:$cs-harmonize-color, $cs-harmonize-amount:$cs-harmonize-amount) {
+	$cs-brightness-offset: cs-brightness-offset($cs-brightness-offset);
+
+	// mono
+	@if $cs-scheme == mono {
+		$color: mix(cs-primary(), cs-secondary());
+		@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	}
+
+	// complement
+	@if $cs-scheme == complement {
+		$color: equalize($cs-primary);
+		@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	}
+
+	// triad
+	@if $cs-scheme == triad {
+		@if $cs-color-model == ryb {
+			$color: ryb-adjust-hue(ryb-complement($cs-primary), $cs-hue-offset * -1);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: adjust-hue(complement($cs-primary), $cs-hue-offset * -1);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// tetrad
+	@if $cs-scheme == tetrad {
+		@if $cs-color-model == ryb {
+			$color: ryb-complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// analogic
+	@if $cs-scheme == analogic or $cs-scheme == accented-analogic {
+		@if $cs-color-model == ryb {
+			$color: ryb-adjust-hue($cs-primary, $cs-hue-offset * -1);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: adjust-hue($cs-primary, $cs-hue-offset * -1);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// accented-analogic
+	@if $cs-scheme == accented-analogic {
+		@if $cs-color-model == ryb {
+			$color: ryb-complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+}
+
+// Quadrary color scheme
+@function cs-quadrary($cs-primary:$cs-primary, $cs-scheme:$cs-scheme, $cs-hue-offset:$cs-hue-offset, $cs-brightness-offset:$cs-brightness-offset, $cs-harmonize-mode:$cs-harmonize-mode, $cs-harmonize-color:$cs-harmonize-color, $cs-harmonize-amount:$cs-harmonize-amount) {
+	$cs-brightness-offset: cs-brightness-offset($cs-brightness-offset);
+
+	// mono
+	@if $cs-scheme == mono {
+		$color: equalize($cs-primary);
+		@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	}
+
+	// complement
+	@if $cs-scheme == complement {
+		$color: equalize(ryb-complement($cs-primary));
+		@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	}
+
+	// triad
+	@if $cs-scheme == triad {
+		$color: equalize($cs-primary);
+		@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	}
+
+	// tetrad
+	@if $cs-scheme == tetrad {
+		@if $cs-color-model == ryb {
+			$color: ryb-adjust-hue(ryb-complement($cs-primary), $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: adjust-hue(complement($cs-primary), $cs-hue-offset);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+
+	// analogic
+	@if $cs-scheme == analogic {
+		$color: equalize($cs-primary);
+		@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+	}
+
+	// accented-analogic
+	@if $cs-scheme == accented-analogic {
+		@if $cs-color-model == ryb {
+			$color: ryb-complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+		@else {
+			$color: complement($cs-primary);
+			@return clean-or-harmonize($color, $cs-harmonize-color, $cs-harmonize-mode, $cs-harmonize-amount);
+		}
+	}
+}
+
+// Comparison (_comparison.scss)
+// --------------------------------------------------------------------------
+
+// Checks to see if the input color is a dark color taking into account both lightness and hue.
+// Suitable for determining, for instance, if a background should have a dark or light text color.
+// @return true/false (boolean)
+@function cs-is-dark($color) {
+	@if (lightness($color) < 60% and (hue($color) >= 210 or hue($color) <= 27)) or (lightness($color) <= 32%)  {
+		@return true;
+	} @else {
+		@return false;
+	}
+}

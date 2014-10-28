@@ -1,0 +1,59 @@
+// --------------------------------------------------------------------------
+// Breakpoints
+// --------------------------------------------------------------------------
+
+// The base css should be for mobile. on top of that styles for other (wider)
+// browser windows can be layered on top.
+//
+// Usage:
+//
+//   div.columns {
+//     border: 1px solid;
+//     width: 100%;
+//
+//     @include breakpoint(medium){
+//       width: 30%;
+//       float: left;
+//     }
+//   }
+
+@mixin breakpoint($context) {
+
+	// Loop through each `break` to be included
+	@each $break in $breaks {
+
+		@if $context == $break {
+
+			// If there's only one breakpoint, SASS will think it's a space separated list
+			@if length($breakpoints) == 2 and type-of(nth($breakpoints, 1)) != "list" {
+				$breakpoints: append((), (nth($breakpoints, 1), nth($breakpoints, 2)));
+			}
+
+			// Loop through each `breakpoint`
+			@each $breakpoint in $breakpoints {
+
+				@if $context == nth($breakpoint, 1) {
+
+					$length: length($breakpoint);
+					$value: false !default;
+
+					@for $i from 2 through $length {
+						// If it's the first item, override $value
+						@if $i == 2 {
+							$value: nth($breakpoint, $i);
+						}
+						// Else, join $value
+						@else {
+							$value: join($value, nth($breakpoint, $i));
+						}
+					}
+
+					// @media only screen and #{$value} {
+					@media (min-width: #{$value}) {
+						@content;
+					}
+				}
+			}
+		}
+	}
+}

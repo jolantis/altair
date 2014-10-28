@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Default styles
+ */
+
+.Table {
+	margin-bottom: rhythm(1);
+
+	width: 100%;
+
+	th,
+	td {
+		padding-top: rhythm(.5);
+		padding-bottom: rhythm(.5);
+
+		text-align: left;
+	}
+
+	/* Table head */
+
+	th {
+		@extend %u-alignMiddle;
+
+		font-weight: inherit;
+		// white-space: nowrap
+	}
+
+	/* Table cell */
+
+	td {
+		@extend %u-alignTop;
+	}
+
+	/* Table footer */
+
+	tfoot {
+		font-style: italic;
+	}
+
+	/* Cell alignments */
+
+	[colspan] {
+		text-align: center;
+	}
+	[colspan="1"] {
+		text-align: left;
+	}
+	[rowspan] {
+		@extend %u-alignMiddle;
+	}
+	[rowspan="1"] {
+		@extend %u-alignTop;
+	}
+
+}
+
+.Table-numerical {
+	text-align: right;
+}
+
+
+/**
+ * Striped tables
+ */
+
+.Table--striped {
+	th,
+	td {
+		padding: rhythm(.5);
+	}
+	th {
+		background-color: $color-base-black;
+		color: $color-base-white;
+	}
+	th + th,
+	td + td {
+		border-left: .125em solid $color-base-white;
+	}
+
+	/* Zebra-striping */
+
+	tbody {
+		tr:nth-child(even) td {
+			background-color: $color-gray-m-light;
+		}
+		tr:hover td {
+			background-color: $color-base-black;
+			color: $color-base-white;
+		}
+	}
+
+}
+
+/**
+ * Rounded corners
+ */
+
+.Table--rounded {
+
+	thead th:first-child {
+		border-top-left-radius: rhythm(.5);
+	}
+
+	thead th:last-child {
+		border-top-right-radius: rhythm(.5);
+	}
+
+	tfoot td:first-child {
+		border-bottom-left-radius: rhythm(.5);
+	}
+
+	tfoot td:last-child {
+		border-bottom-right-radius: rhythm(.5);
+	}
+}
+
+/**
+ * Bordered tables
+ */
+
+.Table--bordered {
+	th,
+	td {
+		padding-top: rhythm(.5);
+		padding-bottom: rhythm(.5);
+
+		border: .125em solid $color-gray-m-light;
+
+		&:empty {
+			border:none;
+		}
+	}
+
+	thead th {
+		border-bottom-width: 2px;
+		border-bottom-color: $color-base-black;
+	}
+
+	tfoot tr {
+		border-top-width: 2px;
+	}
+}

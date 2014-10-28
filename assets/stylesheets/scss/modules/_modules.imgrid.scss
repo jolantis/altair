@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Imgrid
+   ========================================================================== */
+
+/**
+ * Image gallery with images sized on the server to fit the gallery
+ * Overall with is set inline by plugin (do not set here!)
+ */
+
+/* Imgrid container */
+
+.ImageGrid {
+	@extend %u-cf;
+
+	img {
+		width: 100%;
+	}
+	figcaption {
+		clear: left;
+		margin-left: $grid-gutter-percentage;
+	}
+}
+
+/* Imgrid item */
+
+.ImageGrid-item {
+	float: left;
+}
+
+/* Clear img floats within .imgrid */
+
+.ImageGrid-item--clear { clear: left; }

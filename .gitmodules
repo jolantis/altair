@@ -1,0 +1,5 @@
+[submodule "kirby"]
+	path = kirby
+	url = https://github.com/studiodumbar/kirby.git
+	update = checkout
+	fetchRecurseSubmodules = false

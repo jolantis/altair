@@ -1,0 +1,50 @@
+// --------------------------------------------------------------------------
+// Fonts families
+// --------------------------------------------------------------------------
+
+@mixin font-vars($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	@if ($size != false) { font-size: $size; }
+	@if ($weight != false) { font-weight: $weight; }
+	@if ($line-height != false) { line-height: $line-height; }
+	@if ($letter-spacing != false) { letter-spacing: $letter-spacing; }
+}
+
+// Shorthand font stack
+// --------------------------------------------------------------------------
+
+@mixin font($fontFamily: $sans-font, $weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	@if $fontFamily != false { font-family: $fontFamily; }
+	@include font-vars($weight,$letter-spacing,$line-height,$size);
+}
+
+// Sans font stack
+// --------------------------------------------------------------------------
+
+@mixin sans-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	font-family: $sans-font;
+	@include font-vars($weight,$letter-spacing,$line-height,$size);
+}
+
+// Serif font stack
+// --------------------------------------------------------------------------
+
+@mixin serif-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	font-family: $serif-font;
+	@include font-vars($weight,$letter-spacing,$line-height,$size);
+}
+
+// Mono font stack
+// --------------------------------------------------------------------------
+
+@mixin mono-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	font-family: $mono-font;
+	@include font-vars($weight,$letter-spacing,$line-height,$size);
+}
+
+// Headings
+// --------------------------------------------------------------------------
+
+@mixin heading-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	font-family: $heading-font;
+	@include font-vars($weight,$letter-spacing,$line-height,$size);
+}

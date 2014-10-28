@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Copy
+   ========================================================================== */
+
+/**
+ * Scoped styles of blocks of (body) content
+ */
+
+.Copy {
+
+	/* Baseline
+	   ========================================================================== */
+
+	// background-image: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 3%, transparent 100%);
+	// background-size: 100% $base-line-height + 0rem;
+
+	/* Vertical (module) spacing
+	   ========================================================================== */
+
+	/**
+	 * More info about 'The "Leftover Glue" problem' here:
+	 * http://slides.com/heydon/effortless-style/#/22
+	 */
+
+	> * + *:not(.Grid) {
+		margin-top: rhythm(1);
+	}
+
+	> *:not(.Grid) + .Grid {
+		margin-top: rhythm(1);
+	}
+
+	// & > p,
+	// & > ul,
+	// & > ol,
+	// & > dl,
+	// & > pre,
+	// & > figure {
+	// 	margin-bottom: rhythm(1);
+
+	// 	&:last-child {
+	// 		margin-bottom: 0;
+	// 	}
+	// }
+
+	/* Text max width and hyphenation
+	   ========================================================================== */
+
+	p,
+	li,
+	dt,
+	dd {
+		@extend %u-textMaxWidth;
+		@extend %u-textHyphen;
+	}
+
+	/**
+	 * Overrule hyphenation
+	 *
+	 * For Kirby tag 'nohyphen';
+	 * Usage: (nohyphen: <your text not to be hyphenated>)
+	*/
+
+	.u-textNoHyphen {
+		hyphens: none;
+	}
+
+	/* Paragraphs
+	   ========================================================================== */
+
+	// p:first-of-type { }
+
+	// p:first-child { }
+
+	// p + p {
+	// 	margin-top: rhythm(-1);
+	// 	text-indent: rhythm(1);
+	// }
+
+	// p:first-child:first-letter { }
+
+	/* Headings
+	   ========================================================================== */
+
+	/* Scoped headings (see extend-selectors.scss for corresponding 'unscoped' classes) */
+
+	// h1 {
+	// 	&:first-child {
+	// 		margin-top: 0;
+	// 	}
+	// }
+
+	// h1.u-teraHeading { @extend .TeraHeading; }
+	// h1.u-gigaHeading { @extend .GigaHeading; }
+	// h1.u-megaHeading { @extend .MegaHeading; }
+
+	h1 { @extend .AlphaHeading; }
+	h2 { @extend .BetaHeading; }
+	h3 { @extend .GammaHeading; }
+	h4 { @extend .DeltaHeading; }
+	h5 { @extend .EpsilonHeading; }
+	h6 { @extend .ZetaHeading; }
+
+	/* Figures
+	   ========================================================================== */
+
+	// figcaption {}
+
+	/* Pull, block- and run-in quotes
+	   ========================================================================== */
+
+	// .Quote {}
+
+	// .Blockquote {}
+
+	// .Pullquote {}
+
+	/* Inline Elements
+	   ========================================================================== */
+
+	i,
+	em,
+	cite {
+		@extend %u-textItalic;
+	}
+
+	b,
+	strong {
+		@extend %u-textBold;
+	}
+
+	small {
+		@extend %u-textSmall;
+	}
+
+	time {
+		@extend %u-textTime;
+	}
+
+	/* Addresses styling not present in IE7/8/9 */
+
+	mark {
+		background-color: rgb(248,248,0);
+		color: $color-base-black;
+	}
+
+	ins {
+		@include underline($color-gray-m-light, rgb(253,254,206));
+
+		background-color: rgb(253,254,206);
+		color: $color-base-black;
+	}
+
+	del {
+		background-color: rgb(248,0,0);
+		color: $color-base-black;
+	}
+
+	/* Addresses styling not present in IE7/8/9, S5, Chrome */
+
+	abbr {
+		text-transform: lowercase;
+		letter-spacing: .05em;
+		font-variant: small-caps; // https://developer.mozilla.org/en-US/docs/CSS/font-variant
+	}
+
+	code,
+	kbd,
+	pre,
+	samp {
+		@include mono-font();
+	}
+
+	code {
+		background-color: $color-gray-x-light;
+	}
+
+	/* Lists
+	   ========================================================================== */
+
+	/* Unordered lists */
+
+	ul,
+	ol {
+		@extend .List;
+	}
+
+	/* Definition lists */
+
+	// dl { }
+
+	dt {
+		font-weight: 700;
+	}
+
+	dd {
+		margin-left: rhythm(1);
+	}
+
+	/* Links
+	   ========================================================================== */
+
+	a {
+		@extend .Link;
+	}
+
+	/* External page links */
+
+	// [href^="http:"]:not([href*="mydomain.com"]) { }
+
+	/* Secure link */
+
+	// [href^="https"]:before {
+	// 	content: "\E017";
+	// }
+
+	/* PDF link */
+
+	// [href$="pdf"] { }
+
+	/* Email link */
+
+	// [href^="mailto:"] { }
+
+	/* Twitter link */
+
+	// [href*="twitter.com"] → Twitter page
+
+	/* Tables
+	   ========================================================================== */
+
+	table {
+		@extend .Table;
+	}
+
+}

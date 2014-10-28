@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Basic list
+ */
+
+.List {
+	margin-left: rhythm(1); // roughly equal to offset the outdent of a two-figure number (1 of 2)
+
+	li {
+		display: list-item;
+
+		& > ul,
+		& > ol {
+			margin-left: rhythm(1);
+		}
+	}
+
+	@include breakpoint(medium) {
+		margin-left: 0; // reset left margin from medium and up
+	}
+}
+
+.List {
+	> li {
+		list-style-type: square; // e.g. disc, circle, square
+	}
+}
+
+ol.List {
+	> li {
+		list-style-type: decimal; // e.g. decimal, decimal-leading-zero, lower-roman, upper-roman, lower-greek, lower-latin, upper-latin, lower-alpha, upper-alpha, hebrew, etc.
+	}
+}
+
+/**
+ * Plain list (no bullets, etc.)
+ */
+
+.List--plain {
+	margin-left: 0;
+
+	> li {
+		list-style: none;
+	}
+}
+
+/**
+ * Link list
+ */
+
+.List--links {
+	margin-top: -.2em; // (negative) top margin must be same as top padding on anchor!
+	margin-left: 0;
+
+	li {
+		margin-right: 0;
+		padding: .2em 0; // top padding must be same as top margin on complete list!
+		padding-right: 0;
+		padding-left: 0;
+		list-style: none;
+	}
+	a {
+		@extend .Link;
+	}
+}
+
+/**
+ * No visited link color (browser history)
+ */
+
+.List--withNoHistory {
+	a {
+		@extend .Link--withNoHistory;
+	}
+}
+
+/**
+ * Have a numbered `ul` without the semantics implied by using an `ol`
+ */
+
+.List--numbered {
+	&,
+	&.List--links {
+		> li {
+			list-style-type: decimal;
+		}
+	}
+	&.List--plain,
+	&.List--links {
+		margin-left: rhythm(1); // roughly equal to offset the outdent of a two-figure number (1 of 2)
+
+		@include breakpoint(medium) {
+			margin-left: 0; // reset left margin from medium and up
+		}
+	}
+}

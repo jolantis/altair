@@ -1,0 +1,24 @@
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+
+User-agent: *
+
+# Kirby CMS
+Disallow: /assets/
+Disallow: /content/
+Disallow: /kirby/
+Disallow: /site/
+Disallow: /thumbs/
+
+# Google Image
+User-agent: Googlebot-Image
+Disallow: /design/
+Disallow: /thumbs/
+Allow: /*
+
+# Google AdSense
+User-agent: Mediapartners-Google*
+Disallow:
+Allow: /*
+
+Sitemap: http://<example.com>/sitemap

@@ -1,0 +1,113 @@
+// --------------------------------------------------------------------------
+// Colors
+// --------------------------------------------------------------------------
+
+// Base (default) colors
+// --------------------------------------------------------------------------
+
+$color-pitch-black:             rgb(0,0,0);
+$color-snow-white:              rgb(255,255,255);
+
+$color-base-black:              rgb(20,20,20);
+$color-base-white:              rgb(254,254,254);
+
+$color-base-gray:               rgb(127,129,132);
+
+$color-base-blue:               rgb(24,16,248);
+$color-base-green:              rgb(72,136,16);
+$color-base-red:                rgb(216,8,16);
+$color-base-yellow:             rgb(248,240,8);
+$color-base-orange:             rgb(248,104,8);
+
+$color-base-banana:             rgb(255,255,102);
+$color-base-carnation:          rgb(255,111,207);
+$color-base-maroon:             rgb(128,0,64);
+$color-base-mocha:              rgb(128,64,0);
+$color-base-moss:               rgb(0,128,64);
+$color-base-plum:               rgb(128,0,128);
+$color-base-salmon:             rgb(255,102,102);
+$color-base-sky:                rgb(102,204,255);
+$color-base-tangerine:          rgb(255,128,0);
+
+// Grays
+
+$color-gray-quiet:              tint($color-base-gray, 96%);
+$color-gray-loud:               shade($color-base-gray, 96%);
+$color-gray-light:              tint($color-base-gray, 32%);
+$color-gray-m-light:            tint($color-base-gray, 56%);
+$color-gray-x-light:            tint($color-base-gray, 88%);
+$color-gray-dark:               shade($color-base-gray, 32%);
+$color-gray-m-dark:             shade($color-base-gray, 56%);
+$color-gray-x-dark:             shade($color-base-gray, 88%);
+
+// Blues
+
+$color-blue-quiet:              tint($color-base-blue, 88%);
+$color-blue-light:              tint($color-base-blue, 32%);
+$color-blue-m-light:            tint($color-base-blue, 56%);
+$color-blue-dark:               shade($color-base-blue, 32%);
+
+// Greens
+
+$color-green-quiet:             tint($color-base-green, 88%);
+$color-green-light:             tint($color-base-green, 32%);
+$color-green-dark:              shade($color-base-green, 32%);
+
+// Reds
+
+$color-red-quiet:              tint($color-base-red, 88%);
+$color-red-light:              tint($color-base-red, 32%);
+$color-red-dark:               shade($color-base-red, 32%);
+
+// Yellows
+
+$color-yellow-quiet:           tint($color-base-yellow, 88%);
+$color-yellow-light:           tint($color-base-yellow, 32%);
+$color-yellow-dark:            shade($color-base-yellow, 32%);
+
+// Orange
+
+$color-orange-quiet:           tint($color-base-orange, 88%);
+$color-orange-light:           tint($color-base-orange, 32%);
+$color-orange-dark:            shade($color-base-orange, 32%);
+
+// Tangerine
+
+$color-tangerine-quiet:        tint($color-base-tangerine, 88%);
+$color-tangerine-light:        tint($color-base-tangerine, 32%);
+$color-tangerine-dark:         shade($color-base-tangerine, 32%);
+
+// Gradients
+// --------------------------------------------------------------------------
+
+$color-gradient-saturated: (
+	$color-base-red 0%,                                                         // Gradient color + color stop 1
+	$color-base-blue 32%,                                                       // Gradient color + color stop 2
+	$color-base-yellow 48%,                                                     // etc.
+	$color-base-green 100%
+);
+
+$color-gradient-pastel: (
+	$color-red-quiet 0%,                                                        // Gradient color + color stop 1
+	$color-blue-quiet 32%,                                                      // Gradient color + color stop 2
+	$color-yellow-quiet 48%,                                                    // etc.
+	$color-green-quiet 100%
+);
+
+
+// Stripes
+// --------------------------------------------------------------------------
+
+$color-stripes-rainbow: (
+	rgb(36,146,231),                                                            // Striped color 1
+	rgb(13,21,29),                                                              // Striped color 1
+	rgb(36,146,231),                                                            // etc.
+	rgb(77,112,19),
+	rgb(254,254,83),
+	rgb(36,146,231),
+	rgb(200,236,146),
+	rgb(36,146,231),
+	rgb(254,254,83),
+	rgb(13,21,29),
+	rgb(36,146,231)
+);

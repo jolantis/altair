@@ -1,0 +1,184 @@
+
+// --------------------------------------------------------------------------
+// Mixins
+// --------------------------------------------------------------------------
+
+// Add alphatransparency to any background or border color
+// --------------------------------------------------------------------------
+
+@mixin translucent-background($color: $color-base-white, $alpha: 1) {
+	background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+@mixin translucent-border($color: $color-base-white, $alpha: 1) {
+	border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+	background-clip: padding-box;
+}
+
+// Gradients
+// --------------------------------------------------------------------------
+// Best to define a list of $colors in settings.colors.scss.
+// Create a list *with* or *without* (procentual/pixel) color stops when using
+// not more than *2* colors for a (radial) gradient, but always define
+// (procentual/pixel) color stops when defining more than 2 colors, e.g.:
+// $color-1 0%, $color-2 25%, $color-3 30%, $color-4 100%, etc.
+// A list for srtipes should always be without color stops!
+// For more info see: http://css-tricks.com/css3-gradients/
+
+// Some examples of $position for linear gradients:
+//  to left, to right, left top, 45deg, etc.
+@mixin linear-gradient($position, $colors) {
+	$colors: if(type-of($colors) != "list", compact($colors), $colors);
+
+	background-image: linear-gradient($position, $colors);
+}
+
+// Some examples of $position for radial gradients:
+//  left, right, top, center, ellipse, circle, circle closest-side,
+//  circle at top right, circle closest-side, circle farthest-side at right,
+//  circle at 0 0, circle at 0 30%, etc.
+@mixin radial-gradient($position, $colors) {
+	$colors: if(type-of($colors) != "list", compact($colors), $colors);
+
+	background-image: radial-gradient($position, $colors);
+}
+
+// Striped (or rainbow) gradients
+// Some examples of $position for radial gradients:
+//   to left, to right, to top, to bottom, 45deg, etc.
+
+@mixin stripes($position, $colors) {
+	// $colors: if(type-of($colors) != "list", compact($colors), $colors);
+	$stripes: 100% / length($colors);
+	$gradient: ();
+
+	@for $i from 1 through length($colors) {
+		$item: nth($colors,$i);
+		$new: $item ($stripes * ($i - 1)), $item ($stripes * $i);
+		$gradient: join($gradient, $new, comma);
+	}
+
+	background-image: linear-gradient($position, $gradient);
+}
+
+// RGBa with RGB fallback
+// --------------------------------------------------------------------------
+// Utilizes the `cs-mix` function of tools.color-schemer.scss
+// The `$color-background` variable is optional and defaults to `$color-base-white`
+// The `$color` variable can be: rgb(20,20,20), rgba(20,20,20,.8) (the `alpha`
+// value rgba is ignored), and #101010.
+// Example usage: `@include rgb-alpha(border-color, $color-base-black, .8);`
+// Dev dependency: tools.color-schemer.scss!
+
+@mixin rgb-alpha($property, $color, $percent, $background-color: $color-base-white) {
+	#{$property}: cs-mix($background-color, $color, $percent);
+	#{$property}: rgba($color, $percent);
+}
+
+// Input placeholder text
+// --------------------------------------------------------------------------
+// Example:;
+// @include input-placeholder {
+//   color: #bfbfbf;
+//   font-style: italic;
+// }
+
+@mixin input-placeholder {
+	&:placeholder { @content; }
+}
+
+// Background clip for text
+// --------------------------------------------------------------------------
+// Based on Divya's pure CSS solution: http://j.mp/19BOwaF
+
+@mixin clip-text($img-url, $fallback-color: $color-base-black) {
+	color: $fallback-color;
+	-webkit-text-fill-color: transparent;
+	background: -webkit-linear-gradient(transparent, transparent), img-url($img-url) repeat;
+	background: -o-linear-gradient(transparent, transparent);
+	-webkit-background-clip: text;
+}
+
+// Image 2x (HiDPI, Retina, Hi-res)
+// --------------------------------------------------------------------------
+// Specify a minimum Webkit device pixel ratio of 1.25 instead of 1.5, to serve
+// 2x images to Android devices that are between 1 and 1.5x (like the Nexus 7).
+// Firefox and Opera will respond to 1.5x on these devices, but Chrome will not.
+// Specify min-resolution, which covers Firefox 19. Opera on Android also supports
+// min-resolution, but Opera Mini does not support dppx, so the dpi unit is used.
+//
+// Link: http://j.mp/T9h80Z
+//
+// Usage:
+//   .logo {
+//     @include image-2x('logo-2x.png',100px,25px);
+//     background: img-url('logo.png') no-repeat;
+//   }
+
+@mixin image-2x($image, $width, $height) {
+	@media (-webkit-min-device-pixel-ratio: 1.25),
+				(-o-min-device-pixel-ratio: 5/4),
+						   (min-resolution: 120dpi) {
+		background-image: img-url($image);
+		background-size: $width $height;
+	}
+}
+
+// Device pixels
+// --------------------------------------------------------------------------
+// Use a ratio of 1.3 to creat a media query that captures:
+//
+// - Retina iOS devices
+// - Retina Macs running Safari
+// - High DPI Windows PCs running IE 8 and above
+// - Low DPI Windows PCs running IE, zoomed in
+// - Low DPI Windows PCs and Macs running Firefox, zoomed in
+// - Android hdpi devices and above
+// - Android tvdpi devices, including Google Nexus 7
+// - Chrome running on high DPI Macs and PCs
+// - Opera running on high DPI Macs, PCs and mobile devices
+//
+// Please note that that this code assumes you'll swap a 2× version
+// of your images. If you'd like to supply finer increments, other
+// thresholds might be appropriate.
+//
+// A test for CSS pixel densites can be found here:
+// http://bjango.com/articles/min-device-pixel-ratio/
+
+// Not yet prefixed in autoprefixer
+// See issue here: https://github.com/ai/autoprefixer/issues/122
+// Use this until it's fixed:
+
+@mixin device-pixel-ratio($pixel-ratio: 1.3) {
+	@media only screen and (-webkit-min-device-pixel-ratio: $pixel-ratio),
+	only screen and (min--moz-device-pixel-ratio: $pixel-ratio),
+	only screen and (  -o-min-device-pixel-ratio: #{($pixel-ratio*10)}/10),
+	only screen and (     min-device-pixel-ratio: $pixel-ratio),
+	only screen and (             min-resolution: #{($pixel-ratio*96)}dpi),
+	only screen and (             min-resolution: #{$pixel-ratio}dppx) {
+		@content;
+	}
+}
+
+// After it's fixed use this instead:
+
+// @mixin device-pixel-ratio($pixel-ratio: 1.3) {
+// 	@media only screen and ( min-device-pixel-ratio: $pixel-ratio),
+// 	only screen and (        min-resolution: #{($pixel-ratio*96)}dpi),
+// 	only screen and (        min-resolution: #{$pixel-ratio}dppx) {
+// 		@content;
+// 	}
+// }
+
+// Attention
+// --------------------------------------------------------------------------
+// Use to give an element some ‘attention’
+// http://sassmeister.com/gist/35c9c323d22eefdbf293
+
+@mixin attention() {
+	&:hover,
+	&:active,
+	&:focus {
+		@content;
+	}
+}

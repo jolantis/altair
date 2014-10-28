@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Box sizing
+   ========================================================================== */
+
+/**
+ * Set the global `box-sizing` state to `border-box`
+ * (e.g. natural box layout model). See post by Paul Irish:
+ * http://paulirish.com/2012/box-sizing-border-box-ftw/
+ *
+ * Update 2014-07-16!
+ * Inheriting box-sizing Probably Slightly Better Best-Practice:
+ * http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+
+html {
+	box-sizing: border-box;
+}
+
+* {
+	&,
+	&:before,
+	&:after {
+		box-sizing: inherit;
+	}
+}

@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Container
+   ========================================================================== */
+
+.Container {
+	padding-right: $contain-percentage;
+	padding-left: $contain-percentage;
+
+	@include breakpoint(medium) {
+		padding-right: rhythm(2);
+		padding-left: rhythm(2);
+	}
+}

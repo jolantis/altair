@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+/**
+ * Shared heading settings
+ */
+
+%u-headingSettings {
+	@extend %u-textKern;
+	@include heading-font(400);
+
+	letter-spacing: .01em;
+}
+
+/**
+ * (Shared) contain lengt of headings
+ */
+
+%u-headingContain {
+	max-width: 40rem;
+}
+
+/**
+ * Heading sizes
+ */
+
+// .TeraHeading {}
+// .GigaHeading {}
+// .MegaHeading {}
+
+/* Alpha */
+
+.AlphaHeading {
+	@extend %u-headingContain;
+	@extend %u-headingSettings;
+	@include rhythm-font($ms-up3, 0, 1);
+
+	@include breakpoint(medium) {
+		& { @include rhythm-font($ms-up4); }
+	}
+	@include breakpoint(wide) {
+		& { @include rhythm-font($ms-up5); }
+	}
+}
+
+/* Beta */
+
+.BetaHeading {
+	@extend %u-headingContain;
+	@extend %u-headingSettings;
+	@include rhythm-font($ms-up2, 0, 1);
+
+	@include breakpoint(medium) {
+		& { @include rhythm-font($ms-up3); }
+	}
+	@include breakpoint(wide) {
+		& { @include rhythm-font($ms-up4); }
+	}
+}
+
+/* Gamma */
+
+.GammaHeading {
+	@extend %u-headingContain;
+	@extend %u-headingSettings;
+	@include rhythm-font($ms-up1, 0, 1);
+
+	@include breakpoint(wide) {
+		& { @include rhythm-font($ms-up2); }
+	}
+}
+
+.DeltaHeading {
+	@extend %u-headingContain;
+	@extend %u-headingSettings;
+	@include rhythm-font($ms-up1, 0, 1);
+}
+
+.EpsilonHeading,
+.ZetaHeading {
+	@extend %u-headingContain;
+	@extend %u-headingSettings;
+	@include rhythm-font($ms-up0, 0, 0);
+}

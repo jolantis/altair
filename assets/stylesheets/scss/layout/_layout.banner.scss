@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Banner (aka page header)
+   ========================================================================== */
+
+.Banner {
+	@extend .Container;
+	@include u-cf();
+
+	position: relative;
+	z-index: $z-index-banner;
+	padding-top: rhythm(1);
+	padding-bottom: rhythm(1);
+}

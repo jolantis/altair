@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/*
+	texgyreadventor.css
+	-------------------------------------------------------------------
+	Font Information:
+	The TeX Gyre Adventor family of sansserif fonts is based on the URW
+	Gothic L family distributed with Ghostscript. The original font,
+	ITC Avant Garde Gothic was designed by Herb Lubalin and Tom Carnase in 1970.
+	The constituent 4 standard faces contain nearly 1250 glyphs each.
+	-------------------------------------------------------------------
+	License:
+	http://www.fontsquirrel.com/license/TeX-Gyre-Adventor
+	-------------------------------------------------------------------
+	Download Link:
+	http://www.fontsquirrel.com/fonts/TeX-Gyre-Adventor
+	-------------------------------------------------------------------
+	Fontspring @font-face Syntax:
+	http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax
+	-------------------------------------------------------------------
+*/
+
+
+/* Regular */
+
+@font-face {
+	font-family: 'TeXGyreAdventor-Regular';
+	src: url('texgyreadventor-regular.eot?#iefix') format('embedded-opentype'),
+		 url('texgyreadventor-regular.woff') format('woff'),
+		 url('texgyreadventor-regular.ttf') format('truetype'),
+		 url('texgyreadventor-regular.svg#svgTeXGyreAdventorRegular') format('svg');
+	font-weight: normal; /* These three values are defaults in FF/Opera/IE but not Webkit (http://paulirish.com/2010/font-face-gotchas/) */
+	font-style: normal;
+	font-variant: normal;
+}
+
+
+/* Bold */
+
+@font-face {
+	font-family: 'TeXGyreAdventor-Bold';
+	src: url('texgyreadventor-bold.eot?#iefix') format('embedded-opentype'),
+		 url('texgyreadventor-bold.woff') format('woff'),
+		 url('texgyreadventor-bold.ttf') format('truetype'),
+		 url('texgyreadventor-bold.svg#svgTeXGyreAdventorBold') format('svg');
+	font-weight: normal; /* These three values are defaults in FF/Opera/IE but not Webkit (http://paulirish.com/2010/font-face-gotchas/) */
+	font-style: normal;
+	font-variant: normal;
+}

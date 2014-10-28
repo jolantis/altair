@@ -1,0 +1,37 @@
+{
+  "name": "altair",
+  "description": "Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS",
+  "version": "0.2.9",
+  "url": "http://altair.studiodumbar.info",
+  "author": "Jonathan van Wunnik <jonathan@studiodumbar.com>, Marijn Tijhuis <marijn@studiodumbar.com>",
+  "copyright": "Studio Dumbar",
+  "license": "http://www.opensource.org/licenses/mit-license.php MIT License",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/studiodumbar/altair.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~1.0.1",
+    "grunt-bump": "~0.0.15",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-criticalcss": "~0.4.1",
+    "grunt-css-mqpacker": "~1.0.0",
+    "grunt-csso": "~0.6.3",
+    "grunt-grunticon": "~1.2.13",
+    "grunt-hashify": "~0.0.7",
+    "grunt-imageoptim": "~1.4.1",
+    "grunt-notify": "~0.3.1",
+    "grunt-pixrem": "~0.1.2",
+    "grunt-sass": "~0.16.0",
+    "grunt-stripmq": "~0.0.6",
+    "grunt-svgmin": "~1.0.0",
+    "jshint-stylish": "~0.4.0"
+  }
+}

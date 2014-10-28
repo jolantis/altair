@@ -1,0 +1,124 @@
+/* ==========================================================================
+   FigureImage
+   ========================================================================== */
+
+/**
+ * A figure element and its desendent image within a grid (.Grid) or not
+ *
+ * Markup example:
+ *
+ * <figure class="FigureImage">
+ * 		<img src="..." class="FigureImage-item" alt="A single image" />
+ * </figure>
+ */
+
+// .FigureImage {}
+
+// .FigureImage-item {}
+
+/**
+ * A figure element (and image) within a (multifigure) grid
+ *
+ * Can be generated in (Kirby) Markdown with (figure: ) syntax
+ * Contains one image by default, but can handle multiple images (multifigure)
+ *
+ * The multifigure uses the .Grid component to layout the items
+ *
+ * Markup examples:
+ *
+ * <figure class="FigureImage">
+ * 		<img src="..." class="FigureImage-item" alt="Just a single image (no grid)" />
+ * </figure>
+ *
+ * <figure class="FigureImage Grid Grid--withGutter">
+ * 		<img src="..." class="FigureImage-item Grid-cell u-width1of2" alt="First image in row" />
+ * 		<img src="..." class="FigureImage-item Grid-cell u-width1of2" alt="Secondimage in row" />
+ * </figure>
+ *
+ * <figure class="FigureImage Grid Grid--alignCenter">
+ * 		<img src="..." class="FigureImage-item Grid-cell u-width2of3--compact" alt="A centered image" />
+ * </figure>
+ *
+ */
+
+/**
+ * Always occupy available space (even when wider than natural width of image)
+ */
+
+.FigureImage-item {
+	width: 100%;
+}
+
+/**
+ * Fade-in figure image on load
+ */
+
+.FigureImage.is-loaded {
+
+	.FigureImage-lazy {
+		font-size: 0;
+		line-height: 0;
+		background-color: rgb(246,246,243);
+	}
+	.FigureImage-item {
+		animation: FadeIn .56s ease-in;
+	}
+}
+
+/**
+ * Align single figure image to center
+ */
+
+.FigureImage--alignCenter {
+	text-align: center;
+
+	> * {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.FigureImage-caption {
+		text-align: left;
+	}
+}
+
+/**
+ * Figure image in grid
+ */
+
+.FigureImage {
+	// @extend %u-cf;
+
+	figcaption {
+		@include rhythm-font($ms-down1); // Reset font-size (it's set to `0` by the `.Grid` class!)
+
+		margin-top: rhythm(.25);
+		margin-bottom: rhythm(.25);
+	}
+
+	/* For captions in a grid, align the caption by setting gutters */
+
+	&.Grid--withGutter {
+
+		.Grid-cell {
+			margin-bottom: rhythm(1);
+		}
+		figcaption {
+			margin-top: rhythm(-.75);
+			padding-right: rhythm(.5);
+			padding-left: rhythm(.5);
+		}
+	}
+
+	/* For captions in a percentage grid, align the caption by setting gutters */
+
+	&.Grid--withGutterPercentage {
+
+		.Grid-cell {
+			margin-bottom: $grid-gutter-percentage;
+		}
+		figcaption {
+			padding-right: .5 * $grid-gutter-percentage;
+			padding-left: .5 * $grid-gutter-percentage;
+		}
+	}
+}

@@ -1,0 +1,200 @@
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+/**
+ * Loosely based on:
+ * - https://github.com/necolas/griddle
+ * - http://necolas.github.io/griddle/ <= EXAMPLE
+ *
+ * Browser support:
+ * - Google Chrome
+ * - Firefox
+ * - Safari
+ * - Opera
+ * - Internet Explorer 8+
+ *
+ * Example HTML:
+ * <div class="Grid">
+ *   <div class="Grid__cell u-size1of2--compact"></div>
+ *   <div class="Grid__cell u-size1of2--compact"></div>
+ *   <div class="Grid__cell u-size1of2--compact"></div>
+ *   <div class="Grid__cell u-size1of2--compact"></div>
+ * </div>
+ *
+ * <div class="Grid Grid--center">
+ *   <div class="Grid__cell u-size1of2"></div>
+ *   <div class="Grid__cell u-size2of3"></div>
+ * </div>
+ */
+
+/* Grid core
+   ========================================================================== */
+
+/**
+ * Grid container
+ * Must only contain `.Grid` or `.Grid-cell` components as children.
+ *
+ * 1. Adjustment for child element margins.
+ * 2. Ensure consistent default alignment
+ * 3. Remove inter-cell whitespace that appears between `inline-block` child
+ *    elements.
+ */
+
+.Grid {
+	display: block; // [1]
+	padding-right: 0;  // [1]
+	padding-left: 0;  // [1]
+	font-size: 0; // [3]
+	text-align: left; // [2]
+}
+
+/**
+ * Opera hack
+ */
+
+// .opera:-o-prefocus,
+// .Grid {
+// 	word-spacing: -0.43em; /* 3 */
+// }
+
+/**
+ * Child `Grid` object adjustments
+ * Used for more complex fixed-fluid hybrid grids.
+ */
+
+.Grid > .Grid {
+	overflow: hidden;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+/**
+ * Modifier
+ *
+ * Allows for automatic unit centering irrespective of the number of
+ * units in the grid.
+ */
+
+/* Modifier: horizontally center all grid units */
+
+.Grid--alignCenter {
+	text-align: center;
+}
+
+/**
+ * Modifier: align horizontally all grid units to the right
+ */
+
+.Grid--alignRight {
+	text-align: right;
+}
+
+/**
+ * Modifier: middle-align grid cells
+ */
+
+.Grid--alignMiddle > .Grid-cell {
+	vertical-align: middle;
+}
+
+/**
+ * Modifier: bottom-align grid cells
+ */
+
+.Grid--alignBottom > .Grid-cell {
+	vertical-align: bottom;
+}
+
+/**
+ * Grid units
+ * No explicit width by default. Apply `.unit-x-y` classes.
+ *
+ * 1. Fundamentals of the non-float grid layout mechanism.
+ * 2. Make cells full-width by default.
+ * 3. Controls vertical positioning of units.
+ * 4. Keeps content correctly aligned with the grid direction.
+ * 5. Reset font size change made in `Grid`.
+ */
+
+.Grid-cell {
+	display: inline-block; // [1]
+	margin: 0;
+	padding: 0;
+	width: 100%; // [2]
+	vertical-align: top; // [3]
+	text-align: left; // [4]
+	font-size: 1rem; // [5]
+}
+
+/**
+ * Modifier: horizontally center one unit
+ *
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.Grid-cell--center {
+	display: block;
+	margin: 0 auto;
+}
+
+/**
+ * Grid gutter
+ */
+
+/* Em gutter */
+
+.Grid--withGutter {
+	margin-right: rhythm(-.5); /* Removes the `gutter` right */
+	margin-left: rhythm(-.5); /* Removes the `gutter` right */
+
+	& > .Grid-cell {
+		padding-right: rhythm(.5);
+		padding-left: rhythm(.5);
+	}
+}
+
+/* Percentage gutter */
+
+.Grid--withGutterPercentage {
+	margin-right: -.5 * $grid-gutter-percentage; /* Removes the `gutter` right */
+	margin-left: -.5 * $grid-gutter-percentage; /* Removes the `gutter` right */
+
+	& > .Grid-cell {
+		padding-right: .5 * $grid-gutter-percentage;
+		padding-left: .5 * $grid-gutter-percentage;
+	}
+}
+
+/**
+ * Responsive grid sizes
+ */
+
+/* Small and up */
+
+@include breakpoint(small) {
+	.u-size1of3--small { width: percentage(1/3) !important; }
+	.u-size2of3--small { width: percentage(2/3) !important; }
+}
+
+/* Compact and up */
+
+@include breakpoint(compact) {
+	.u-size1of2--compact { width: 50% !important; }
+	.u-size1of3--compact { width: percentage(1/3) !important; }
+	.u-size2of3--compact { width: percentage(2/3) !important; }
+}
+
+/* Medium and up */
+
+@include breakpoint(medium) {
+	.u-size1of4--medium { width: 25% !important; }
+}
+
+/* Large and up */
+
+@include breakpoint(medium) {
+	.u-size1of6--medium { width: percentage(1/6) !important; }
+	.u-size2of6--medium { width: percentage(2/6) !important; }
+}

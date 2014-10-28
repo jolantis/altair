@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Icon fonts (based on: http://css-tricks.com/examples/IconFont/)
+   ========================================================================== */
+
+/**
+ * Example HTML:
+ * Icon markup to enhance a word:
+ * <h3>
+ *   <span aria-hidden="true" class="Icon Icon--paper-plane"></span>
+ *   Email
+ * </h3>
+
+ * Stand alone icon
+ * <a href="#" class="IconAlone">
+ *   <span aria-hidden="true" class="Icon Icon--facebook"></span>
+ *   <span class="IconAlone-text">RSS</span>
+ * </a>
+ */
+
+ /**
+ * Fontello custom collection
+ * -------------------------------------------------------------------
+ * License:
+ * The Font Awesome font is licensed under the SIL Open Font License
+ * http://fortawesome.github.com/Font-Awesome/#license
+ * -------------------------------------------------------------------
+ * Download Link:
+ * Fontello custom generated version: http://fontello.com
+ * Import JSON config file (/assets/webfonts/fontello/config.json)
+ * at Fontello website to (re)select the custom selected glyphs
+ * -------------------------------------------------------------------
+ * Fontspring @font-face Syntax:
+ * http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax
+ * -------------------------------------------------------------------
+ */
+
+ @font-face {
+	font-family: "Fontello";
+	src: fontello-url("fontello.eot?#iefix") format("embedded-opentype"),
+		 fontello-url("fontello.woff") format("woff"),
+		 fontello-url("fontello.ttf") format("truetype"),
+		 fontello-url("fontello.svg#svgfontello") format("svg");
+	font-weight: normal;
+	font-style: normal;
+ }
+
+/* Enhance a word with icon */
+
+.Icon {
+	// margin-right: rhythm(.25);
+	// margin-left: rhythm(.25); // animation center compensation - margins should be symmetric
+	text-align: center; // for safety - reset parent styles, that can break glyph codes
+	text-transform: none;
+	font-style: normal;
+	font-variant: normal; // for safety - reset parent styles, that can break glyph codes
+	font-family: $icon-font;
+	// line-height: 1; // fix buttons height
+	speak: none;
+	// -webkit-backface-visibility: hidden; // This prevents jumpiness on transition in webkit browsers
+}
+
+/* Right positioned icon */
+
+.Icon--right {
+	margin-right: 0;
+	margin-left: rhythm(1);
+}
+
+/**
+ * Equal (fixed) width icons
+ * For single icon use:
+ * <a href="#">
+ *    <span aria-hidden="true" class="Icon Icon--fixedWidth Icon--facebook"></span>
+ *    Facebook
+ * </a>
+ *
+ * For multiple icons in a list:
+ * <ul class="IconList">
+ *    <li>
+ *       <span aria-hidden="true" class="Icon Icon--phone"></span>
+ *       phone
+ *    </li>
+ * </ul>
+ */
+
+.IconList .Icon,
+.Icon--fixedWidth {
+	display: inline-block; /* Fix for clickability issue in WebKit */
+	width: rhythm(1);
+	text-align: center;
+}
+
+/**
+ * Only (or stand alone) icon
+ *
+ * Make sure to (only) visually hide the label text by adding the
+ * 'is-hiddenVisually' class to the markup like this:
+ * <a href="#" class="IconAlone">
+ *    <span aria-hidden="true" class="Icon Icon--facebook"></span>
+ *    <span class="is-hiddenVisually">Facebook</span>
+ * </a>
+ */
+
+.IconAlone {
+	display: inline-block;
+
+	& > .Icon {
+		margin-right: 0;
+	}
+}
+
+/* Only hide text in single icon when @font-face is active (via Modernizr) */
+
+.fontface .IconAlone-text {
+	@extend %u-isHiddenVisually;
+}
+
+/* The icons */
+
+.Icon--pencil:before      { content: "\e805"; }
+.Icon--address:before     { content: "\e803"; }
+.Icon--mouse:before       { content: "\e802"; }
+.Icon--paper-plane:before { content: "\e804"; }
+.Icon--mobile:before      { content: "\e801"; }
+.Icon--facebook:before    { content: "\e807"; }
+.Icon--attach:before      { content: "\e806"; }
+.Icon--phone:before       { content: "\e800"; }

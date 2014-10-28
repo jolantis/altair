@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+/**
+ * Fluid images
+ */
+
+img {
+	max-width: 100%;
+	height: auto;
+	// border: 0;
+}
+
+/**
+ * Images in `figure` elements
+ */
+
+figure > img {
+	display: block;
+}
+
+/**
+ * Non-fluid images explicitly
+ */
+
+.Image {
+	max-width: none;
+}
+
+/**
+ * Rounded images
+ */
+
+.Image--round {
+	border-radius: .5em;
+}
+
+/* Image placement variations */
+
+.Image--right {
+	float: right;
+	margin-bottom: rhythm(.5);
+	margin-left: rhythm(.5);
+}
+
+.Image--left {
+	float: left;
+	margin-right: rhythm(.5);
+	margin-bottom: rhythm(.5);
+}
+
+.Image--center {
+	display: block;
+	margin-right: auto;
+	margin-bottom: rhythm(.5);
+	margin-left: auto;
+}
