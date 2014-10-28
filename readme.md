@@ -66,9 +66,8 @@ To run Altair locally, assets have to be generated:
 
 ## Authors
 
-[Studio Dumbar](http://studiodumbar.com)
-[Jonathan van Wunnik](https://github.com/jolantis)
-[Marijn Tijhuis](https://github.com/fatpixelstudio)
+[Jonathan van Wunnik](https://github.com/jolantis) ([Studio Dumbar](http://studiodumbar.com))  
+[Marijn Tijhuis](https://github.com/fatpixelstudio) ([Fat Pixel Studio](http://www.fatpixelstudio.com))
 
 ## Website
 
