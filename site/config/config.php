@@ -368,16 +368,15 @@ c::set('languages', array(
 		'code'    => 'en',
 		'name'    => 'English',
 		'locale'  => 'en',                                                      // English content
-		// 'locale'  => 'en-US',                                                   // English content, for US users
-		// 'locale'  => 'en-GB',                                                   // English content, for United Kingdom users
+		// 'locale'  => 'en_US',                                                   // English content, for US users
+		// 'locale'  => 'en_GB',                                                   // English content, for United Kingdom users
 		'url'     => '/',
 	),
 	// array(
 	// 	'code'    => 'nl',
 	// 	'name'    => 'Nederlands',
-	// 	'locale'  => 'nl',                                                      // Dutch content
-	// 	// 'locale'  => 'nl-NL',                                                   // Dutch content, for Dutch users
-	// 	// 'locale'  => 'nl-BE'                                                    // Dutch content, for Belgium user
+	// 	'locale'  => 'nl_NL',                                                   // Dutch content
+	// 	// 'locale'  => 'nl_BE'                                                 // Dutch content, for Belgium user
 	// 	'url'     => '/nl',
 	// ),
 ));
