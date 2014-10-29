@@ -68,9 +68,9 @@ if(!isset($prefetch)): $prefetch = false; endif;
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="<?php echo $site->$language->locale(); ?>"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" lang="<?php echo $site->$language->locale(); ?>"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $site->$language->locale(); ?>"> <!--<![endif]-->
+<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="<?php echo $site->language()->locale(); ?>"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="<?php echo $site->language()->locale(); ?>"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $site->language()->locale(); ?>"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">

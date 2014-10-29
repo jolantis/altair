@@ -54,8 +54,8 @@ if(!isset($prev_next)): $prev_next = false; endif;
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!-- <html manifest="/cache.appcache" lang="<?php echo $site->$language->locale(); ?>"> -->
-<html class="no-js" lang="<?php echo $site->$language->locale(); ?>">
+<!-- <html manifest="/cache.appcache" lang="<?php echo $site->language()->locale(); ?>"> -->
+<html class="no-js" lang="<?php echo $site->language()->locale(); ?>">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
