@@ -13,17 +13,19 @@
 		<?php echo $page->intro()->kirbytext(); ?>
 		<?php echo $page->text()->kirbytext(); ?>
 
-		<aside class="Accordion Copy">
-			<h1>Accordion</h1>
+		<article class="Accordion Copy">
+			<head>
+				<h1>Accordion</h1>
+			</head>
 			<p>Basic expand and collapse&hellip;</p>
 			<a class="Accordion-button js-expandbutton" href="#expandthis">Read more</a>
-			<div class="Accordion-target js-expandtarget" id="expandthis">
+			<aside class="Accordion-target js-expandtarget" id="expandthis">
 				<p>This is a very rudimental expand and collapse functionality. The only purpose is to show you can expand and collapse a block of content by watching a button with a Javascript listener.</p>
 				<p>The Javascript object <code>expand</code> can ofcourse be extended according to the project specifications. You can add an icon, change the 'read more' text on toggle or position the expand link elsewhere.</p>
 				<p>In this example the expand class makes use of the cookie utility. Which can also be deactivated if you want.</p>
 				<p><strong>TL;DR</strong> This is just a basic implementation. Please modify it to your needs!</p>
-			</div>
-		</aside>
+			</aside>
+		</article>
 
 		<?php snippet('share_page'); ?>
 
