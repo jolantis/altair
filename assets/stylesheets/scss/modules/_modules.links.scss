@@ -8,11 +8,12 @@
 	// link styling only to anchors which have 'href' attributes,
 	// therefore the use of :link
 	&:link {
-		@include underline($color-blue-m-light);
+		// @include underline($color-blue-m-light);
 
 		position: relative;
-		color: $color-base-blue;
 		transition: color .24s ease-out;
+		text-decoration: underline;
+		color: $color-base-blue;
 	}
 
 	&:visited {
