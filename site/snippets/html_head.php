@@ -24,11 +24,6 @@ else:
 	$mobile_js = $assets_js_json->mobile;
 endif;
 
-// Language code(s)
-foreach($site->languages() as $language):
-	if($site->language() == $language): $language_code = $language->code(); $language_locale = $language->locale(); endif;
-endforeach;
-
 // Page title
 if($page->isHomePage() && $site->descriptor() != ''): $pagetitle = $site->descriptor()->smartypants()->titlecase();
 elseif($page->subtitle() != ''): $pagetitle = $page->subtitle()->smartypants()->titlecase();
@@ -59,8 +54,8 @@ if(!isset($prev_next)): $prev_next = false; endif;
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!-- <html manifest="/cache.appcache" lang="<?php echo $language_locale; ?>"> -->
-<html class="no-js" lang="<?php echo $language_locale; ?>">
+<!-- <html manifest="/cache.appcache" lang="<?php echo $site->$language->locale(); ?>"> -->
+<html class="no-js" lang="<?php echo $site->$language->locale(); ?>">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">

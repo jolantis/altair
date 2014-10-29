@@ -28,11 +28,6 @@ else:
 	$main_js = $assets_js_json->main;
 endif;
 
-// Language code(s)
-foreach($site->languages() as $language):
-	if($site->language() == $language): $language_code = $language->code(); $language_locale = $language->locale(); endif;
-endforeach;
-
 // Page title
 if($page->isHomePage() && $site->descriptor() != ''): $pagetitle = $site->descriptor()->smartypants()->titlecase();
 elseif($page->subtitle() != ''): $pagetitle = $page->subtitle()->smartypants()->titlecase();
@@ -73,9 +68,9 @@ if(!isset($prefetch)): $prefetch = false; endif;
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="<?php echo $language_locale; ?>"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" lang="<?php echo $language_locale; ?>"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $language_locale; ?>"> <!--<![endif]-->
+<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="<?php echo $site->$language->locale(); ?>"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="<?php echo $site->$language->locale(); ?>"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $site->$language->locale(); ?>"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
