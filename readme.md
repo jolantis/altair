@@ -8,7 +8,7 @@ Kirby is a file-based CMS, meaning no database is involved for storing (and retr
 
 ### The panel
 
-The Kirby [Panel]() is not (yet) a part of Altair, but can easily be added.
+The Kirby [Panel](https://github.com/getkirby/panel) is not (yet) a part of Altair, but can easily be added.
 
 ## Installation
 
@@ -67,7 +67,7 @@ To run Altair locally, assets have to be generated:
 ## Authors
 
 [Jonathan van Wunnik](https://github.com/jolantis) ([Studio Dumbar](http://studiodumbar.com))  
-[Marijn Tijhuis](https://github.com/fatpixelstudio) ([Fat Pixel Studio](http://www.fatpixelstudio.com))
+[Marijn Tijhuis](https://github.com/fatpixelstudio) ([Fat Pixel Studio](http://www.fatpixel.nl))
 
 ## Website
 
