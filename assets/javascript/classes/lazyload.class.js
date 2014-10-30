@@ -54,13 +54,19 @@ var lazyload = {
 	},
 
 	/**
-	 * Run the initial resrc for non-lazy resrc files.
-	 * Will run Resrc for elements with the .resrc class and a data-src attribute
+	 * Get Resrc url and replace the src with that url
+	 * Will run Resrc for elements with the .resrc class, needs data-src attribute
+	 * @param  {DOM node} element the image element
 	 */
-	runResrcNonLazy: function() {
+	runResrcNonLazy: function(element) {
 		// Only run if resrc is set by bindResrcToWindow
 		if(typeof window.resrc.run !== 'undefined') {
-			window.resrc.run();
+			// Use ReSRC to get the path
+			path = window.resrc.getResrcImageObject(element).resrcImgPath;
+			// Replace src
+			element.setAttribute('src', path);
+			// Remove data-src so lazyload (echo) will not load it again
+			element.removeAttribute('data-src');
 		}
 	},
 
