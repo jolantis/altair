@@ -95,8 +95,6 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<?php // Favicons & Apple Touch Icons ?>
 	<?php snippet('icons'); ?>
 
-	<?php // Initialize JS variables used later on ?>
-	<script>var push_message = [];</script>
 	<?php if((c::get('environment') == 'local') && c::get('resrc') == true) : ?><script>var custom_resrc = { server : 'local.roxy:8080' };</script><?php endif; ?>
 
 	<?php // Enhance stysheets and scripts (https://github.com/filamentgroup/enhance) ?>
@@ -112,6 +110,9 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<?php endif; ?>
 
 	<link rel="stylesheet" href="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'; ?>" media="print">
+
+	<?php // Initialize JS variables used later on ?>
+	<script>var push_message = [];</script>
 
 </head>
 <body>

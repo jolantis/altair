@@ -116,8 +116,6 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<?php // Favicons & Apple Touch Icons ?>
 	<?php snippet('icons'); ?>
 
-	<?php // Initialize JS variables used later on ?>
-	<script>var push_message = [];</script>
 	<?php if((c::get('environment') == 'local') && c::get('resrc') == true) : ?><script>var custom_resrc = { server : 'local.roxy:8080' };</script><?php endif; ?>
 
 	<?php // Enhance stysheets and scripts (https://github.com/filamentgroup/enhance) ?>
@@ -139,6 +137,9 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<script src="/assets/javascript/vendor/nwmatcher.min.js'); ?>"></script>
 	<script src="/assets/javascript/vendor/selectivizr.min.js'); ?>"></script>
 	<![endif]-->
+
+	<?php // Initialize JS variables used later on ?>
+	<script>var push_message = [];</script>
 
 </head>
 <body>
