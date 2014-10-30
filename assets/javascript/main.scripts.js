@@ -19,3 +19,13 @@ if(enhance.ctm()){
 	});
 
 }
+// If not 'Cutting the Mustard', serve normal ReSRC images
+else {
+	if(typeof resrc !== 'undefined') {
+		resrc.ready(function () {
+			resrc.configure({
+				resrcClass : 'img[data-src]'
+			}).run();
+		});
+	}
+}
