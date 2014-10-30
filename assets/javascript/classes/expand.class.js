@@ -8,7 +8,9 @@ var expand = {
 		for (i = 0; i < expanders.length; i++) {
 			var expanderid = expanders[i].getAttribute('id');
 			if(cookie.get(expanderid)) {
-				expanders[i].parentNode.classList.add('is-active');
+				expanders[i].parentNode.classList.add('is-open');
+				expanders[i].parentNode.querySelector('.js-expandbutton').classList.add('is-active');
+				// console.log(expanders[i]);
 			}
 			else {
 				expanders[i].parentNode.classList.add('is-closed');
