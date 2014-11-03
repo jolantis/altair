@@ -140,7 +140,7 @@ var alerts = {
 		if(alerts.options.type === 'modal'){
 			var backdrop = document.querySelector('.Backdrop');
 			backdrop.classList.remove('is-visible');
-			backdrop.classList.add('is-hidden');
+			backdrop.classList.add('is-hiding');
 		}
 
 		var notificationHasTransformSet = null;
@@ -170,9 +170,6 @@ var alerts = {
 		var elementtype = element.getAttribute('data-element-type');
 		element.parentNode.removeChild(element);
 		if(elementtype === 'modal'){
-			// TODO: something like this... But does it work?
-			// var backdrop = document.querySelector('.Backdrop');
-			// backdrop.parentNode.firstChild.removeChild(backdrop)
 			var backdrop = document.querySelector('.Backdrop');
 			backdrop.parentNode.removeChild(backdrop);
 		}

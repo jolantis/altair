@@ -20,8 +20,7 @@
 	&.is-visible {
 		opacity: 1;
 	}
-	&.is-hidden {
-		opacity: 0;
-		z-index: $z-index-hidden;
+	&.is-hiding {
+		opacity: 0; // Backdrop is removed by JS after hiding
 	}
 }
