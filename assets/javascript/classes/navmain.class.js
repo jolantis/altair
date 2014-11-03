@@ -1,6 +1,6 @@
 /**
  * Navigation class
- * Add simple navigation functionality (open and close) to .js-nav element
+ * Add simple navigation functionality (open and close) to .js-navMain element
  *
  * Usage:
  * nav.init(); // navigation fixed on top of window
@@ -11,7 +11,8 @@ var navMain = {
 
 	elements: {
 		banner: document.querySelector('.Banner'),
-		html: document.querySelector('html')
+		html: document.querySelector('html'),
+		navEl: document.querySelector('.js-navMain')
 	},
 
 	/**
@@ -51,7 +52,15 @@ var navMain = {
 
 	close: function(event) {
 		event.preventDefault();
-		navMain.elements.html.classList.remove('is-openMainNav');
+
+		navMain.elements.navEl.addEventListener(transitionEnd, function endTransitionNavClose(){
+			navMain.elements.html.classList.remove('is-closingMainNav');
+			navMain.elements.html.classList.remove('is-openMainNav');
+			this.removeEventListener(transitionEnd, endTransitionNavClose, false);
+		},false);
+
+		navMain.elements.html.classList.add('is-closingMainNav');
+
 		navMain.unsetNavHandlers();
 	}
 

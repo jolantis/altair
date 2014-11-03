@@ -85,30 +85,18 @@
 		transform: scale(1.32);
 	}
 	.ctm.is-openMainNav & {
-		opacity: 100;
 		z-index: $z-index-nav-main;
 		overflow-y: auto;
 		transition: opacity .32s, transform .32s;
 		transform: scale(1);
+		opacity: 100;
 		-webkit-overflow-scrolling: touch; /* Adds momentum scrolling on iOS! */
 	}
-
-	// .ctm & {
-	// 	position: fixed;
-	// 	top: 0;
-	// 	margin-top: 0;
-	// 	height: 100%;
-	// 	opacity: 0;
-	// 	transform: scale(1.32);
-	// }
-	// .ctm.is-openMainNav & {
-	// 	overflow-y: auto;
-	// 	opacity: 1;
-	// 	display: block;
-	// 	transition: opacity .32s, transform .32s;
-	// 	transform: scale(1);
-	// 	-webkit-overflow-scrolling: touch; /* Adds momentum scrolling on iOS! */
-	// }
+	.ctm.is-closingMainNav & {
+		transition: opacity .32s, transform .32s;
+		transform: scale(1.32);
+		opacity: 0;
+	}
 }
 
 /* Main nav (list) */
