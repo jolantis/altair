@@ -143,19 +143,19 @@
  * Grid gutter
  */
 
-/* Em gutter */
+/* Rhythm unit gutter/spacing */
 
 .Grid--withGutter {
-	margin-right: rhythm(-.5); /* Removes the `gutter` right */
-	margin-left: rhythm(-.5); /* Removes the `gutter` right */
+	margin-right: rhythm(-.5 * $grid-gutter-rhythm-unit); /* Removes the `gutter` right */
+	margin-left: rhythm(-.5 * $grid-gutter-rhythm-unit); /* Removes the `gutter` right */
 
 	& > .Grid-cell {
-		padding-right: rhythm(.5);
-		padding-left: rhythm(.5);
+		padding-right: rhythm(.5 * $grid-gutter-rhythm-unit);
+		padding-left: rhythm(.5 * $grid-gutter-rhythm-unit);
 	}
 }
 
-/* Percentage gutter */
+/* Percentage gutter/spacing */
 
 .Grid--withGutterPercentage {
 	margin-right: -.5 * $grid-gutter-percentage; /* Removes the `gutter` right */

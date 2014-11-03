@@ -70,7 +70,7 @@
  */
 
 .FigureImage--alignCenter {
-	text-align: center;
+	text-align: center !important;
 
 	> * {
 		margin-left: auto;
@@ -89,36 +89,43 @@
 	// @extend %u-cf;
 
 	figcaption {
-		@include rhythm-font($ms-down1); // Reset font-size (it's set to `0` by the `.Grid` class!)
+		@include rhythm-font($ms-down1); /* Reset font-size (it's set to `0` by the `.Grid` class!) */
 
-		margin-top: rhythm(.25);
-		margin-bottom: rhythm(.25);
+		margin-top: rhythm(.5);
+		margin-bottom: rhythm(1.5);
 	}
 
-	/* For captions in a grid, align the caption by setting gutters */
+	/**
+	 * Rhythm unit gutter/spacing
+	 */
 
-	&.Grid--withGutter {
+	/* Set vertical grid spacing only to `.Gird-cell` items within a figure that's preceded by a figure */
 
-		.Grid-cell {
-			margin-bottom: rhythm(1);
-		}
-		figcaption {
-			margin-top: rhythm(-.75);
-			padding-right: rhythm(.5);
-			padding-left: rhythm(.5);
-		}
+	&.Grid--withGutter + .Grid--withGutter .Grid-cell {
+		margin-top: rhythm($grid-spacing-rhythm-unit);
 	}
 
-	/* For captions in a percentage grid, align the caption by setting gutters */
+	/* Align captions in layout grid to image(s) by setting half gutter rhythm units */
 
-	&.Grid--withGutterPercentage {
+	&.Grid--withGutter figcaption {
+		padding-right: rhythm(.5 * $grid-gutter-rhythm-unit);
+		padding-left: rhythm(.5 * $grid-gutter-rhythm-unit);
+	}
 
-		.Grid-cell {
-			margin-bottom: $grid-gutter-percentage;
-		}
-		figcaption {
-			padding-right: .5 * $grid-gutter-percentage;
-			padding-left: .5 * $grid-gutter-percentage;
-		}
+	/**
+	 * Percentage gutter/spacing
+	 */
+
+	/* Set vertical grid percentages only to `.Gird-cell` items within a figure that's preceded by a figure */
+
+	&.Grid--withGutterPercentage + .Grid--withGutterPercentage .Grid-cell {
+		margin-top: $grid-spacing-percentage;
+	}
+
+	/* Align captions in layout grid to image(s) by setting half gutter percentages */
+
+	&.Grid--withGutterPercentage figcaption {
+		padding-right: .5 * $grid-gutter-percentage;
+		padding-left: .5 * $grid-gutter-percentage;
 	}
 }
