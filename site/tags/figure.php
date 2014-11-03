@@ -284,7 +284,12 @@ kirbytext::$tags['figure'] = array(
 		}
 
 		if(!empty($caption)) {
-			$figure->append('<figcaption class="FigureImage-caption">' . kirbytext($caption) . '</figcaption>');
+			if(count($widths) > 0 && isset($align)) {
+				$figure->append('<figcaption class="FigureImage-caption u-size' . $width . '--' . $break  . '">' . kirbytext($caption) . '</figcaption>');
+			}
+			else {
+				$figure->append('<figcaption class="FigureImage-caption">' . kirbytext($caption) . '</figcaption>');
+			}
 		}
 
 		return $figure;
