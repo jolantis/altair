@@ -21,8 +21,12 @@ var navMain = {
 	init: function(type) {
 		var navMainShow = document.querySelector('.js-navMainShow');
 		var navMainHide = document.querySelector('.js-navMainHide');
+
+		navMain.elements.navEl = document.querySelector('.js-navMain');
+
 		navMainShow.addEventListener('click', navMain.open, false);
 		navMainHide.addEventListener('click', navMain.close, false);
+
 	},
 
 	setNavHandlers: function() {
