@@ -1,0 +1,15 @@
+// --------------------------------------------------------------------------
+// Grid
+// --------------------------------------------------------------------------
+
+// Gutter/spacing percantages
+// --------------------------------------------------------------------------
+
+$grid-gutter-percentage:        1%;                                             // set gutter (horizontal) percentage for the layout grid
+$grid-spacing-percentage:       1%;                                             // set vertical spacing percentage for the layout grid
+
+// Gutter/spacing rhythm units
+// --------------------------------------------------------------------------
+
+$grid-gutter-rhythm-unit:       .5;                                              // set gutter (horizontal) rhythm unit for the layout grid (e.g. `rhythm(1)`)
+$grid-spacing-rhythm-unit:      .5;                                              // set vertical spacing rhythm unit for the layout grid
