@@ -116,20 +116,19 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<?php // Favicons & Apple Touch Icons ?>
 	<?php snippet('icons'); ?>
 
+	<?php // Roxy (stand-alone proxy) variable for local resrc images testing ?>
 	<?php if((c::get('environment') == 'local') && c::get('resrc') == true) : ?><script>var custom_resrc = { server : 'local.roxy:8080' };</script><?php endif; ?>
 
-	<?php // Enhance stysheets and scripts (https://github.com/filamentgroup/enhance) ?>
+	<?php // Enhance stylesheets and scripts (https://github.com/filamentgroup/enhance) ?>
 	<meta name="fullcss" content="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'; ?>">
 	<meta name="fulljs" content="<?php echo '/assets/javascript/'. $env_suffix .'/' . $main_js . '.js'; ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/'. $env_suffix .'/' . $head_js . '.js'); ?></script>
-
 	<?php if(isset($_COOKIE['fullcss'])): ?>
 		<link rel="stylesheet" href="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'; ?>">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . $criticalcss . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . $criticalcss . '.css'); ?></style>
 		<noscript><link rel="stylesheet" href="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'; ?>"></noscript>
 	<?php endif; ?>
-
 	<link rel="stylesheet" href="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'; ?>" media="print">
 
 	<!--[if (gte IE 7) & (lte IE 8)]>
@@ -138,7 +137,7 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<script src="/assets/javascript/vendor/selectivizr.min.js'); ?>"></script>
 	<![endif]-->
 
-	<?php // Initialize JS variables used later on ?>
+	<?php // Initialize JS variables for use later on ?>
 	<script>var push_message = [];</script>
 
 </head>
