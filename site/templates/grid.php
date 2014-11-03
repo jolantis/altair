@@ -13,8 +13,8 @@
 		<?php echo $page->intro()->kirbytext(); ?>
 		<?php echo $page->text()->kirbytext(); ?>
 
-		<section>
-			<h2>BlockGrid &lsquo;grid&rsquo;</h2>
+		<section aria-labelledby="BlockGrid">
+			<h2 id="BlockGrid">BlockGrid &lsquo;grid&rsquo;</h2>
 
 			<div class="BlockGrid BlockGrid--withGutter BlockGrid--compact2col BlockGrid--medium3to1 BlockGrid--large4col">
 
@@ -45,8 +45,8 @@
 			</div>
 		</section>
 
-		<section>
-			<h2>Grid &lsquo;grid&rsquo;</h2>
+		<section aria-labelledby="GridGrid">
+			<h2 class="GridGrid">Grid &lsquo;grid&rsquo;</h2>
 
 			<div class="Grid Grid--withGutter">
 
