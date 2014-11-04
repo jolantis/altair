@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="Container">
+	<main role="main" class="ContainPadding">
 
 		<?php snippet('breadcrumb'); ?>
 

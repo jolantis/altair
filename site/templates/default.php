@@ -10,7 +10,7 @@
 		style="background-image: url('<?php echo page('home')->images()->shuffle()->first()->url(); ?>')">
 	</div>
 
-	<div class="Container">
+	<div class="ContainPadding">
 
 		<main role="main" class="Copy u-spaceTrailerM">
 

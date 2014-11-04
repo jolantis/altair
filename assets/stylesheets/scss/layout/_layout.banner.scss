@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .Banner {
-	@extend .Container;
+	@extend .ContainPadding;
 	@include u-cf();
 
 	position: relative;
