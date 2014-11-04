@@ -26,7 +26,6 @@ var navMain = {
 
 		navMainShow.addEventListener('click', navMain.open, false);
 		navMainHide.addEventListener('click', navMain.close, false);
-
 	},
 
 	setNavHandlers: function() {
