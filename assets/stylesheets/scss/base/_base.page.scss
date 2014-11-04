@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Base HTML
+   Base page
    ========================================================================== */
 
 /**
@@ -11,7 +11,8 @@
  * 3. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
  *    navigating between pages that do/do not have enough content to produce
  *    scrollbars naturally.
- * 4. Ensure the page always fills at least the entire height of the viewport.
+ * 4. Prevent horizontal scrollbar when using layout grids!
+ * 5. Ensure the page always fills at least the entire height of the viewport.
  */
 
 html {
@@ -20,7 +21,8 @@ html {
 
 	line-height: $base-line-height;
 	// overflow-y: auto; // [3]
-	min-height: 100%; // [4]
+	overflow-x: hidden; // [4]
+	min-height: 100%; // [5]
 	color: $color-base-black;
 	background-color: $background-color;
 }
