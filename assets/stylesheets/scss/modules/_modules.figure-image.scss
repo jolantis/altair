@@ -80,50 +80,60 @@
 }
 
 /**
- * Figure image in grid
+ * Figureimage layout grid
  */
 
-.FigureImage {
-	// @extend %u-cf;
+.FigureImage figcaption {
+	@include rhythm-font($ms-down1); /* Reset font-size (it's set to `0` by the `.Grid` class!) */
 
-	figcaption {
-		@include rhythm-font($ms-down1); /* Reset font-size (it's set to `0` by the `.Grid` class!) */
+	margin-top: rhythm(.5);
+	margin-bottom: rhythm(1.5);
+}
 
-		margin-top: rhythm(.5);
-		margin-bottom: rhythm(1.5);
+/**
+ * Figureimage gutter/spacing:
+ * 1. default (rhythm unit)
+ * 2. percentage based
+ *
+ * For production out-comment the gutter/spacing method that is not being used!
+ */
+
+.FigureImage.Grid--withGutter { // [1]
+
+	.Grid-cell {
+		margin-top: rhythm($grid-gutter-rhythm-unit); /* Set vertical grid spacing */
 	}
-
-	/**
-	 * Rhythm unit gutter/spacing
-	 */
-
-	/* Set vertical grid spacing only to `.Gird-cell` items within a figure that's preceded by a figure */
-
-	&.Grid--withGutter + .Grid--withGutter .Grid-cell {
-		margin-top: rhythm($grid-spacing-rhythm-unit);
-	}
-
-	/* Align captions in layout grid to image(s) by setting half gutter rhythm units */
-
-	&.Grid--withGutter figcaption {
-		padding-right: rhythm(.5 * $grid-gutter-rhythm-unit);
+	& figcaption {
+		padding-right: rhythm(.5 * $grid-gutter-rhythm-unit); /* Align caption to image(s) by setting half gutter rhythm units */
 		padding-left: rhythm(.5 * $grid-gutter-rhythm-unit);
 	}
+}
 
-	/**
-	 * Percentage gutter/spacing
-	 */
+.FigureImage.Grid--withGutterPercentage { // [2]
 
-	/* Set vertical grid percentages only to `.Gird-cell` items within a figure that's preceded by a figure */
-
-	&.Grid--withGutterPercentage + .Grid--withGutterPercentage .Grid-cell {
-		margin-top: $grid-spacing-percentage;
+	.Grid-cell {
+		margin-top: $grid-spacing-percentage; /* Set vertical grid percentages */
 	}
-
-	/* Align captions in layout grid to image(s) by setting half gutter percentages */
-
-	&.Grid--withGutterPercentage figcaption {
-		padding-right: .5 * $grid-gutter-percentage;
+	& figcaption {
+		padding-right: .5 * $grid-gutter-percentage; /* Align captions image(s) by setting half gutter percentages */
 		padding-left: .5 * $grid-gutter-percentage;
+	}
+}
+
+/**
+ * Reset vertical spacing to '0' for both default and percentage based spacing
+ * --- from the (default or passed via text) 'breakpoint' and up --- of all
+ * elements with `.Grid-cell` class, that are wrapped in an element with a
+ * `.Grid--breakFrom<Breakpoint>` class which is not proceded by an element
+ * with a `.FigureImage` class.
+ */
+
+*:not(.FigureImage) {
+
+	&+ .Grid--breakFromCompact .Grid-cell {
+		@include breakpoint(compact) { margin-top: 0; }
+	}
+	&+ .Grid--breakFromMedium .Grid-cell {
+		@include breakpoint(medium) { margin-top: 0; }
 	}
 }
