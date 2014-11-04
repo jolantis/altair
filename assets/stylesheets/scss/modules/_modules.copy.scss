@@ -14,34 +14,36 @@
 	// background-image: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 3%, transparent 100%);
 	// background-size: 100% $base-line-height + 0rem;
 
-	/* Vertical (module) spacing
+	/* Vertical spacing
 	   ========================================================================== */
 
 	/**
-	 * More info about 'The "Leftover Glue" problem' here:
+	 * Based on 'The "Leftover Glue" problem':
 	 * http://slides.com/heydon/effortless-style/#/22
+	 *
+	 * Set default vertical spacing for all elements:
+	 * 1. every second, third, etc. element that has not a `.Grid` class
+	 * 2. every element with a `.Grid` class that is not proceded
+	 *    by an element with a `.Grid` class
 	 */
 
-	> * + *:not(.Grid) {
+	> * + *:not(.Grid), // [1]
+	> *:not(.Grid) + .Grid { // [2]
 		margin-top: rhythm(1);
 	}
 
-	> *:not(.Grid) + .Grid {
-		margin-top: rhythm(1);
+	/**
+	 * Set additonal vertical spacing aroundf figure elements:
+	 * 3. every figure with a `FigureImage` class that comes direclty
+	 *    after an element without a `.Grid` class
+	 * 4. every element that has not a `.Grid` class and is proceded
+	 *    by a figure element with `.FigureImage` class
+	 */
+
+	> *:not(.Grid) + .FigureImage, // [3]
+	> .FigureImage + *:not(.Grid) { // [4]
+		margin-top: rhythm(3);
 	}
-
-	// & > p,
-	// & > ul,
-	// & > ol,
-	// & > dl,
-	// & > pre,
-	// & > figure {
-	// 	margin-bottom: rhythm(1);
-
-	// 	&:last-child {
-	// 		margin-bottom: 0;
-	// 	}
-	// }
 
 	/* Text max width and hyphenation
 	   ========================================================================== */
