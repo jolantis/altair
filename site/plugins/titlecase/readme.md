@@ -2,7 +2,7 @@
 
 ## What is it?
 
- A script to Title Case text, based on Camen Design's PHP script: http://camendesign.com/code/title-case (originally a John Gruber Perl script )
+A script to Title Case text, based on Camen Design's PHP script: http://camendesign.com/code/title-case (originally a John Gruber Perl script )
 
 ## How to use it?
 
