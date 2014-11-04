@@ -296,9 +296,17 @@ c::set('thumb.cache.url',  c::get('url')  . '/thumbs');                         
 c::set('thumb.memory', '128M');                                                 // make enough memory available to scale big(ger) images; default is 128M
 c::set('thumb.quality', 70);                                                    // default jpg compression (or quality setting) for thumb images (does not apply to Resrc images)
 c::set('thumb.upscale', true);                                                  // set default upscale value for thumb images (does not apply to Resrc images)
-// c::set('thumb.progressive', true);                                           // set to true to output all thumb images as progressive, opposed to baseline (see: http://calendar.perfplanet.com/?p=1557)
-c::set('thumb.multifigure.break', 'small');                                     // set the default from 'breakpoint'; switch from linearity to floating (class is set on figure element; see responsive sizes in `layout.grid.scss`)
 c::set('thumb.dev.width', 800);                                                 // development env's only: arbitrary max-width for thumbs (set in figure), if not using resrc.
+
+
+/* -----------------------------------------------------------------------------
+Figureimage (layout grid) settings
+--------------------------------------------------------------------------------
+
+*/
+
+c::set('figureimage.break', 'compact');                                         // set the default 'breakpoint' for `.FigureImage` items in a layout grid; the 'breakpoint' defines where to switch from linear to inline items; options are 'compact' and 'medium' (make sure the corresponding grid sizes are set and/or added in `_layout.grid.scss`!)
+c::set('figureimage.gutter', 'default');                                        // set the gutter unit for `.FigureImage` items in a layout grid; options are 'default' (rhythm unit) and 'percentage'
 
 
 /* -----------------------------------------------------------------------------
