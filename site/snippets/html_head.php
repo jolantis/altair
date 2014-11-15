@@ -74,8 +74,8 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<?php if($site->ios_title() != ''): ?><meta name="apple-mobile-web-app-title" content="<?php echo $site->ios_titl()->smartypants(); ?>"><?php endif; ?>
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
-	<?php if(page('sitemap')): ?><link rel="sitemap" type="application/xml" title="<?php echo page('sitemap')->title()->smartypants(); ?>" href="<?php echo html(url('sitemap')); ?>"><?php endif; ?>
-	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo html(url('blog/feed')); ?>"><?php endif; ?>
+	<?php if(page('sitemap')): ?><link rel="sitemap" type="application/xml" title="<?php echo page('sitemap')->title()->smartypants(); ?>" href="<?php echo url('sitemap'); ?>"><?php endif; ?>
+	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo url('blog/feed'); ?>"><?php endif; ?>
 	<?php if($site->google_plus() != ''): ?><link rel="publisher" href="https://plus.google.com/xxxxxxxxxxxxxxxxxxxxx"><?php endif; ?>
 
 	<?php // Canonical rel link on pages that can be dynamic (e.g. …/paramkey:paramvalue); by default the script checks if the 'tags' field is present; make sure to change or add field names based on project specifics! ?>
