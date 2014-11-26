@@ -62,7 +62,7 @@ abbr[title]:after { content: " (" attr(title) ")"; }
 
 /* Don't show links for images (refers to image replacement (.ir) class) */
 
-.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+.u-isHiddenText a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
 
 /* Tables (basic table styling for print) */
 
