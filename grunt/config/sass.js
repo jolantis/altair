@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		main: {
 			options: {
 				sourceComments: 'map', // none, normal or map
-				sourceMap: false, // enable/disable source maps (when 'true' make sure sourceComments is set to 'map')
+				sourceMap: true, // enable/disable source maps (when 'true' make sure sourceComments is set to 'map')
 			},
 			files: {
 				'<%= project.styles_dev %>/main.concat.css': '<%= project.styles_scss %>/main.scss', // destination: source
