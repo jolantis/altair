@@ -64,7 +64,7 @@
 	*/
 
 	.u-textNoHyphen {
-		hyphens: none;
+		@extend %u-textNoHyphen;
 	}
 
 	/* Paragraphs

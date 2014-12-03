@@ -49,6 +49,10 @@
 	hyphens: auto;
 }
 
+%u-textNoHyphen {
+	hyphens: none;
+}
+
 %u-textJustify {
 	text-align: inherit;
 
