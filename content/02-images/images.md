@@ -32,15 +32,17 @@ All photos on this page are from [Unsplash](http://unsplash.com).
 
 ## Thumb tag
 
-(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 height: 225 quality: 75 alt: Thumb, quality 75)
-(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 height: 225 alt: Thumb)
+(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 quality: 10 alt: Thumb, quality 10)
 
-*Thumb tag --- both height and width are set.*
+*Thumb tag --- width is set to 225; quality is set to 50.*
 
-(thumb: unsplash_525b54bcc32ba_1.jpg width: 400 height: 250 crop: true alt: Thumb no HD)
-(thumb: unsplash_525b54bcc32ba_1.jpg width: 400 height: 250 crop: true alt: Thumb HD cropped)
+(thumb: unsplash_525b54bcc32ba_1.jpg height: 225 alt: Thumb)
 
-*Thumb tag --- both height and width are set, plus crop is set to true (hd is set to false for the left image).*
+*Thumb tag --- height is set to 225.*
+
+(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 height: 225 crop: true alt: Thumb cropped)
+
+*Thumb tag --- both width and height are set to 225; crop is set to true.*
 
 ---
 
