@@ -192,9 +192,9 @@
 
 /* Large and up */
 
-@include breakpoint(medium) {
-	.u-size1of6--medium { width: percentage(1/6) !important; }
-	.u-size2of6--medium { width: percentage(2/6) !important; }
+@include breakpoint(large) {
+	.u-size1of6--large { width: percentage(1/6) !important; }
+	.u-size2of6--large { width: percentage(2/6) !important; }
 }
 
 /* Wide and up */
