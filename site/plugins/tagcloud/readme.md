@@ -1,12 +1,10 @@
-# Tagcloud Plugin
+# Tagcloud plugin
 
-## What is it?
-
-The tagcloud plugin will fetch all tags (comma separated) from subpages and return them with additional information - like the number of subpages for a each tag.
+A plugin for [Kirby CMS](http://getkirby.com) to fetch all tags (comma separated) from subpages and return them with additional information — like the number of subpages for a each tag.
 
 ## Installation
 
-Put the `tagcloud` folder `/site/plugins`.
+Put the `tagcloud` folder in `/site/plugins`.
 
 ## How to use it?
 
@@ -14,22 +12,31 @@ Put the `tagcloud` folder `/site/plugins`.
 
 To add tags to your content files, put them in a comma separated list:
 
-	Title: Some Title
-	----
-	Text: Some Text
-	----
-	Tags: design, fun, photography
-	----
+```
+Title: Some Title
+
+----
+
+Text: Some Text
+
+----
+
+Tags: design, fun, photography
+
+----
+```
 
 In your template add i.e.:
 
-  <?php $tagcloud = tagcloud(page('blog'), array('limit' => 20)) ?>
+```php
+<?php $tagcloud = tagcloud(page('blog'), array('limit' => 20)) ?>
 
-	<ul>
+<ul>
 	<?php foreach($tagcloud as $tag): ?>
-	  <li><a href="<?php echo $tag->url() ?>"><?php echo $tag->name() ?></a></li>
+		<li><a href="<?php echo $tag->url() ?>"><?php echo $tag->name() ?></a></li>
 	<?php endforeach ?>
-	</ul>
+</ul>
+```
 
 As first argument you pass the main page. All children of it will be searched to find all tags. So if you have a blog and you want to find all tags of blog articles you add pass the main blog page as first argument.
 

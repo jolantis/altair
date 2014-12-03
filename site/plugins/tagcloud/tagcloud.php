@@ -6,58 +6,57 @@
  * @author Bastian Allgeier <bastian@getkirby.com>
  * @version 2.0.0
  */
-
 function tagcloud($parent, $options = array()) {
 
-	// default values
-	$defaults = array(
-		'limit'    => false,
-		'field'    => 'tags',
-		'children' => 'visible',
-		'baseurl'  => $parent->url(),
-		'param'    => 'tag',
-		'sort'     => 'results',
-		'sortdir'  => 'desc'
-	);
+  // default values
+  $defaults = array(
+    'limit'    => false,
+    'field'    => 'tags',
+    'children' => 'visible',
+    'baseurl'  => $parent->url(),
+    'param'    => 'tag',
+    'sort'     => 'results',
+    'sortdir'  => 'desc'
+  );
 
-	// merge defaults and options
-	$options = array_merge($defaults, $options);
+  // merge defaults and options
+  $options = array_merge($defaults, $options);
 
-	switch($options['children']) {
-		case 'invisible':
-			$children = $parent->children()->invisible();
-			break;
-		case 'visible':
-			$children = $parent->children()->visible();
-			break;
-		default:
-			$children = $parent->children();
-			break;
-	}
+  switch($options['children']) {
+    case 'invisible':
+      $children = $parent->children()->invisible();
+      break;
+    case 'visible':
+      $children = $parent->children()->visible();
+      break;
+    default:
+      $children = $parent->children();
+      break;
+  }
 
-	$tags  = $children->pluck($options['field'], ',');
-	$tags  = array_count_values($tags);
-	$cloud = array();
-	$ds    = DS == '/' ? ':' : ';';
+  $tags  = $children->pluck($options['field'], ',');
+  $tags  = array_count_values($tags);
+  $cloud = array();
+  $ds    = DS == '/' ? ':' : ';';
 
-	foreach($tags as $tag => $count) {
+  foreach($tags as $tag => $count) {
 
-		$cloud[$tag] = new Obj(array(
-			'results'  => $count,
-			'name'     => $tag,
-			'url'      => $options['baseurl'] . '/' . $options['param'] . $ds . urlencode($tag),
-			'isActive' => urldecode(param($options['param'])) == $tag
-		));
+    $cloud[$tag] = new Obj(array(
+      'results'  => $count,
+      'name'     => $tag,
+      'url'      => $options['baseurl'] . '/' . $options['param'] . $ds . urlencode($tag),
+      'isActive' => urldecode(param($options['param'])) == $tag
+    ));
 
-	}
+  }
 
-	$cloud = new Collection($cloud);
-	$cloud = $cloud->sortBy($options['sort'], $options['sortdir']);
+  $cloud = new Collection($cloud);
+  $cloud = $cloud->sortBy($options['sort'], $options['sortdir']);
 
-	if($options['limit']) {
-		$cloud = $cloud->limit($options['limit']);
-	}
+  if($options['limit']) {
+    $cloud = $cloud->limit($options['limit']);
+  }
 
-	return $cloud;
+  return $cloud;
 
 }

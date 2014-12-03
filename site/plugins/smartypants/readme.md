@@ -1,14 +1,14 @@
-# Smartypants plugin 1.0.0
+# Smartypants plugin
 
-## What is it?
-
-Adds a field method for smartypants (until it’s added to Kirby’s core).
+A field method for [Kirby CMS](http://getkirby.com) to apply smartypants (until it’s added to [Kirby CMS](http://getkirby.com)’s core).
 
 ## How to use it?
 
 Call from template:
 
-	<?php echo $site->title()->smartypants()->widont(); ?>
+```php
+<?php echo $site->title()->smartypants()->widont(); ?>
+```
 
 ## Authors
 Jonathan van Wunnik
@@ -16,4 +16,4 @@ Jonathan van Wunnik
 
 ## Changelog
 
-* **1.0.0** Initial version of smartypants plugin
+* **1.0.0** Initial release
