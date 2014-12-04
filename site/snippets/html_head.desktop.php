@@ -133,9 +133,9 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<link rel="stylesheet" href="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'; ?>" media="print">
 
 	<!--[if (gte IE 7) & (lte IE 8)]>
-	<script src="/assets/javascript/vendor/html5shiv.min.js'); ?>"></script>
-	<script src="/assets/javascript/vendor/nwmatcher.min.js'); ?>"></script>
-	<script src="/assets/javascript/vendor/selectivizr.min.js'); ?>"></script>
+	<script src="/assets/javascript/vendor/html5shiv.min.js"></script>
+	<script src="/assets/javascript/vendor/nwmatcher.min.js"></script>
+	<script src="/assets/javascript/vendor/selectivizr.min.js"></script>
 	<![endif]-->
 
 	<?php // Initialize JS variables for use later on ?>
