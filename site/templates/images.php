@@ -12,7 +12,6 @@
 
 		<?php echo $page->intro()->kirbytext(); ?>
 		<?php echo $page->text()->kirbytext(); ?>
-		<?php echo $page->multi_figure()->kirbytext(); ?>
 
 		<?php snippet('share_page'); ?>
 
