@@ -48,22 +48,6 @@
 }
 
 /**
- * Fade-in figure image on load
- */
-
-.FigureImage.is-loaded {
-
-	.FigureImage-lazy {
-		font-size: 0;
-		line-height: 0;
-		background-color: rgb(246,246,243);
-	}
-	.FigureImage-item {
-		animation: FadeIn .56s ease-in;
-	}
-}
-
-/**
  * Align single figure image to center
  */
 
