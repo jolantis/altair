@@ -27,9 +27,9 @@ var lazyload = {
 
 		/* Use echo.js plugin */
 		echo.init({
-			offset: 0,
-			debounce: false, // Set to `false` to use (traditional) throttling where it will only check the images every `throttle` milliseconds; set to `true` so that the checking function is only triggered after a user stops scrolling (http://underscorejs.org/#debounce).
-			throttle: 250,
+			offset: 88,
+			throttle: 250, // Using a throttle will set a small timeout when the user scrolls and will keep throttling until the user stops. The default is 250 milliseconds.
+			debounce: false, // By default the throttling function is actually a debounce function so that the checking function is only triggered after a user stops scrolling. To use traditional throttling where it will only check the images every throttle milliseconds, set debounce to false.
 			unload: false,
 			selector: 'data-src',
 			callback: function(element){
