@@ -1,18 +1,19 @@
 # www.robotstxt.org/
 # http://code.google.com/web/controlcrawlindex/
+# https://support.google.com/webmasters/answer/35769
 
 User-agent: *
 
 # Kirby CMS
-Disallow: /assets/
-Disallow: /content/
+# Disallow: /assets/
 Disallow: /kirby/
 Disallow: /site/
+Disallow: /panel/
 Disallow: /thumbs/
+Disallow: /content/sitemap/
 
 # Google Image
 User-agent: Googlebot-Image
-Disallow: /design/
 Disallow: /thumbs/
 Allow: /*
 
