@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Lazyload
+   ========================================================================== */
+
+/**
+ * Lazyload figureimage
+ */
+
+.FigureImage-lazy {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	// height: 0; // Height is set by inline percentage-padding in figure plugin/tag to prevent reflow on image load
+	background-color: $color-gray-quiet;
+
+	.is-loading &:after {
+		position: absolute;
+		right: rhythm(.5);
+		bottom: rhythm(.5);
+		width: rhythm(.24);
+		height: rhythm(.24);
+		margin: rhythm(-.12) 0 0 rhythm(-.12);
+		content: "";
+		animation: Flash 1.76s cubic-bezier(.6,1,1,1) infinite; // Loading animation
+		border-radius: 100%;
+		background: rgba($color-base-black,.24);
+	}
+	.FigureImage-item {
+		position: absolute; // Aboslute positioned within percentage-padding set height element
+		top: 0;
+		left: 0;
+
+		.is-loaded & {
+			animation: FadeIn .56s ease-in both; // Fade-in animation
+		}
+	}
+}
