@@ -64,6 +64,7 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<link rel="dns-prefetch" href="//use.typekit.net">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
+	<link rel="dns-prefetch" href="//maps.googleapis.com">
 	<link rel="dns-prefetch" href="//www.google-analytics.com">
 
 	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>

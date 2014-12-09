@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="ContainPadding">
+	<main role="main" class="ContainPadding u-spaceTrailerL">
 
 		<div class="Copy">
 
@@ -27,5 +27,11 @@
 		<?php snippet('contactform'); ?>
 
 	</main>
+
+	<h3 class="BetaHeading ContainPadding">Leafletjs map</h3>
+	<?php snippet('map_leafletjs'); ?>
+
+	<h3 class="BetaHeading ContainPadding u-spaceLeaderM">Google map</h3>
+	<?php snippet('map_google'); ?>
 
 <?php snippet_detect('footer'); ?>
