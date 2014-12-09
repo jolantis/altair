@@ -6,7 +6,7 @@ A plugin for [Kirby CMS](http://getkirby.com/) that generates an `src` attribute
 
 Put the `imgsrc` folder in `/site/plugins` directory.
 
-Update the contents of the included `template.php` file to your likings and setup.
+Update the contents of the included `/template/imgsrc.php` file to your likings and setup.
 
 ## How to use it
 

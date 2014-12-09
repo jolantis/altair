@@ -71,7 +71,7 @@ function imgsrc($image=false, $options=array()) {
 	), false);
 
 	// Return template HTML
-	return tpl::load(__DIR__ . DS . 'template.php', $options);
+	return tpl::load(__DIR__ . DS . 'template/imgsrc.php', $options);
 
 }
 ?>
