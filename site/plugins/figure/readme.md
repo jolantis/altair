@@ -6,7 +6,7 @@ A plugin for [Kirby CMS](http://getkirby.com) that generates an image in a figur
 
 Put the `figure` folder in `/site/plugins`.
 
-Update the contents of the included `template.php` file to your likings and setup.
+Update the contents of the included `/template/figure.php` file to your likings and setup.
 
 ## How to use it
 
@@ -23,7 +23,7 @@ You can use this in a template file.
 or…
 
 ```php
-<?php echo figure($page->images()->first(), array('cropratio' => 2/3’)); ?>
+<?php echo figure($page->images()->first(), array('cropratio' => 2/3)); ?>
 ```
 
 or…
@@ -32,7 +32,7 @@ or…
 <?php
 	echo figure($page->images()->first(), array(
 		'crop'       => true,
-		'cropratio'  => '.5',
+		'cropratio'  => .5,
 		'class'      => 'Image Image--left',
 		'alt'        => $page->title()->smartypants(),
 		'caption'    => 'A beautiful image of trees'

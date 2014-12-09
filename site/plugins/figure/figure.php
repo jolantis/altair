@@ -59,10 +59,17 @@ function figure($image=false, $options=array()) {
 		$thumbheight = round($thumbwidth * $options['cropratio']);
 		// if a cropratio is set, the crop variable is always set to true
 		$options['crop'] = true;
+		// Manual set (crop)ratio
+		$ratio = $options['cropratio'];
 	}
 	else {
 		$thumbheight = null; // max height of image
+		// Intrinsic image's ratio
+		$ratio = 1 / $image->ratio();
 	}
+
+	// Percentage-padding to set image aspect ratio (prevents reflow on image load)
+	$options['percentage_padding'] = round($ratio * 100, 2);
 
 	// Create thumb url (create a new thumb object)
 	$options['thumburl'] = thumb($image, array(
@@ -75,6 +82,6 @@ function figure($image=false, $options=array()) {
 	$options['image'] = $image;
 
 	// Return template HTML
-	return tpl::load(__DIR__ . DS . 'template.php', $options);
+	return tpl::load(__DIR__ . DS . 'template/figure.php', $options);
 }
 ?>

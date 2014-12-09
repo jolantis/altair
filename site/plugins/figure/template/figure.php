@@ -1,4 +1,4 @@
-<figure class="FigureImage">
+ <figure class="FigureImage">
 
 	<?php // [1] Regular image; resized thumb (thumb.dev.width) ?>
 	<?php if($lazyload == false && c::get('resrc') == false): ?>
@@ -7,8 +7,8 @@
 
 	<?php // [2] Lazyload image; resized thumb (thumb.dev.width)  ?>
 	<?php if($lazyload == true && c::get('resrc') == false): ?>
-		<div class="FigureImage-lazy">
-			<img data-src="<?php echo $thumburl; ?>" src="/assets/images/loader.gif" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+		<div class="FigureImage-lazy" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
+			<img data-src="<?php echo $thumburl; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 		</div>
 	<?php endif; ?>
 
@@ -19,8 +19,8 @@
 
 	<?php // [4] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>
 	<?php if($lazyload == true && c::get('resrc') == true): ?>
-		<div class="FigureImage-lazy">
-			<img data-src="<?php echo 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl; ?>" src="/assets/images/loader.gif" class="FigureImage-item js-resrcIsLazy<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+		<div class="FigureImage-lazy" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
+			<img data-src="<?php echo 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item js-resrcIsLazy<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 		</div>
 	<?php endif; ?>
 

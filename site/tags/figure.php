@@ -40,7 +40,7 @@ kirbytext::$tags['figure'] = array(
 		// Single figure specific
 		'height',
 		'alt',
-		),
+	),
 	'html' => function($tag) {
 
 		$images = $tag->attr('figure');
@@ -133,6 +133,42 @@ kirbytext::$tags['figure'] = array(
 		$i = 0;
 		foreach($imageresult as $image) {
 
+			// if the crop variable is explicitly set to 'false' string *and*
+			// no cropratio is set, the crop variable is always set to false
+			if($crop == 'false' && !isset($cropratio)) {
+				$crop = false;
+			}
+
+			// when a cropratio is set, calculate the ratio based height
+			if(isset($cropratio)) {
+				// if resrc is enabled (and therefor $thumbwidth is not set (e.g. `null`),
+				// to use max width of image!), set thumbwidth to width of original image
+				if(!isset($thumbwidth)) {
+					$thumbwidth = $image->width();
+				}
+				// if cropratio is a fraction string (e.g. 1/2), convert to decimal
+				// if(!is_numeric($cropratio)) {
+				if(strpos($cropratio, '/') !== false) {
+					list($numerator, $denominator) = str::split($cropratio, '/');
+					$cropratio = $numerator / $denominator;
+				}
+				// calculate new thumb height based on cropratio
+				$thumbheight = round($thumbwidth * $cropratio);
+				// if a cropratio is set, the crop variable is always set to true
+				$crop = true;
+				// Manual defined (crop)ratio
+				$ratio = $cropratio;
+			}
+			else {
+				// max height of image
+				$thumbheight = null;
+				// Intrinsic image's ratio
+				$ratio = 1 / $image->ratio();
+			}
+
+			// Percentage-padding to set image aspect ratio (prevents reflow on image load)
+			$percentage_padding = round($ratio * 100, 2);
+
 			// Initialize wrapper divs if lazyloading
 			if($lazyload == true) {
 				// Only init griddiv when $gridcellclass or one or more width is set
@@ -141,6 +177,7 @@ kirbytext::$tags['figure'] = array(
 				}
 				$lazydiv = new Brick('div');
 				$lazydiv->addClass('FigureImage-lazy');
+				$lazydiv->attr('style', 'padding-bottom: ' . $percentage_padding . '%;');
 			}
 
 			// set widths of all images
@@ -189,34 +226,6 @@ kirbytext::$tags['figure'] = array(
 				$thumbwidth = null;
 			}
 
-			// if the crop variable is explicitly set to 'false' string *and*
-			// no cropratio is set, the crop variable is always set to false
-			if($crop == 'false' && !isset($cropratio)) {
-				$crop = false;
-			}
-
-			// when a cropratio is set, calculate the ratio based height
-			if(isset($cropratio)) {
-				// if resrc is enabled (and therefor $thumbwidth is not set (e.g. `null`),
-				// to use max width of image!), set thumbwidth to width of original image
-				if(!isset($thumbwidth)) {
-					$thumbwidth = $image->width();
-				}
-				// if cropratio is a fraction string (e.g. 1/2), convert to decimal
-				// if(!is_numeric($cropratio)) {
-				if(strpos($cropratio, '/') !== false) {
-					list($numerator, $denominator) = str::split($cropratio, '/');
-					$cropratio = $numerator / $denominator;
-				}
-				// calculate new thumb height based on cropratio
-				$thumbheight = round($thumbwidth * $cropratio);
-				// if a cropratio is set, the crop variable is always set to true
-				$crop = true;
-			}
-			else {
-				$thumbheight = null; // max height of image
-			}
-
 			$thumburl = thumb($image,array(
 				'width'   => $thumbwidth,
 				'height'  => $thumbheight,
@@ -240,7 +249,7 @@ kirbytext::$tags['figure'] = array(
 			// [2] Lazyload image; resized thumb (thumb.dev.width)
 			if($lazyload == true && c::get('resrc') == false) {
 
-				$imagethumb = html::img('/assets/images/loader.gif',array(
+				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-src'  => $thumburl,
 					// 'width'     => $image->width(),
 					// 'height'    => $image->height(),
@@ -254,21 +263,21 @@ kirbytext::$tags['figure'] = array(
 			// [3] Resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
 			if($lazyload == false && c::get('resrc') == true) {
 
-					$imagethumb = html::img('',array(
-						'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
+				$imagethumb = html::img('',array(
+					'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
 						// 'width'     => $image->width(),
 						// 'height'    => $image->height(),
-						'class'     => $class . ' resrc',
-						'alt'       => html($alt)
-						)
-					);
+					'class'     => $class . ' resrc',
+					'alt'       => html($alt)
+					)
+				);
 
 			}
 
 			// [4] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
 			if($lazyload == true && c::get('resrc') == true) {
 
-				$imagethumb = html::img('/assets/images/loader.gif',array(
+				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
 					// 'width'     => $image->width(),
 					// 'height'    => $image->height(),
