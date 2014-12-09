@@ -53,20 +53,14 @@
 
 /* 16:9 aspect ratio for compact breakpoint */
 
-@include breakpoint(compact) {
-	.FluidEmbed--compact16by9:before { padding-bottom: percentage(9/16) !important; }
-}
-
-/* 2:1 aspect ratio for medium breakpoint and up */
-
-@include breakpoint(medium) {
-	.FluidEmbed--medium2by1:before { padding-bottom: percentage(1/2) !important; }
-}
-
-/* 3:1 aspect ratio for medium breakpoint and up */
-
 @include breakpoint(large) {
-	.FluidEmbed--large3by1:before { padding-bottom: percentage(1/3) !important; }
+	.FluidEmbed--large16by9:before { padding-bottom: percentage(9/16) !important; }
+}
+
+/* 2:1 aspect ratio for huge breakpoint and up */
+
+@include breakpoint(huge) {
+	.FluidEmbed--huge2by1:before { padding-bottom: percentage(1/2) !important; }
 }
 
 /**
@@ -78,6 +72,7 @@
  * widget code.
  */
 
+.FluidEmbed > div:first-of-type, // Google/Leaflet maps
 .FluidEmbed-item,
 .FluidEmbed iframe,
 .FluidEmbed embed,
