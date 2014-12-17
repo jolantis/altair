@@ -1,0 +1,16 @@
+
+// --------------------------------------------------------------------------
+// Translucency
+// --------------------------------------------------------------------------
+
+// Add alphatransparency to any background or border color
+// --------------------------------------------------------------------------
+
+@mixin translucent-background($color: $color-base-white, $alpha: 1) {
+	background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+@mixin translucent-border($color: $color-base-white, $alpha: 1) {
+	border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+	background-clip: padding-box;
+}

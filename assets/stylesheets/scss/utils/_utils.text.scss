@@ -131,7 +131,7 @@
  }
 
 %u-textSmall {
-	@include rhythm-font($ms-down1);
+	@include responsive-text-size("nano");
 }
 
 %u-textTime {

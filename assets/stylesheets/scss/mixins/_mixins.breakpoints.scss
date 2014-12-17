@@ -1,0 +1,41 @@
+// --------------------------------------------------------------------------
+// Breakpoints
+// --------------------------------------------------------------------------
+// The base css should be for mobile. on top of that styles for other (wider)
+// browser windows can be layered on top.
+//
+// Usage:
+// div.columns {
+//   border: 1px solid;
+//   width: 100%;
+//
+//   @include breakpoint(medium){
+//     width: 30%;
+//     float: left;
+//   }
+// }
+// --------------------------------------------------------------------------
+
+
+@mixin breakpoint($breakpoint-name) {
+
+	// Loop through each breakpoint name to be included
+	@each $breakpoint-to-include in $breakpoints-to-include {
+
+		// Only continue if breakpoint name to be included
+		// mathces with breakpoint name to be outputted
+		@if $breakpoint-to-include == $breakpoint-name {
+
+			$breakpoint-value: breakpoint-value-for($breakpoint-name);
+
+			@if $breakpoint-value != null {
+				@media (min-width: $breakpoint-value) {
+					@content;
+				}
+			} @else {
+				@warn "Missing breakpoint '#{$breakpoint-name}'";
+			}
+
+		}
+	}
+}

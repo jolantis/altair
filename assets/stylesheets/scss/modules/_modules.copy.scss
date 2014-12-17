@@ -11,8 +11,8 @@
 	/* Baseline
 	   ========================================================================== */
 
-	// background-image: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 3%, transparent 100%);
-	// background-size: 100% $base-line-height + 0rem;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 4%, transparent 100%);
+	background-size: 100% text-line-height("base") + 0rem;
 
 	/* Vertical spacing
 	   ========================================================================== */

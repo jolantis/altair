@@ -1,0 +1,82 @@
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+
+// Base font size
+// --------------------------------------------------------------------------
+
+@function base-font-size-for($breakpoint-name) {
+	$breakpoints-map: breakpoints-map($breakpoint-name);
+	@return map-get($breakpoints-map, 'base-font-size');
+}
+
+// Text properties
+// --------------------------------------------------------------------------
+
+@function text-breakpoints-for($text-size-name) {
+	@return map-get($text-sizing, $text-size-name);
+}
+
+@function text-properties-for($text-size-name, $breakpoint-name) {
+	$text-breakpoints-map: text-breakpoints-for($text-size-name);
+	@return map-get($text-breakpoints-map, $breakpoint-name);
+}
+
+@function text-size($text-size-name, $default-breakpoint-name: "small", $lines: 1) {
+	$base-text-properties: text-properties-for("base", "small");
+	$base-text-size: map-get($base-text-properties, "font-size");
+	$text-properties: text-properties-for($text-size-name, $default-breakpoint-name);
+	$text-size: map-get($text-properties, "font-size");
+	@return $text-size / $base-text-size + 0rem;
+}
+
+// @function text-line-height($text-size-name, $default-breakpoint-name: "small", $lines: 1) {
+// 	$base-text-properties: text-properties-for("base", "small");
+// 	$base-text-size: map-get($base-text-properties, "font-size");
+// 	$base-line-height: map-get($base-text-properties, "line-height");
+// 	$text-properties: text-properties-for($text-size-name, $default-breakpoint-name);
+// 	$text-size: map-get($text-properties, "font-size");
+// 	$line-height: map-get($text-properties, "line-height");
+
+// 	@if $line-height != null {
+// 		// Retutn explicitly set line-height (in setting.typpgraphy.scss)
+// 		@return $line-height;
+// 	} @else {
+// 		// Calculate vertical rhythm line-height (https://github.com/ianrose/typesettings)
+// 		@return (ceil($text-size / ($base-line-height * $base-text-size)) * ($base-line-height * $base-text-size) * $lines) / $text-size;
+// 	}
+// }
+@function text-line-height($text-size-name, $default-breakpoint-name: "small", $lines: 1) {
+	@if text-breakpoints-for($default-breakpoint-name) {
+
+	}
+
+	$base-text-properties: text-properties-for("base", "small");
+	$base-text-size: map-get($base-text-properties, "font-size");
+	$base-line-height: map-get($base-text-properties, "line-height");
+	$text-properties: text-properties-for($text-size-name, $default-breakpoint-name);
+	$text-size: map-get($text-properties, "font-size");
+	$line-height: map-get($text-properties, "line-height");
+
+	@if $line-height != null {
+		// Retutn explicitly set line-height (in setting.typpgraphy.scss)
+		@return $line-height;
+	} @else {
+		// Calculate vertical rhythm line-height (https://github.com/ianrose/typesettings)
+		@return (ceil($text-size / ($base-line-height * $base-text-size)) * ($base-line-height * $base-text-size) * $lines) / $text-size;
+	}
+}
+
+// Rhythm value
+// --------------------------------------------------------------------------
+
+@function rhythm($lines: 1) {
+	$base-text-properties: text-properties-for("base", "small");
+	$base-line-height: map-get($base-text-properties, "line-height");
+
+	@if $lines == 0 {
+		@return 0; // If number of lines is 0, output unitless value
+	} @else {
+		@return $base-line-height * $lines + 0rem;
+	}
+}

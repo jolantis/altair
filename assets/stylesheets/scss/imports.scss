@@ -1,15 +1,24 @@
 // --------------------------------------------------------------------------
-// helpers
+// functions
 // --------------------------------------------------------------------------
 
-// @import "helpers/helpers.sass-list-maps"; // Adds list-based map functionality for libsass (see: https://github.com/lunelson/sass-list-maps, http://sassmeister.com/gist/8645654)
-@import "helpers/helpers.breakpoints";
-@import "helpers/helpers.color-schemer";
-@import "helpers/helpers.functions";
-@import "helpers/helpers.font-families";
-@import "helpers/helpers.mixins";
-@import "helpers/helpers.rhythm";
-@import "helpers/helpers.underline";
+@import "functions/functions.breakpoints";
+@import "functions/functions.color-schemer";
+@import "functions/functions.paths";
+@import "functions/functions.rhythm";
+@import "functions/functions.typography";
+
+// --------------------------------------------------------------------------
+// mixins
+// --------------------------------------------------------------------------
+
+@import "mixins/mixins.breakpoints";
+@import "mixins/mixins.font-families";
+@import "mixins/mixins.gradients";
+@import "mixins/mixins.helpers";
+@import "mixins/mixins.translucency";
+@import "mixins/mixins.typography";
+@import "mixins/mixins.underline";
 
 // --------------------------------------------------------------------------
 // settings

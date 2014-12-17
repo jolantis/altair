@@ -1,0 +1,18 @@
+// --------------------------------------------------------------------------
+// Paths (http://j.mp/Tx8lGt)
+// --------------------------------------------------------------------------
+// Set (css) image paths in only one place.
+// Example usage: `background-image: img-url('background.png');`
+// --------------------------------------------------------------------------
+
+@function icon-url($filename) {
+	@return url(../img/icons/#{$filename});
+}
+
+@function img-url($filename) {
+	@return url(../img/#{$filename});
+}
+
+@function fontello-url($filename) {
+	@return url(../../webfonts/fontello/#{$filename});
+}

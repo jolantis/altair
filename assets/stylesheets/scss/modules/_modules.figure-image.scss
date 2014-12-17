@@ -68,7 +68,7 @@
  */
 
 .FigureImage figcaption {
-	@include rhythm-font($ms-down1); /* Reset font-size (it's set to `0` by the `.Grid` class!) */
+	@include responsive-text-size("nano"); /* Reset font-size (it's set to `0` by the `.Grid` class!) */
 
 	margin-top: rhythm(.5);
 	margin-bottom: rhythm(1.5);

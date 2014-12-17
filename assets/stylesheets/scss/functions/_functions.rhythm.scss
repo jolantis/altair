@@ -1,0 +1,16 @@
+// --------------------------------------------------------------------------
+// Rhythm
+// --------------------------------------------------------------------------
+// Set rhythm value; muliple of base line height to maintain vertyical rhythm
+// --------------------------------------------------------------------------
+
+@function rhythm($lines: 1) {
+	$text-properties: text-properties-for("base", "small");
+	$line-height: map-get($text-properties, "line-height");
+
+	@if $lines == 0 {
+		@return 0; // If number of lines is 0, output unitless value
+	} @else {
+		@return $line-height * $lines + 0rem;
+	}
+}

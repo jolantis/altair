@@ -1,0 +1,94 @@
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+// Typografic scale: http://type-scale.com, http://modularscale.com
+// Vertical rhythm (baseline): https://github.com/ianrose/typesettings
+// --------------------------------------------------------------------------
+
+// Base text size
+// --------------------------------------------------------------------------
+// Generates procentual base font sizes for the the to be included breakpoints.
+// Add to `html {}` or `body {}` element:
+// html {
+//   @include base-text-sizes("base");
+// }
+
+@mixin base-text-sizes($default-breakpoint-name: "small") {
+
+	// Loop through each breakpoint name to be included
+	@each $breakpoint-to-include in $breakpoints-to-include {
+
+		$base-text-size-value: base-font-size-for($breakpoint-to-include);
+
+		@if $base-text-size-value != null {
+
+			@if $breakpoint-to-include == $default-breakpoint-name {
+				font-size: $base-text-size-value;
+			} @else {
+				@include breakpoint($breakpoint-to-include) {
+					font-size: $base-text-size-value;
+				}
+			}
+
+		} @else {
+			@warn "Missing base font size for '#{$breakpoint-name}' breakpoint";
+		}
+
+	}
+}
+
+// Text size
+// --------------------------------------------------------------------------
+
+// @mixin text-size($text-size-name, $default-breakpoint-name: "small", $lines: 1) {
+// 	$text-properties: text-properties-for($text-size-name, $default-breakpoint-name);
+// 	$line-height: map-get($text-properties, "line-height");
+
+// 	@if $text-properties != null {
+// 		font-size: text-size($text-size-name, $default-breakpoint-name);
+// 		@if $line-height != null {
+// 			line-height: $line-height;
+// 		} @else {
+// 			line-height: text-line-height($text-size-name, $default-breakpoint-name, $lines);
+// 		}
+// 	} @else {
+// 		@warn "Breakpoint '#{$default-breakpoint-name}' for text size '#{$text-size-name}' is not defined";
+// 	}
+// }
+
+@mixin responsive-text-size($text-size-name, $default-breakpoint-name: "small", $lines: 1) {
+	// @include text-size($text-size-name, $default-breakpoint-name);
+	font-size: text-size($text-size-name, $default-breakpoint-name, $lines);
+	line-height: text-line-height($text-size-name, $default-breakpoint-name, $lines);
+
+	$text-breakpoints-map: text-breakpoints-for($text-size-name);
+	$text-breakpoints-keys: map-keys($text-breakpoints-map);
+
+	@each $breakpoint-name in $text-breakpoints-keys {
+		@if $breakpoint-name != $default-breakpoint-name and breakpoints-map($breakpoint-name) != null {
+			@include breakpoint($breakpoint-name) {
+				// @include text-size($text-size-name, $breakpoint-name, $lines);
+				font-size: text-size($text-size-name, $breakpoint-name, $lines);
+				line-height: text-line-height($text-size-name, $breakpoint-name, $lines);
+			}
+		}
+	}
+}
+
+// Line-height
+// --------------------------------------------------------------------------
+
+// @mixin responsive-line-height($text-size-name, $default-breakpoint-name: "small", $lines: 1) {
+// 	@include text-size($text-size-name, $default-breakpoint-name);
+
+// 	$text-breakpoints-map: text-breakpoints-for($text-size-name);
+// 	$text-breakpoints-keys: map-keys($text-breakpoints-map);
+
+// 	@each $breakpoint-name in $text-breakpoints-keys {
+// 		@if $breakpoint-name != $default-breakpoint-name and breakpoints-map($breakpoint-name) != null {
+// 			@include breakpoint($breakpoint-name) {
+// 				@include text-size($text-size-name, $breakpoint-name, $lines);
+// 			}
+// 		}
+// 	}
+// }

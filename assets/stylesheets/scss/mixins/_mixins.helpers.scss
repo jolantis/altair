@@ -1,65 +1,7 @@
 
 // --------------------------------------------------------------------------
-// Mixins
+// Helpers
 // --------------------------------------------------------------------------
-
-// Add alphatransparency to any background or border color
-// --------------------------------------------------------------------------
-
-@mixin translucent-background($color: $color-base-white, $alpha: 1) {
-	background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-}
-
-@mixin translucent-border($color: $color-base-white, $alpha: 1) {
-	border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-	background-clip: padding-box;
-}
-
-// Gradients
-// --------------------------------------------------------------------------
-// Best to define a list of $colors in settings.colors.scss.
-// Create a list *with* or *without* (procentual/pixel) color stops when using
-// not more than *2* colors for a (radial) gradient, but always define
-// (procentual/pixel) color stops when defining more than 2 colors, e.g.:
-// $color-1 0%, $color-2 25%, $color-3 30%, $color-4 100%, etc.
-// A list for srtipes should always be without color stops!
-// For more info see: http://css-tricks.com/css3-gradients/
-
-// Some examples of $position for linear gradients:
-//  to left, to right, left top, 45deg, etc.
-@mixin linear-gradient($position, $colors) {
-	$colors: if(type-of($colors) != "list", compact($colors), $colors);
-
-	background-image: linear-gradient($position, $colors);
-}
-
-// Some examples of $position for radial gradients:
-//  left, right, top, center, ellipse, circle, circle closest-side,
-//  circle at top right, circle closest-side, circle farthest-side at right,
-//  circle at 0 0, circle at 0 30%, etc.
-@mixin radial-gradient($position, $colors) {
-	$colors: if(type-of($colors) != "list", compact($colors), $colors);
-
-	background-image: radial-gradient($position, $colors);
-}
-
-// Striped (or rainbow) gradients
-// Some examples of $position for radial gradients:
-//   to left, to right, to top, to bottom, 45deg, etc.
-
-@mixin stripes($position, $colors) {
-	// $colors: if(type-of($colors) != "list", compact($colors), $colors);
-	$stripes: 100% / length($colors);
-	$gradient: ();
-
-	@for $i from 1 through length($colors) {
-		$item: nth($colors,$i);
-		$new: $item ($stripes * ($i - 1)), $item ($stripes * $i);
-		$gradient: join($gradient, $new, comma);
-	}
-
-	background-image: linear-gradient($position, $gradient);
-}
 
 // RGBa with RGB fallback
 // --------------------------------------------------------------------------

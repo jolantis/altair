@@ -1,0 +1,12 @@
+// --------------------------------------------------------------------------
+// Breakpoints
+// --------------------------------------------------------------------------
+
+@function breakpoints-map($breakpoint-name) {
+	@return map-get($breakpoints, $breakpoint-name);
+}
+
+@function breakpoint-value-for($breakpoint-name) {
+	$breakpoints-map: breakpoints-map($breakpoint-name);
+	@return map-get($breakpoints-map, 'break-value');
+}

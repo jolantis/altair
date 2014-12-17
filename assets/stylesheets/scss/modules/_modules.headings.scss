@@ -34,14 +34,7 @@
 .AlphaHeading {
 	@extend %u-headingContain;
 	@extend %u-headingSettings;
-	@include rhythm-font($ms-up3, 0, 1);
-
-	@include breakpoint(medium) {
-		@include rhythm-font($ms-up4);
-	}
-	@include breakpoint(wide) {
-		@include rhythm-font($ms-up5);
-	}
+	@include responsive-text-size("alpha");
 }
 
 /* Beta */
@@ -49,14 +42,7 @@
 .BetaHeading {
 	@extend %u-headingContain;
 	@extend %u-headingSettings;
-	@include rhythm-font($ms-up2, 0, 1);
-
-	@include breakpoint(medium) {
-		@include rhythm-font($ms-up3);
-	}
-	@include breakpoint(wide) {
-		@include rhythm-font($ms-up4);
-	}
+	@include responsive-text-size("beta");
 }
 
 /* Gamma */
@@ -64,22 +50,18 @@
 .GammaHeading {
 	@extend %u-headingContain;
 	@extend %u-headingSettings;
-	@include rhythm-font($ms-up1, 0, 1);
-
-	@include breakpoint(wide) {
-		@include rhythm-font($ms-up2);
-	}
+	@include responsive-text-size("gamma");
 }
 
 .DeltaHeading {
 	@extend %u-headingContain;
 	@extend %u-headingSettings;
-	@include rhythm-font($ms-up1, 0, 1);
+	@include responsive-text-size("delta");
 }
 
 .EpsilonHeading,
 .ZetaHeading {
 	@extend %u-headingContain;
 	@extend %u-headingSettings;
-	@include rhythm-font($ms-up0, 0, 0);
+	@include responsive-text-size("epsilon");
 }

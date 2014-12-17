@@ -16,10 +16,10 @@
  */
 
 html {
-	@include base-font($base-font-percentages); // [1], [2]
+	@include base-text-sizes(); // [1], [2]
 	@include sans-font(400);
 
-	line-height: $base-line-height;
+	line-height: text-line-height("base");
 	// overflow-y: auto; // [3]
 	overflow-x: hidden; // [4]
 	min-height: 100%; // [5]
