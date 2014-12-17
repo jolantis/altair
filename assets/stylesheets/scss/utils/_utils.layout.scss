@@ -8,19 +8,19 @@
  */
 
 %u-alignTop {
-	vertical-align: top !important;
+	vertical-align: top;
 }
 
 %u-alignMiddle {
-	vertical-align: middle !important;
+	vertical-align: middle;
 }
 
 %u-alignBaseline {
-	vertical-align: baseline !important;
+	vertical-align: baseline;
 }
 
 %u-alignBottom {
-	vertical-align: bottom !important;
+	vertical-align: bottom;
 }
 
 /**
@@ -158,7 +158,7 @@
  */
 
 %u-nbfc {
-	overflow: hidden !important;
+	overflow: hidden;
 }
 
 /**
@@ -174,8 +174,8 @@
  */
 
 %u-nbfcAlt {
-	display: table-cell !important; // [1]
-	width: 10000px !important; // [2]
+	display: table-cell; // [1]
+	width: 10000px; // [2]
 }
 
 /**
@@ -183,11 +183,11 @@
  */
 
 %u-pullLeft {
-	float: left !important;
+	float: left;
 }
 
 %u-pullRight {
-	float: right !important;
+	float: right;
 }
 
 /**
@@ -198,12 +198,12 @@
  */
 
 %u-objLeft {
-	float: left !important;
+	float: left;
 	margin-right: rhythm(1);
 }
 
 %u-objRight {
-	float: right !important;
+	float: right;
 	margin-left: rhythm(1);
 }
 

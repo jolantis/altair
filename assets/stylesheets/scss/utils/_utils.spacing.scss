@@ -3,103 +3,29 @@
    ========================================================================== */
 
 /**
- * Vertical rhythm spacing
+ * Vertical (rhythm) spacing
  *
  * Trailer spacing = bottom margin
  * Leader spacing = top margin
  * Rhythm spacing = top + bottom margins
  */
 
-%u-spaceTrailerXS { margin-bottom: rhythm(.25) !important; }
-%u-spaceTrailerS  { margin-bottom: rhythm(.5) !important; }
+%u-spaceTrailerXS { margin-bottom: rhythm(.25); }
+%u-spaceTrailerS  { margin-bottom: rhythm(.5); }
 .u-spaceTrailerM,
-%u-spaceTrailerM  { margin-bottom: rhythm(1) !important; }
+%u-spaceTrailerM  { margin-bottom: rhythm(1); }
 .u-spaceTrailerL,
-%u-spaceTrailerL  { margin-bottom: rhythm(2) !important; }
-%u-spaceTrailerXL { margin-bottom: rhythm(4) !important; }
+%u-spaceTrailerL  { margin-bottom: rhythm(2); }
+%u-spaceTrailerXL { margin-bottom: rhythm(4); }
 
-%u-spaceLeaderXS  { margin-top: rhythm(.25) !important; }
-%u-spaceLeaderS   { margin-top: rhythm(.5) !important; }
+%u-spaceLeaderXS  { margin-top: rhythm(.25); }
+%u-spaceLeaderS   { margin-top: rhythm(.5); }
 .u-spaceLeaderM,
-%u-spaceLeaderM   { margin-top: rhythm(1) !important; }
-%u-spaceLeaderL   { margin-top: rhythm(2) !important; }
-%u-spaceLeaderXL  { margin-top: rhythm(4) !important; }
+%u-spaceLeaderM   { margin-top: rhythm(1); }
+%u-spaceLeaderL   { margin-top: rhythm(2); }
+%u-spaceLeaderXL  { margin-top: rhythm(4); }
 
-%u-spaceRhythmXS  { margin-top: rhythm(.25) !important; margin-bottom: rhythm(.25) !important; }
-%u-spaceRhythmS   { margin-top: rhythm(.5) !important; margin-bottom: rhythm(.5) !important; }
-%u-spaceRhythmM   { margin-top: rhythm(1) !important; margin-bottom: rhythm(1) !important; }
-%u-spaceRhythmL   { margin-top: rhythm(2) !important; margin-bottom: rhythm(2) !important; }
-%u-spaceRhythmXL  { margin-top: rhythm(4) !important; margin-bottom: rhythm(4) !important; }
-
-/**
- * Default spacing for between components,
- * based on $spacing-unit (also used by grid).
- * Use with great care!
- *
- * A = all
- * T = top
- * R = right
- * B = bottom
- * L = left
- * H = horizontal
- * V = vertical
- *
- * n = none
- * s = small
- * m = medium
- * l = large
- */
-
-/* Reset (or zero) spacing */
-
-%u-spaceAn { margin: 0 !important; }
-%u-spaceVn { margin-top: 0 !important; margin-bottom: 0 !important; }
-%u-spaceTn { margin-top: 0 !important; }
-%u-spaceRn { margin-right: 0 !important; }
-%u-spaceBn { margin-bottom: 0 !important; }
-%u-spaceLn { margin-left: 0 !important; }
-
-/* Extra small spacing */
-
-%u-spaceAxs { margin: rhythm(.25) !important; }
-%u-spaceVxs { margin-top: rhythm(.25) !important; margin-bottom: rhythm(.25) !important; }
-%u-spaceTxs { margin-top: rhythm(.25) !important; }
-%u-spaceRxs { margin-right: rhythm(.25) !important; }
-%u-spaceBxs { margin-bottom: rhythm(.25) !important; }
-%u-spaceLxs { margin-left: rhythm(.25) !important; }
-
-/* Small spacing */
-
-%u-spaceAs { margin: rhythm(2) !important; }
-%u-spaceVs { margin-top: rhythm(2) !important; margin-bottom: rhythm(2) !important; }
-%u-spaceTs { margin-top: rhythm(2) !important; }
-%u-spaceRs { margin-right: rhythm(2) !important; }
-%u-spaceBs { margin-bottom: rhythm(2) !important; }
-%u-spaceLs { margin-left: rhythm(2) !important; }
-
-/* Medium spacing */
-
-%u-spaceAm { margin: rhythm(4) !important; }
-%u-spaceVm { margin-top: rhythm(4) !important; margin-bottom: rhythm(4) !important; }
-%u-spaceTm { margin-top: rhythm(4) !important; }
-%u-spaceRm { margin-right: rhythm(4) !important; }
-%u-spaceBm { margin-bottom: rhythm(4) !important; }
-%u-spaceLm { margin-left: rhythm(4) !important; }
-
-/* Large spacing */
-
-%u-spaceAl { margin: rhythm(6) !important; }
-%u-spaceVl { margin-top: rhythm(6) !important; margin-bottom: rhythm(6) !important; }
-%u-spaceTl { margin-top: rhythm(6) !important; }
-%u-spaceRl { margin-right: rhythm(6) !important; }
-%u-spaceBl { margin-bottom: rhythm(6) !important; }
-%u-spaceLl { margin-left: rhythm(6) !important; }
-
-/* Extra large spacing */
-
-%u-spaceAxl { margin: rhythm(8) !important; }
-%u-spaceVxl { margin-top: rhythm(8) !important; margin-bottom: rhythm(8) !important; }
-%u-spaceTxl { margin-top: rhythm(8) !important; }
-%u-spaceRxl { margin-right: rhythm(8) !important; }
-%u-spaceBxl { margin-bottom: rhythm(8) !important; }
-%u-spaceLxl { margin-left: rhythm(8) !important; }
+%u-spaceRhythmS   { margin-top: rhythm(.5); margin-bottom: rhythm(.5); }
+%u-spaceRhythmM   { margin-top: rhythm(1); margin-bottom: rhythm(1); }
+%u-spaceRhythmL   { margin-top: rhythm(2); margin-bottom: rhythm(2); }
+%u-spaceRhythmXL  { margin-top: rhythm(4); margin-bottom: rhythm(4); }

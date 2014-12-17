@@ -8,13 +8,13 @@
 
 %u-sizeFit,
 %u-sizeFitAlt {
-	display: block !important;
-	float: left !important;
-	width: auto !important;
+	display: block;
+	float: left;
+	width: auto;
 }
 
 %u-sizeFitAlt {
-	float: right !important;
+	float: right;
 }
 
 /**
@@ -23,9 +23,9 @@
  */
 
 %u-sizeFill {
-	display: block !important;
-	overflow: hidden !important;
-	width: auto !important;
+	display: block;
+	overflow: hidden;
+	width: auto;
 }
 
 /**
@@ -35,9 +35,9 @@
  */
 
 %u-sizeFillAlt {
-	display: table-cell !important;
-	max-width: 100% !important;
-	width: 10000px !important;
+	display: table-cell;
+	max-width: 100%;
+	width: 10000px;
 }
 
 /**
@@ -45,6 +45,6 @@
  */
 
 %u-sizeFull {
-	display: block !important;
-	width: 100% !important;
+	display: block;
+	width: 100%;
 }

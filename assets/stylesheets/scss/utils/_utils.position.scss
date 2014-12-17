@@ -3,7 +3,7 @@
    ========================================================================== */
 
 %u-posAbsolute {
-	position: absolute !important;
+	position: absolute;
 }
 
 /**
@@ -13,12 +13,12 @@
  */
 
 %u-posAbsoluteCenter {
-	bottom: 0 !important;
-	left: 0 !important;
-	margin: auto !important;
-	position: absolute !important;
-	right: 0 !important;
-	top: 0 !important;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 /**
@@ -27,14 +27,14 @@
  */
 
 %u-posFixed {
-	position: fixed !important;
+	position: fixed;
 	backface-visibility: hidden; // [1]
 }
 
 %u-posRelative {
-	position: relative !important;
+	position: relative;
 }
 
 %u-posStatic {
-	position: static !important;
+	position: static;
 }
