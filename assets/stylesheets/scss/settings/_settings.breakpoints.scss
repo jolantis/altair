@@ -8,8 +8,6 @@
 // breakpoints: http://bit.ly/IXDtMb
 // Adjust the breakpoints to best fit content and (visual) design
 
-$breakpoints-to-include: ("small", "compact", "medium", "large", "wide", "huge") !default;
-
 $breakpoints: (
 	small: (
 		break-value:            20em,                                           // <= mobile
@@ -36,40 +34,3 @@ $breakpoints: (
 		base-font-size:         125%
 	)
 );
-
-// Debug breakpoints
-// --------------------------------------------------------------------------
-// A simple way to help identify which breakpoint is active!
-
-body:before {
-	content: 'Initial';
-	position: fixed;
-	text-align: center;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background: rgba(0,0,0,0.85);
-	color: #FFF;
-	font-weight: bold;
-	z-index: 999;
-	padding: 1em 2em;
-
-	@media (min-width: map-get(map-get($breakpoints, "small"), 'break-value')) {
-		content: 'Breakpoint “small”'
-	}
-	@media (min-width: map-get(map-get($breakpoints, "compact"), 'break-value')) {
-		content: 'Breakpoint “compact”'
-	}
-	@media (min-width: map-get(map-get($breakpoints, "medium"), 'break-value')) {
-		content: 'Breakpoint “medium”'
-	}
-	@media (min-width: map-get(map-get($breakpoints, "large"), 'break-value')) {
-		content: 'Breakpoint “large”'
-	}
-	@media (min-width: map-get(map-get($breakpoints, "wide"), 'break-value')) {
-		content: 'Breakpoint “wide”'
-	}
-	@media (min-width: map-get(map-get($breakpoints, "huge"), 'break-value')) {
-		content: 'Breakpoint “huge”'
-	}
-}

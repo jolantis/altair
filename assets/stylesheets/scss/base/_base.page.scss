@@ -4,9 +4,9 @@
 
 /**
  * 1. Set the default `font-size` and `line-height` for the entire project,
- *    sourced from variables. The `font-size` is calculated to exist
+ *    sourced from a variables map. The `font-size` is calculated to exist
  *    in %, the `line-height` is calculated to exist unitlessly.
- * 2. Font-size is set to `small` size (without mq) for browsers that don't
+ * 2. `Font-size` is set to `small` size (without mq) for browsers that don't
  *    cut the mustard (aka `no-ctm`).
  * 3. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
  *    navigating between pages that do/do not have enough content to produce
@@ -19,7 +19,6 @@ html {
 	@include base-text-sizes(); // [1], [2]
 	@include sans-font(400);
 
-	line-height: text-line-height("base");
 	// overflow-y: auto; // [3]
 	overflow-x: hidden; // [4]
 	min-height: 100%; // [5]

@@ -11,148 +11,95 @@ $mono-font:                     Monaco, "Courier New", "CourierNewPSMT", Courier
 $heading-font:                  "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold", "Arial Narrow Bold", "ArialNarrow-Bold", "Arial Narrow", "ArialNarrow", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 $icon-font:                     "Fontello";
 
-// Type (modular) scale
-// --------------------------------------------------------------------------
-
-// Defaults
-
-$ms-ratio:                      $augmented-fourth;
-$ms-ratio-alt:                  $golden;
-
-// // Modular scale 1
-
-// $ms-down1: 1         / $ms-ratio;
-// $ms-down2: $ms-down1 / $ms-ratio;
-// $ms-up1:   1         * $ms-ratio;
-// $ms-up2:   $ms-up1   * $ms-ratio;
-// $ms-up3:   $ms-up2   * $ms-ratio;
-// $ms-up4:   $ms-up3   * $ms-ratio;
-// $ms-up5:   $ms-up4   * $ms-ratio;
-// $ms-up6:   $ms-up5   * $ms-ratio;
-
-// // Multiple scale 2 (multiple ratios)
-
-// $ms-down1: 1         / $ms-ratio;
-// $ms-down2: 1         / $ms-ratio-alt;
-// $ms-up1:   1         * $ms-ratio;
-// $ms-up2:   1         * $ms-ratio-alt;
-// $ms-up3:   $ms-up1   * $ms-ratio;
-// $ms-up4:   $ms-up2   * $ms-ratio-alt;
-// $ms-up5:   $ms-up3   * $ms-ratio;
-// $ms-up6:   $ms-up4   * $ms-ratio-alt;
-
-// // Multiple scale 3 (http://typeplate.com)
-
-// $ms-down1: .875;
-// $ms-down2: .75;
-// $ms-up1:   1.1667;
-// $ms-up2:   1.3333;
-// $ms-up3:   2;
-// $ms-up4:   2.6667;
-// $ms-up5:   3.3333;
-// $ms-up6:   4;
-
-// // Multiple scale 4 (http://typecast.com/blog/a-more-modern-scale-for-web-typography)
-
-// $ms-down1: .875;
-// $ms-down2: .75;
-// $ms-up1:   1.125;
-// $ms-up2:   1.3333;
-// $ms-up3:   2;
-// $ms-up4:   2.6667;
-// $ms-up5:   3.3333;
-// $ms-up6:   4;
 
 // Text sizing
 // --------------------------------------------------------------------------
-// If no line-height is explicitly set, a vertical
-// rhythm line-height is calculated automatically!
+// If no line-height at all is explicitly set, a vertical
+// rhythm line-height is calculated and maintained automatically!
+// But if a line-height is explicitly set (out out-commented),
+// vertical rhythm will break for that speceific breakpoint!
 
 $text-sizing: (
-	base: (                                                                     // <= base text size
-		small: (                                                                // <= default breakpoint (mobile first!)
-			font-size: 1rem,                                                    // <= base font size (never change!)
-			line-height: 1.25                                                   // <= base line height
-		),
-		medium: (
-			font-size: 1rem,                                                    // <= base font size (never change!)
-			line-height: 1.375
-		)
-	),
 	pico: (
 		small: (
-			font-size: 0.75rem,
-			// line-height: 1
+			font-size:          .75,
+			// line-height:        1
 		)
 	),
 	nano: (
 		small: (
-			font-size: 0.875rem,
-			// line-height: 1.25
+			font-size:          .875rem,
+			// line-height:        1.25
 		)
+	),
+	base: (                                                                     // <= base text size name
+		small: (                                                                // <= default breakpoint (mobile first!)
+			font-size:          1rem,                                           // <= base font size (never change!)
+			line-height:        1.375                                           // <= base line height (never out-comment!)
+		)                                                                       // <= no need to (pointless) add more base breakpoints!
 	),
 	zeta: (
 		small: (
-			font-size: 1rem,
-			// line-height: 1.4
+			font-size:          1rem,
+			// line-height:        1.4
 		)
 	),
 	epsilon: (
 		small: (
-			font-size: 1rem,
-			// line-height: 1.4
+			font-size:          1rem,
+			// line-height:        1.4
 		)
 	),
 	delta: (
 		small: (
-			font-size: 1.125rem,
-			// line-height: 1.111
+			font-size:          1.125rem,
+			// line-height:        1.111
 		),
 		medium: (
-			font-size: 1.125rem,
-			// line-height: 1.222
+			font-size:          1.125rem,
+			// line-height:        1.222
 		)
 	),
 	gamma: (
 		small: (
-			font-size: 1.375rem,
-			// line-height: 1.136
+			font-size:          1.375rem,
+			line-height:        1.136
 		),
 		medium: (
-			font-size: 1.5rem,
-			// line-height: 1.25
+			font-size:          1.5rem,
+			// line-height:        1.25
 		),
 		large: (
-			font-size: 1.75rem,
-			// line-height: 1.25
+			font-size:          1.75rem,
+			// line-height:        1.25
 		)
 	),
 	beta: (
 		small: (
-			font-size: 1.625rem,
-			// line-height: 1.154
+			font-size:          1.625rem,
+			line-height:        1.154
 		),
 		medium: (
-			font-size: 2rem,
-			// line-height: 1.25
+			font-size:          2rem,
+			// line-height:        1.25
 		),
 		large: (
-			font-size: 2.25rem,
-			// line-height: 1.25
+			font-size:          2.25rem,
+			// line-height:        1.25
 		)
 	),
 	alpha: (
 		small: (
-			font-size: 2rem,
-			// line-height: 1.25
+			font-size:          2rem,
+			line-height:        1.25
 		),
 		medium: (
-			font-size: 2.5rem,
-			// line-height: 1.125
+			font-size:          2.5rem,
+			// line-height:        1.125
 		),
 		large: (
-			font-size: 3rem,
-			// line-height: 1.05
+			font-size:          3rem,
+			// line-height:        1.05
 		)
 	),
 	// mega: (),

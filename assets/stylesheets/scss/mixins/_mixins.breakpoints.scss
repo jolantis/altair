@@ -19,23 +19,30 @@
 
 @mixin breakpoint($breakpoint-name) {
 
-	// Loop through each breakpoint name to be included
-	@each $breakpoint-to-include in $breakpoints-to-include {
+	// Check if breakpoint name is valid (exists in breakpoints list)
+	@if breakpoints-map($breakpoint-name) != null {
 
-		// Only continue if breakpoint name to be included
-		// mathces with breakpoint name to be outputted
-		@if $breakpoint-to-include == $breakpoint-name {
+		// Loop through each breakpoint name to be included
+		@each $breakpoint-to-include in $breakpoints-to-include {
 
-			$breakpoint-value: breakpoint-value-for($breakpoint-name);
+			// Only continue if breakpoint name to be included
+			// mathces with breakpoint name to be outputted
+			@if $breakpoint-to-include == $breakpoint-name {
 
-			@if $breakpoint-value != null {
-				@media (min-width: $breakpoint-value) {
-					@content;
+				$breakpoint-value: breakpoint-value-for($breakpoint-name);
+
+				@if $breakpoint-value != null {
+					@media (min-width: $breakpoint-value) {
+						@content;
+					}
+				} @else {
+					@warn "Missing breakpoint '#{$breakpoint-name}'";
 				}
-			} @else {
-				@warn "Missing breakpoint '#{$breakpoint-name}'";
-			}
 
+			}
 		}
+
+	} @else {
+		@warn "Breakpoint '#{$breakpoint-name}' is not in breakpoints list (settings)";
 	}
 }
