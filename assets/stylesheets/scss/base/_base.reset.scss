@@ -7,13 +7,18 @@
  * margins from certain elements.
  */
 
-body,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd, ol, ul,
-form, fieldset, legend,
-table, th, td, caption,
-hr {
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 }
@@ -35,8 +40,10 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
 	font-weight: inherit;
-	color: inherit;
+	vertical-align: baseline;
 	text-decoration: none;
+	color: inherit;
+	background: transparent;
 }
 
 /**
@@ -57,11 +64,9 @@ li {
  * Reset inline elements
  */
 
-small,
-b,
-strong,
-th,
-i,
+small, strong,
+th, td,
+b, i,
 em,
 cite {
 	font-weight: inherit;
@@ -83,12 +88,4 @@ dfn[title] {
 u,
 ins {
 	text-decoration: none;
-}
-
-/**
- * Figure (Overrules normalize.scss bullshit! (.../scss/vendor/))
- */
-
-figure {
-	margin: 0;
 }
