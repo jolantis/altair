@@ -8,34 +8,11 @@
 // Base text size
 // --------------------------------------------------------------------------
 // Generates procentual base font sizes for the the to be included breakpoints.
-// Add to `html {}` or `body {}` element:
+// Add to `html {}` or `body {}` element like this:
 // html {
-//   @include base-text-sizes("base");
+//   @include base-text-sizes();
 // }
 
-// @mixin base-text-sizes($default-breakpoint-name: "small") {
-
-// 	// Loop through each breakpoint name to be included
-// 	@each $breakpoint-to-include in $breakpoints-to-include {
-
-// 		$base-text-size: base-font-size-for($breakpoint-to-include);
-
-// 		@if $base-text-size != null {
-
-// 			@if $breakpoint-to-include == "small" {
-// 				font-size: $base-text-size;
-// 			} @else {
-// 				@include breakpoint($breakpoint-to-include) {
-// 					font-size: $base-text-size;
-// 				}
-// 			}
-
-// 		} @else {
-// 			@warn "Missing base font size for '#{$breakpoint-name}' breakpoint";
-// 		}
-
-// 	}
-// }
 @mixin base-text-sizes($default-breakpoint-name: "small") {
 
 	// Loop through each breakpoint name to be included
