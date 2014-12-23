@@ -26,45 +26,16 @@
 /**
  * Contain floats (aka clearfix)
  *
- * Make an element expand to contain floated children.
- * - http://nicolasgallagher.com/micro-clearfix-hack/
- * - http://fuseinteractive.ca/blog/understanding-humble-clearfix
- * - http://css-tricks.com/snippets/css/clear-fix/
- *
  * 1. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
- *     Set `$contain-top-margins` to "margins" below, to  globally output the clearix
- *     version that contains top-margins as well. Or include the clearfix mixin
- *     with with the "margins" variable (e.g. `@inlcude u-cf("margins")`)
- *     to contain top-margins only for that element/class.
- * 2. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of the
- *    element.
+ *    Set `$contain-top-margins` to "margins" below, to  globally output the clearix
+ *    version that contains top-margins as well. Or include the clearfix mixin
+ *    with with the "margins" variable (e.g. `@include clearfix("margins")`)
+ *    to contain top-margins only for that element/class.
  */
 
-@mixin u-cf($contain-top-margins: "") { // [1]
-	@if $contain-top-margins == "margins" {
-		&:before,
-		&:after {
-			display: table; // [1]
-			content: ""; // [2]
-		}
-		&:after {
-			clear: both;
-		}
-	}
-	@else {
-			&:after {
-			display: block; // [1]
-			clear: both;
-			content: ""; // [2]
-		}
-	}
-}
-
 %u-cf {
-	@include u-cf();
+	@include clearfix(); // [1]
 }
 
 /**

@@ -15,7 +15,7 @@
  */
 
 .Media {
-	@extend %u-cf;
+	@include clearfix();
 
 	display:block;
 }
