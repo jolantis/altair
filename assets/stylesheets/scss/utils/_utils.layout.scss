@@ -24,64 +24,6 @@
 }
 
 /**
- * Center item within any width and height parent
- *
- * Based on: http://j.mp/1uePeET
- *
- * Notes:
- * - Use mixin when invoking within media query otherwise it's save to just
- *   extend the silent class!
- * - Use mixin when a different value for the spacing adjustment is needed
- *
- * Example usage 1:
- * .Centered {
- *    @extend  %u-centered;
- *
- *    …
- * }
- * .Centered-item {
- *    @extend %u-centered-item;
- * }
- *
- * Example usage 2 (media query):
- * .Centered {
- *    @include breakpoint(medium) {
- *       @include u-centered(.8);
- *    }
- *
- *    …
- * }
- * .Centered-item {
- *    @extend %u-centered-item;
- * }
- */
-
-@mixin u-centered($spacing: .3) {
-	// text-align: center; // Horizontal centering too!
-
-	&:before {
-		content: '';
-		display: inline-block;
-		height: 99.9%; // Do not use 100% to prevent vertical scrollbar!
-		vertical-align: middle;
-		margin-right: $spacing * -1em; // Adjusts for spacing
-	}
-}
-
-%u-centered {
-	@include u-centered();
-}
-
-/**
- * The element to be centered, can also be of any width and height
- */
-
-%u-centered-item {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-/**
  * Contain floats (aka clearfix)
  *
  * Make an element expand to contain floated children.
