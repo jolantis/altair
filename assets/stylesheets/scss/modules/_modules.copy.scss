@@ -66,8 +66,7 @@
 	> time,
 	> table,
 	figcaption p {
-		@extend %u-textHyphen;
-
+		hyphens: auto;
 		max-width: $text-max-width;
 	}
 
@@ -79,7 +78,7 @@
 	*/
 
 	.u-textNoHyphen {
-		@extend %u-textNoHyphen;
+		hyphens: none;
 	}
 
 	/* Paragraphs
