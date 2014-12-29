@@ -76,7 +76,9 @@
 
 .u-textMaxWidth,
 %u-textMaxWidth {
-	max-width: 40rem;
+	max-width: $text-max-width;
+	// margin-right: auto; // Center maximized text 'column'
+	// margin-left: auto;
 }
 
 /**

@@ -14,14 +14,6 @@
 }
 
 /**
- * (Shared) contain lengt of headings
- */
-
-%u-headingMaxWidth {
-	max-width: 40rem;
-}
-
-/**
  * Heading sizes
  */
 
@@ -32,7 +24,6 @@
 /* Alpha */
 
 .AlphaHeading {
-	@extend %u-headingMaxWidth;
 	@extend %u-headingSettings;
 	@include responsive-text-size("alpha");
 }
@@ -40,7 +31,6 @@
 /* Beta */
 
 .BetaHeading {
-	@extend %u-headingMaxWidth;
 	@extend %u-headingSettings;
 	@include responsive-text-size("beta");
 }
@@ -48,20 +38,17 @@
 /* Gamma */
 
 .GammaHeading {
-	@extend %u-headingMaxWidth;
 	@extend %u-headingSettings;
 	@include responsive-text-size("gamma");
 }
 
 .DeltaHeading {
-	@extend %u-headingMaxWidth;
 	@extend %u-headingSettings;
 	@include responsive-text-size("delta");
 }
 
 .EpsilonHeading,
 .ZetaHeading {
-	@extend %u-headingMaxWidth;
 	@extend %u-headingSettings;
 	@include responsive-text-size("epsilon");
 }

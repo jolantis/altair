@@ -58,12 +58,17 @@
 	/* Text max width and hyphenation
 	   ========================================================================== */
 
-	p,
-	li,
-	dt,
-	dd {
-		@extend %u-textMaxWidth;
+	> p,
+	> ul li,
+	> ol li,
+	> dl dt,
+	> dl dd,
+	> time,
+	> table,
+	figcaption p {
 		@extend %u-textHyphen;
+
+		max-width: $text-max-width;
 	}
 
 	/**
@@ -106,6 +111,8 @@
 	h4 { @extend .DeltaHeading; }
 	h5 { @extend .EpsilonHeading; }
 	h6 { @extend .ZetaHeading; }
+
+	h1, h2, h3, h4, h5, h6 { max-width: $text-max-width; }
 
 	/* Figures
 	   ========================================================================== */
