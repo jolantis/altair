@@ -68,7 +68,7 @@
  */
 
 .FigureImage figcaption {
-	@include responsive-text-size("nano"); /* Reset font-size (it's set to `0` by the `.Grid` class!) */
+	@include responsive-text-size("nano"); // (Re)set font-size (it has been set to `0` by wrapping `.Grid` element!)
 
 	margin-top: rhythm(.5);
 	margin-bottom: rhythm(1.5);
