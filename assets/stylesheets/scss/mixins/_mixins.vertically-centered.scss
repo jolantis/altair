@@ -5,6 +5,13 @@
 // Center item within any width and height parent!
 // Based on: http://j.mp/1uePeET
 // --------------------------------------------------------------------------
+// Make sure to add 100% height to html and body elements; e.g. add following
+// to `base.page.scss` partial:
+// html,
+// body {
+//   height: 100%;
+// }
+// --------------------------------------------------------------------------
 // Example usage 1:
 // .Centered {
 //   @include  vertically-centered-parent();
