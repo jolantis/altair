@@ -46,17 +46,3 @@
 		@return (ceil($text-size / ($base-line-height * $base-text-size)) * ($base-line-height * $base-text-size) * $lines) / $text-size;
 	}
 }
-
-// Rhythm value
-// --------------------------------------------------------------------------
-
-@function rhythm($lines: 1) {
-	$base-text-properties: text-properties-for("base", "small");
-	$base-line-height: map-get($base-text-properties, "line-height");
-
-	@if $lines == 0 {
-		@return 0; // If number of lines is 0, output unitless value
-	} @else {
-		@return $base-line-height * $lines + 0rem;
-	}
-}
