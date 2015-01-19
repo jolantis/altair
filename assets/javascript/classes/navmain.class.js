@@ -24,8 +24,12 @@ var navMain = {
 
 		navMain.elements.navEl = document.querySelector('.js-navMain');
 
-		navMainShow.addEventListener('click', navMain.open, false);
-		navMainHide.addEventListener('click', navMain.close, false);
+		// Check if NavMain, and Show / Hide DOM elements exist
+		if (typeof(navMain.elements.navEl) !== 'undefined' && navMain.elements.navEl !== null) {
+			// Set the event listeners
+			navMainShow.addEventListener('click', navMain.open, false);
+			navMainHide.addEventListener('click', navMain.close, false);
+		}
 	},
 
 	setNavHandlers: function() {
