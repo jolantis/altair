@@ -338,9 +338,9 @@ AddDefaultCharset utf-8
     # [5] Redirect index.php requests
     RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
     RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,L]
-    # [6] Redirect sitemap.xml to /sitemap
-    RewriteCond $1 ^sitemap.xml
-    RewriteRule ^(.*)$ /sitemap/ [L]
+    # [6] Redirect sitemap.xml to /sitemap (Kirby routes are used instead!!!)
+    # RewriteCond $1 ^sitemap.xml
+    # RewriteRule ^(.*)$ /sitemap/ [L]
     # [7] Make panel links work
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
