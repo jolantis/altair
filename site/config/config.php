@@ -322,9 +322,6 @@ c::set('figureimage.gutter', 'default');                                        
 Lazyload images
 --------------------------------------------------------------------------------
 
-Set to true to lazyload (echo.js) all images with a
-`data-src="image.jpg` attribute.
-
 Use `lazyload.init` in main.scripts.js
 
 */
@@ -347,7 +344,9 @@ Resrc is always disabled in local environment by default, but can be enabled
 by making use of roxy, a stand-alone proxy server for locally testing resrc
 (see head.script.js for more information about how to enable and utilize roxy).
 
-Use `lazyload.init` in main.scripts.js
+Lazyload:
+If both resrc and layzload (above) are set to true,
+use `lazyload.init` in main.scripts.js
 
 */
 
