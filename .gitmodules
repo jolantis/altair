@@ -3,3 +3,6 @@
 	url = https://github.com/studiodumbar/kirby.git
 	update = checkout
 	fetchRecurseSubmodules = false
+[submodule "panel"]
+	path = panel
+	url = https://github.com/getkirby/panel.git
