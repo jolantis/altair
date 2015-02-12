@@ -14,23 +14,23 @@ Meta description: Default (overall) site description here... max. 160 characters
 
 ----
 
-[Twitter:]
+Twitter:
 
 ----
 
-[Facebook:]
+Facebook:
 
 ----
 
-[LinkedIn:]
+LinkedIn:
 
 ----
 
-[Google Plus:]
+Google Plus:
 
 ----
 
-[Pinterest:]
+Pinterest:
 
 ----
 
