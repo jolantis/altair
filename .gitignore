@@ -69,15 +69,20 @@ assets/stylesheets/scss/grunticon/grunticon.loader.txt
 # Ignore Kirby CMS folders/files
 # ----------------------------------------------------------------------
 
+# Panel
+site/accounts/*
+!site/accounts/.gitkeep
+assets/avatars/*
+!assets/avatars/.gitkeep
+
+# Cache
 site/cache/*
 !site/cache/.gitkeep
 
+# Local (dev) configs
 site/config/config.*.xip.io.php
 
-#kirby
-#panel
-#site/panel
-
+# Thumbs
 thumbs/*
 !thumbs/.gitkeep
 
