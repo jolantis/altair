@@ -45,7 +45,7 @@ var lazyload = {
 	 * Bind ReSrc variable to window, to use it everywhere
 	 */
 	bindResrcToWindow: function() {
-		var resrc;
+		// var resrc; // this should be disabled, so resrc can be inherited!
 		if(typeof resrc === 'undefined') {
 			// Set resrc to false if it's not loaded (on local for example)
 			resrc = false;
