@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 				// '<%= project.scripts_vendor %>/ctm.js',
 				// '<%= project.scripts_vendor %>/typekit.min.js',
 				// '<%= project.scripts_vendor %>/webfont.min.js',
-				'<%= project.scripts_vendor %>/resrc.js', // Out-comment when using Resrc!!!
+				// '<%= project.scripts_vendor %>/resrc.js', // Out-comment when using Resrc!!!
 				'<%= project.scripts %>/head.scripts.js',
 			],
 			main: {
@@ -60,6 +60,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_vendor %>/modernizr.min.js',
 				],
 				polyfills: [
+					'<%= project.scripts_vendor %>/resrc.lib.js',
 					'<%= project.scripts_polyfills %>/classlist.js',
 					'<%= project.scripts_polyfills %>/domready.js',
 				],
