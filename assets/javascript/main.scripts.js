@@ -10,6 +10,7 @@ if(enhance.ctm()){
 	// Executed on DOM ready
 	domready(function () {
 
+		// Initialize resrc.run() function
 		if(typeof custom_resrc === 'undefined') {
 			resrc.run();
 		}
