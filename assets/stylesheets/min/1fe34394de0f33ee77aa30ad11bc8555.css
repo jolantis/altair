@@ -3,7 +3,7 @@
  *
  * @authors   Jonathan van Wunnik <jonathan@studiodumbar.com>, Marijn Tijhuis <marijn@studiodumbar.com>
  * @link      http://altair.studiodumbar.info
- * @version   0.2.20
+ * @version   0.2.21
  * @generated 2015-02-19:07:02
  * @copyright (c) 2015 Studio Dumbar
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
