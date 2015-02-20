@@ -22,7 +22,12 @@ var lazyload = {
 		var lazyimages = document.querySelectorAll('img[data-src]');
 
 		for (var i = 0; i < lazyimages.length; i++) {
-			lazyload.elementLoading(lazyimages[i]);
+			if(lazyimages[i].classList.contains('js-resrcNotLazy') === true) {
+				lazyload.runResrcNonLazy(lazyimages[i]);
+			}
+			else {
+				lazyload.elementLoading(lazyimages[i]);
+			}
 		}
 
 		/* Use echo.js plugin */
