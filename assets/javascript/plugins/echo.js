@@ -1,4 +1,4 @@
-/*! echo.js v1.6.0 | (c) 2014 @toddmotto | https://github.com/toddmotto/echo */
+/*! echo.js v1.7.0 | (c) 2015 @toddmotto | https://github.com/toddmotto/echo */
 /* modified for use with lazyloading resrc images */
 (function (root, factory) {
 	if (typeof define === 'function' && define.amd) {
@@ -66,7 +66,7 @@
 	};
 
 	echo.render = function () {
-		var nodes = document.querySelectorAll('img['+selector+']');
+		var nodes = document.querySelectorAll('img['+selector+'], [data-src-background]');
 		var length = nodes.length;
 		var src, elem;
 		var view = {
@@ -78,23 +78,41 @@
 		for (var i = 0; i < length; i++) {
 			elem = nodes[i];
 			if (inView(elem, view)) {
+
 				if (unload) {
 					elem.setAttribute(selector+'-placeholder', elem.src);
 				}
-				if(elem.classList.contains('js-resrcIsLazy') === false) { // If there is no resrc, do normal echo stuff
-					elem.src = elem.getAttribute(selector);
+
+				if (elem.getAttribute('data-src-background') !== null) {
+					elem.style.backgroundImage = 'url(' + elem.getAttribute('data-src-background') + ')';
 				}
-				if (!unload) {
-					if(elem.classList.contains('js-resrcIsLazy') === false) { // If there is no resrc, do normal echo stuff
-						elem.removeAttribute(selector);
+				else {
+					if(elem.classList.contains('resrc-lazy') === false) { // If there is no resrc, do normal echo stuff
+						elem.src = elem.getAttribute('data-src');
 					}
 				}
+
+				if (!unload) {
+					if(elem.classList.contains('resrc-lazy') === false) { // If there is no resrc, do normal echo stuff
+						elem.removeAttribute('data-src');
+						elem.removeAttribute('data-src-background');
+					}
+				}
+
 				callback(elem, 'load');
-			} else if (unload && !!(src = elem.getAttribute(selector+'-placeholder'))) {
-				if(elem.classList.contains('js-resrcIsLazy') === false) { // If there is no resrc, do normal echo stuff
+			}
+			else if (unload && !!(src = elem.getAttribute(selector+'-placeholder'))) {
+
+				if (elem.getAttribute('data-src-background') !== null) {
+					elem.style.backgroundImage = 'url(' + src + ')';
+				}
+				else {
 					elem.src = src;
 				}
-				elem.removeAttribute(selector+'-placeholder');
+
+				if(elem.classList.contains('resrc-lazy') === false) { // If there is no resrc, do normal echo stuffelem.src = src;
+					elem.removeAttribute(selector+'-placeholder');
+				}
 				callback(elem, 'unload');
 			}
 		}
