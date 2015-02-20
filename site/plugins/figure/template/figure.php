@@ -14,7 +14,7 @@
 
 	<?php // [3] Resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>
 	<?php if($lazyload == false && c::get('resrc') == true): ?>
-		<img data-src="<?php echo 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl; ?>" width="<?php echo $image->width(); ?>" height="<?php echo $image->height(); ?>" class="FigureImage-item resrc<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+		<img data-src="<?php echo 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl; ?>" width="<?php echo $image->width(); ?>" height="<?php echo $image->height(); ?>" class="FigureImage-item resrc js-resrcNotLazy<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 	<?php endif; ?>
 
 	<?php // [4] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>

@@ -267,7 +267,7 @@ kirbytext::$tags['figure'] = array(
 					'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
 						// 'width'     => $image->width(),
 						// 'height'    => $image->height(),
-					'class'     => $class . ' resrc',
+					'class'     => $class . ' resrc js-resrcNotLazy',
 					'alt'       => html($alt)
 					)
 				);
