@@ -93,6 +93,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_vendor %>/modernizr.min.js',
 				],
 				polyfills: [
+					'<%= project.scripts_vendor %>/resrc.lib.js',
 					'<%= project.scripts_polyfills %>/classlist.js',
 					'<%= project.scripts_polyfills %>/domready.js',
 				],
