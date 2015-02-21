@@ -96,8 +96,6 @@
 			<a href="<?php echo url('javascript.php'); ?>" class="BlockLink-nestedLink">Visit the Javascript page</a>
 		</div>
 
-		<?php echo figure($page->images()->first(), array('lazyload' => false)); ?>
-
 		<?php snippet('share_page'); ?>
 
 	</main>
