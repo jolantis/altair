@@ -32,9 +32,9 @@ var lazyload = {
 
 		/* Use echo.js plugin */
 		echo.init({
-			offset: 88,
+			offset: 512,
 			throttle: 250, // Using a throttle will set a small timeout when the user scrolls and will keep throttling until the user stops. The default is 250 milliseconds.
-			debounce: false, // By default the throttling function is actually a debounce function so that the checking function is only triggered after a user stops scrolling. To use traditional throttling where it will only check the images every throttle milliseconds, set debounce to false.
+			debounce: true, // By default the throttling function is actually a debounce function so that the checking function is only triggered after a user stops scrolling. To use traditional throttling where it will only check the images every throttle milliseconds, set debounce to false.
 			unload: false,
 			selector: 'data-src',
 			callback: function(element){
