@@ -29,6 +29,10 @@
 
 // "assets/javascript/vendor/ctm.js",
 
+// or as part of enhance js:
+
+// assets/javascript/vendor/enhance.js,
+
 /**
  * Typekit
  *
@@ -112,4 +116,4 @@
  * For more info see: https://github.com/resrcit/roxy
  */
 
-// "assets/javascript/vendor/resrc.js",
+// "assets/javascript/vendor/resrc.min.js",
