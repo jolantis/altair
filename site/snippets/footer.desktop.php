@@ -14,7 +14,7 @@
 		</footer>
 	</div>
 
-	<?php snippet('no-ctm-fallback'); ?>
+	<?php snippet('no_ctm_fallback'); ?>
 	<?php snippet('analytics'); ?>
 </body>
 </html>
