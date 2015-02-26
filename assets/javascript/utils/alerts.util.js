@@ -1,8 +1,10 @@
 /**
-* messages
+* Alerts
+* Launches a message or alert bar fixed in the top of the window, or a modal.
 *
-* Needs jquery.min.js / zepto.min.js and plugins/transitionend.js
-* Launches a messages fixed in the top of the window.
+* Needs:
+* - utils/exend.util.js
+* - plugins/transitionend.js
 * ----
 * To add a message from the html template, paste this code into the template:
 *
