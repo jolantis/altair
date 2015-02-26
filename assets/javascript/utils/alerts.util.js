@@ -75,7 +75,7 @@ var alerts = {
 
 		message_element = document.createElement('div');
 
-		if(alerts.options.type === 'bar'){
+		if(alerts.options.type === 'bar' || typeof alerts.options.type === 'undefined'){
 			// Create message DOM element
 			message_element.className = 'Alert Alert--bar Alert--' + alerts.options.status + ' js-alert';
 			message_element.setAttribute('data-element-type','bar');
