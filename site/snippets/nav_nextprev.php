@@ -71,12 +71,12 @@ else {
 	<ul>
 		<?php if($has_next): ?>
 			<li class="Pagination-newer<?php if($has_prev == false): echo ' Pagination-newer--first'; endif; ?>">
-				&larr; <a href="<?php echo $next_url; ?>"><?php echo $next_title; ?></a>
+				<a href="<?php echo $next_url; ?>"><?php echo $next_title; ?></a> &rarr;
 			</li>
 		<?php endif; ?>
 		<?php if($has_prev): ?>
 			<li class="Pagination-older<?php if($has_next == false): echo ' Pagination-older--first'; endif; ?>">
-				<a href="<?php echo $prev_url; ?>"><?php echo $prev_title; ?></a> &rarr;
+				&larr; <a href="<?php echo $prev_url; ?>"><?php echo $prev_title; ?></a>
 			</li>
 		<?php endif; ?>
 	</ul>
