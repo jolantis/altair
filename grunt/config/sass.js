@@ -4,8 +4,10 @@ module.exports = function(grunt) {
 		options: {
 			outputStyle: 'nested', // nested or compressed
 			precision: 10, // number of digits to preserve after the dot (default is `10`)
-			sourceComments: 'none', // none, normal or map
+			sourceComments: false, // true enables additional debugging information in the output file as CSS comments
 			sourceMap: false, // enable/disable source maps (when 'true' make sure sourceComments is set to 'map')
+			sourceMapEmbed: false, // true embeds the source map as a data URI
+			sourceMapContents: false, // true includes the contents in the source map information
 		},
 		dist: {
 			files: {
@@ -16,8 +18,10 @@ module.exports = function(grunt) {
 		},
 		main: {
 			options: {
-				sourceComments: 'map', // none, normal or map
-				sourceMap: true, // enable/disable source maps (when 'true' make sure sourceComments is set to 'map')
+				sourceComments: false, // enable/disable additional debugging information in the output file as CSS comments
+				sourceMap: false, // enable/disable the outputting of a source map during render and renderSync
+				sourceMapEmbed: false, // true embeds the source map as a data URI
+				sourceMapContents: false, // true includes the contents in the source map information
 			},
 			files: {
 				'<%= project.styles_dev %>/main.concat.css': '<%= project.styles_scss %>/main.scss', // destination: source
