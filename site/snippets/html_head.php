@@ -104,7 +104,7 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<meta name="fullcss" content="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $mobile_css . '.css'; ?>">
 	<meta name="fulljs" content="<?php echo '/assets/javascript/'. $env_suffix .'/' . $mobile_js . '.js'; ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/'. $env_suffix .'/' . $head_js . '.js'); ?></script>
-	<?php if(isset($_COOKIE['fullcss'])): ?>
+	<?php if(isset($_COOKIE['fullcss']) && $_COOKIE['fullcss'] == 'true'): ?>
 		<link rel="stylesheet" href="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $mobile_css . '.css'; ?>">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . $criticalcss . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . $criticalcss . '_mobile.css'); ?></style>
