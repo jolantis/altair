@@ -69,7 +69,7 @@ kirbytext::$tags['figure'] = array(
 
 		// set variables for both single and multi figures
 		$upscale    = $tag->attr('upscale');
-		$quality    = $tag->attr('quality', c::get('thumb.quality', 100));
+		$quality    = $tag->attr('quality', c::get('thumbs.quality', 100));
 		$caption    = $tag->attr('caption');
 		$break      = $tag->attr('break', c::get('figureimage.break', 'small'));
 		$gutter     = $tag->attr('gutter', c::get('figureimage.gutter', 'default'));
@@ -219,7 +219,7 @@ kirbytext::$tags['figure'] = array(
 
 			// without resrc, maximize thumb width, for speedier loading of page!
 			if(c::get('resrc') == false) {
-				$thumbwidth = c::get('thumb.dev.width', 800);
+				$thumbwidth = c::get('thumbs.dev.width', 800);
 			}
 			else {
 				// with resrc use maximum (original) image width
@@ -233,7 +233,7 @@ kirbytext::$tags['figure'] = array(
 				'crop'    => $crop,
 			), false);
 
-			// [1] Regular image; resized thumb (thumb.dev.width)
+			// [1] Regular image; resized thumb (thumbs.dev.width)
 			if($lazyload == false && c::get('resrc') == false) {
 
 				$imagethumb = html::img($thumburl,array(
@@ -246,7 +246,7 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
-			// [2] Lazyload image; resized thumb (thumb.dev.width)
+			// [2] Lazyload image; resized thumb (thumbs.dev.width)
 			if($lazyload == true && c::get('resrc') == false) {
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(

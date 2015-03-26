@@ -1,9 +1,9 @@
-<?php // [1] Regular src only image; resized thumb (thumb.dev.width) ?>
+<?php // [1] Regular src only image; resized thumb (thumbs.dev.width) ?>
 <?php if($bgimage == false && c::get('resrc') == false): ?>
 	src="<?php echo $thumburl; ?>"
 <?php endif; ?>
 
-<?php // [2] Regular background image; resized thumb (thumb.dev.width) ?>
+<?php // [2] Regular background image; resized thumb (thumbs.dev.width) ?>
 <?php if($bgimage == true && c::get('resrc') == false): ?>
 	style="background-image:url(<?php echo $thumburl; ?>);"<?php if($class): echo ' class="' . $class . '"'; endif; ?>
 <?php endif; ?>

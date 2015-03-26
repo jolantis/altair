@@ -8,21 +8,21 @@
  * Embeds youtube or vimeo video in a fluid embed.
  *
  * Usage:
- * 1) (video: 77383196 host: vimeo)
- * 2) (video: hXU63NXzg5A host: youtube ratio: 4by3)
- * 3) (video: zJs9p-VNORw host: vimeo ratio: 2by1)
+ * 1) (video: 77383196 source: vimeo)
+ * 2) (video: hXU63NXzg5A source: youtube ratio: 4by3)
+ * 3) (video: zJs9p-VNORw source: vimeo ratio: 2by1)
  */
 
 kirbytext::$tags['video'] = array(
 	'attr' => array(
 		'ratio',
-		'host'
+		'source'
 		),
 	'html' => function($tag) {
 
 		$video = $tag->attr('video');
 		$ratio = $tag->attr('ratio');
-		$host = $tag->attr('host');
+		$source = $tag->attr('source');
 
 		// fill the ratio string
 		if($ratio == ''){
@@ -33,10 +33,10 @@ kirbytext::$tags['video'] = array(
 		}
 
 		// display the embedcode
-		if($host == 'vimeo') {
+		if($source == 'vimeo') {
 			$videoelement = '<iframe src="//player.vimeo.com/video/' . $video . '?title=0&amp;byline=0&amp;portrait=0&amp;color=0000ff" width="' . c::get('video.height', '500') . '" height="' . c::get('video.width', '281') . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 		}
-		elseif ($host == 'youtube') {
+		elseif ($source == 'youtube') {
 			$videoelement = '<iframe width="' . c::get('video.width', '500') . '" height="' . c::get('video.height', '281') . '" src="//www.youtube.com/embed/' . $video . '?rel=0" frameborder="0" allowfullscreen></iframe>';
 		}
 		else {

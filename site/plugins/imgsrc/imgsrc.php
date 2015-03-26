@@ -28,7 +28,7 @@ function imgsrc($image=false, $options=array()) {
 
 	// without resrc, maximize thumb width, for speedier loading of page!
 	if(c::get('resrc') == false) {
-		$thumbwidth = c::get('thumb.dev.width', 800);
+		$thumbwidth = c::get('thumbs.dev.width', 800);
 	}
 	else {
 		// with resrc use maximum (original) image width
