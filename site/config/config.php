@@ -386,7 +386,7 @@ Use `lazyload.init` in main.scripts.js
 
 */
 
-c::set('lazyload', true);                                                       // set to true to lazyload images
+c::set('lazyload', true);                                                       // Set to true to lazyload images
 
 
 /* --------------------------------------------------------------------------------
@@ -410,9 +410,9 @@ use `lazyload.init` in main.scripts.js
 
 */
 
-c::set('resrc', true);                                                          // set to true to use resrc for retina images
-c::set('resrc.plan', 'app.resrc.it');                                           // set to true to use resrc for retina images
-c::set('resrc.params', 's=w300/o=60(74)');                                      // params (options) Resrc will use generating the image. Without starting and trailing slash! See http://www.resrc.it/docs/resize for sizes and more
+c::set('resrc', true);                                                          // Set to true to use resrc
+c::set('resrc.plan', 'app.resrc.it');                                           // Set to 'trial.resrc.it' while using a resrc trail plan, otherwise set to 'app.resrc.it'
+c::set('resrc.params', 's=w300/o=60(74)');                                      // Resrc params (options) used to generate images; see http://www.resrc.it/docs for more parameters
 
 
 /* -----------------------------------------------------------------------------
@@ -439,7 +439,7 @@ added to these environment specific config files!).
 
 */
 
-c::set('analytics.tool', 'ga-universal');                                       // [1] set tracking method
+c::set('analytics.tool', 'ga-universal');                                       // [1] Set tracking method
 c::set('google.analytics.id', 'TRACKING ID IS NOT SET');                        // [2] Google Analytics ID
 c::set('gosquared.id', 'TRACKING ID IS NOT SET');                               // [2] GoSquared ID
 c::set('segment.io.api.key', 'TRACKING API KEY IS NOT SET');                    // [2] Segment.io API Key
