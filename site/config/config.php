@@ -152,8 +152,9 @@ Enable/disable Kirby's cache.
 */
 
 c::set('cache', false);
-c::set('cache.driver', 'file');                                                 // Valid values: file, memcached or apc
-c::set('cache.options', array('host' => 'localhost', 'port' => 22122));         // By default the memcached driver uses the localhost and the port 11211; change with this cache.options variable
+c::set('cache.driver', 'file');                                                 // Valid values are: file, memcached and apc
+c::set('cache.options', array('host' => 'localhost', 'port' => 11211));         // Change the default memcached driver host and port (the default is localhost and  11211)
+c::set('cache.options', array('prefix' => 'mycustomprefix_'));                  // Prefix memcached keys (prevent collision of caches when pages are named the same, acros sites in a multisite environment)
 c::set('cache.ignore', array('sitemap' ,'feed', 'search'));
 
 
