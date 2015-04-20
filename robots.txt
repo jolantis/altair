@@ -1,16 +1,23 @@
-# www.robotstxt.org/
+# robots.txt for kirby 2.0.x
+
+# This file is to prevent the crawling and indexing of certain parts
+# of your site by web crawlers and spiders run by sites like Yahoo!
+# and Google. By telling these "robots" where not to go on your site,
+# you save bandwidth and server resources.
+
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/robotstxt.html
 # http://code.google.com/web/controlcrawlindex/
 # https://support.google.com/webmasters/answer/35769
 
 User-agent: *
 
-# Kirby CMS
-# Disallow: /assets/
+# Kirby
+Disallow: /content/*.txt$
 Disallow: /kirby/
 Disallow: /site/
 Disallow: /panel/
-Disallow: /thumbs/
-Disallow: /content/sitemap/
+Disallow: /*.md$
 
 # Google Image
 User-agent: Googlebot-Image
