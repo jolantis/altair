@@ -1,5 +1,4 @@
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -25,7 +24,8 @@ html {
 
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
 
@@ -38,6 +38,7 @@ footer,
 header,
 hgroup,
 main,
+menu,
 nav,
 section,
 summary {
@@ -85,7 +86,7 @@ template {
 // */
 
 // a {
-// 	background: transparent;
+// 	background-color: transparent;
 // }
 
 /**
@@ -194,9 +195,9 @@ svg:not(:root) {
 /* Grouping content
    ========================================================================== */
 
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
+///**
+// * Address margin not present in IE 8/9 and Safari.
+// */
 
 // figure {
 // 	margin: 1em 40px;
