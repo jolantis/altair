@@ -2,21 +2,18 @@ module.exports = function(grunt) {
 
 	grunt.config('autoprefixer', {
 		options: {
+			browsers: ['> 3%', 'last 2 versions', 'Firefox ESR'], // Default value is: > 1%, last 2 versions, Firefox ESR, Opera 12.1
 			map: false, // enable/disable source maps
 			cascade: true, // ‘cascade’ indentation
 		},
 		main: {
 			options: {
-				// browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'], // disable to get Auoprefixer's default values; for other browsers see: https://github.com/postcss/autoprefixer#browsers
 				map: false, // enable/disable source maps
 			},
 			src: '<%= project.styles_dev %>/main.concat.css',
 			dest: '<%= project.styles_dev %>/main.dev.css',
 		},
 		mobile: {
-			// options: {
-			// 	browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
-			// },
 			src: '<%= project.styles_dev %>/mobile.concat.css',
 			dest: '<%= project.styles_dev %>/mobile.dev.css',
 		},
