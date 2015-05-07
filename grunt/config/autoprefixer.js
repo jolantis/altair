@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 		},
 		main: {
 			options: {
-				map: false, // enable/disable source maps
+				map: true, // enable/disable source maps
 			},
 			src: '<%= project.styles_dev %>/main.concat.css',
 			dest: '<%= project.styles_dev %>/main.dev.css',

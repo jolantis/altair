@@ -27,7 +27,7 @@
 	$base-text-size: map-get($base-text-properties, "font-size");
 	$text-properties: text-properties-for($text-size-name, $default-breakpoint-name);
 	$text-size: map-get($text-properties, "font-size");
-	@return $text-size / $base-text-size + 0rem;
+	@return $text-size / $base-text-size + rem;
 }
 
 @function text-line-height($text-size-name, $default-breakpoint-name: "small", $lines: 1) {

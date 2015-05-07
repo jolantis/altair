@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 		main: {
 			options: {
 				sourceComments: false, // enable/disable additional debugging information in the output file as CSS comments
-				sourceMap: false, // enable/disable the outputting of a source map during render and renderSync
+				sourceMap: true, // enable/disable the outputting of a source map during render and renderSync
 				sourceMapEmbed: false, // true embeds the source map as a data URI
 				sourceMapContents: false, // true includes the contents in the source map information
 			},

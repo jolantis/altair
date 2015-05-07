@@ -11,6 +11,6 @@
 	@if $lines == 0 {
 		@return 0; // If number of lines is 0, output unitless value
 	} @else {
-		@return $line-height * $lines + 0rem;
+		@return $line-height * $lines + rem;
 	}
 }
