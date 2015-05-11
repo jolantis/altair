@@ -48,7 +48,6 @@ module.exports = function(grunt) {
 		jsfiles: {
 			head: [
 				'<%= project.scripts_vendor %>/enhance.js',
-				// '<%= project.scripts_vendor %>/ctm.js',
 				// '<%= project.scripts_vendor %>/typekit.min.js',
 				// '<%= project.scripts_vendor %>/webfont.min.js',
 				'<%= project.scripts %>/head.scripts.js',
@@ -65,7 +64,7 @@ module.exports = function(grunt) {
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
-					'<%= project.scripts_plugins %>/echo.js', // Out-comment when using lazyload!!!
+					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smoothscroll.js',
 				],
@@ -79,7 +78,6 @@ module.exports = function(grunt) {
 				other: [
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
-					'<%= project.scripts_classes %>/lazyload.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 					'<%= project.scripts_classes %>/popup.class.js',
 				// Main
@@ -98,7 +96,7 @@ module.exports = function(grunt) {
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
-					'<%= project.scripts_plugins %>/echo.js', // Out-comment when using lazyload!!!
+					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smoothscroll.js',
 				],
@@ -112,7 +110,6 @@ module.exports = function(grunt) {
 				other: [
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
-					'<%= project.scripts_classes %>/lazyload.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 				// Main
 					'<%= project.scripts %>/mobile.scripts.js',

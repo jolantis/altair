@@ -176,7 +176,7 @@ kirbytext::$tags['figure'] = array(
 					$griddiv = new Brick('div');
 				}
 				$lazydiv = new Brick('div');
-				$lazydiv->addClass('FigureImage-lazy');
+				$lazydiv->addClass('FigureImage-lazy lazyload');
 				$lazydiv->attr('style', 'padding-bottom: ' . $percentage_padding . '%;');
 			}
 
@@ -253,7 +253,7 @@ kirbytext::$tags['figure'] = array(
 					'data-src'  => $thumburl,
 					// 'width'     => $image->width(),
 					// 'height'    => $image->height(),
-					'class'     => $class,
+					'class'     => $class . ' lazyload',
 					'alt'       => html($alt)
 					)
 				);

@@ -18,7 +18,7 @@ domready(function () {
 	alerts.init(push_message);                // Init alerts
 	expand.init();                            // Init expand / collapse
 	navMain.init();                           // Init main navigation
-	lazyload.init();                          // Init lazyload with resrc
+	// lazyload.init();                          // Init lazyload with resrc
 	smoothScroll.init();                      // Init smoothscroll
 	popup.init();                             // Init popup
 

@@ -18,7 +18,7 @@ domready(function () {
 	alerts.init(push_message);                // Init alerts
 	expand.init();                            // Init expand / collapse
 	navMain.init();                           // Init main navigation
-	lazyload.init();                          // Init lazyload
+	// lazyload.init();                          // Init lazyload
 	smoothScroll.init();                      // Init smoothscroll
 
 });

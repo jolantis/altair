@@ -13,7 +13,7 @@
 	// height: 0; // Height is set by inline percentage-padding in figure plugin/tag to prevent reflow on image load
 	background-color: $color-gray-quiet;
 
-	.is-loading &:after {
+	&.lazyload:after {
 		position: absolute;
 		right: rhythm(.5);
 		bottom: rhythm(.5);
@@ -30,7 +30,7 @@
 		top: 0;
 		left: 0;
 
-		.is-loaded & {
+		&.lazyloaded {
 			animation: FadeIn .56s ease-in both; // Fade-in animation
 		}
 	}
