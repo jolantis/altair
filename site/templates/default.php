@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<div <?php echo imgsrc($page->images()->first(), array('bgimage' => true, 'class' => 'CoverImage FluidEmbed--3by2 FluidEmbed--large16by9 FluidEmbed--huge2by1')); ?>></div>
+	<div <?php echo bgimage($page->images()->first(), array('class' => 'CoverImage FluidEmbed--3by2 FluidEmbed--large16by9 FluidEmbed--huge2by1')); ?>></div>
 
 	<div class="ContainPadding">
 

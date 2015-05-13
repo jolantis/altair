@@ -8,7 +8,7 @@
  * @version 1.0.0
  */
 
-function imgsrc($image=false, $options=array()) {
+function bgimage($image=false, $options=array()) {
 
 	if(!$image) {
 		return;
@@ -20,7 +20,7 @@ function imgsrc($image=false, $options=array()) {
 		'cropratio'  => null,
 		'class'      => '',
 		'alt'        => '',
-		'bgimage'    => false,
+		'lazyload'   => c::get('lazyload', false),   // Lazyloading with lazySizes (https://github.com/aFarkas/lazysizes)
 	);
 
 	// merge defaults and options
@@ -71,7 +71,7 @@ function imgsrc($image=false, $options=array()) {
 	), false);
 
 	// Return template HTML
-	return tpl::load(__DIR__ . DS . 'template/imgsrc.php', $options);
+	return tpl::load(__DIR__ . DS . 'template/bgimage.php', $options);
 
 }
 ?>

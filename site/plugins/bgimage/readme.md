@@ -1,6 +1,6 @@
-# Imgsrc plugin
+# Bgimage plugin
 
-A plugin for [Kirby CMS](http://getkirby.com/) that generates an `src` attribute only. Handy for creating an `img` tag or for use as background image url.
+A plugin for [Kirby CMS](http://getkirby.com/) that generates an bakground iamge `src` attribute only. Handy for creating an `img` tag or for use as background image url.
 
 ## Installation
 

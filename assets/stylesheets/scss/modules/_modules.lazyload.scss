@@ -35,3 +35,14 @@
 		}
 	}
 }
+
+/**
+ * Lazyload bgimage
+ */
+
+.BgImage {
+
+	&.lazyloaded {
+		animation: FadeIn .56s ease-in both; // Fade-in animation
+	}
+}
