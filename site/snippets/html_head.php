@@ -98,7 +98,7 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<?php snippet('icons'); ?>
 
 	<?php // Roxy (stand-alone proxy) variable for local resrc images testing ?>
-	<?php if(c::get('environment') == 'local' && c::get('resrc') == true) : ?><script>var custom_resrc = { server : 'local.roxy:8080' };</script><?php endif; ?>
+	<?php /* if(c::get('environment') == 'local' && c::get('resrc') == true) : ?><script>var custom_resrc = { server : 'local.roxy:8080' };</script><?php endif; */ ?>
 
 	<?php // Enhance stylesheets and scripts (https://github.com/filamentgroup/enhance) ?>
 	<meta name="fullcss" content="<?php echo '/assets/stylesheets/' . $env_suffix . '/' . $mobile_css . '.css'; ?>">
