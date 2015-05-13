@@ -206,7 +206,7 @@ kirbytext::$tags['figure'] = array(
 				// Add extra griddiv for lazyload
 				if($lazyload == true) {
 					// Set the class for the image
-					$class = 'FigureImage-item lazyload';
+					$class = 'FigureImage-item';
 					// Set the class for the grid div
 					if(isset($griddiv)) {
 						$griddiv->addClass($gridcellclass);
