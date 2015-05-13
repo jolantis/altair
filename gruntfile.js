@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',
 					'<%= project.scripts_polyfills %>/domready.js',
-					'<%= project.scripts_vendor %>/resrc.min.js', // Out-comment when using resrc!!!
+					// '<%= project.scripts_vendor %>/resrc.min.js', // Out-comment when using resrc *without* lazyload!!!
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',
 					'<%= project.scripts_polyfills %>/domready.js',
-					'<%= project.scripts_vendor %>/resrc.min.js', // Out-comment when using resrc!!!
+					// '<%= project.scripts_vendor %>/resrc.min.js', // Out-comment when using resrc *without* lazyload!!!
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
