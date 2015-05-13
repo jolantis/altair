@@ -66,6 +66,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_plugins %>/domdelegate.js',
 					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/ls.rias.min.js', // Out-comment when using lazyload + resrc!!!
+					'<%= project.scripts_plugins %>/ls.print.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smoothscroll.js',
 				],
@@ -99,6 +100,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_plugins %>/domdelegate.js',
 					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/ls.rias.min.js', // Out-comment when using lazyload + resrc!!!
+					'<%= project.scripts_plugins %>/ls.print.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smoothscroll.js',
 				],
