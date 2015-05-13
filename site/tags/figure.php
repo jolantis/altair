@@ -278,11 +278,12 @@ kirbytext::$tags['figure'] = array(
 			if($lazyload == true && c::get('resrc') == true) {
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
-					'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
-					// 'width'     => $image->width(),
-					// 'height'    => $image->height(),
-					'class'     => $class . ' js-resrcIsLazy',
-					'alt'       => html($alt)
+					'data-sizes' => 'auto',
+					'data-src'   => 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl,
+					// 'width'      => $image->width(),
+					// 'height'     => $image->height(),
+					'class'      => $class . ' js-resrcIsLazy',
+					'alt'        => html($alt)
 					)
 				);
 

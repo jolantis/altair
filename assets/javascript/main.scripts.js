@@ -22,3 +22,9 @@ domready(function () {
 	popup.init();                             // Init popup
 
 });
+
+// lazySizes config
+document.addEventListener('lazyriasmodifyoptions', function(event){
+	// event.detail referes the placeholders/options and event.target the corresponding element
+	event.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 80;
+});

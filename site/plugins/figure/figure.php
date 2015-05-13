@@ -21,7 +21,7 @@ function figure($image=false, $options=array()) {
 		'class'      => '',
 		'alt'        => '',
 		'caption'    => null,                        // Output a figcaption
-		'lazyload'   => c::get('lazyload', false),   // Opinionated lazyloading, with Dumbar's custom echo.js
+		'lazyload'   => c::get('lazyload', false),   // Lazyloading with lazySizes (https://github.com/aFarkas/lazysizes)
 	);
 
 	// merge defaults and options

@@ -21,3 +21,9 @@ domready(function () {
 	smoothScroll.init();                      // Init smoothscroll
 
 });
+
+// lazySizes config
+document.addEventListener('lazyriasmodifyoptions', function(event){
+	// event.detail referes the placeholders/options and event.target the corresponding element
+	event.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 80;
+});

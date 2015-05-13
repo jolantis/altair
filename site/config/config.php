@@ -413,7 +413,7 @@ use `lazyload.init` in main.scripts.js
 
 c::set('resrc', true);                                                          // Set to true to use resrc
 c::set('resrc.plan', 'app.resrc.it');                                           // Set to 'trial.resrc.it' while using a resrc trail plan, otherwise set to 'app.resrc.it'
-c::set('resrc.params', 's=w300/o=60(74)');                                      // Resrc params (options) used to generate images; see http://www.resrc.it/docs for more parameters
+c::set('resrc.params', 's=w300/o=80');                                          // Resrc params (options) used to generate images; see http://www.resrc.it/docs for more parameters
 
 
 /* -----------------------------------------------------------------------------

@@ -20,7 +20,7 @@
 	<?php // [4] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>
 	<?php if($lazyload == true && c::get('resrc') == true): ?>
 		<div class="FigureImage-lazy lazyload" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
-			<img data-src="<?php echo 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item js-resrcIsLazy<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+			<img data-sizes="auto" data-src="<?php echo 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item js-resrcIsLazy<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 		</div>
 	<?php endif; ?>
 
