@@ -192,7 +192,7 @@ kirbytext::$tags['figure'] = array(
 				// Add extra griddiv for lazyload
 				if($lazyload == true) {
 					// Set the class for the image
-					$class = 'FigureImage-item lazyload';
+					$class = 'FigureImage-item';
 					// Set the class on the grid div
 					if(isset($griddiv)) {
 						$griddiv->addClass($gridcellclass.'u-size' . $width . '--' . $break);
@@ -206,7 +206,7 @@ kirbytext::$tags['figure'] = array(
 				// Add extra griddiv for lazyload
 				if($lazyload == true) {
 					// Set the class for the image
-					$class = 'FigureImage-item';
+					$class = 'FigureImage-item lazyload';
 					// Set the class for the grid div
 					if(isset($griddiv)) {
 						$griddiv->addClass($gridcellclass);
@@ -267,7 +267,7 @@ kirbytext::$tags['figure'] = array(
 					'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
 						// 'width'     => $image->width(),
 						// 'height'    => $image->height(),
-					'class'     => $class . ' resrc js-resrcNotLazy',
+					'class'     => $class . ' resrc',
 					'alt'       => html($alt)
 					)
 				);
@@ -282,7 +282,7 @@ kirbytext::$tags['figure'] = array(
 					'data-src'   => 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl,
 					// 'width'      => $image->width(),
 					// 'height'     => $image->height(),
-					'class'      => $class . ' js-resrcIsLazy',
+					'class'      => $class . ' lazyload',
 					'alt'        => html($alt)
 					)
 				);
