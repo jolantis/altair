@@ -10,5 +10,5 @@
 
 <?php // [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>
 <?php if($lazyload == true && c::get('resrc') == true): ?>
-	data-sizes="auto" data-bg="<?php echo 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl; ?>" class="BgImage lazyload<?php if($class): echo ' ' . $class; endif; ?>"
+	data-sizes="auto" data-bgset="<?php echo 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl; ?>" class="BgImage lazyload<?php if($class): echo ' ' . $class; endif; ?>"
 <?php endif; ?>
