@@ -9,9 +9,10 @@
 
 var popup = {
 
-	init: function(){
-
-		/* Initiate popup event handlers */
+	/**
+	 * Initiate popup event handlers
+	 */
+	init: function() {
 		var popuplinks = document.querySelectorAll('.js-popup');
 		for (var i = 0; i < popuplinks.length; i++) {
 			if (popuplinks[i] !== null) {
@@ -23,7 +24,6 @@ var popup = {
 
 	openWindow: function(event){
 		var url = event.currentTarget.getAttribute('href');
-
 		window.open(url, 'popupwin', 'height=400,width=650,resizable=1,toolbar=0,menubar=0,status=0,location=0,scrollbars=1');
 		event.preventDefault();
 	}

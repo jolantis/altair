@@ -3,8 +3,7 @@
  * Add simple navigation functionality (open and close) to .js-navMain element
  *
  * Usage:
- * nav.init(); // navigation fixed on top of window
- * nav.init('basic'); // navigation relative at top of document
+ * navMain.init(); // navigation fixed on top of window
  */
 
 var navMain = {
@@ -16,7 +15,7 @@ var navMain = {
 	},
 
 	/**
-	 * Initiate the navigation
+	 * Initiate navigation
 	 */
 	init: function(type) {
 		var navMainShow = document.querySelector('.js-navMainShow');

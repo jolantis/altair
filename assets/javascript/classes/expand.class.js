@@ -3,6 +3,10 @@
  */
 
 var expand = {
+
+	/**
+	 * Initiate expand / collapse
+	 */
 	init: function() {
 		var expanders = document.querySelectorAll('.js-expandtarget');
 		for (i = 0; i < expanders.length; i++) {
