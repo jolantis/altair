@@ -5,7 +5,7 @@
 
 <?php // [2] Lazyload image; resized thumb (thumbs.dev.width)  ?>
 <?php if($lazyload == true && c::get('resrc') == false): ?>
-	data-bg="<?php echo $thumburl; ?>" class="BgImage lazyload<?php if($class): echo ' ' . $class; endif; ?>"
+	data-bgset="<?php echo $thumburl; ?>" class="BgImage lazyload<?php if($class): echo ' ' . $class; endif; ?>"
 <?php endif; ?>
 
 <?php // [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>

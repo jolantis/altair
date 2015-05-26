@@ -82,6 +82,7 @@ module.exports = function(grunt) {
 				other: [
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
+					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 					'<%= project.scripts_classes %>/popup.class.js',
 				// Main
@@ -118,6 +119,7 @@ module.exports = function(grunt) {
 				other: [
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
+					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 				// Main
 					'<%= project.scripts %>/mobile.scripts.js',
