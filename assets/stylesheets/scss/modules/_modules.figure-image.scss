@@ -39,6 +39,14 @@
  *
  */
 
+.FigureImage {
+
+	.no-js & .resrc,
+	.no-js & .lazyload {
+		display: none; // Noscript pattern
+	}
+}
+
 /**
  * Always occupy available space (even when wider than natural width of image)
  */
