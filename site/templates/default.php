@@ -6,7 +6,10 @@
 
 	<?php snippet('banner'); ?>
 
-	<div <?php echo bgimage($page->images()->first(), array('class' => 'CoverImage FluidEmbed--3by2 FluidEmbed--large16by9 FluidEmbed--huge2by1')); ?>></div>
+	<div <?php echo bgimage($page->images()->first(), array('class' => 'BgImage FluidEmbed--3by2 FluidEmbed--large16by9 FluidEmbed--huge2by1')); ?>></div>
+	<noscript>
+		<div style="background-image:url(<?php echo thumb($page->images()->first(), array(), false); ?>);" class="BgImage FluidEmbed--3by2 FluidEmbed--large16by9 FluidEmbed--huge2by1"></div>
+	</noscript>
 
 	<div class="ContainPadding">
 
