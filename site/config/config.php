@@ -366,7 +366,9 @@ Thumbs
 c::set('thumbs.driver','gd');                                                   // The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
 c::set('thumbs.filename','{safeName}-{hash}.{extension}');                      // The naming scheme for thumb files (default is: {safeName}-{hash}.{extension})
 c::set('thumbs.quality', 70);                                                   // The default jpg compression (or quality setting) for thumbs (figure plugin and tag); is always set to 100% for resrc (see 'resrc.params' to set compression quality for resrc)
-c::set('thumbs.dev.width', 800);                                                // Development environment only: an arbitrary maximum width for thumbs (figure plugin and tag), when using resrc on stage and production
+c::set('thumbs.small.width', 352);                                              // An arbitrary *small* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
+c::set('thumbs.medium.width', 800);                                             // An arbitrary *medium* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
+c::set('thumbs.large.width', 1200);                                             // An arbitrary *large* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
 
 
 /* -----------------------------------------------------------------------------

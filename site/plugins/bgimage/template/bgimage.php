@@ -1,9 +1,9 @@
-<?php // [1] Regular background image; resized thumb (thumbs.dev.width) ?>
+<?php // [1] Regular background image; resized thumb (e.g. thumbs.medium.width) ?>
 <?php if($lazyload == false && c::get('resrc') == false): ?>
 	style="background-image:url(<?php echo $thumburl; ?>);"<?php if($class): echo ' class="' . $class . '"'; endif; ?>
 <?php endif; ?>
 
-<?php // [2] Lazyload image; resized thumb (thumbs.dev.width)  ?>
+<?php // [2] Lazyload image; resized thumb (e.g. thumbs.medium.width)  ?>
 <?php if($lazyload == true && c::get('resrc') == false): ?>
 	data-bgset="<?php echo $thumburl; ?>" class="<?php if($class): echo $class . ' '; endif; ?>lazyload"
 <?php endif; ?>

@@ -219,7 +219,7 @@ kirbytext::$tags['figure'] = array(
 
 			// without resrc, maximize thumb width, for speedier loading of page!
 			if(c::get('resrc') == false) {
-				$thumbwidth = c::get('thumbs.dev.width', 800);
+				$thumbwidth = c::get('thumbs.medium.width', 800);
 			}
 			else {
 				// with resrc use maximum (original) image width
@@ -233,7 +233,7 @@ kirbytext::$tags['figure'] = array(
 				'crop'    => $crop,
 			), false);
 
-			// [1] Regular image; resized thumb (thumbs.dev.width)
+			// [1] Regular image; resized thumb (e.g. thumbs.medium.width)
 			if($lazyload == false && c::get('resrc') == false) {
 
 				$imagethumb = html::img($thumburl,array(
@@ -248,7 +248,7 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
-			// [2] Lazyload image; resized thumb (thumbs.dev.width)
+			// [2] Lazyload image; resized thumb (e.g thumbs.medium.width)
 			if($lazyload == true && c::get('resrc') == false) {
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
