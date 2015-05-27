@@ -326,7 +326,6 @@ AddDefaultCharset utf-8
     # If homepage is http://yourdomain.com/mysite,
     # set the RewriteBase to: RewriteBase /mysite
     # RewriteBase /mysite
-    RewriteBase /
     # [1] Block text files in the content folder from being accessed directly
     RewriteRule ^content/(.*)\.(txt|md|mdown)$ error [R=301,L]
     # [2] Block all files in the site folder from being accessed directly
