@@ -14,7 +14,7 @@ function bgimage($image=false, $options=array()) {
 		return;
 	}
 
-	// default key values
+	// Default key values
 	$defaults = array(
 		'width'      => null,
 		'height'     => null,
@@ -25,10 +25,10 @@ function bgimage($image=false, $options=array()) {
 		'lazyload'   => c::get('lazyload', false),   // Lazyloading with lazySizes (https://github.com/aFarkas/lazysizes)
 	);
 
-	// merge defaults and options
+	// Merge defaults and options
 	$options = array_merge($defaults, $options);
 
-	// without resrc, maximize thumb width, for speedier loading of page!
+	// Without resrc, maximize thumb width, for speedier loading of page!
 	if(c::get('resrc') == false) {
 		if(!isset($options['width'])) {
 			$thumbwidth = c::get('thumbs.medium.width', 800);
@@ -37,36 +37,36 @@ function bgimage($image=false, $options=array()) {
 		}
 	}
 	else {
-		// with resrc use maximum (original) image width
+		// With resrc use maximum (original) image width
 		$thumbwidth = null;
 	}
 
-	// if no crop variable is defined *and* no cropratio
+	// If no crop variable is defined *and* no cropratio
 	// is set, the crop variable is set to false
 	if(!isset($options['crop']) && !isset($options['cropratio'])) {
 		$options['crop'] = false;
 	}
 
-	// when a cropratio is set, calculate the ratio based height
+	// When a cropratio is set, calculate the ratio based height
 	if(isset($options['cropratio'])) {
-		// if resrc is enabled (and therefor $thumbwidth is not set (e.g. `null`),
-		// to use max width of image!), set thumbwidth to width of original image
-		if(!isset($thumbwidth)) {
-			$thumbwidth = $image->width();
-		}
-		// if cropratio is a fraction string (e.g. 1/2), convert to decimal
-		// if(!is_numeric($options['cropratio'])) {
+		// If cropratio is a fraction string (e.g. 1/2), convert to decimal
 		if(strpos($options['cropratio'], '/') !== false) {
 			list($numerator, $denominator) = str::split($options['cropratio'], '/');
 			$options['cropratio'] = $numerator / $denominator;
 		}
-		// calculate new thumb height based on cropratio
+		// If resrc is enabled ($thumbwidth is not set (e.g. `null`), to use
+		// max width of image!), set thumbwidth to width of original image
+		if(!isset($thumbwidth)) {
+			$thumbwidth = $image->width();
+		}
+		// Calculate new thumb height based on cropratio
 		$thumbheight = round($thumbwidth * $options['cropratio']);
-		// if a cropratio is set, the crop variable is always set to true
+		// If a cropratio is set, the crop variable is always set to true
 		$options['crop'] = true;
 	}
 	else {
-		$thumbheight = null; // max height of image
+		// Max. height of image
+		$thumbheight = null;
 	}
 
 	// Create thumb url (create a new thumb object)
