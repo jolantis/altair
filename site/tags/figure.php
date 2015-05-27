@@ -244,6 +244,8 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
+				$noscript = false;
+
 			}
 
 			// [2] Lazyload image; resized thumb (thumbs.dev.width)
@@ -258,14 +260,18 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
+				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" alt="'. html($alt) .'" width="'. $image->width() .'" height="'. $image->height() .'" /></noscript>';
+
 			}
 
 			// [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
 			if($lazyload == true && c::get('resrc') == true) {
 
+				$datasrc = 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl;
+
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-sizes' => 'auto',
-					'data-src'   => 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl,
+					'data-src'   => $datasrc,
 					// 'width'      => $image->width(),
 					// 'height'     => $image->height(),
 					'class'      => $class . ' lazyload',
@@ -273,17 +279,25 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
+				$noscript = '<noscript><img src="'. $datasrc .'" class="'. $class .'" alt="'. html($alt) .'" width="'. $image->width() .'" height="'. $image->height() .'" /></noscript>';
+
 			}
 
 			// Output different markup, depending on lazyload or not
 			if($lazyload == true) {
 				$lazydiv->append($imagethumb);
-				if(isset($griddiv)) {
+				if(isset($griddiv)) { // If the image should be inside a grid
 					$griddiv->append($lazydiv);
+					if($noscript) { // If noscript is set, append to figure
+						$griddiv->append($noscript);
+					}
 					$figure->append($griddiv);
 				}
-				else {
+				else { // If the image should NOT be inside a grid
 					$figure->append($lazydiv);
+					if($noscript) { // If noscript is set, append to figure
+						$figure->append($noscript);
+					}
 				}
 			}
 			else {
