@@ -7,7 +7,6 @@
  */
 
 %u-headingSettings {
-	@extend %u-textKern;
 	@include heading-font(400);
 
 	letter-spacing: .01em;
@@ -25,6 +24,7 @@
 
 .AlphaHeading {
 	@extend %u-headingSettings;
+	@extend %u-textKern;
 	@include responsive-text-size("alpha");
 }
 
@@ -32,6 +32,7 @@
 
 .BetaHeading {
 	@extend %u-headingSettings;
+	@extend %u-textKern;
 	@include responsive-text-size("beta");
 }
 
