@@ -45,26 +45,28 @@ kirbytext::$tags['figure'] = array(
 
 		$images = $tag->attr('figure');
 
-		// check if the figure has multiple images to output, check for pipe character: |
+		// Check if the figure has multiple images to output, check for piper (e.g. `|`)
 		if(strpos($images,'|') === false) {
 			$is_multifigure = false;
-			$images = array($images); // set the one images as the first in an images array
+			// Set the one images as the first in an images array
+			$images = array($images);
 		}
 		else {
 			$is_multifigure = true;
-			$images = str::split(str_replace(' ', '', $images), '|'); // set all images to the array
+			// Set all images to the array
+			$images = str::split(str_replace(' ', '', $images), '|');
 		}
 
-		// check if there images passed to the array
+		// Check if there are images passed to the array
 		if(empty($images)) return false;
 
-		// build array of image objects
+		// Build array of image objects
 		foreach($images as $img) {
 			$imgObj = $tag->file($img);
 			if($imgObj) $imageresult[] = $imgObj;
 		}
 
-		// check of array of images has real items (after building objects)
+		// Check if array of images has real items (after building objects)
 		if(empty($imageresult)) return false;
 
 		// set variables for both single and multi figures
@@ -79,9 +81,10 @@ kirbytext::$tags['figure'] = array(
 		$alt        = $tag->attr('alt');
 		$crop       = $tag->attr('crop');
 		$cropratio  = $tag->attr('cropratio');
+		$width      = $tag->attr('width');
 		$height     = $tag->attr('height');
 
-		// Get width of image(s)
+		// Get width variable(s) of image(s)
 		if($is_multifigure) {
 			$widths = str::split(str_replace(' ', '', $tag->attr('width')), '|');
 		}
@@ -133,34 +136,44 @@ kirbytext::$tags['figure'] = array(
 		$i = 0;
 		foreach($imageresult as $image) {
 
-			// if the crop variable is explicitly set to 'false' string *and*
+			// If the crop variable is explicitly set to 'false' string *and*
 			// no cropratio is set, the crop variable is always set to false
 			if($crop == 'false' && !isset($cropratio)) {
 				$crop = false;
 			}
 
-			// when a cropratio is set, calculate the ratio based height
+			// Without resrc, maximize thumb width, for speedier loading of page!
+			if(c::get('resrc') == false) {
+				$thumbwidth = c::get('thumbs.medium.width', 800);
+			}
+			else {
+				// If resrc is enabled, set thumbwidth to width of original
+				// image, to use maximum (original) image width
+				$thumbwidth = null;
+			}
+
+			// When a cropratio is set, calculate the ratio based height
 			if(isset($cropratio)) {
-				// if resrc is enabled (and therefor $thumbwidth is not set (e.g. `null`),
-				// to use max width of image!), set thumbwidth to width of original image
-				if(!isset($thumbwidth)) {
-					$thumbwidth = $image->width();
-				}
-				// if cropratio is a fraction string (e.g. 1/2), convert to decimal
-				// if(!is_numeric($cropratio)) {
+				// If cropratio is a fraction string (e.g. 1/2), convert to decimal
 				if(strpos($cropratio, '/') !== false) {
 					list($numerator, $denominator) = str::split($cropratio, '/');
 					$cropratio = $numerator / $denominator;
 				}
-				// calculate new thumb height based on cropratio
+				// If resrc is enabled ($thumbwidth is not set (e.g. `null`),
+				// to use max width of image!), set thumbwidth to width of
+				// original image
+				if(!isset($thumbwidth)) {
+					$thumbwidth = $image->width();
+				}
+				// Calculate new thumb height based on cropratio
 				$thumbheight = round($thumbwidth * $cropratio);
-				// if a cropratio is set, the crop variable is always set to true
+				// If a cropratio is set, the crop variable is always set to true
 				$crop = true;
 				// Manual defined (crop)ratio
 				$ratio = $cropratio;
 			}
 			else {
-				// max height of image
+				// Max. height of image
 				$thumbheight = null;
 				// Intrinsic image's ratio
 				$ratio = 1 / $image->ratio();
@@ -180,14 +193,14 @@ kirbytext::$tags['figure'] = array(
 				$lazydiv->attr('style', 'padding-bottom: ' . $percentage_padding . '%;');
 			}
 
-			// set widths of all images
+			// Set width class names of image(s)
 			$width = $widths[$i];
 
 			// If there is one or more width set, use width variable(s)
 			if(count($widths) > 0) {
-				// the first part (the 1 of 3)
+				// The first part (the 1 of 3)
 				$classgridpart = str::substr($width, 0, 1);
-				// the total (the 3)
+				// The total (the 3)
 				$classgridtot = str::substr($width, 3, 1);
 				// Add extra griddiv for lazyload
 				if($lazyload == true) {
@@ -215,15 +228,6 @@ kirbytext::$tags['figure'] = array(
 				else {
 					$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
 				}
-			}
-
-			// without resrc, maximize thumb width, for speedier loading of page!
-			if(c::get('resrc') == false) {
-				$thumbwidth = c::get('thumbs.medium.width', 800);
-			}
-			else {
-				// with resrc use maximum (original) image width
-				$thumbwidth = null;
 			}
 
 			$thumburl = thumb($image,array(
