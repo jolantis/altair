@@ -23,7 +23,7 @@ You can use this in a template file.
 or… 
 
 ```<?php
-<div <?php echo imgsrc($page->images()->first(), array('bgimage' => true, 'class' => 'CoverImage FluidEmbed FluidEmbed--16by9')); ?>></div>
+<div <?php echo imgsrc($page->images()->first(), array('bgimage' => true, 'class' => 'BgImage FluidEmbed FluidEmbed--16by9')); ?>></div>
 ```
 
 ### Options
