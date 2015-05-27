@@ -260,21 +260,7 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
-			// [3] Resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
-			if($lazyload == false && c::get('resrc') == true) {
-
-				$imagethumb = html::img('',array(
-					'data-src'  => 'http://' . c::get('resrc.plan') . '/' . c::get('resrc.params') . '/' . $thumburl,
-						// 'width'     => $image->width(),
-						// 'height'    => $image->height(),
-					'class'     => $class . ' resrc',
-					'alt'       => html($alt)
-					)
-				);
-
-			}
-
-			// [4] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
+			// [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
 			if($lazyload == true && c::get('resrc') == true) {
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
