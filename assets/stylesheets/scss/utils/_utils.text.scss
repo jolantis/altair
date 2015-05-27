@@ -19,9 +19,19 @@
 }
 
 /**
- * Enables font kerning in all browsers.
+ * Kerning
+ *
+ * Enables font kerning in all browsers:
  * http://blog.typekit.com/2014/02/05/kerning-on-the-web/
  *
+ * Text rendering: http://bocoup.com/weblog/text-rendering/
+ *
+ * The text-rendering options are: `auto` (default), `optimizeLegibility` and
+ * `optimizeSpeed`. Be careful with the `optimizeLegibility` setting, because
+ * it can be really slow and bog down an entire page. For now best to only
+ * apply to bigger headings if using at all.
+ *
+ * Support:
  * 1. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
  * 2. Chrome (not Windows), Firefox, IE 10+
  * 3. Safari 7 and future browsers
