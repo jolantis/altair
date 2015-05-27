@@ -16,6 +16,8 @@ function bgimage($image=false, $options=array()) {
 
 	// default key values
 	$defaults = array(
+		'width'      => null,
+		'height'     => null,
 		'crop'       => null,
 		'cropratio'  => null,
 		'class'      => '',
@@ -28,7 +30,11 @@ function bgimage($image=false, $options=array()) {
 
 	// without resrc, maximize thumb width, for speedier loading of page!
 	if(c::get('resrc') == false) {
-		$thumbwidth = c::get('thumbs.dev.width', 800);
+		if(!isset($options['width'])) {
+			$thumbwidth = c::get('thumbs.medium.width', 800);
+		} else {
+			$thumbwidth = $options['width'];
+		}
 	}
 	else {
 		// with resrc use maximum (original) image width
