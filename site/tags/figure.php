@@ -15,7 +15,7 @@
  * 3) (figure: myimage.jpg griditem: true caption: Single image in a multifigure grid)
  * 4) (figure: myimage.jpg width: 2of3 height: 200 crop: true caption: Nice figure caption!)
  * 5) (figure: myimage.jpg width: width: 2of3 align: center)
- * 6) (figure: myimage1.jpg | myimage2.jpg | myimage3.jpg width: 1of3 | 1of3 | 1of3 break: medium gutter: percentage)
+ * 6) (figure: myimage1.jpg | myimage2.jpg, myimage3.jpg width: 1of3, 1of3, 1of3 break: medium gutter: percentage)
  *
  * Example page:
  * http://altair.studiodumbar.com/images
@@ -45,8 +45,8 @@ kirbytext::$tags['figure'] = array(
 
 		$images = $tag->attr('figure');
 
-		// Check if the figure has multiple images to output, check for piper (e.g. `|`)
-		if(strpos($images,'|') === false) {
+		// Check if the figure has multiple images to output, check for comma
+		if(strpos($images,',') === false) {
 			$is_multifigure = false;
 			// Set the one images as the first in an images array
 			$images = array($images);
@@ -54,7 +54,7 @@ kirbytext::$tags['figure'] = array(
 		else {
 			$is_multifigure = true;
 			// Set all images to the array
-			$images = str::split(str_replace(' ', '', $images), '|');
+			$images = str::split(str_replace(' ', '', $images), ',');
 		}
 
 		// Check if there are images passed to the array
@@ -86,7 +86,7 @@ kirbytext::$tags['figure'] = array(
 
 		// Get width variable(s) of image(s)
 		if($is_multifigure) {
-			$widths = str::split(str_replace(' ', '', $tag->attr('width')), '|');
+			$widths = str::split(str_replace(' ', '', $tag->attr('width')), ',');
 		}
 		else {
 			$widths = str::split($tag->attr('width'));
@@ -119,18 +119,20 @@ kirbytext::$tags['figure'] = array(
 			$alignclass = '';
 		}
 
-		// Add figure DOM element with appended classes
-		$figure = new Brick('figure');
-		$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
-
 		// If feed/rss page, lazyload is always disable
 		if(kirby()->request()->path()->last() == 'feed') {
 			$lazyload = false;
+			$feed = true;
 		}
 		// Else lazyload variable is set in config
 		else {
 			$lazyload = c::get('lazyload', false);
+			$feed = false;
 		}
+
+		// Add figure DOM element with appended classes
+		$figure = new Brick('figure');
+		$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
 
 		// Create markup for every image
 		$i = 0;
@@ -142,14 +144,20 @@ kirbytext::$tags['figure'] = array(
 				$crop = false;
 			}
 
-			// Without resrc, maximize thumb width, for speedier loading of page!
-			if(c::get('resrc') == false) {
-				$thumbwidth = c::get('thumbs.medium.width', 800);
+			// Set thumb width for feed
+			if($feed == true) {
+				$thumbwidth = c::get('thumbs.feed.width', 800);
 			}
 			else {
-				// If resrc is enabled, set thumbwidth to width of original
-				// image, to use maximum (original) image width
-				$thumbwidth = null;
+				// Without resrc, maximize thumb width, for speedier loading of page!
+				if(c::get('resrc') == false) {
+					$thumbwidth = c::get('thumbs.medium.width', 800);
+				}
+				else {
+					// If resrc is enabled, set thumbwidth to width of original
+					// image, to use maximum (original) image width
+					$thumbwidth = null;
+				}
 			}
 
 			// When a cropratio is set, calculate the ratio based height
@@ -184,7 +192,7 @@ kirbytext::$tags['figure'] = array(
 
 			// Initialize wrapper divs if lazyloading
 			if($lazyload == true) {
-				// Only init griddiv when $gridcellclass or one or more width is set
+				// Only init griddiv when $gridcellclass or one (or more) width is set
 				if($gridcellclass != '' || count($widths) > 0) {
 					$griddiv = new Brick('div');
 				}
@@ -236,6 +244,20 @@ kirbytext::$tags['figure'] = array(
 				'quality' => $quality,
 				'crop'    => $crop,
 			), false);
+
+			if($feed == true) {
+
+				$imagethumb = html::img($thumburl,array(
+					// 'width'     => $image->width(),
+					// 'height'    => $image->height(),
+					'class'     => $class,
+					'alt'       => html($alt)
+					)
+				);
+
+				$noscript = false;
+
+			}
 
 			// [1] Regular image; resized thumb (e.g. thumbs.medium.width)
 			if($lazyload == false && c::get('resrc') == false) {
