@@ -247,6 +247,20 @@ c::set('language.detect', false);
 
 
 /* -----------------------------------------------------------------------------
+Date handler
+--------------------------------------------------------------------------------
+
+Change Kirby's default date handler date() function to strftime() by simply
+out-commening the line below. This is especially relevant for non-english
+websites, where you want to work with translated month names, which should
+react to the locale settings
+
+*/
+
+// c::set('date.handler', 'strftime');
+
+
+/* -----------------------------------------------------------------------------
 Roles
 --------------------------------------------------------------------------------
 
