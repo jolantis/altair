@@ -13,7 +13,7 @@
 
 // echo page('<your-feed-channel>')->children()->visible()->flip()->limit(20)->feed(array(
 echo page('<your-feed-channel>')->children()->visible()->flip()->feed(array(
-	'link'          => '<your-feed-channel>',
+	'channel'       => '<your-feed-channel>',
 	'textfield'     => 'text',
 	'excerpt'       => false,
 	'excerptlenght' => 300,

@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
 
 	<channel>
-		<link><?php echo xml($link) ?></link>
 		<generator><?php echo c::get('feed.generator', 'Kirby') ?></generator>
 		<title><?php echo xml($site->title() . ' ' . $title); ?></title>
+		<link><?php echo xml($channel); ?></link>
 		<lastBuildDate><?php echo $site->find($channel)->modified('r'); ?></lastBuildDate>
 		<atom:link href="<?php echo xml($url); ?>" rel="self" type="application/rss+xml" />
 
