@@ -371,6 +371,7 @@ c::set('thumbs.quality', 70);                                                   
 c::set('thumbs.small.width', 352);                                              // An arbitrary *small* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
 c::set('thumbs.medium.width', 800);                                             // An arbitrary *medium* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
 c::set('thumbs.large.width', 1200);                                             // An arbitrary *large* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
+c::set('thumbs.feed.width', 1600);                                              // An arbitrary width for thumbs used in feeds (via figure tag)
 
 
 /* -----------------------------------------------------------------------------
