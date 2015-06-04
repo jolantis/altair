@@ -22,16 +22,18 @@
 					<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
 					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
 					<description>
-						<![CDATA[<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>]]>
-						</description>
-				<?php else: ?>
-							<?php if($images == true): ?>
-								<?php foreach($item->images() as $image): ?>
-									<?php echo figure($image, array('cropratio' => '2/3', 'lazyload' => false)); ?>
-								<?php endforeach; ?>
+						<![CDATA[
+							<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>
+							<?php if($excerptimage == true): ?>
+								<?php echo figure($item->images()->first(), array('lazyload' => false)); ?>
 							<?php endif; ?>
+						]]>
+					</description>
+				<?php else: ?>
 					<description>
-						<![CDATA[<?php echo $item->{$textfield}()->kirbytext(); ?>]]>
+						<![CDATA[
+							<?php echo $item->{$textfield}()->kirbytext(); ?>
+						]]>
 					</description>
 				<?php endif; ?>
 			</item>
