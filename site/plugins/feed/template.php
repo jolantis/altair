@@ -5,8 +5,8 @@
 		<title><?php echo xml($title) ?></title>
 		<link><?php echo xml($link) ?></link>
 		<generator><?php echo c::get('feed.generator', 'Kirby') ?></generator>
-		<lastBuildDate><?php echo date('r', $modified) ?></lastBuildDate>
-		<atom:link href="<?php echo xml($url) ?>" rel="self" type="application/rss+xml" />
+		<lastBuildDate><?php echo $site->find($channel)->modified('r'); ?></lastBuildDate>
+		<atom:link href="<?php echo xml($url); ?>" rel="self" type="application/rss+xml" />
 
 		<?php if(!is_null($description)): ?>
 			<description><?php echo xml($description) ?></description>
