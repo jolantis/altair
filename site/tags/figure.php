@@ -132,7 +132,9 @@ kirbytext::$tags['figure'] = array(
 
 		// Add figure DOM element with appended classes
 		$figure = new Brick('figure');
-		$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
+		if($feed != true) {
+			$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
+		}
 
 		// Create markup for every image
 		$i = 0;
@@ -146,7 +148,7 @@ kirbytext::$tags['figure'] = array(
 
 			// Set thumb width for feed
 			if($feed == true) {
-				$thumbwidth = c::get('thumbs.feed.width', 800);
+				$thumbwidth = c::get('thumbs.feed.width', 1200);
 			}
 			else {
 				// Without resrc, maximize thumb width, for speedier loading of page!
@@ -204,38 +206,42 @@ kirbytext::$tags['figure'] = array(
 			// Set width class names of image(s)
 			$width = $widths[$i];
 
-			// If there is one or more width set, use width variable(s)
-			if(count($widths) > 0) {
-				// The first part (the 1 of 3)
-				$classgridpart = str::substr($width, 0, 1);
-				// The total (the 3)
-				$classgridtot = str::substr($width, 3, 1);
-				// Add extra griddiv for lazyload
-				if($lazyload == true) {
-					// Set the class for the image
-					$class = 'FigureImage-item';
-					// Set the class on the grid div
-					if(isset($griddiv)) {
-						$griddiv->addClass($gridcellclass.'u-size' . $width . '--' . $break);
+			// If there is one or more width set (and it's not in a feed), apply the width variable(s)
+			if($feed != true) {
+				if(count($widths) > 0) {
+					// The first part (the 1 of 3)
+					$classgridpart = str::substr($width, 0, 1);
+					// The total (the 3)
+					$classgridtot = str::substr($width, 3, 1);
+					// Add extra griddiv for lazyload
+					if($lazyload == true) {
+						// Set the class for the image
+						$class = 'FigureImage-item';
+						// Set the class on the grid div
+						if(isset($griddiv)) {
+							$griddiv->addClass($gridcellclass.'u-size' . $width . '--' . $break);
+						}
+					}
+					else {
+						$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
 					}
 				}
 				else {
-					$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
-				}
-			}
-			else {
-				// Add extra griddiv for lazyload
-				if($lazyload == true) {
-					// Set the class for the image
-					$class = 'FigureImage-item';
-					// Set the class for the grid div
-					if(isset($griddiv)) {
-						$griddiv->addClass($gridcellclass);
+					// Add extra griddiv for lazyload
+					if($lazyload == true) {
+						// Set the class for the image
+						$class = 'FigureImage-item';
+						// Set the class for the grid div
+						if(isset($griddiv)) {
+							$griddiv->addClass($gridcellclass);
+						}
+					}
+					else {
+						$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
 					}
 				}
-				else {
-					$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
-				}
+			} else {
+				$class = null;
 			}
 
 			$thumburl = thumb($image,array(
