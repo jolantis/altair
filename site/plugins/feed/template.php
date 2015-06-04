@@ -19,22 +19,20 @@
 				<guid><?php echo xml($item->id()); ?></guid>
 				<pubDate><?php echo $datefield == 'modified' ? $item->modified('r') : $item->date('r', $datefield); ?></pubDate>
 				<?php if($excerpt == true): ?>
-					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 300;  ?>
+					<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
+					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
 					<description>
-						<![CDATA[
-							<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght); ?>
-						]]>
+						<![CDATA[<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>]]>
 						</description>
 				<?php else: ?>
-					<description><![CDATA[
-							<?php echo $item->{$textfield}()->kirbytext(); ?>
-							<?php $images = (isset($images) ? $images : false);  ?>
 							<?php if($images == true): ?>
 								<?php foreach($item->images() as $image): ?>
 									<?php echo figure($image, array('cropratio' => '2/3', 'lazyload' => false)); ?>
 								<?php endforeach; ?>
 							<?php endif; ?>
-					]]></description>
+					<description>
+						<![CDATA[<?php echo $item->{$textfield}()->kirbytext(); ?>]]>
+					</description>
 				<?php endif; ?>
 			</item>
 		<?php endforeach ?>

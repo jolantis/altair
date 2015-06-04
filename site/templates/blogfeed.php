@@ -9,8 +9,8 @@ echo page('blog')->children()->visible()->flip()->feed(array(
 	'channel'       => 'blog',
 	'textfield'     => 'text',
 	'excerpt'       => false,
-	'excerptlenght' => 300,
-	'images'        => true
+	'excerptlimit'  => 'words',                                                 // Limit excerpts by the number of 'words' (default) or 'characters'
+	'excerptlenght' => 40                                                       // Excerpt lenght in words or characters (depends on `excerptlimit` setting)
 ));
 
 ?>
