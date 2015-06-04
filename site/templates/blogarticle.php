@@ -22,6 +22,7 @@
 			<?php echo $page->text()->kirbytext(); ?>
 
 			<!-- start: load photos from folder -->
+			<?php /*
 			<?php if($page->hasImages()) : ?>
 
 				<h2>Photo(s) form page</h2>
@@ -46,6 +47,7 @@
 
 			<?php endif; ?>
 			<!-- end -->
+			*/ ?>
 
 			<?php snippet('share_page'); ?>
 
