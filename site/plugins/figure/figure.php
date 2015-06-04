@@ -29,17 +29,32 @@ function figure($image=false, $options=array()) {
 	// merge defaults and options
 	$options = array_merge($defaults, $options);
 
-	// without resrc, maximize thumb width, for speedier loading of page!
-	if(c::get('resrc') == false) {
-		if(!isset($options['width'])) {
-			$thumbwidth = c::get('thumbs.medium.width', 800);
-		} else {
-			$thumbwidth = $options['width'];
-		}
+	// If feed/rss page, set $feed variable to tue
+	if(kirby()->request()->path()->last() == 'feed') {
+		$feed = true;
+	}
+	// Else variable is false
+	else {
+		$feed = false;
+	}
+
+	// Set thumb width
+	if($feed == true) {
+		$thumbwidth = c::get('thumbs.feed.width', 1200);
 	}
 	else {
-		// with resrc use maximum (original) image width
-		$thumbwidth = null;
+		// without resrc, maximize thumb width, for speedier loading of page!
+		if(c::get('resrc') == false) {
+			if(!isset($options['width'])) {
+				$thumbwidth = c::get('thumbs.medium.width', 800);
+			} else {
+				$thumbwidth = $options['width'];
+			}
+		}
+		else {
+			// with resrc use maximum (original) image width
+			$thumbwidth = null;
+		}
 	}
 
 	// if no crop variable is defined *and* no cropratio
