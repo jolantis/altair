@@ -148,12 +148,12 @@ kirbytext::$tags['figure'] = array(
 
 			// Set thumb width for feed
 			if($feed == true) {
-				$thumbwidth = c::get('thumbs.feed.width', 1200);
+				$thumbwidth = c::get('thumbs.width.feed', 1200);
 			}
 			else {
 				// Without resrc, maximize thumb width, for speedier loading of page!
 				if(c::get('resrc') == false) {
-					$thumbwidth = c::get('thumbs.medium.width', 800);
+					$thumbwidth = c::get('thumbs.width.default', 800);
 				}
 				else {
 					// If resrc is enabled, set thumbwidth to width of original
@@ -265,7 +265,7 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
-			// [1] Regular image; resized thumb (e.g. thumbs.medium.width)
+			// [1] Regular image; resized thumb (e.g. thumbs.width.default)
 			if($lazyload == false && c::get('resrc') == false) {
 
 				$imagethumb = html::img($thumburl,array(
@@ -280,7 +280,7 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
-			// [2] Lazyload image; resized thumb (e.g thumbs.medium.width)
+			// [2] Lazyload image; resized thumb (e.g thumbs.width.default)
 			if($lazyload == true && c::get('resrc') == false) {
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
@@ -292,18 +292,18 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
-				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" alt="'. html($alt) .'" width="'. $image->width() .'" height="'. $image->height() .'" /></noscript>';
+				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" alt="'. html($alt) .'" width="'. $thumbwidth .'" height="'. $thumbheight .'"/></noscript>';
 
 			}
 
 			// [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
 			if($lazyload == true && c::get('resrc') == true) {
 
-				$datasrc = 'http://' . c::get('resrc.plan') . '/s=w{width}/o={quality}/' . $thumburl;
+				$resrc = 'http://' . c::get('resrc.plan') . '/s=w' . c::get('thumbs.width.default', 800) . '/o=' . c::get('thumbs.quality', 92) . '/' . $thumburl;
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-sizes' => 'auto',
-					'data-src'   => $datasrc,
+					'data-src'   => $resrc,
 					// 'width'      => $image->width(),
 					// 'height'     => $image->height(),
 					'class'      => $class . ' lazyload',
@@ -311,7 +311,7 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
-				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" alt="'. html($alt) .'" width="'. $image->width() .'" height="'. $image->height() .'" /></noscript>';
+				$noscript = '<noscript><img src="'. $resrc .'" class="'. $class .'" alt="'. html($alt) .'"/></noscript>';
 
 			}
 

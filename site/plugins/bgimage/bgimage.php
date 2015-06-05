@@ -31,7 +31,7 @@ function bgimage($image=false, $options=array()) {
 	// Without resrc, maximize thumb width, for speedier loading of page!
 	if(c::get('resrc') == false) {
 		if(!isset($options['width'])) {
-			$thumbwidth = c::get('thumbs.medium.width', 800);
+			$thumbwidth = c::get('thumbs.width.default', 800);
 		} else {
 			$thumbwidth = $options['width'];
 		}

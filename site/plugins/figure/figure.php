@@ -40,13 +40,13 @@ function figure($image=false, $options=array()) {
 
 	// Set thumb width
 	if($feed == true) {
-		$thumbwidth = c::get('thumbs.feed.width', 1200);
+		$thumbwidth = c::get('thumbs.width.feed', 1200);
 	}
 	else {
 		// without resrc, maximize thumb width, for speedier loading of page!
 		if(c::get('resrc') == false) {
 			if(!isset($options['width'])) {
-				$thumbwidth = c::get('thumbs.medium.width', 800);
+				$thumbwidth = c::get('thumbs.width.default', 800);
 			} else {
 				$thumbwidth = $options['width'];
 			}
