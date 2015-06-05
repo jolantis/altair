@@ -71,7 +71,7 @@ kirbytext::$tags['figure'] = array(
 
 		// set variables for both single and multi figures
 		$upscale    = $tag->attr('upscale');
-		$quality    = $tag->attr('quality', c::get('thumbs.quality', 100));
+		$quality    = $tag->attr('quality', c::get('thumbs.quality', 92));
 		$caption    = $tag->attr('caption');
 		$break      = $tag->attr('break', c::get('figureimage.break', 'small'));
 		$gutter     = $tag->attr('gutter', c::get('figureimage.gutter', 'default'));

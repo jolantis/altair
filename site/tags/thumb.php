@@ -28,7 +28,7 @@ kirbytext::$tags['thumb'] = array(
 
 		$url = $tag->attr('thumb');
 		$file = $tag->file($url);
-		$quality = $tag->attr('quality', c::get('thumbs.quality', 100));
+		$quality = $tag->attr('quality', c::get('thumbs.quality', 92));
 
 		$image = thumb($file,array(
 			'width' => $tag->attr('width'),
