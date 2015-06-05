@@ -341,7 +341,7 @@ kirbytext::$tags['figure'] = array(
 		}
 
 		// Add caption
-		if(!empty($caption)) {
+		if(isset($caption)) {
 			// Also add break class to figcaption if alignment is set to image
 			if(count($widths) > 0 && isset($align)) {
 				$figure->append('<figcaption class="FigureImage-caption u-size' . $width . '--' . $break  . '">' . kirbytext($caption) . '</figcaption>');

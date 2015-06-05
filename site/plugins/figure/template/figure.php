@@ -25,7 +25,7 @@
 		</noscript>
 	<?php endif; ?>
 
-	<?php if($caption): ?>
+	<?php if($caption->isNotEmpty()): ?>
 		<figcaption class="FigureImage-caption">
 			<?php echo kirbytext($caption); ?>
 		</figcaption>
