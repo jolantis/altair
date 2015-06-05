@@ -1,12 +1,12 @@
 # Bgimage plugin
 
-A plugin for [Kirby CMS](http://getkirby.com/) that generates an bakground iamge `src` attribute only. Handy for creating an `img` tag or for use as background image url.
+A plugin for [Kirby CMS](http://getkirby.com/) that generates a (lazyloaded) background image `div`.
 
 ## Installation
 
-Put the `imgsrc` folder in `/site/plugins` directory.
+Put the `bgimage` folder in `/site/plugins` directory.
 
-Update the contents of the included `/template/imgsrc.php` file to your likings and setup.
+Update the contents of the included `/template/bgimage.php` template file to your likings and setup.
 
 ## How to use it
 
@@ -17,18 +17,18 @@ You can use this in a template file.
 ### Snippets
 
 ```php
-<img <?php echo imgsrc($page->images()->first()); ?> class="MyImage"/>
+<?php echo bgimage($page->images()->first(), array('class' => 'BgImage FluidEmbed--16by9')); ?>
 ```
 
-or… 
+or…
 
 ```<?php
-<div <?php echo imgsrc($page->images()->first(), array('bgimage' => true, 'class' => 'BgImage FluidEmbed FluidEmbed--16by9')); ?>></div>
+<?php echo bgimage($page->images()->first(), array('width' => 1200, 'cropratio' => 2/3, 'class' => 'BgImage FluidEmbed--16by9')); ?>
 ```
 
 ### Options
 
-Check out the `$defaults` array in `imgsrc.php` for all options.
+Check out the `$defaults` array in `bgimage.php` for all options.
 
 ## Author
 

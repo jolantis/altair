@@ -64,7 +64,7 @@ thumb::$defaults['bin'] = '/usr/local/bin/convert';                             
 Lazyload images
 --------------------------------------------------------------------------------
 
-Use `lazyload.init` in main.scripts.js
+Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 
 */
 
@@ -75,7 +75,12 @@ c::set('lazyload', true);                                                       
 Resrc setup
 --------------------------------------------------------------------------------
 
-Use `lazyload.init` in main.scripts.js
+Roxy:
+Resrc is disabled in local environment by default, but can be enabled
+by making use of roxy, a stand-alone proxy server for locally testing resrc
+(see head.script.js for more information about how to enable and utilize roxy).
+
+Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 
 */
 

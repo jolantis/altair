@@ -22,6 +22,7 @@ function bgimage($image=false, $options=array()) {
 		'cropratio'  => null,
 		'class'      => '',
 		'alt'        => '',
+		'quality'    => c::get('thumbs.quality', 92),
 		'lazyload'   => c::get('lazyload', false),   // Lazyloading with lazySizes (https://github.com/aFarkas/lazysizes)
 	);
 
@@ -37,8 +38,8 @@ function bgimage($image=false, $options=array()) {
 		}
 	}
 	else {
-		// With resrc use maximum (original) image width
-		$thumbwidth = null;
+		// If resrc is enabled, use original image width
+		$thumbwidth = $image->width();
 	}
 
 	// If no crop variable is defined *and* no cropratio
@@ -54,27 +55,32 @@ function bgimage($image=false, $options=array()) {
 			list($numerator, $denominator) = str::split($options['cropratio'], '/');
 			$options['cropratio'] = $numerator / $denominator;
 		}
-		// If resrc is enabled ($thumbwidth is not set (e.g. `null`), to use
-		// max width of image!), set thumbwidth to width of original image
-		if(!isset($thumbwidth)) {
-			$thumbwidth = $image->width();
-		}
 		// Calculate new thumb height based on cropratio
 		$thumbheight = round($thumbwidth * $options['cropratio']);
 		// If a cropratio is set, the crop variable is always set to true
 		$options['crop'] = true;
+		// Manual set (crop)ratio
+		$ratio = $options['cropratio'];
 	}
 	else {
+		// Intrinsic image's ratio
+		$ratio = 1 / $image->ratio();
 		// Max. height of image
-		$thumbheight = null;
+		$thumbheight = round($thumbwidth * $ratio);
 	}
 
 	// Create thumb url (create a new thumb object)
 	$options['thumburl'] = thumb($image, array(
 		'width'   => $thumbwidth,
 		'height'  => $thumbheight,
+		'quality' => $options['quality'],
 		'crop'    => $options['crop']
 	), false);
+
+	// Add more values to options array, for use in template
+	$options['customwidth'] = $options['width'];
+	$options['customquality'] = $options['quality'];
+	$options['ratio'] = $ratio;
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'template/bgimage.php', $options);

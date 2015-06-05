@@ -381,7 +381,7 @@ Thumbs
 
 c::set('thumbs.driver', 'gd');                                                  // The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
 c::set('thumbs.filename', '{safeName}-{hash}.{extension}');                     // The naming scheme for thumb files (default is: {safeName}-{hash}.{extension})
-c::set('thumbs.quality', 70);                                                   // The default jpg compression (or quality setting) for thumbs (figure plugin and tag); is always set to 100% for resrc (see 'resrc.params' to set compression quality for resrc)
+c::set('thumbs.quality', 78);                                                   // The default jpg compression (or quality setting) for thumbs (figure plugin and tag); is always set to 100% for resrc (see 'resrc.params' to set compression quality for resrc)
 c::set('thumbs.width.default', 800);                                            // An arbitrary *medium* width for thumbs (figure plugin and tag), when not using resrc (e.g. local dev)
 c::set('thumbs.width.feed', 1600);                                              // An arbitrary width for thumbs used in feeds (via figure tag)
 
@@ -400,7 +400,7 @@ c::set('figureimage.gutter', 'default');                                        
 Lazyload images
 --------------------------------------------------------------------------------
 
-Use `lazyload.init` in main.scripts.js
+Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 
 */
 
@@ -411,27 +411,17 @@ c::set('lazyload', true);                                                       
 Resrc setup
 --------------------------------------------------------------------------------
 
-If you want to use Resrc's responsive images solution, enable it here,
-and make sure to set the right configuration.
+If you want to use Resrc's responsive images solution, enable it here.
 
-When enabled make sure to set the correct staging and production domain URL
-parameters (resrc.domain) below and in the local and staging config files!
-
-Roxy:
-Resrc is always disabled in local environment by default, but can be enabled
-by making use of roxy, a stand-alone proxy server for locally testing resrc
-(see head.script.js for more information about how to enable and utilize roxy).
-
-Lazyload:
-If both resrc and layzload (above) are set to true,
-use `lazyload.init` in main.scripts.js
+Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 
 */
 
 c::set('resrc', true);                                                          // Set to true to use resrc
 c::set('resrc.plan', 'app.resrc.it');                                           // Set to 'trial.resrc.it' while using a resrc trail plan, otherwise set to 'app.resrc.it'
-c::set('resrc.params', 's=w300/o=80');                                          // Resrc params (options) used to generate images; see http://www.resrc.it/docs for more parameters
-
+c::set('resrc.width.default', 800);                                             // Resrc default width param value (also used for generating noscript fallback images)
+c::set('resrc.quality.default', 78);                                            // Resrc default quality param value (also for generating noscript fallback images)
+c::set('resrc.dpi', 1);                                                         // Resrc pixel density valye; resizes image with another pixel density than a default dpi of 1
 
 /* -----------------------------------------------------------------------------
 Twitter

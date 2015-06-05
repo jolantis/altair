@@ -156,9 +156,8 @@ kirbytext::$tags['figure'] = array(
 					$thumbwidth = c::get('thumbs.width.default', 800);
 				}
 				else {
-					// If resrc is enabled, set thumbwidth to width of original
-					// image, to use maximum (original) image width
-					$thumbwidth = null;
+					// If resrc is enabled, use original image width
+					$thumbwidth = $image->width();
 				}
 			}
 
@@ -169,12 +168,6 @@ kirbytext::$tags['figure'] = array(
 					list($numerator, $denominator) = str::split($cropratio, '/');
 					$cropratio = $numerator / $denominator;
 				}
-				// If resrc is enabled ($thumbwidth is not set (e.g. `null`),
-				// to use max width of image!), set thumbwidth to width of
-				// original image
-				if(!isset($thumbwidth)) {
-					$thumbwidth = $image->width();
-				}
 				// Calculate new thumb height based on cropratio
 				$thumbheight = round($thumbwidth * $cropratio);
 				// If a cropratio is set, the crop variable is always set to true
@@ -183,10 +176,10 @@ kirbytext::$tags['figure'] = array(
 				$ratio = $cropratio;
 			}
 			else {
-				// Max. height of image
-				$thumbheight = null;
 				// Intrinsic image's ratio
 				$ratio = 1 / $image->ratio();
+				// Max. height of image
+				$thumbheight = round($thumbwidth * $ratio);
 			}
 
 			// Percentage-padding to set image aspect ratio (prevents reflow on image load)
@@ -292,14 +285,15 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
-				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" alt="'. html($alt) .'" width="'. $thumbwidth .'" height="'. $thumbheight .'"/></noscript>';
+				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" width="'. $thumbwidth .'" height="'. $thumbheight .'" alt="'. html($alt) .'"/></noscript>';
 
 			}
 
 			// [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!)
 			if($lazyload == true && c::get('resrc') == true) {
 
-				$resrc = 'http://' . c::get('resrc.plan') . '/s=w' . c::get('thumbs.width.default', 800) . '/o=' . c::get('thumbs.quality', 92) . '/' . $thumburl;
+				$pixeldensity = (c::get('resrc.dpi', 1) > 1) ? ',pd' . c::get('resrc.dpi') : '';
+				$resrc = 'https://' . c::get('resrc.plan') . '/s=w' . c::get('resrc.width.default', 800) . $pixeldensity . '/o=' . c::get('resrc.quality.default', 78) . '/' . $thumburl;
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-sizes' => 'auto',
@@ -311,7 +305,7 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
-				$noscript = '<noscript><img src="'. $resrc .'" class="'. $class .'" alt="'. html($alt) .'"/></noscript>';
+				$noscript = '<noscript><img src="'. $resrc .'" class="'. $class .'" width="'. c::get('resrc.width.default', 800) .'" height="'. round(c::get('resrc.width.default', 800) * $ratio) .'" alt="'. html($alt) .'"/></noscript>';
 
 			}
 

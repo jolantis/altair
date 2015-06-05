@@ -22,8 +22,9 @@ function figure($image=false, $options=array()) {
 		'cropratio'  => null,
 		'class'      => '',
 		'alt'        => '',
-		'caption'    => null,                        // Output a figcaption
-		'lazyload'   => c::get('lazyload', false),   // Lazyloading with lazysizes (https://github.com/aFarkas/lazysizes)
+		'caption'    => null,
+		'quality'    => c::get('thumbs.quality', 92),
+		'lazyload'   => c::get('lazyload', false),
 	);
 
 	// merge defaults and options
@@ -52,8 +53,8 @@ function figure($image=false, $options=array()) {
 			}
 		}
 		else {
-			// with resrc use maximum (original) image width
-			$thumbwidth = null;
+			// If resrc is enabled, use original image width
+			$thumbwidth = $image->width();
 		}
 	}
 
@@ -65,11 +66,6 @@ function figure($image=false, $options=array()) {
 
 	// when a cropratio is set, calculate the ratio based height
 	if(isset($options['cropratio'])) {
-		// if resrc is enabled (and therefor $thumbwidth is not set (e.g. `null`),
-		// to use max width of image!), set thumbwidth to width of original image
-		if(!isset($thumbwidth)) {
-			$thumbwidth = $image->width();
-		}
 		// if cropratio is a fraction string (e.g. 1/2), convert to decimal
 		// if(!is_numeric($options['cropratio'])) {
 		if(strpos($options['cropratio'], '/') !== false) {
@@ -84,9 +80,10 @@ function figure($image=false, $options=array()) {
 		$ratio = $options['cropratio'];
 	}
 	else {
-		$thumbheight = null; // max height of image
 		// Intrinsic image's ratio
 		$ratio = 1 / $image->ratio();
+		// Max. height of image
+		$thumbheight = round($thumbwidth * $ratio);
 	}
 
 	// Percentage-padding to set image aspect ratio (prevents reflow on image load)
@@ -96,11 +93,17 @@ function figure($image=false, $options=array()) {
 	$options['thumburl'] = thumb($image, array(
 		'width'   => $thumbwidth,
 		'height'  => $thumbheight,
+		'quality' => $options['quality'],
 		'crop'    => $options['crop']
 	), false);
 
-	// Add image object to options array, for use in template
+	// Add more values to options array, for use in template
 	$options['image'] = $image;
+	$options['thumbwidth'] = $thumbwidth;
+	$options['thumbheight'] = $thumbheight;
+	$options['customwidth'] = $options['width'];
+	$options['customquality'] = $options['quality'];
+	$options['ratio'] = $ratio;
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'template/figure.php', $options);

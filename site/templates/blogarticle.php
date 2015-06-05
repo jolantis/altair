@@ -28,7 +28,7 @@
 
 				<?php foreach($page->images() as $image): ?>
 					<?php $caption = $image->caption() == '' ? $image->title() : ''; ?>
-					<?php echo figure($image, array('caption' => $caption)); ?>
+					<?php echo figure($image, array('cropratio' => 1/2, 'caption' => $caption)); ?>
 				<?php endforeach; ?>
 
 			<?php endif; ?>

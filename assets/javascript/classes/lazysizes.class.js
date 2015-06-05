@@ -11,12 +11,12 @@ var lazysizes = {
 	 * Init lazysizes
 	 */
 	init: function() {
-		document.addEventListener('lazyriasmodifyoptions', function(event) {
+		document.addEventListener('lazyriasmodifyoptions', function(e) {
 			// If pixel ratio > 1.4 set (resrc) jpg quality to a lower percentage
-			event.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 80;
+			e.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 60;
 		});
 		document.addEventListener('lazybeforeunveil', function(e){
-			// Replace default placeholder {width} and {quality} with calculated values
+			// Replace default `data-src` placeholder {width} and {quality} with calculated values
 			var src = e.target.getAttribute('data-src');
 			if(!src) { return; }
 			e.target.setAttribute('data-src', src.replace(/s=w(\d+)/, 's=w{width}').replace(/o=(\d+)/, 'o={quality}'));

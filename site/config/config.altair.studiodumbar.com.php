@@ -54,7 +54,7 @@ c::set('cache', false);
 Lazyload images
 --------------------------------------------------------------------------------
 
-Use `lazyload.init` in main.scripts.js
+Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 
 */
 
@@ -65,7 +65,7 @@ c::set('lazyload', true);                                                       
 Resrc setup
 --------------------------------------------------------------------------------
 
-Use `lazyload.init` in main.scripts.js
+Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 
 */
 
