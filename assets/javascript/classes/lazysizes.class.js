@@ -8,24 +8,24 @@
 var lazysizes = {
 
 	/**
-	 * Init RiAS (3rd/resrc party support) modification config
+	 * Init lazysizes
 	 */
-	rias: function() {
+	init: function() {
 		document.addEventListener('lazyriasmodifyoptions', function(event) {
-			event.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 80; // Set JPG quality to 65% if pixel ratio > 1.4!
+			// If pixel ratio > 1.4 set (resrc) jpg quality to a lower percentage
+			event.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 80;
+		});
+		document.addEventListener('lazybeforeunveil', function(e){
+			// Replace default placeholder {width} and {quality} with calculated values
+			var src = e.target.getAttribute('data-src');
+			if(!src) { return; }
+			e.target.setAttribute('data-src', src.replace(/s=w(\d+)/, 's=w{width}').replace(/o=(\d+)/, 'o={quality}'));
+			// // Basic support for background images (for without bgset plugin)
+			// var bg = e.target.getAttribute('data-bg');
+			// if(bg) {
+			// 	e.target.style.backgroundImage = 'url(' + bg + ')';
+			// 	e.target.removeAttribute('data-bg');
+			// }
 		});
 	},
-
-	// /**
-	//  * Add support for (basic) background images
-	//  */
-	// bgimages: function() {
-	// 	document.addEventListener('lazybeforeunveil', function(e) {
-	// 		var bg = e.target.getAttribute('data-bg');
-	// 		if(bg) {
-	// 			e.target.style.backgroundImage = 'url(' + bg + ')';
-	// 			e.target.removeAttribute('data-bg');
-	// 		}
-	// 	});
-	// },
 };
