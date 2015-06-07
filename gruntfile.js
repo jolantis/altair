@@ -64,12 +64,12 @@ module.exports = function(grunt) {
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
-					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/ls.rias.min.js', // Out-comment when using lazyload + resrc!!!
 					'<%= project.scripts_plugins %>/ls.bgset.min.js', // Out-comment when using lazyload (+ resrc) + multiple background images with a width descriptor!!!
-					// '<%= project.scripts_plugins %>/ls.respimg.min.js', //
+					'<%= project.scripts_plugins %>/ls.respimg.min.js',
 					// '<%= project.scripts_plugins %>/ls.unveilhooks.min.js', // Out-comment when using lazyload + unveil/lazyload scripts/widgets, background images, styles and video/audio elements!!!
 					'<%= project.scripts_plugins %>/ls.print.min.js', // Out-comment when there's a need to be able to print lazyloaded images!!!
+					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smoothscroll.js',
 				],
@@ -102,12 +102,12 @@ module.exports = function(grunt) {
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
-					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/ls.rias.min.js', // Out-comment when using lazyload + resrc!!!
 					'<%= project.scripts_plugins %>/ls.bgset.min.js', // Out-comment when using lazyload (+ resrc) + multiple background images with a width descriptor!!!
-					// '<%= project.scripts_plugins %>/ls.respimg.min.js', //
+					'<%= project.scripts_plugins %>/ls.respimg.min.js',
 					// '<%= project.scripts_plugins %>/ls.unveilhooks.min.js', // Out-comment when using lazyload + unveil/lazyload scripts/widgets, background images, styles and video/audio elements!!!
 					'<%= project.scripts_plugins %>/ls.print.min.js', // Out-comment when there's a need to be able to print lazyloaded images!!!
+					'<%= project.scripts_vendor %>/lazysizes.min.js', // Out-comment when using lazyload!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smoothscroll.js',
 				],
