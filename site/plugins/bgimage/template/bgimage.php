@@ -5,7 +5,7 @@
 
 <?php // [2] Lazyload image; resized thumb (e.g. thumbs.width.default)  ?>
 <?php if($lazyload == true && c::get('resrc') == false): ?>
-	<div data-bgset="<?php echo $thumburl; ?>" class="<?php if($class): echo $class . ' '; endif; ?>lazyload"></div>
+	<div data-bgset="<?php echo $thumburl; ?>?{width}" class="<?php if($class): echo $class . ' '; endif; ?>lazyload"></div>
 	<noscript>
 		<div style="background-image:url(<?php echo $thumburl; ?>);" <?php if($class): echo 'class="' . $class . '"'; endif; ?>></div>
 	</noscript>
