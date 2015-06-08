@@ -31,10 +31,10 @@
 		left: 0;
 
 		&.lazyloading {
-			opacity: 0;
+			opacity: 0; // Hide lazyloaded image (with lazysizes) as soon as possibe. Fixes flicker of cached images on iOS!
 		}
 		&.lazyloaded {
-			animation: FadeIn .56s ease-in both; // Fade-in animation
+			animation: FadeIn .56s ease-in both; // Fade-in animation of (lazy)loaded images
 		}
 	}
 }
