@@ -30,6 +30,9 @@
 		top: 0;
 		left: 0;
 
+		&.lazyloading {
+			opacity: 0;
+		}
 		&.lazyloaded {
 			animation: FadeIn .56s ease-in both; // Fade-in animation
 		}
