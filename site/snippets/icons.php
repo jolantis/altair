@@ -39,7 +39,6 @@
 <link rel="icon" type="image/png" href="/assets/images/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/assets/images/manifest.json"> <?php // Android Chrome M39+ ?>
-<link rel="shortcut icon" href="/assets/images/favicon.ico">
 
 <meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color()->isNotEmpty()) ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8 ?>
 <meta name="msapplication-TileImage" content="/assets/images/mstile-144x144.png"> <?php // Microsoft Windows 8 ?>
