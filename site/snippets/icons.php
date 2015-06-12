@@ -32,7 +32,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png"> <?php // iPad, iOS ≤ 6, @2x ?>
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png"> <?php // iPad, iOS ≥ 7, @2x ?>
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png"> <?php // iPad, iOS 8, @2x ?>
-<link rel="icon" sizes="any" mask href="/assets/images/pinned_icon.svg"> <?php // Safari 9 pinned tab ?>
+<link rel="icon" type="image/svg+xml" href="/assets/images/pinned_icon.svg" sizes="any" mask> <?php // Safari 9 pinned tab ?>
 <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/assets/images/favicon-194x194.png" sizes="194x194">
 <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
