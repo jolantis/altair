@@ -72,8 +72,6 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
 	<?php if($meta_description != ''): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
-	<?php if($site->ios_title() != ''): ?><meta name="apple-mobile-web-app-title" content="<?php echo $site->ios_titl()->smartypants(); ?>"><?php endif; ?>
-	<meta name="theme-color" content="#fff719"><?php // Set toolbar color for Chrome >39 for Android on Lollipop (http://j.mp/1xVyGVc) ?>
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
 	<?php if(page('sitemap')): ?><link rel="sitemap" type="application/xml" title="<?php echo page('sitemap')->title()->smartypants(); ?>" href="<?php echo url('sitemap'); ?>"><?php endif; ?>
@@ -94,7 +92,7 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<?php if($prev_next && $page->hasNextVisible()): ?><link rel="next" href="<?php echo $page->nextVisible()->url(); ?>" title="<?php echo $page->nextVisible()->title()->smartypants(); ?>"><?php endif; ?>
 	<?php if($prev_next && $page->hasPrevVisible()): ?><link rel="prev" href="<?php echo $page->prevVisible()->url(); ?>" title="<?php echo $page->prevVisible()->title()->smartypants(); ?>"><?php endif; ?>
 
-	<?php // Favicons & Apple Touch Icons ?>
+	<?php // Favicons, MS tile and theme colors, App names, etc. ?>
 	<?php snippet('icons'); ?>
 
 	<?php // Roxy (stand-alone proxy) variable for local resrc images testing ?>

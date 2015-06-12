@@ -87,7 +87,6 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
 	<?php if($meta_description != ''): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
-	<?php if($site->ios_title() != ''): ?><meta name="apple-mobile-web-app-title" content="<?php echo $site->ios_title()->smartypants(); ?>"><?php endif; ?>
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
 	<?php if(page('sitemap')): ?><link rel="sitemap" type="application/xml" title="<?php echo page('sitemap')->title()->smartypants(); ?>" href="<?php echo url('sitemap'); ?>"><?php endif; ?>
@@ -114,7 +113,7 @@ if(!isset($prefetch)): $prefetch = false; endif;
 		<?php if($page->hasPrevVisible()): ?><link rel="prerender" href="<?php echo $page->prevVisible()->url(); ?>"><?php endif; ?>
 	<?php endif; ?>
 
-	<?php // Favicons & Apple Touch Icons ?>
+	<?php // Favicons, MS tile and theme colors, App names, etc. ?>
 	<?php snippet('icons'); ?>
 
 	<?php // Roxy (stand-alone proxy) variable for local resrc images testing ?>
