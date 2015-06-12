@@ -40,9 +40,14 @@
 <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/assets/images/manifest.json"> <?php // Android Chrome M39+ ?>
 
-<meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color()->isNotEmpty()) ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8 ?>
 <meta name="msapplication-TileImage" content="/assets/images/mstile-144x144.png"> <?php // Microsoft Windows 8 ?>
-<meta name="msapplication-config" content="/assets/images/browserconfig.xml"> <?php // Microsoft Windows 8 ?>
+<meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color()->isNotEmpty()) ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8/8.1 ?>
+<?php /* <meta name="msapplication-config" content="/assets/images/browserconfig.xml"> */ ?>
+<meta name="msapplication-square70x70logo" content="images/smalltile.png"> <?php // Microsoft Windows 8.1 ?>
+<meta name="msapplication-square150x150logo" content="images/mediumtile.png"> <?php // Microsoft Windows 8.1 ?>
+<meta name="msapplication-wide310x150logo" content="images/widetile.png"> <?php // Microsoft Windows 8.1 ?>
+<meta name="msapplication-square310x310logo" content="images/largetile.png"> <?php // Microsoft Windows 8.1 ?>
+<meta name="msapplication-config" content="none"> <?php // Microsoft Windows 8.1 ?>
 <meta name="theme-color" content="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"> <?php // Safari 9 pinned tab active color (http://j.mp/1JNVn3h) + Android Lollipop task bar collor in the switcher (http://j.mp/1xVyGVc) ?>
 <?php if($site->app_name()->isNotEmpty()): ?>
 	<meta name="apple-mobile-web-app-title" content="<?php echo $site->app_name()->smartypants(); ?>"> <?php // Custom bookmarked page title on iOS ?>
