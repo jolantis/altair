@@ -19,7 +19,7 @@
 // and 'MS Tile Color' in the site.md file.
 // ----------------------------------------------------------
 // Make sure to also set correct app `name` in the
-// `manifest.json` file for Android Chrome M39+.
+// `manifest.json` file (in root) for Android Chrome M39+.
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 
@@ -38,8 +38,6 @@
 <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/assets/images/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/assets/images/manifest.json"> <?php // Android Chrome M39+ ?>
-
 <meta name="msapplication-TileImage" content="/assets/images/mstile-144x144.png"> <?php // Microsoft Windows 8 ?>
 <meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color()->isNotEmpty()) ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8/8.1 ?>
 <?php /* <meta name="msapplication-config" content="/assets/images/browserconfig.xml"> */ ?>
