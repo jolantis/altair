@@ -5,7 +5,7 @@
   "url": "http://altair.studiodumbar.info",
   "author": "Jonathan van Wunnik <jonathan@studiodumbar.com>, Marijn Tijhuis <marijn@studiodumbar.com>",
   "copyright": "Studio Dumbar",
-  "license": "http://www.opensource.org/licenses/mit-license.php MIT License",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/studiodumbar/altair.git"
