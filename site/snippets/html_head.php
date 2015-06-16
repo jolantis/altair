@@ -61,11 +61,11 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<?php // Prefetch DNS for external assets (Typekit, Google APIs, etc). ?>
-	<link rel="dns-prefetch" href="//use.typekit.net">
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//ajax.googleapis.com">
-	<link rel="dns-prefetch" href="//maps.googleapis.com">
-	<link rel="dns-prefetch" href="//www.google-analytics.com">
+	<link rel="dns-prefetch" href="https://use.typekit.net">
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+	<link rel="dns-prefetch" href="https://ajax.googleapis.com">
+	<link rel="dns-prefetch" href="https://maps.googleapis.com">
+	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
 	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>
 
