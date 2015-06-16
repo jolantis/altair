@@ -20,7 +20,7 @@ $i++; endforeach;
 ////////////////////////////////////////////////////////// ?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"<?php if(c::get('images.in.sitemap')): ?> xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"<?php endif; ?>>
-<?php foreach($pages->index()->visible() as $page): ?>
+<?php foreach($pages->index()->filter(function($page) { return !str::startsWith($page->dirname(), 'xx'); }) as $page): ?>
 <?php if(in_array($page->slug(), $ignore)) continue ?>
 	<?php foreach($site->languages() as $language): ?>
 		<?php if(isset($page->inventory()['content'][$language->code()])): ?>
