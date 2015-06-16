@@ -73,8 +73,8 @@ if(!isset($prev_next)): $prev_next = false; endif;
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
-	<?php if(page('sitemap')): ?><link rel="sitemap" type="application/xml" title="<?php echo page('sitemap')->title()->smartypants(); ?>" href="<?php echo url('sitemap'); ?>"><?php endif; ?>
-	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo url('blog/feed'); ?>"><?php endif; ?>
+	<?php if(page('sitemap')): ?><link rel="sitemap" type="application/xml" title="<?php echo page('sitemap')->title()->smartypants(); ?>" href="<?php echo (c::get('url') != '/') ? $site->url() . '/sitemap.xml' :  '/sitemap.xml'; ?>"><?php endif; ?>
+	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo (c::get('url') != '/') ? $site->url() . '/blog/feed' : '/blog/feed'; ?>"><?php endif; ?>
 	<?php if($site->google_plus() != ''): ?><link rel="publisher" href="https://plus.google.com/xxxxxxxxxxxxxxxxxxxxx"><?php endif; ?>
 
 	<?php // Canonical rel link on pages that can be dynamic (e.g. …/paramkey:paramvalue); by default the script checks if the 'tags' field is present; make sure to change or add field names based on project specifics! ?>
