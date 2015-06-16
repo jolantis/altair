@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 // Ignore pages
-$ignore = array('sitemap', 'search', 'feed', 'error', 'drafts');
+$ignore = array('base', 'sitemap', 'search', 'feed', 'error', 'drafts');
 
 // Set header
 header('Content-type: text/xml; charset="utf-8"');
@@ -26,7 +26,7 @@ $i++; endforeach;
 		<?php if(isset($page->inventory()['content'][$language->code()])): ?>
 			<url>
 				<loc><?php echo html($page->url($language->code())); ?></loc>
-				<?php /* if ($page->hasImages()): ?>
+				<?php /* if($page->hasImages()): ?>
 					<?php foreach($page->images() as $image): ?>
 						<image:image>
 							<image:loc><?php echo $image->url() ?></image:loc>
