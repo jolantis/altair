@@ -78,16 +78,25 @@ c::set('rewrite', true);
 
 
 /* -----------------------------------------------------------------------------
-Force SSL
+URL / SSL
 --------------------------------------------------------------------------------
 
-If you want to make sure to force SSL on every page, just set this setting
-to true. Also make sure to include https in your url setup:
+To use root relative URLs:
+
+c::set('url', '/');
+
+Or when in a subdirectory:
+
+c::set('url', '/mysite');
+
+To force SSL on every page, make sure to include https
+in your url setup and set the sll setting to true:
 
 c::set('url', 'https://yourdomain.com');
 
 */
 
+c::set('url', '');
 c::set('ssl', false);
 
 
