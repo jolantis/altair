@@ -116,4 +116,4 @@
  * For more info see: https://github.com/resrcit/roxy
  */
 
-// "assets/javascript/vendor/resrc.min.js",
+// "assets/javascript/vendor/resrc.min.js"
