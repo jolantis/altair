@@ -4,28 +4,23 @@
 // ----------------------------------------------------------
 /////////////////////////////////////////////////////////////
 
-// Assets (dev vs. min+hash)
-$assets_css = f::read(server::get('document_root') . '/assets/stylesheets/min/hash.css.json');
-$assets_js = f::read(server::get('document_root') . '/assets/javascript/min/hash.js.json');
-$assets_css_json = json_decode($assets_css);
-$assets_js_json = json_decode($assets_js);
-// a::show($assets_css, $echo=true); // Show hash.json contents
-// a::show($assets_js, $echo=true); // Show hash.json contents
+// Read assets json
+$assets_css = f::read(server::get('document_root') . ((c::get('url') != '/') ? c::get('url') . '/' : c::get('url', '/')) . 'assets/stylesheets/min/hash.css.json');
+$assets_js = f::read(server::get('document_root') . ((c::get('url') != '/') ? c::get('url') . '/' : c::get('url', '/')) . 'assets/javascript/min/hash.js.json');
 
+// Set assets based on environment
 if(c::get('environment') == 'local'):
 	$env_suffix = 'dev';
 	$main_css = 'main.dev';
 	$print_css = 'print.dev';
-	// $oldie_css = 'oldie.dev';
 	$head_js = 'head.scripts.dev';
 	$main_js = 'main.scripts.dev';
 else:
 	$env_suffix = 'min';
-	$main_css = $assets_css_json->main;
-	$print_css = $assets_css_json->print;
-	// $oldie_css = $assets_css_json->oldie;
-	$head_js = $assets_js_json->head;
-	$main_js = $assets_js_json->main;
+	$main_css = json_decode($assets_css)->main;
+	$print_css = json_decode($assets_css)->print;
+	$head_js = json_decode($assets_js)->head;
+	$main_js = json_decode($assets_js)->main;
 endif;
 
 // Page title

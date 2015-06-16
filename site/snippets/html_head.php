@@ -4,12 +4,11 @@
 // ----------------------------------------------------------
 /////////////////////////////////////////////////////////////
 
-// Assets (dev vs. min+hash)
-$assets_css = f::read(server::get('document_root') . '/assets/stylesheets/min/hash.css.json', 'json');
-$assets_js = f::read(server::get('document_root') . '/assets/javascript/min/hash.js.json', 'json');
-$assets_css_json = json_decode($assets_css);
-$assets_js_json = json_decode($assets_js);
+// Read assets json
+$assets_css = f::read(server::get('document_root') . ((c::get('url') != '/') ? c::get('url') . '/' : c::get('url', '/')) . 'assets/stylesheets/min/hash.css.json');
+$assets_js = f::read(server::get('document_root') . ((c::get('url') != '/') ? c::get('url') . '/' : c::get('url', '/')) . 'assets/javascript/min/hash.js.json');
 
+// Set assets based on environment
 if(c::get('environment') == 'local'):
 	$env_suffix = 'dev';
 	$mobile_css = 'mobile.dev';
@@ -18,10 +17,10 @@ if(c::get('environment') == 'local'):
 	$mobile_js = 'mobile.scripts.dev';
 else:
 	$env_suffix = 'min';
-	$mobile_css = $assets_css_json->mobile;
-	$print_css = $assets_css_json->print;
-	$head_js = $assets_js_json->head;
-	$mobile_js = $assets_js_json->mobile;
+	$mobile_css = json_decode($assets_css)->mobile;
+	$print_css = json_decode($assets_css)->print;
+	$head_js = json_decode($assets_js)->head;
+	$main_js = json_decode($assets_js)->main;
 endif;
 
 // Page title
