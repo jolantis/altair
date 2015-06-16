@@ -20,7 +20,7 @@ else:
 	$mobile_css = json_decode($assets_css)->mobile;
 	$print_css = json_decode($assets_css)->print;
 	$head_js = json_decode($assets_js)->head;
-	$main_js = json_decode($assets_js)->main;
+	$mobile_js = json_decode($assets_js)->mobile;
 endif;
 
 // Page title
