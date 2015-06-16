@@ -227,17 +227,17 @@ c::set('languages', array(
 		'default'   => true,
 		'code'      => 'en',
 		'name'      => 'English',
-		'locale'    => 'en.utf-8',                                              // English content
-		// 'locale'    => 'en_US.utf-8',                                           // English content, for US users
-		// 'locale'    => 'en_GB.utf-8',                                           // English content, for United Kingdom users
+		'locale'    => 'en',                                                    // English content
+		// 'locale'    => 'en_US',                                                 // English content, for US users
+		// 'locale'    => 'en_GB',                                                 // English content, for United Kingdom users
 		'url'       => '/',
 		'direction' => 'ltr'
 	),
 	// array(
 	// 	'code'      => 'nl',
 	// 	'name'      => 'Nederlands',
-	// 	'locale'    => 'nl_NL.utf-8',                                           // Dutch content
-	// 	// 'locale'    => 'nl_BE.utf-8'                                            // Dutch content, for Belgium user
+	// 	'locale'    => 'nl_NL',                                                 // Dutch content
+	// 	// 'locale'    => 'nl_BE'                                                  // Dutch content, for Belgium user
 	// 	'url'       => '/nl',
 	// 	'direction' => 'ltr'
 	// ),
