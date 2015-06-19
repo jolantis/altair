@@ -56,4 +56,6 @@
 
 hr {
 	@extend %Ruler;
+
+	// max-width: $text-max-width;
 }
