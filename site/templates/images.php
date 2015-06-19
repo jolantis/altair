@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="ContainPadding Copy">
+	<main role="main" class="Contain Copy">
 
 		<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 

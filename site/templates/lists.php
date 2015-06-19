@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="ContainPadding">
+	<main role="main" class="Contain">
 
 		<div class="Copy">
 

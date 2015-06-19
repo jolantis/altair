@@ -9,7 +9,7 @@
 	<!-- Background image example  -->
 	<?php echo bgimage($page->images()->first(), array('width' => 1200, 'cropratio' => 2/3, 'class' => 'BgImage FluidEmbed--3by2 FluidEmbed--large16by9 FluidEmbed--huge2by1')); ?>
 
-	<div class="ContainPadding">
+	<div class="Contain">
 
 		<main role="main" class="Copy u-spaceTrailerM">
 

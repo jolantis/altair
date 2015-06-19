@@ -55,9 +55,10 @@
 		margin-top: 0 !important;
 	}
 
-	/* Text max width and hyphenation
-	   ========================================================================== */
+	/* Text max width
+	========================================================================== */
 
+	> h1, > h2, > h3, > h4, > h5, > h6,
 	> p,
 	> ul li,
 	> ol li,
@@ -65,21 +66,38 @@
 	> dl dd,
 	> time,
 	> table,
+	> form,
+	> .Blockquote,
 	figcaption p {
-		hyphens: auto;
-		max-width: $text-max-width;
+		max-width: $text-max-width;//breakpoint-value-for("medium");
+		// margin-right: auto; // Center maximized text 'column'
+		// margin-left: auto;
 	}
+
+	/* Hyphenation
+	========================================================================== */
+
+	// > p,
+	// > ul li,
+	// > ol li,
+	// > dl dt,
+	// > dl dd,
+	// > time,
+	// > table,
+	// figcaption p {
+	// 	hyphens: auto;
+	// }
 
 	/**
 	 * Overrule hyphenation
 	 *
 	 * For Kirby tag 'nohyphen';
 	 * Usage: (nohyphen: <your text not to be hyphenated>)
-	*/
+	 */
 
-	.u-textNoHyphen {
-		hyphens: none;
-	}
+	// .u-textNoHyphen {
+	// 	hyphens: none;
+	// }
 
 	/* Paragraphs
 	   ========================================================================== */
@@ -110,8 +128,6 @@
 	h4 { @extend .DeltaHeading; }
 	h5 { @extend .EpsilonHeading; }
 	h6 { @extend .ZetaHeading; }
-
-	h1, h2, h3, h4, h5, h6 { max-width: $text-max-width; }
 
 	/* Figures
 	   ========================================================================== */

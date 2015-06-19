@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .Banner {
-	@extend .ContainPadding;
+	@extend .Contain;
 	@include clearfix();
 
 	position: relative;
