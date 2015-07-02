@@ -13,9 +13,3 @@ $grid-spacing-percentage:       1%;                                             
 
 $grid-gutter-rhythm-unit:       1;                                              // set gutter (horizontal) rhythm unit for the layout grid (e.g. `rhythm(1)`)
 $grid-spacing-rhythm-unit:      1;                                              // set vertical spacing rhythm unit for the layout grid
-
-// Contain grid/page
-// --------------------------------------------------------------------------
-
-$contain-percentage:           6%;                                              // Left and right percentage sized paddings/margins
-$contain-rhythm-unit:          2;                                               // Left and right rhytm (unit) sized paddings/margins (e.g. for smaller window sizes)

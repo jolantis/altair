@@ -10,4 +10,5 @@ $background-color:              $color-base-white;
 // Contain
 // --------------------------------------------------------------------------
 
-$contain-percentage:            6%;
+$contain-percentage:           6%;                                              // Left and right percentage sized paddings/margins
+$contain-rhythm-unit:          2;                                               // Left and right rhytm (unit) sized paddings/margins (e.g. for smaller window sizes)
