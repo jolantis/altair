@@ -41,7 +41,7 @@
  * Modifier: Different aspect ratio for different breakpoints
  */
 
-/* 3:2 aspect ratio for small and below */
+/* For small and below (default(s)) */
 
 .FluidEmbed--3by2:before {
 	padding-bottom: percentage(2/3) !important;
@@ -51,13 +51,13 @@
 	padding-bottom: percentage(9/16) !important;
 }
 
-/* 16:9 aspect ratio for compact breakpoint */
+/* For large breakpoint and up */
 
 @include breakpoint(large) {
 	.FluidEmbed--large16by9:before { padding-bottom: percentage(9/16) !important; }
 }
 
-/* 2:1 aspect ratio for huge breakpoint and up */
+/* For huge breakpoint and up */
 
 @include breakpoint(huge) {
 	.FluidEmbed--huge2by1:before { padding-bottom: percentage(1/2) !important; }
