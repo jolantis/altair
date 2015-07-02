@@ -3,10 +3,10 @@
    ========================================================================== */
 
 /**
- * Combine with FluidEmbed!
+ * Fluid, intrinsic ratio background images
  *
  * Example HTML:
- * <div class="BgImage FluidEmbed FluidEmbed--16by9"
+ * <div class="BgImage BgImage--3by2 BgImage--16by9"
  *   style="background-image:url(cover.jpg)">
  * </div>
  *
@@ -26,4 +26,26 @@
 	.no-js &.lazyload {
 		display: none; // Noscript pattern
 	}
+}
+
+/**
+ * Modifier: Different aspect ratio for different breakpoints
+ */
+
+/* For small and below (default) */
+
+.BgImage--3by2:before {
+	padding-bottom: percentage(2/3) !important;
+}
+
+/* For large breakpoint and up */
+
+@include breakpoint(large) {
+	.BgImage--large16by9:before { padding-bottom: percentage(9/16) !important; }
+}
+
+/* For huge breakpoint and up */
+
+@include breakpoint(huge) {
+	.BgImage--huge2by1:before { padding-bottom: percentage(1/2) !important; }
 }
