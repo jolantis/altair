@@ -32,12 +32,12 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo url('/assets/images/apple-touch-icon-144x144.png'); ?>"> <?php // iPad, iOS ≤ 6, @2x ?>
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo url('/assets/images/apple-touch-icon-152x152.png'); ?>"> <?php // iPad, iOS ≥ 7, @2x ?>
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="<?php echo url('/assets/images/apple-touch-icon-180x180.png'); ?>"> <?php // iPad, iOS 8, @2x ?>
-<link rel="icon" type="image/svg+xml" href="<?php echo url('/assets/images/pinned_icon.svg'); ?>" sizes="any" mask> <?php // Safari 9 pinned tab ?>
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/favicon-32x32.png'); ?>" sizes="32x32">
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/favicon-194x194.png'); ?>" sizes="194x194">
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/favicon-96x96.png'); ?>" sizes="96x96">
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/android-chrome-192x192.png'); ?>" sizes="192x192">
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/favicon-16x16.png'); ?>" sizes="16x16">
+<link rel="mask-icon" type="image/svg+xml" color="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>" href="<?php echo url('/assets/images/pinned_icon.svg'); ?>" sizes="any"> <?php // Safari 9 pinned tab ?>
 <meta name="msapplication-TileImage" content="<?php echo url('/assets/images/mstile-144x144.png'); ?>"> <?php // Microsoft Windows 8 ?>
 <meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color()->isNotEmpty()) ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8/8.1 ?>
 <meta name="theme-color" content="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"> <?php // Safari 9 pinned tab active color (http://j.mp/1JNVn3h) + Android Lollipop task bar collor in the switcher (http://j.mp/1xVyGVc) ?>
