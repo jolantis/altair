@@ -12,7 +12,3 @@
 @function img-url($filename) {
 	@return url(../img/#{$filename});
 }
-
-@function fontello-url($filename) {
-	@return url(../../webfonts/fontello/#{$filename});
-}
