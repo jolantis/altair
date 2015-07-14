@@ -64,17 +64,17 @@
 
 /* Call webfont loader */
 
-//WebFont.load({
+// WebFont.load({
 //	google: { families: ['Fontname1', 'Fontname2']},
 //	ascender: { key:'xxxxxxx', families: ['Fontname:bold,bolditalic,italic,regular']},
 //	monotype: { projectId: 'xxxxxxx'},
 //	fontdeck: { id: 'xxxxx'},
 //	typekit: { id: 'xxxxxxx'},
-//	custom: {
-//		families:['TeXGyreAdventor-Bold', 'TeXGyreAdventor-Regular'],
-//		urls:['<?php echo url('/assets/webfonts/texgyreadventor/texgyreadventor.css'); ?>']
-//	}
-//});
+// 	custom: {
+// 		families:['TeXGyreAdventor-Bold', 'TeXGyreAdventor-Regular'],
+// 		urls:['/assets/webfonts/texgyreadventor/texgyreadventor.css'],
+// 	},
+// });
 
 /**
  * Resrc
