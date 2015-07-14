@@ -12,6 +12,7 @@ domready(function () {
 	expand.init();                            // Init expand / collapse
 	navMain.init();                           // Init main navigation
 	smoothScroll.init();                      // Init smoothscroll
+	gumshoe.init();                           // Init gumshoe (scrollspy)
 	popup.init();                             // Init popup
 
 });

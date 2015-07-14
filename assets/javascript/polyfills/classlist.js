@@ -1,21 +1,10 @@
-/**
- * Polyfill for classList functionality
- *
- * Mostly used for: IE9, Android 2.3-, Opera mobile 11-, Safari 5-
- *
- * WARNING: This polyfill wil not work on IE8- !!
- *
- * More information: https://developer.mozilla.org/en-US/docs/Web/API/Element.classList
- * For support see: http://caniuse.com/classlist
- */
-
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 2014-12-13
+ * 1.1.20150312
  *
  * By Eli Grey, http://eligrey.com
- * Public Domain.
- * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+ * License: Dedicated to the public domain.
+ *   See https://github.com/eligrey/classList.js/blob/master/LICENSE.md
  */
 
 /*global self, document, DOMException */
@@ -246,3 +235,4 @@ if (objCtr.defineProperty) {
 }
 
 }
+

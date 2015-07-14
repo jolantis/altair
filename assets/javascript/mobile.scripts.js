@@ -11,6 +11,7 @@ domready(function () {
 	alerts.init(push_message);                // Init alerts
 	expand.init();                            // Init expand / collapse
 	navMain.init();                           // Init main navigation
-	smoothScroll.init();                      // Init smoothscroll
+	// smoothScroll.init();                      // Init smoothscroll
+	// gumshoe.init();                           // Init gumshoe (scrollspy)
 
 });
