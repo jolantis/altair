@@ -4,7 +4,7 @@
 	// Enable JS strict mode
 	"use strict";
 
-	var setTimeout = window.setTimeout;
+  var setTimeout = window.setTimeout;
 
 	var enhance = {};
 
@@ -19,7 +19,6 @@
 		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
 		fontsKey = "fonts",
 		// classes to be added to the HTML element in qualified browsers
-		// htmlClasses = [ "enhanced" ];
 		htmlClasses = [ "enhanced", "ctm" ];
 
 	/* Some commonly used functions - delete anything you don't need! */
@@ -143,12 +142,27 @@
 		cookie( fullCSSKey, "true", 7 );
 	}
 
-	/* Enhancements for qualified browsers - "Cutting the Mustard"
+	/* Check if the browser qualifies as a "Cutting the Mustard" browser.
+		More about CTM here: http://responsivenews.co.uk/post/18948466399/cutting-the-mustard
+		*/
+	function ctm() {
+		if("querySelector" in doc && "localStorage" in window && "addEventListener" in window ) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	// expose it
+	enhance.ctm = ctm;
+
+	/* Enhancements for qualified browsers - “Cutting the Mustard”
 		Add your qualifications for major browser experience divisions here.
 		For example, you might choose to only enhance browsers that support document.querySelector (IE8+, etc).
 		Use case will vary.
 		*/
-	if( !( "querySelector" in doc ) ){
+	if( !( ctm() ) ){
 		// basic browsers: last stop here!
 		return;
 	}
@@ -179,6 +193,6 @@
 	}
 
 	// expose the 'enhance' object globally. Use it to expose anything in here that's useful to other parts of your application.
-	window.enhance = enhance;
+  window.enhance = enhance;
 
 }( this ));
