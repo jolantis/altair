@@ -430,7 +430,7 @@ c::set('resrc', true);                                                          
 c::set('resrc.plan', 'app.resrc.it');                                           // Set to 'trial.resrc.it' while using a resrc trail plan, otherwise set to 'app.resrc.it'
 c::set('resrc.width.default', 800);                                             // Resrc default width param value (also used for generating noscript fallback images)
 c::set('resrc.quality.default', 78);                                            // Resrc default quality param value (also for generating noscript fallback images)
-c::set('resrc.dpi', 1);                                                         // Resrc pixel density valye; resizes image with another pixel density than a default dpi of 1
+c::set('resrc.dpi', 1);                                                         // Resrc default pixel density value (or image width multiplier)
 
 /* -----------------------------------------------------------------------------
 Twitter

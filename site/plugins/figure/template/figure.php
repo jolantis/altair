@@ -15,14 +15,14 @@
 		</noscript>
 	<?php endif; ?>
 
-	<?php // [3] Lazyload + resrc image; full size thumb (let resrc resize and optimize the biggest possible thumb!) ?>
+	<?php // [3] Lazyload + resrc image; full size thumb (let lazysizes calculate and resrc optimize the biggest possible thumb!) ?>
 	<?php if($lazyload == true && c::get('resrc') == true): ?>
 		<?php
-			// If set use custom plachodler width and quality, else apply default width from config
+			// Use custom placeholder thumb width, quality, and pixel density, else apply default values from config
 			$thumbwidth = (isset($customwidth)) ? $customwidth : c::get('resrc.width.default', 800);
 			$thumbquality = (isset($customquality)) ? $customquality : c::get('resrc.quality.default', 78);
 			$pixeldensity = (c::get('resrc.dpi', 1) > 1) ? ',pd' . c::get('resrc.dpi') : '';
-			// Resrc url with (custom) thumbwidth and quality
+			// Resrc url with (custom) thumb width and quality
 			$resrc = 'https://' . c::get('resrc.plan') . '/s=w' . $thumbwidth . $pixeldensity . '/o=' . $thumbquality . '/' . $thumburl;
 		?>
 		<div class="FigureImage-lazy lazyload" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
