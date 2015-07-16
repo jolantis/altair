@@ -247,8 +247,8 @@ kirbytext::$tags['figure'] = array(
 			if($feed == true) {
 
 				$imagethumb = html::img($thumburl,array(
-					// 'width'     => $image->width(),
-					// 'height'    => $image->height(),
+					'data-width'     => $image->width(),
+					'data-height'    => $image->height(),
 					'class'     => $class,
 					'alt'       => html($alt)
 					)
@@ -262,8 +262,8 @@ kirbytext::$tags['figure'] = array(
 			if($lazyload == false && c::get('resrc') == false) {
 
 				$imagethumb = html::img($thumburl,array(
-					// 'width'     => $image->width(),
-					// 'height'    => $image->height(),
+					'data-width'     => $image->width(),
+					'data-height'    => $image->height(),
 					'class'     => $class,
 					'alt'       => html($alt)
 					)
@@ -278,8 +278,8 @@ kirbytext::$tags['figure'] = array(
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-src'  => $thumburl,
-					// 'width'     => $image->width(),
-					// 'height'    => $image->height(),
+					'data-width'     => $image->width(),
+					'data-height'    => $image->height(),
 					'class'     => $class . ' lazyload',
 					'alt'       => html($alt)
 					)
@@ -298,8 +298,8 @@ kirbytext::$tags['figure'] = array(
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-sizes' => 'auto',
 					'data-src'   => $resrc,
-					// 'width'      => $image->width(),
-					// 'height'     => $image->height(),
+					'data-width'      => $image->width(),
+					'data-height'     => $image->height(),
 					'class'      => $class . ' lazyload',
 					'alt'        => html($alt)
 					)
