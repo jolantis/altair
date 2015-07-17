@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 				// '<%= project.scripts_vendor %>/typekit.min.js',
 				// '<%= project.scripts_vendor %>/webfont.min.js',
 				'<%= project.scripts_vendor %>/modernizr.dev.js',
-				// '<%= project.scripts_vendor %>/modernizr.min.js',           // ALWAYS use custom build modernizr in production!
+				// '<%= project.scripts_vendor %>/modernizr.min.js',               // ALWAYS use custom build modernizr in production!
 				'<%= project.scripts %>/head.scripts.js',
 			],
 			main: {
