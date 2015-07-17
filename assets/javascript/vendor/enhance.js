@@ -4,7 +4,7 @@
 	// Enable JS strict mode
 	"use strict";
 
-  var setTimeout = window.setTimeout;
+	var setTimeout = window.setTimeout;
 
 	var enhance = {};
 
@@ -97,7 +97,7 @@
 
 	// cookie function from https://github.com/filamentgroup/cookie/
 	function cookie( name, value, days ){
-    var expires;
+		var expires;
 		// if value is undefined, get the cookie value
 		if( value === undefined ){
 			var cookiestring = "; " + window.document.cookie;
@@ -185,7 +185,7 @@
 		We prefer to load fonts asynchronously so that they do not block page rendering.
 		To do this, a meta tag with a name matching the fontsWoffKey should have a content attribute referencing the path to this fonts file.
 		NOTE: You may want to have logic here to choose between one of many font formats before loading it.
-			For example, we often load WOFF, Truetype, or SVG. If so, just define meta tags for each
+		For example, we often load WOFF, Truetype, or SVG. If so, just define meta tags for each
 		*/
 	var fonts = getMeta( fontsKey );
 	if( fonts ){
@@ -193,6 +193,6 @@
 	}
 
 	// expose the 'enhance' object globally. Use it to expose anything in here that's useful to other parts of your application.
-  window.enhance = enhance;
+	window.enhance = enhance;
 
 }( this ));
