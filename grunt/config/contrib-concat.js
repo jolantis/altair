@@ -9,8 +9,8 @@ module.exports = function(grunt) {
 		scripts: {
 			files: {
 				'<%= project.scripts_dev %>/head.scripts.dev.js': '<%= jsfiles.head %>', // destination: source
-				'<%= project.scripts_dev %>/main.scripts.dev.js': ['<%= jsfiles.main.checks %>', '<%= jsfiles.main.polyfills %>', '<%= jsfiles.main.plugins %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.main.other %>'],
-				'<%= project.scripts_dev %>/mobile.scripts.dev.js': ['<%= jsfiles.mobile.checks %>', '<%= jsfiles.mobile.polyfills %>', '<%= jsfiles.mobile.plugins %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.mobile.other %>'],
+				'<%= project.scripts_dev %>/main.scripts.dev.js': ['<%= jsfiles.main.polyfills %>', '<%= jsfiles.main.plugins %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.main.other %>'],
+				'<%= project.scripts_dev %>/mobile.scripts.dev.js': ['<%= jsfiles.mobile.polyfills %>', '<%= jsfiles.mobile.plugins %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.mobile.other %>'],
 			},
 		},
 		forhint: {
