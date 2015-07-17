@@ -19,11 +19,20 @@ module.exports = function(grunt) {
 		);
 	});
 
+	grunt.registerTask('remfallback', [], function () {
+		grunt.loadNpmTasks('grunt-remfallback');
+		grunt.task.run(
+			'remfallback:main'
+			// 'remfallback:mobile'
+		);
+	});
+
 	grunt.registerTask('styles', [], function () {
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.task.run(
 			'sass-concat',
 			'sass-prefix',
+			'remfallback', // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 			'notify:styles'
 		);
 	});
