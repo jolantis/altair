@@ -7,16 +7,16 @@
 ///////////////////////////////////////////////////////////// ?>
 
 <script>
-function cutsTheMustard() {
-	if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+// function cutsTheMustard() {
+// 	if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
+// 		return true;
+// 	}
+// 	else {
+// 		return false;
+// 	}
+// }
 
-if(cutsTheMustard() === false) {
+if(enhance.ctm() === false) {
 	var lazyloads = document.querySelectorAll('img.lazyload');
 
 	for(i = 0; i < lazyloads.length; i++) {
