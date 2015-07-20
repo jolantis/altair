@@ -6,17 +6,16 @@
  */
 
 /**
- * Cutting the mustard
+ * Enhance
  *
- * Check if the browser is an 'HTML4 or HTML5' browser.
- * Why? See: http://responsivenews.co.uk/post/18948466399/cutting-the-mustard
+ * Check if the browser cuts-the-mustard (is an 'HTML4 or HTML5' browser),
+ * and can therefore be progressively enhanced.
+ * See:
+ * - http://responsivenews.co.uk/post/18948466399/cutting-the-mustard
+ * - https://github.com/filamentgroup/enhance
  *
  * Always enabled; it's added in the gruntfile.js in the jsfiles section.
  */
-
-// "assets/javascript/vendor/ctm.js",
-
-// or as part of enhance js:
 
 // assets/javascript/vendor/enhance.js,
 
