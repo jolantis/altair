@@ -5,19 +5,6 @@
  * Use gruntfile.js to include script files
  */
 
-/*
- * Developer only! Overrule the CTM check and set it true or false.
- *
- * Only out-comment when developing!
- *
- * These lines do the following:
- * - Cutsthemustard var to false for scripting purposes
- * - Replace the ctm class by no-ctm for styling purposes
- */
-
-// cutsthemustard = false;
-// document.documentElement.className = document.documentElement.className.replace(/\bctm\b/g, '') + ' no-ctm ';
-
 /**
  * Cutting the mustard
  *
