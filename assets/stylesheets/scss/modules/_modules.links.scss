@@ -13,6 +13,7 @@
 		position: relative;
 		transition: color .24s ease-out;
 		text-decoration: underline;
+		text-decoration-skip: ink; // See: https://css-tricks.com/more-control-over-text-decoration/
 		color: $color-base-blue;
 	}
 
