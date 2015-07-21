@@ -121,12 +121,12 @@
 /* Em gutter */
 
 .BlockGrid--withGutter {
-	margin-right: rhythm(-.5); /* Removes the `gutter` right */
-	margin-left: rhythm(-.5); /* Removes the `gutter` right */
+	margin-right: rhythm(-.5 * $grid-gutter-rhythm-unit); /* Removes the `gutter` right */
+	margin-left: rhythm(-.5 * $grid-gutter-rhythm-unit); /* Removes the `gutter` right */
 
 	& > .BlockGrid-cell {
-		padding-right: rhythm(.5);
-		padding-left: rhythm(.5);
+		padding-right: rhythm(.5 * $grid-gutter-rhythm-unit);
+		padding-left: rhythm(.5 * $grid-gutter-rhythm-unit);
 	}
 }
 
