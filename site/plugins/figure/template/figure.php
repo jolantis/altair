@@ -33,7 +33,7 @@
 		</noscript>
 	<?php endif; ?>
 
-	<?php if($caption->isNotEmpty()): ?>
+	<?php if($caption): ?>
 		<figcaption class="FigureImage-caption">
 			<?php echo kirbytext($caption); ?>
 		</figcaption>
