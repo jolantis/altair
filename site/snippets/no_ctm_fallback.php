@@ -17,17 +17,24 @@
 // }
 
 if(enhance.ctm() === false) {
-	var lazyloads = document.querySelectorAll('img.lazyload');
+	var lazyloadimgs = document.querySelectorAll('img.lazyload');
 
-	for(i = 0; i < lazyloads.length; i++) {
+	for(i = 0; i < lazyloadimgs.length; i++) {
 		// Set data-src as src
-		var datasrc = lazyloads[i].getAttribute('data-src');
-		lazyloads[i].setAttribute('src', datasrc);
+		var datasrc = lazyloadimgs[i].getAttribute('data-src');
+		lazyloadimgs[i].setAttribute('src', datasrc);
 
 		// Set/undo some no-js styles to show images nicely
-		lazyloads[i].style.display = 'block';
-		lazyloads[i].parentNode.style.display = 'block';
-		lazyloads[i].parentNode.style.paddingBottom = '0px';
+		lazyloadimgs[i].style.display = 'block';
+		lazyloadimgs[i].parentNode.style.display = 'block';
+		lazyloadimgs[i].parentNode.style.paddingBottom = '0px';
+	}
+
+	var lazyloaddivs = document.querySelectorAll('[data-bgset]');
+	for(i = 0; i < lazyloaddivs.length; i++) {
+		// Set data-bgset as style background
+		var datasrc = lazyloaddivs[i].getAttribute('data-bgset');
+		lazyloaddivs[i].style.backgroundImage = 'url('+datasrc+')';
 	}
 }
 </script>
