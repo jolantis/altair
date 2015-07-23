@@ -162,6 +162,7 @@
 
 	if( !( ctm() ) ){
 		// basic browsers: last stop here!
+		window.enhance = enhance; // expose enhance to window, to use in older browsers
 		return;
 	}
 
