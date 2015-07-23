@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 		grunt.task.run(
 			'sass-concat',
 			'sass-prefix',
-			'remfallback', // Generate px fallbacks for CSS properties with rem values for lt IE 9!
+			// 'remfallback', // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 			'notify:styles'
 		);
 	});
@@ -45,6 +45,7 @@ module.exports = function(grunt) {
 			'clean:styles',
 			'css_mqpacker',
 			'csso:styles'
+			'remfallback' // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 		);
 	});
 
