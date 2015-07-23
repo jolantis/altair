@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 		grunt.task.run(
 			'clean:styles',
 			'css_mqpacker',
-			'csso:styles'
+			'csso:styles',
 			'remfallback' // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 		);
 	});
