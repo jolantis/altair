@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_classes %>/expand.class.js',
 					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
-					'<%= project.scripts_classes %>/photoswipe.class.js',
+					// '<%= project.scripts_classes %>/photoswipe.class.js',
 					'<%= project.scripts_classes %>/popup.class.js',
 				// Main
 					'<%= project.scripts %>/main.scripts.js',
