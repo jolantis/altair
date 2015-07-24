@@ -2,13 +2,13 @@
 
 	<?php // [1] Regular image; resized thumb (thumbs.width.default) ?>
 	<?php if($lazyload == false && c::get('resrc') == false): ?>
-		<img src="<?php echo $thumburl; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" data-width="<?php echo $thumbwidth; ?>" data-height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+		<img src="<?php echo $thumburl; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 	<?php endif; ?>
 
 	<?php // [2] Lazyload image; resized thumb (thumbs.width.default)  ?>
 	<?php if($lazyload == true && c::get('resrc') == false): ?>
 		<div class="FigureImage-lazy lazyload" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
-			<img data-src="<?php echo $thumburl; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" data-width="<?php echo $thumbwidth; ?>" data-height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+			<img data-src="<?php echo $thumburl; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 		</div>
 		<noscript>
 			<img src="<?php echo $thumburl; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
@@ -26,7 +26,7 @@
 			$resrc = 'https://' . c::get('resrc.plan') . '/s=w' . $thumbwidth . $pixeldensity . '/o=' . $thumbquality . '/' . $thumburl;
 		?>
 		<div class="FigureImage-lazy lazyload" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
-			<img data-sizes="auto" data-src="<?php echo $resrc; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?>"  data-width="<?php echo $thumbwidth; ?>" data-height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+			<img data-sizes="auto" data-src="<?php echo $resrc; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 		</div>
 		<noscript>
 			<img src="<?php echo $resrc; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo round($thumbwidth * $ratio); ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
