@@ -105,7 +105,7 @@ if(!isset($prev_next)): $prev_next = false; endif;
 		<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $mobile_css . '.css'); ?>">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . $criticalcss . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . $criticalcss . '_mobile.css'); ?></style>
-		<noscript><link rel="stylesheet" href="<?php echo ulr('/assets/stylesheets/' . $env_suffix . '/' . $mobile_css . '.css'); ?>"></noscript>
+		<noscript><link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $mobile_css . '.css'); ?>"></noscript>
 	<?php endif; ?>
 	<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'); ?>" media="print">
 
