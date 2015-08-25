@@ -113,13 +113,14 @@
 
 // @import "pages/pages.home";
 
+
 // --------------------------------------------------------------------------
-// animations (read comments in animations.scss)
+// plugins
 // --------------------------------------------------------------------------
 
-@import "animations/animations";
 // @import "plugins/photoswipe/main";
 // @import "plugins/photoswipe/default-skin/default-skin";
+@import "plugins/animations/animations";
 
 // --------------------------------------------------------------------------
 // Grunticon
