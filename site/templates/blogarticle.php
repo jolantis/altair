@@ -21,8 +21,8 @@
 			<?php echo $page->intro()->kirbytext(); ?>
 			<?php echo $page->text()->kirbytext(); ?>
 
-			<!-- start: load photos from folder -->
-			<?php if($page->hasImages()) : ?>
+			<?php /* if($page->hasImages()) : ?>
+				<!-- start: load photos from folder -->
 
 				<h2>Photo(s) form page</h2>
 
@@ -31,8 +31,8 @@
 					<?php echo figure($image, array('cropratio' => 1/2, 'caption' => $caption)); ?>
 				<?php endforeach; ?>
 
-			<?php endif; ?>
-			<!-- end -->
+				<!-- end -->
+			<?php endif; */ ?>
 
 			<?php snippet('share_page'); ?>
 
