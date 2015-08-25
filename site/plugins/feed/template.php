@@ -3,10 +3,11 @@
 
 	<channel>
 		<title><?php echo xml($title); ?></title>
-		<link><?php echo xml($channel); ?></link>
+		<link><?php echo url($channel); ?></link>
 		<generator><?php echo c::get('feed.generator', 'Kirby'); ?></generator>
-		<lastBuildDate><?php echo $site->find($channel)->modified('r'); ?></lastBuildDate>
-		<atom:link href="<?php echo xml($url); ?>" rel="self" type="application/rss+xml" />
+		<lastBuildDate><?php echo date('r', $modified) ?></lastBuildDate>
+		<?php /* <lastBuildDate><?php echo $site->find($channel)->modified('r'); ?></lastBuildDate> */ ?>
+		<atom:link href="<?php echo url($channel); ?>/feed" rel="self" type="application/rss+xml" />
 
 		<?php if(!is_null($description)): ?>
 			<description><?php echo xml($description); ?></description>
@@ -16,25 +17,19 @@
 			<item>
 				<title><?php echo xml($item->title()); ?></title>
 				<link><?php echo xml($item->url()); ?></link>
-				<guid><?php echo xml($item->id()); ?></guid>
+				<guid><?php echo xml($item->url()); ?></guid>
 				<pubDate><?php echo $datefield == 'modified' ? $item->modified('r') : $item->date('r', $datefield); ?></pubDate>
 				<?php if($excerpt == true): ?>
 					<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
 					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
-					<description>
-						<![CDATA[
-							<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>
-							<?php if($excerptimage == true): ?>
-								<?php echo figure($item->images()->first(), array('lazyload' => false)); ?>
-							<?php endif; ?>
-						]]>
-					</description>
+					<description><![CDATA[
+						<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>
+						<?php if($excerptimage == true): ?>
+							<?php echo figure($item->images()->first(), array('lazyload' => false)); ?>
+						<?php endif; ?>
+					]]></description>
 				<?php else: ?>
-					<description>
-						<![CDATA[
-							<?php echo $item->{$textfield}()->kirbytext(); ?>
-						]]>
-					</description>
+					<description><![CDATA[<?php echo $item->{$textfield}()->kirbytext(); ?>]]></description>
 				<?php endif; ?>
 			</item>
 		<?php endforeach ?>
