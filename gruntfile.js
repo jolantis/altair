@@ -69,8 +69,8 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smooth-scroll.js',
 					'<%= project.scripts_plugins %>/gumshoe.js',
-					'<%= project.scripts_plugins %>/photoswipe/photoswipe.js', // Photoswipe
-					'<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
+					// '<%= project.scripts_plugins %>/photoswipe/photoswipe.js',  // Photoswipe
+					// '<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
 
 				],
 				utils: [
@@ -105,8 +105,8 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/ls.print.js',               // Out-comment when there's a need to be able to print lazyloaded images!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smooth-scroll.js',
-					'<%= project.scripts_plugins %>/photoswipe/photoswipe.js', // Photoswipe
-					'<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
+					// '<%= project.scripts_plugins %>/photoswipe/photoswipe.js',  // Photoswipe
+					// '<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
 				],
 				utils: [
 					'<%= project.scripts_utils %>/extend.util.js',
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_classes %>/expand.class.js',
 					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
-					'<%= project.scripts_classes %>/photoswipe.class.js',
+					// '<%= project.scripts_classes %>/photoswipe.class.js',
 				// Main
 					'<%= project.scripts %>/mobile.scripts.js',
 				],

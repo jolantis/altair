@@ -97,10 +97,6 @@
 @import "modules/modules.tables";
 @import "modules/modules.tooltips";
 
-@import "plugins/photoswipe/main";
-@import "plugins/photoswipe/default-skin/default-skin";
-
-
 // --------------------------------------------------------------------------
 // layout
 // --------------------------------------------------------------------------
@@ -122,6 +118,8 @@
 // --------------------------------------------------------------------------
 
 @import "animations/animations";
+// @import "plugins/photoswipe/main";
+// @import "plugins/photoswipe/default-skin/default-skin";
 
 // --------------------------------------------------------------------------
 // Grunticon
