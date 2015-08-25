@@ -15,9 +15,10 @@ You can use this in a template for a dedicated feed page or in a template contro
 ```php
 <?php
 	echo page('blog')->children()->visible()->limit(10)->feed(array(
-		'title'       => 'Latest articles',
-		'description' => 'Read the latest news about our company',
-		'link'        => 'blog'
+		'channel'     => 'blog',
+		'textfield'   => 'text',
+		'excerpt'     => false,
+		…
 	));
 ?>
 ```
