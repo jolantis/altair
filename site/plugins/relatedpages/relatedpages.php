@@ -3,14 +3,14 @@
 /**
  * RelatedPages plugin for Kirby CMS Version 2
  *
- * The RelatedPages plugin provides an easy, but flexible way of
+ * The RelatedPages plugin provides an easy, but flexible way of 
  * incorporating links (or other data) of related pages to the
  * current page. The relationsship is considered by keywords in an
  * arbitrary field of the content file.
  *
  * @author Uwe Gehring <uwe@imap.cc>
  * @copyright 2014 Uwe Gehring
- * @version 2.1
+ * @version 2.11
  *
  *
  * Installation:
@@ -64,7 +64,7 @@
  *                              trailing slash. Example: '/folder/subfolder'
  *
  * 'recursionDepth'  (0)        Depth of recursion into the folder structure. 0
- *                              means infinitely. Count starts at StartURI level,
+ *                              means infinitely. Count starts at startURI level,
  *                              this means it is relative to the root level.
  *
  * 'searchField'     ('Tags')   The name of the field in your content files which
@@ -74,6 +74,9 @@
  *                              empty array means that all keywords will be searched
  *                              for.
  *
+ * 'minHits'         (1)        Number of minimum required hits of searchItems.
+ *
+ *                        
  * For backward compatibility, you can still use the old option names:
  *
  * 'VisibleOnly'
@@ -88,18 +91,19 @@ function relatedpages($options = array()) {
 
 /**
  * Default options
- */
+ */ 
   $defaults = array(
     'visibleOnly'     => true,
     'startURI'        => '',
     'recursionDepth'  => '0',
     'searchField'     => 'Tags',
     'searchItems'     => array(),
+    'minHits'         => 1,
   );
 
 /**
  * Backward compatibility
- */
+ */ 
   if (array_key_exists('VisibleOnly',$options)) { $options['visibleOnly'] = $options['VisibleOnly'];unset($options['VisibleOnly']); }
   if (array_key_exists('StartURI',$options)) { $options['startURI'] = $options['StartURI'];unset($options['StartURI']); }
   if (array_key_exists('Depth',$options)) { $options['recursionDepth'] = $options['Depth'];unset($options['Depth']); }
@@ -108,12 +112,12 @@ function relatedpages($options = array()) {
 
 /**
  * Merge default and given options
- */
+ */ 
   $options = array_merge($defaults,$options);
 
 /**
  * Get pages from $site->children()->index(), either all or only visible pages
- */
+ */ 
   $allPages = site()->children()->index();
   if ($options['visibleOnly']) { $allPages = $allPages->visible(); }
 
@@ -124,10 +128,10 @@ function relatedpages($options = array()) {
   if (count($options['searchItems']) == 0) { $options['searchItems'] = str::split(site()->activePage()->content()->get(str::lower($options['searchField']))); }
 
   $pages = new Collection();
-
+  
 /**
  * Main loop #1: Go through all pages from index
- */
+ */    
     foreach ($allPages as $page) {
 
 /**
@@ -149,13 +153,19 @@ function relatedpages($options = array()) {
 /**
  * Main loop #2: Go through all items to search for
  */
+      $hits = 0;
       foreach ($options['searchItems'] as $item) {
 
 /**
- * Save page if the item appears in the corresponding field, from where we have got the items
+ * Count hits if the item appears in the corresponding field, from where we have got the items
  */
-        if (in_array($item,str::split($page->content()->get(str::lower($options['searchField']))))) { $pages->data[$page->id()] = $page; }
+        if (in_array($item,str::split($page->content()->get(str::lower($options['searchField']))))) { $hits++; }
       }
+
+/**
+ * Save page if the number of hits exceeds the required minimum.
+ */
+      if ($hits >= $options['minHits']) { $pages->data[$page->id()] = $page; }
     }
 
 /**
