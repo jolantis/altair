@@ -3,18 +3,6 @@
    ========================================================================== */
 
 /**
- * A figure element and its desendent image within a grid (.Grid) or not
- *
- * Markup example:
- *
- * <figure class="FigureImage">
- * 		<img src="..." class="FigureImage-item" alt="A single image" />
- * </figure>
- */
-
-// .FigureImage {}
-
-/**
  * A figure element (and image) within a (multifigure) grid
  *
  * Can be generated in (Kirby) Markdown with (figure: ) syntax
