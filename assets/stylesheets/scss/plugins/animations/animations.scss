@@ -27,7 +27,7 @@
 // @import "attention-seekers/bounce";
 @import "attention-seekers/flash";
 // @import "attention-seekers/pulse";
-// @import "attention-seekers/rubberBand";
+// @import "attention-seekers/rubber-band";
 // @import "attention-seekers/shake";
 // @import "attention-seekers/swing";
 // @import "attention-seekers/tada";
@@ -37,111 +37,111 @@
 // Bouncing entrances
 // --------------------------------------------------------------------------
 
-// @import "bouncing-entrances/bounceIn";
-// @import "bouncing-entrances/bounceInDown";
-// @import "bouncing-entrances/bounceInLeft";
-// @import "bouncing-entrances/bounceInRight";
-// @import "bouncing-entrances/bounceInUp";
+// @import "bouncing-entrances/bounce-in";
+// @import "bouncing-entrances/bounce-in-down";
+// @import "bouncing-entrances/bounce-in-left";
+// @import "bouncing-entrances/bounce-in-right";
+// @import "bouncing-entrances/bounce-in-ip";
 
 // --------------------------------------------------------------------------
 // Bouncing exits
 // --------------------------------------------------------------------------
 
-// @import "bouncing-exits/bounceOut";
-// @import "bouncing-exits/bounceOutDown";
-// @import "bouncing-exits/bounceOutLeft";
-// @import "bouncing-exits/bounceOutRight";
-// @import "bouncing-exits/bounceOutUp";
+// @import "bouncing-exits/bounce-out";
+// @import "bouncing-exits/bounce-out-down";
+// @import "bouncing-exits/bounce-out-left";
+// @import "bouncing-exits/bounce-out-right";
+// @import "bouncing-exits/bounce-out-up";
 
 // --------------------------------------------------------------------------
 // Fading entrances
 // --------------------------------------------------------------------------
 
-@import "fading-entrances/fadeIn";
-// @import "fading-entrances/fadeInDown";
-// @import "fading-entrances/fadeInLeft";
-// @import "fading-entrances/fadeInRight";
-// @import "fading-entrances/fadeInUp";
-// @import "fading-entrances/fadeInDownBig";
-// @import "fading-entrances/fadeInLeftBig";
-// @import "fading-entrances/fadeInRightBig";
-// @import "fading-entrances/fadeInUpBig";
+@import "fading-entrances/fade-in";
+// @import "fading-entrances/fade-in-down";
+// @import "fading-entrances/fade-in-left";
+// @import "fading-entrances/fade-in-right";
+// @import "fading-entrances/fade-in-up";
+// @import "fading-entrances/fade-in-down-big";
+// @import "fading-entrances/fade-in-left-big";
+// @import "fading-entrances/fade-in-right-big";
+// @import "fading-entrances/fade-in-up-big";
 
 // --------------------------------------------------------------------------
 // Fading exits
 // --------------------------------------------------------------------------
 
-// @import "fading-exits/fadeOut";
-// @import "fading-exits/fadeOutDown";
-// @import "fading-exits/fadeOutLeft";
-// @import "fading-exits/fadeOutRight";
-// @import "fading-exits/fadeOutUp";
-// @import "fading-exits/fadeOutDownBig";
-// @import "fading-exits/fadeOutLeftBig";
-// @import "fading-exits/fadeOutRightBig";
-// @import "fading-exits/fadeOutUpBig";
+// @import "fading-exits/fade-out";
+// @import "fading-exits/fade-out-down";
+// @import "fading-exits/fade-out-left";
+// @import "fading-exits/fade-out-right";
+// @import "fading-exits/fade-out-up";
+// @import "fading-exits/fade-out-down-big";
+// @import "fading-exits/fade-out-left-big";
+// @import "fading-exits/fade-out-right-big";
+// @import "fading-exits/fade-out-up-big";
 
 // --------------------------------------------------------------------------
 // Flippers
 // --------------------------------------------------------------------------
 
 // @import "flippers/flip";
-// @import "flippers/flipInX";
-// @import "flippers/flipInY";
-// @import "flippers/flipOutX";
-// @import "flippers/flipOutY";
+// @import "flippers/flip-in-x";
+// @import "flippers/flip-in-y";
+// @import "flippers/flip-out-x";
+// @import "flippers/flip-out-y";
 
 // --------------------------------------------------------------------------
 // Lightspeed
 // --------------------------------------------------------------------------
 
-// @import "lightspeed/lightSpeedIn";
-// @import "lightspeed/lightSpeedOut";
+// @import "lightspeed/light-speed-in";
+// @import "lightspeed/light-speed-out";
 
 // --------------------------------------------------------------------------
 // Rotating entrances
 // --------------------------------------------------------------------------
 
-// @import "rotating-entrances/rotateIn";
-// @import "rotating-entrances/rotateInDownLeft";
-// @import "rotating-entrances/rotateInDownRight";
-// @import "rotating-entrances/rotateInUpLeft";
-// @import "rotating-entrances/rotateInUpRight";
+// @import "rotating-entrances/rotate-in";
+// @import "rotating-entrances/rotate-in-down-left";
+// @import "rotating-entrances/rotate-in-down-right";
+// @import "rotating-entrances/rotate-in-up-left";
+// @import "rotating-entrances/rotate-in-up-right";
 
 // --------------------------------------------------------------------------
 // Rotating exits
 // --------------------------------------------------------------------------
 
-// @import "rotating-exits/rotateOut";
-// @import "rotating-exits/rotateOutDownLeft";
-// @import "rotating-exits/rotateOutDownRight";
-// @import "rotating-exits/rotateOutUpLeft";
-// @import "rotating-exits/rotateOutUpRight";
+// @import "rotating-exits/rotate-out";
+// @import "rotating-exits/rotate-out-down-left";
+// @import "rotating-exits/rotate-out-down-right";
+// @import "rotating-exits/rotate-out-up-left";
+// @import "rotating-exits/rotate-out-up-right";
 
 // --------------------------------------------------------------------------
 // Specials
 // --------------------------------------------------------------------------
 
 // @import "specials/hinge";
-// @import "specials/rollIn";
-// @import "specials/rollOut";
+// @import "specials/roll-in";
+// @import "specials/roll-out";
 
 // --------------------------------------------------------------------------
 // Zooming entrances
 // --------------------------------------------------------------------------
 
-// @import "zooming-entrances/zoomIn";
-// @import "zooming-entrances/zoomInDown";
-// @import "zooming-entrances/zoomInLeft";
-// @import "zooming-entrances/zoomInRight";
-// @import "zooming-entrances/zoomInUp";
+// @import "zooming-entrances/zoom-in";
+// @import "zooming-entrances/zoom-in-down";
+// @import "zooming-entrances/zoom-in-left";
+// @import "zooming-entrances/zoom-in-right";
+// @import "zooming-entrances/zoom-in-up";
 
 // --------------------------------------------------------------------------
 // Zooming exits
 // --------------------------------------------------------------------------
 
-// @import "zooming-exits/zoomOut";
-// @import "zooming-exits/zoomOutDown";
-// @import "zooming-exits/zoomOutLeft";
-// @import "zooming-exits/zoomOutRight";
-// @import "zooming-exits/zoomOutUp";
+// @import "zooming-exits/zoom-out";
+// @import "zooming-exits/zoom-out-down";
+// @import "zooming-exits/zoom-out-left";
+// @import "zooming-exits/zoom-out-right";
+// @import "zooming-exits/zoom-out-up";
