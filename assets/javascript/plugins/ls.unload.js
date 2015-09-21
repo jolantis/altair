@@ -112,13 +112,13 @@
 		}
 
 		if(!('unloadPixelThreshold' in config)){
-			config.unloadPixelThreshold =  Math.max( Math.min(document.documentElement.clientWidth * dpr, document.documentElement.clientHeight * dpr, 999) - 40, 320);
+			config.unloadPixelThreshold =  Math.max( Math.min(document.documentElement.clientWidth * dpr, document.documentElement.clientHeight * dpr, 999) - 40, 210 * dpr, 310);
 			config.unloadPixelThreshold *= config.unloadPixelThreshold / 2.5;
 		}
 
 		if(config.autoUnload){
 			document.documentElement.addEventListener('load',  function(e){
-				if(e.target.className.indexOf(lazySizesConfig.loadingClass) != -1 && e.target.naturalWidth * e.target.naturalHeight > config.unloadPixelThreshold){
+				if(e.target.className.indexOf(lazySizesConfig.loadingClass) != -1 && e.target.naturalWidth * e.target.naturalHeight > config.unloadPixelThreshold  && e.target.className.indexOf(lazySizesConfig.preloadClass) == -1){
 					lazySizes.aC(e.target, lazySizesConfig.unloadClass);
 				}
 			}, true);
