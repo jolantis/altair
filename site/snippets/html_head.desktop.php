@@ -128,6 +128,7 @@ if(!isset($prefetch)): $prefetch = false; endif;
 
 	<!--[if (gte IE 7) & (lte IE 8)]>
 	<script src="<?php echo url('/assets/javascript/vendor/html5shiv.min.js'); ?>"></script>
+	<script src="<?php echo url('/assets/javascript/vendor/html5shiv-printshiv.min.js'); ?>"></script>
 	<script src="<?php echo url('/assets/javascript/vendor/nwmatcher.min.js'); ?>"></script>
 	<script src="<?php echo url('/assets/javascript/vendor/selectivizr.min.js'); ?>"></script>
 	<![endif]-->
