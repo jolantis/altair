@@ -327,11 +327,11 @@ AddDefaultCharset utf-8
     # set the RewriteBase to: RewriteBase /mysite
     # RewriteBase /mysite
     # [1] Block text files in the content folder from being accessed directly
-    RewriteRule ^content/(.*)\.(txt|md|mdown)$ error [R=301,L]
+    RewriteRule ^content/(.*)\.(txt|md|mdown)$ index.php [L]
     # [2] Block all files in the site folder from being accessed directly
-    RewriteRule ^site/(.*) error [R=301,L]
+    RewriteRule ^site/(.*) index.php [L]
     # [3] Block all files in the kirby folder from being accessed directly
-    RewriteRule ^kirby/(.*) error [R=301,L]
+    RewriteRule ^kirby/(.*) index.php [L]
     # [4] Leave robots.txt alone for search engines
     RewriteRule ^robots.txt robots.txt [L]
     # [5] Redirect index.php requests
