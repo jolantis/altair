@@ -62,6 +62,7 @@ module.exports = function(grunt) {
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
 					'<%= project.scripts_vendor %>/lazysizes.min.js',           // Out-comment when using lazyload!!!
+					// '<%= project.scripts_plugins %>/ls.respimg.js',             // Out-comment when using polyfilling responsive images!!!
 					'<%= project.scripts_plugins %>/ls.rias.js',                // Out-comment when using lazyload + resrc!!!
 					'<%= project.scripts_plugins %>/ls.bgset.js',               // Out-comment when using lazyload (+ resrc) + multiple background images with a width descriptor!!!
 					// '<%= project.scripts_plugins %>/ls.unload.js',              // Out-comment when using lazyload and want to unload not in view images to improve memory consumption and orientationchange/resize performance!!!
@@ -100,6 +101,7 @@ module.exports = function(grunt) {
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
 					'<%= project.scripts_vendor %>/lazysizes.min.js',           // Out-comment when using lazyload!!!
+					// '<%= project.scripts_plugins %>/ls.respimg.js',             // Out-comment when using polyfilling responsive images!!!
 					'<%= project.scripts_plugins %>/ls.rias.js',                // Out-comment when using lazyload + resrc!!!
 					'<%= project.scripts_plugins %>/ls.bgset.js',               // Out-comment when using lazyload (+ resrc) + multiple background images with a width descriptor!!!
 					// '<%= project.scripts_plugins %>/ls.unload.js',              // Out-comment when using lazyload and want to unload not in view images to improve memory consumption and orientationchange/resize performance!!!
