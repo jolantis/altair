@@ -21,7 +21,7 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-criticalcss": "^0.5.0",
+    "grunt-criticalcss": "^0.6.0",
     "grunt-css-mqpacker": "^2.0.0",
     "grunt-csso": "^0.7.1",
     "grunt-grunticon": "^2.2.2",
