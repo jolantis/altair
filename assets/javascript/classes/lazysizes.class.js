@@ -13,7 +13,7 @@ var lazysizes = {
 	init: function() {
 		document.addEventListener('lazyriasmodifyoptions', function(e) {
 			// If pixel ratio > 1.4 set (resrc) jpg quality to a lower percentage
-			e.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 65 : 60;
+			e.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 60 : 78;
 		});
 		document.addEventListener('lazybeforeunveil', function(e){
 			// Replace default `data-src/bgset` placeholder width and quality
