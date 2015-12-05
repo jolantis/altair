@@ -38,7 +38,7 @@
  *
  * Load custom, Google, Ascender, Fonts.com (Monotype), Fontdeck and/or
  * Typekit web fonts (or from multiple) with Google's WebFont Loader.
- * Version of webfont.min.js: 1.6.6 (check: http://j.mp/1475wC9).
+ * Version of webfont.min.js: 1.6.15 (check: http://j.mp/1475wC9).
  *
  * Enable the use of WebFont Loader, by adding (out-commenting) the correct
  * line in the gruntfile.js in the 'head' part of the 'Set js files and
