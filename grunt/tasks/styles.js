@@ -39,13 +39,12 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('styles-minify', [], function () {
 		grunt.loadNpmTasks('grunt-contrib-clean');
-		// grunt.loadNpmTasks('grunt-css-mqpacker');
-		grunt.loadNpmTasks('grunt-combine-mq');
+		grunt.loadNpmTasks('grunt-css-mqpacker');
 		grunt.loadNpmTasks('grunt-csso');
 		grunt.task.run(
 			'clean:styles',
-			// 'css_mqpacker',
-			'combine_mq',
+			'css_mqpacker:main',
+			'css_mqpacker:mobile',
 			'csso:styles',
 			'remfallback' // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 		);
