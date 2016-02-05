@@ -9,6 +9,7 @@
 	var regNumber = /^\-*\+*\d+\.*\d*$/;
 	var regPicture = /^picture$/i;
 	var regWidth = /\s*\{\s*width\s*\}\s*/i;
+	var regHeight = /\s*\{\s*height\s*\}\s*/i;
 	var regPlaceholder = /\s*\{\s*([a-z0-9]+)\s*\}\s*/ig;
 	var regObj = /^\[.*\]|\{.*\}$/;
 	var regAllowedSizes = /^(?:auto|\d+(px)?)$/;
@@ -26,7 +27,8 @@
 			srcAttr: 'data-src',
 			absUrl: false,
 			modifyOptions: noop,
-			widthmap: {}
+			widthmap: {},
+			ratio: false
 		};
 
 		config = (window.lazySizes && lazySizes.cfg) || window.lazySizesConfig;
@@ -131,8 +133,10 @@
 		url = ((options.prefix || '') + url + (options.postfix || '')).replace(regPlaceholder, replaceFn);
 
 		options.widths.forEach(function(width){
+			var widthAlias = options.widthmap[width] || width;
 			var candidate = {
-				u: url.replace(regWidth, options.widthmap[width] || width),
+				u: url.replace(regWidth, widthAlias)
+						.replace(regHeight, options.ratio ? Math.round(width * options.ratio) : ''),
 				w: width
 			};
 
@@ -143,8 +147,26 @@
 	}
 
 	function setSrc(src, opts, elem){
+		var elemW = 0;
+		var elemH = 0;
+		var sizeElement = elem;
 
 		if(!src){return;}
+
+		if (opts.ratio === 'container') {
+			// calculate image or parent ratio
+			elemW = sizeElement.scrollWidth;
+			elemH = sizeElement.scrollHeight;
+
+			while ((!elemW || !elemH) && sizeElement !== document) {
+				sizeElement = sizeElement.parentNode;
+				elemW = sizeElement.scrollWidth;
+				elemH = sizeElement.scrollHeight;
+			}
+			if (elemW && elemH) {
+				opts.ratio = elemH / elemW;
+			}
+		}
 
 		src = replaceUrlProps(src, opts);
 
@@ -277,7 +299,7 @@
 		var getX = function(elem){
 			var dpr = window.devicePixelRatio || 1;
 			var optimum = lazySizes.getX && lazySizes.getX(elem);
-			return Math.min(optimum || dpr, 2.5, dpr);
+			return Math.min(optimum || dpr, 2.4, dpr);
 		};
 
 		var getCandidate = function(elem, width){
