@@ -1,5 +1,5 @@
 /**
- * Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS — v0.3.18 — 2016-01-04
+ * Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS — v0.3.19 — 2016-02-05
  * http://altair.studiodumbar.info
  * Copyright (c) 2016 Studio Dumbar
  */
