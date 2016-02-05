@@ -9,8 +9,8 @@ module.exports = function(grunt) {
 			'styles',
 			// 'oldie',
 			'styles-minify',
-			// 'criticalcss',
-			'penthouse',
+			'criticalcss',
+			// 'penthouse',
 			'scripts',
 			'scripts-minify',
 			'hashify', // Generating an 'oldie' stylesheet? Make sure to enable the 'oldie' part in the hashify.js config!

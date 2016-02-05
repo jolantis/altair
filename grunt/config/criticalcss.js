@@ -45,6 +45,28 @@ module.exports = function(grunt) {
 				buffer: 800*1024,
 			},
 		},
+		images : {
+			options: {
+				url: 'http://local.altair/images',
+				width: 1440,
+				height: 900,
+				outputfile: '<%= project.styles_critical %>/images.css',
+				filename: '<%= project.styles_dev %>/main.dev.css',
+				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
+				buffer: 800*1024,
+			},
+		},
+		images_mobile : {
+			options: {
+				url: 'http://local.altair/images',
+				width: 420, // iPhone 6 Plus is 414 points wide
+				height: 960, //iPhone 6 Plus is 736 points high
+				outputfile: '<%= project.styles_critical %>/images_mobile.css',
+				filename:'<%= project.styles_dev %>/mobile.dev.css',
+				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
+				buffer: 800*1024,
+			},
+		},
 	});
 
 };
