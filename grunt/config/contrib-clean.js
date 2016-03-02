@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
 
 	grunt.config('clean', {
+		options: {
+			force: true,
+		},
 		styles: {
 			src: [
 				'<%= project.styles_dev %>/*.concat.css',
