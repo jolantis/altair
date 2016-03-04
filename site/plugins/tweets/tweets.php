@@ -120,7 +120,7 @@ function tweets($username, $params=array()) {
 		$user = $tweet->user;
 
 		$result[] = new tweet(array(
-			'url'    => 'http://twitter.com/' . $options['username'] . '/status/' . $tweet->id_str,
+			'url'    => 'https://twitter.com/' . $options['username'] . '/status/' . $tweet->id_str,
 			'text'   => $tweet->text,
 			'date'   => strtotime($tweet->created_at),
 			'source' => $tweet->source,
@@ -128,8 +128,8 @@ function tweets($username, $params=array()) {
 				'name'      => $user->name,
 				'bio'       => $user->description,
 				'username'  => $user->screen_name,
-				'url'       => 'http://twitter.com/' . $user->screen_name,
-				'image'     => 'http://twitter.com/api/users/profile_image/' . $user->screen_name,
+				'url'       => 'https://twitter.com/' . $user->screen_name,
+				'image'     => 'https://twitter.com/api/users/profile_image/' . $user->screen_name,
 				'following' => $user->friends_count,
 				'followers' => $user->followers_count,
 			))

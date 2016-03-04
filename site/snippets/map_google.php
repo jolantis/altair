@@ -52,7 +52,7 @@
 		var marker = new google.maps.Marker({
 			position: mapLatlng,
 			map: map,
-			// icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', // Different colored markers: https://sites.google.com/site/gmapsdevelopment/
+			// icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png', // Different colored markers: https://sites.google.com/site/gmapsdevelopment/
 			title: 'Hello World!'
 		});
 	}
