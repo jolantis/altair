@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
 	grunt.config('clean', {
 		options: {
-			force: true,
+			force: true, // overrides this task from blocking deletion of folders outside current working dir
 		},
 		styles: {
 			src: [
