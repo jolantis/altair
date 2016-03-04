@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 		options: {
 			basedir: '', // hashmap and dest path will be relative to this dir
 			copy: false, // keep originals
+			force: true, // overrides this task from blocking deletion of files outside current working dir
 		},
 		styles: {
 			options: {
