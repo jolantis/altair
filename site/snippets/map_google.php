@@ -35,8 +35,12 @@
 			zoom: 15,
 			center: mapLatlng,
 			disableDefaultUI: true,
+			scrollwheel: false,
+			navigationControl: false,
+			mapTypeControl: false,
 			panControl: false,
 			scaleControl: false,
+		    draggable: true,
 			zoomControl: true,
 			zoomControlOptions: {
 				style: google.maps.ZoomControlStyle.SMALL,
