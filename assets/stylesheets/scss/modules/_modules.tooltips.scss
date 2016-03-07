@@ -46,9 +46,8 @@
 
 		&:before,
 		&:after {
-			-webkit-animation: 0.5s tooltip linear;
-			   -moz-animation: 0.5s tooltip linear;
-					animation: 0.5s tooltip linear;
+			animation: FadeIn .8s linear;
+			animation-delay: .4s;
 		}
 
 		&:before {
