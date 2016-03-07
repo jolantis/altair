@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 		grunt.loadNpmTasks('grunt-contrib-clean');
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.task.run(
-			'svgmin',
+			// 'svgmin',
 			'grunticon',
 			'copy:gruntpngs',
 			'clean:grunticon',
