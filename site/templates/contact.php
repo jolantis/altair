@@ -24,7 +24,7 @@
 
 		</div>
 
-		<?php snippet('contactform'); ?>
+		<?php // snippet('contactform'); // SENDMAIL OR POSTFIX NEEDS TO BE INSTALLED AND CONFIGURED TO MAKE USE OF THE CONTACT FORM!!! ?>
 
 	</main>
 
