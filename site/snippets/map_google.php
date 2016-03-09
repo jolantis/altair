@@ -25,9 +25,7 @@
 
 <!-- Scripts -->
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
-	google.maps.event.addDomListener(window, 'load', init);
 	function init() {
 		var mapElement = document.getElementById('google-map');
 		var mapLatlng = new google.maps.LatLng(50.9736519, 5.978574);
@@ -40,7 +38,7 @@
 			mapTypeControl: false,
 			panControl: false,
 			scaleControl: false,
-		    draggable: true,
+			draggable: true,
 			zoomControl: true,
 			zoomControlOptions: {
 				style: google.maps.ZoomControlStyle.SMALL,
@@ -57,7 +55,8 @@
 			position: mapLatlng,
 			map: map,
 			// icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png', // Different colored markers: https://sites.google.com/site/gmapsdevelopment/
-			title: 'Hello World!'
+			title: '<Title of your pin!>'
 		});
 	}
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<your-google-api-key>&callback=initMap" async defer></script>
