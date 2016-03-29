@@ -9,11 +9,11 @@ module.exports = function(grunt) {
 		grunt.loadNpmTasks('grunt-notify');
 		grunt.task.run(
 			'sass:main',
-			'sass:mobile',
+			// 'sass:mobile',
 			'autoprefixer:main',
-			'autoprefixer:mobile',
+			// 'autoprefixer:mobile',
 			'css_mqpacker:main',
-			'css_mqpacker:mobile',
+			// 'css_mqpacker:mobile',
 			'criticalcss',
 			'csso:criticalcss',
 			'notify:criticalcss'

@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		grunt.task.run(
 			// 'sass:dist'
 			'sass:main',
-			'sass:mobile',
+			// 'sass:mobile',
 			'sass:print'
 		);
 	});
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 		grunt.loadNpmTasks('grunt-autoprefixer');
 		grunt.task.run(
 			'autoprefixer:main',
-			'autoprefixer:mobile',
+			// 'autoprefixer:mobile',
 			'autoprefixer:print'
 		);
 	});
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 		grunt.task.run(
 			'clean:styles',
 			'css_mqpacker:main',
-			'css_mqpacker:mobile',
+			// 'css_mqpacker:mobile',
 			'csso:styles',
 			'remfallback' // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 		);
