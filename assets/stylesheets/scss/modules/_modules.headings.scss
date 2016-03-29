@@ -25,7 +25,7 @@
 .AlphaHeading {
 	@extend %u-headingSettings;
 	@extend %u-textKern;
-	@include responsive-text-size("alpha");
+	@include responsive-text-size($text-alpha);
 }
 
 /* Beta */
@@ -33,23 +33,23 @@
 .BetaHeading {
 	@extend %u-headingSettings;
 	@extend %u-textKern;
-	@include responsive-text-size("beta");
+	@include responsive-text-size($text-beta);
 }
 
 /* Gamma */
 
 .GammaHeading {
 	@extend %u-headingSettings;
-	@include responsive-text-size("gamma");
+	@include responsive-text-size($text-gamma);
 }
 
 .DeltaHeading {
 	@extend %u-headingSettings;
-	@include responsive-text-size("delta");
+	@include responsive-text-size($text-delta);
 }
 
 .EpsilonHeading,
 .ZetaHeading {
 	@extend %u-headingSettings;
-	@include responsive-text-size("epsilon");
+	@include responsive-text-size($text-epsilon);
 }

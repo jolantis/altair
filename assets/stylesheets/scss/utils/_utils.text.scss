@@ -142,7 +142,7 @@
  }
 
 %u-textSmall {
-	@include responsive-text-size("nano");
+	@include responsive-text-size($text-nano);
 }
 
 %u-textTime {

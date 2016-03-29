@@ -1,15 +1,134 @@
-/* ==========================================================================
-   Main styles
-   ========================================================================== */
+// --------------------------------------------------------------------------
+// functions
+// --------------------------------------------------------------------------
+//
+@import "functions/functions.color-schemer";
+@import "functions/functions.paths";
+@import "functions/functions.rhythm";
+@import "functions/functions.strip-unit";
+@import "functions/functions.typography";
 
 // --------------------------------------------------------------------------
-// Breakpoints to be included
+// mixins
 // --------------------------------------------------------------------------
 
-$breakpoints-to-include: ("small", "compact", "medium", "large", "wide", "huge");
+@import "mixins/mixins.breakpoints";
+@import "mixins/mixins.clearfix";
+@import "mixins/mixins.fluid-type.scss";
+@import "mixins/mixins.font-families";
+@import "mixins/mixins.gradients";
+@import "mixins/mixins.helpers";
+@import "mixins/mixins.translucency";
+@import "mixins/mixins.typography";
+@import "mixins/mixins.underline";
+@import "mixins/mixins.vertically-centered";
 
 // --------------------------------------------------------------------------
-// Imports
+// settings
 // --------------------------------------------------------------------------
 
-@import "imports";
+@import "settings/settings.breakpoints";
+@import "settings/settings.colors";
+@import "settings/settings.grid";
+@import "settings/settings.page";
+@import "settings/settings.ratios";
+@import "settings/settings.typography";
+@import "settings/settings.z-indices";
+
+// --------------------------------------------------------------------------
+// debug
+// --------------------------------------------------------------------------
+
+@import "debug/debug.breakpoints";
+
+// --------------------------------------------------------------------------
+// base (order is of importance)
+// --------------------------------------------------------------------------
+
+@import "base/base.normalize";
+@import "base/base.reset";
+@import "base/base.box-sizing";
+@import "base/base.page";
+@import "base/base.text-selection";
+@import "base/base.viewport";
+@import "base/base.wf-loading.scss";
+
+// --------------------------------------------------------------------------
+// utils
+// --------------------------------------------------------------------------
+
+@import "utils/utils.layout";
+@import "utils/utils.position";
+@import "utils/utils.ratios";
+@import "utils/utils.sizes";
+@import "utils/utils.spacing";
+@import "utils/utils.states";
+@import "utils/utils.text";
+
+// --------------------------------------------------------------------------
+// modules
+// --------------------------------------------------------------------------
+
+@import "modules/modules.accordion";
+@import "modules/modules.alerts";
+@import "modules/modules.backdrop";
+@import "modules/modules.bg-image";
+@import "modules/modules.block-link";
+@import "modules/modules.breadcrumb";
+@import "modules/modules.buttons";
+@import "modules/modules.copy";
+@import "modules/modules.figure-image";
+@import "modules/modules.fluid-embed";
+@import "modules/modules.forms";
+@import "modules/modules.cover";
+@import "modules/modules.headings";
+@import "modules/modules.icons";
+@import "modules/modules.images";
+@import "modules/modules.lazyload";
+@import "modules/modules.links";
+@import "modules/modules.lists";
+@import "modules/modules.masthead";
+@import "modules/modules.media";
+@import "modules/modules.navigation";
+@import "modules/modules.oldie-message";
+@import "modules/modules.pagination";
+@import "modules/modules.pseudo-link";
+@import "modules/modules.ruler";
+@import "modules/modules.quotes";
+@import "modules/modules.tables";
+@import "modules/modules.tooltips";
+
+// --------------------------------------------------------------------------
+// layout
+// --------------------------------------------------------------------------
+
+@import "layout/layout.banner";
+@import "layout/layout.contain";
+@import "layout/layout.contentinfo";
+@import "layout/layout.block-grid";
+@import "layout/layout.grid";
+
+// --------------------------------------------------------------------------
+// pages
+// --------------------------------------------------------------------------
+
+// @import "pages/pages.home";
+
+
+// --------------------------------------------------------------------------
+// plugins
+// --------------------------------------------------------------------------
+
+// @import "plugins/photoswipe/main";
+// @import "plugins/photoswipe/default-skin/default-skin";
+@import "plugins/animations/animations";
+
+// --------------------------------------------------------------------------
+// Grunticon
+// --------------------------------------------------------------------------
+
+// Data SVG
+@import "grunticon/grunticon.data-svg";
+
+// PNG fall-back if Modernizr detects no support for SVG!
+.no-svg { @import "grunticon/grunticon.fallback-png"; }

@@ -12,100 +12,70 @@ $heading-font:                  "Helvetica Neue Condensed Bold", "HelveticaNeue-
 
 // Text max-width
 // --------------------------------------------------------------------------
+// One character is approximately 0.5em.
+// A text measure between 45 - 75 characters means the max width of
+// your text element must be between 22.5em and 37.5em.
 
-$text-max-width:                46rem;
+$text-max-width:                37em;
 
 // Text sizing
 // --------------------------------------------------------------------------
-// If no line-height at all is explicitly set, a vertical
-// rhythm line-height is calculated and maintained automatically!
-// But if a line-height is explicitly set (out out-commented),
-// vertical rhythm will break for that speceific breakpoint!
 
-$text-sizing: (
-	pico: (
-		small: (
-			font-size:          .75,
-			// line-height:        1
-		)
-	),
-	nano: (
-		small: (
-			font-size:          .875rem,
-			// line-height:        1.25
-		)
-	),
-	base: (                                                                     // <= base text size name
-		small: (                                                                // <= default breakpoint (mobile first!)
-			font-size:          1rem,                                           // <= base font size (never change!)
-			line-height:        1.375                                           // <= base line height (never out-comment!)
-		)                                                                       // <= no need to (pointless) add more base breakpoints!
-	),
-	zeta: (
-		small: (
-			font-size:          1rem,
-			// line-height:        1.4
-		)
-	),
-	epsilon: (
-		small: (
-			font-size:          1rem,
-			// line-height:        1.4
-		)
-	),
-	delta: (
-		small: (
-			font-size:          1.125rem,
-			// line-height:        1.111
-		),
-		medium: (
-			font-size:          1.125rem,
-			// line-height:        1.222
-		)
-	),
-	gamma: (
-		small: (
-			font-size:          1.375rem,
-			line-height:        1.136
-		),
-		medium: (
-			font-size:          1.5rem,
-			// line-height:        1.25
-		),
-		large: (
-			font-size:          1.75rem,
-			// line-height:        1.25
-		)
-	),
-	beta: (
-		small: (
-			font-size:          1.625rem,
-			line-height:        1.154
-		),
-		medium: (
-			font-size:          2rem,
-			// line-height:        1.25
-		),
-		large: (
-			font-size:          2.25rem,
-			// line-height:        1.25
-		)
-	),
-	alpha: (
-		small: (
-			font-size:          2rem,
-			line-height:        1.25
-		),
-		medium: (
-			font-size:          2.5rem,
-			// line-height:        1.125
-		),
-		large: (
-			font-size:          3rem,
-			// line-height:        1.05
-		)
-	),
-	// mega: (),
-	// giga: (),
-	// tera: (),
+$text-sizes: (
+	null:    (14px, 1.4),														// base font size(s) and line height(s)
+	small:   (15px),
+	compact: (16px),
+	medium:  (18px, 1.5),
+	large:   (22px),
 );
+
+$text-alpha: (																		// alpha heading font size(s) and line height(s)
+	null:    (2rem, 1.25),
+	medium:  (2.5rem),
+	// medium:  (2.5rem, 1.125),
+	large:   (3rem),
+	// large:   (3rem, 1.05),
+);
+
+$text-beta: (																		// beta heading font size(s) and line height(s)
+	null:    (1.625rem, 1.154),
+	medium:  (2rem),
+	// medium:  (2rem, 1.25),
+	large:   (2.25rem),
+	// medium:  (2.25rem, 1.25),
+);
+
+$text-gamma: (																		// gamma heading font size(s) and line height(s)
+	null:    (1.375rem, 1.136),
+	medium:  (1.5rem),
+	// medium:  (1.5rem, 1.25),
+	large:   (1.75rem),
+	// large:   (1.75rem, 1.25),
+);
+
+$text-delta: (																		// delta heading font size(s) and line height(s)
+	null:    (1.125rem),
+	// null:    (1.125rem, 1.111),
+	medium:  (1.125rem),
+	// medium:  (1.125rem, 1.222),
+);
+
+$text-epsilon: (																		// epsilon heading font size(s) and line height(s)
+	null:    (1rem),
+	// null:    (1rem, 1.4),
+);
+
+$text-zeta: (																		// zeta heading font size(s) and line height(s)
+	null:    (1rem),
+	// null:    (1rem, 1.4),
+);
+
+$text-nano: (																		// nano heading font size(s) and line height(s)
+	null:    (.875rem),
+);
+
+$text-pico: (																		// pico heading font size(s) and line height(s)
+	null:    (.75rem),
+);
+
+

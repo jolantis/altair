@@ -7,7 +7,7 @@
  * WebFont Loader to control the Flash of Unstyled Text (FOUT)
  */
 
-@include breakpoint(compact) {
+// @include breakpoint(compact) {
 	.wf-loading {
 		opacity: 0;
 	}
@@ -20,4 +20,4 @@
 	.wf-inactive {
 		opacity: 1;
 	}
-}
+// }

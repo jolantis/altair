@@ -1,16 +1,47 @@
 // --------------------------------------------------------------------------
 // Rhythm
 // --------------------------------------------------------------------------
-// Set rhythm value; muliple of base line height to maintain vertyical rhythm
+// Vertical rhythm function. Possible to output both EM and REM.
+// Sets a muliple of base line height to maintain a vertyical rhythm.
+// Requires line height to be set on $text-sizes map for 'null' breakpoint.
 // --------------------------------------------------------------------------
 
-@function rhythm($lines: 1) {
-	$text-properties: text-properties-for("base", "small");
-	$line-height: map-get($text-properties, "line-height");
+@function rhythm($lines, $current-font: null, $text-sizes: $text-sizes) {
+	$base-map: map-get($text-sizes, null);
+	$base-font: nth($base-map, 1);
+	$base-line-height: null;
+	$rhythm-context: null;
+
+	@if length($base-map) <= 1 {
+		@error "The `$text-sizes` map should contain a second argument (line-height) in the `null` key!";
+	}
+
+	$base-line-height: nth($base-map, 2);
+	@if not unit($base-line-height) == "" {
+		@error "Line-height multiple on the `null` key should be unitless!";
+	}
 
 	@if $lines == 0 {
 		@return 0; // If number of lines is 0, output unitless value
-	} @else {
-		@return $line-height * $lines + rem;
+	}
+	@else {
+		// Converts into EM if $current-font is provided
+		@if $current-font {
+			$rhythm-context: $lines * $base-line-height;
+
+			@if unit($current-font) == "px" {
+				$rhythm-context: $rhythm-context * $base-font;
+				@return $rhythm-context / $current-font * 1em;
+			}
+			@if unit($current-font) == "em" {
+				@return $rhythm-context / strip-unit($current-font) * 1em;
+			}
+			@else {
+				@error "Font sizes should either be px or em if `$current-font` is provided!";
+			}
+		}
+		@else {
+			@return $lines * $base-line-height * 1rem;
+		}
 	}
 }

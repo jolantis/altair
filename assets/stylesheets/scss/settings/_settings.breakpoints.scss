@@ -4,33 +4,13 @@
 // Breakpoints (target width in em's = pixel width / base font size)
 // Apply proportional media queries (em's): http://bit.ly/JT9ZzI
 // Design from the content out, rather than the canvas in: http://bit.ly/JTa5aA
-// Maybe in the (near) future apply Responsive Viewport Units instead of
-// breakpoints: http://bit.ly/IXDtMb
 // Adjust the breakpoints to best fit content and (visual) design
 
 $breakpoints: (
-	small: (
-		break-value:            20em,                                           // <= mobile
-		base-font-size:         88%
-	),
-	compact: (
-		break-value:            30em,
-		base-font-size:         94%
-	),
-	medium: (
-		break-value:            48em,                                           // <= tablet portrait
-		base-font-size:         100%
-	),
-	large: (
-		break-value:            64em,                                           // <= desktop
-		base-font-size:         106%
-	),
-	wide: (
-		break-value:            80em,
-		base-font-size:         113%
-	),
-	huge: (
-		break-value:            120em,
-		base-font-size:         125%
-	)
+	small:   30em,
+	compact: 48em,
+	medium:  64em,
+	large:   80em,
+	wide:    120em,
+	huge:    120em
 );

@@ -11,13 +11,15 @@ $assets_js = f::read(server::get('document_root') . ((c::get('url') != '/') ? c:
 // Set assets based on environment
 if(c::get('environment') == 'local'):
 	$env_suffix = 'dev';
-	$mobile_css = 'mobile.dev';
+	// $mobile_css = 'mobile.dev';
+	$mobile_css = 'main.dev';
 	$print_css = 'print.dev';
 	$head_js = 'head.scripts.dev';
 	$mobile_js = 'mobile.scripts.dev';
 else:
 	$env_suffix = 'min';
-	$mobile_css = json_decode($assets_css)->mobile;
+	// $mobile_css = json_decode($assets_css)->mobile;
+	$mobile_css = json_decode($assets_css)->main;
 	$print_css = json_decode($assets_css)->print;
 	$head_js = json_decode($assets_js)->head;
 	$mobile_js = json_decode($assets_js)->mobile;
