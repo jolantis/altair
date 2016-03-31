@@ -413,7 +413,7 @@ kirbytext::$tags['figure'] = array(
 					)
 				);
 
-				$noscript = '<noscript><img src="'. $thumburl .'" class="'. $class .'" width="'. $thumbwidth .'" height="'. $thumbheight .'" alt="'. html($alt) .'"/></noscript>';
+				$noscript = '<noscript><img src="'. $defaultthumburl .'" class="'. $class .'" width="'. $thumbwidth .'" height="'. $thumbheight .'" alt="'. html($alt) .'"/></noscript>';
 
 			}
 
