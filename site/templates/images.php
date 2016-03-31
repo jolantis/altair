@@ -12,6 +12,13 @@
 
 		<?php /* <p><button class="Button Button--primary js-pwsp-gallery">Open gallery</button></p> */ ?>
 
+		<?php echo figure($page->images()->first(), array(
+			'crop'       => true,
+			'cropratio'  => '1/2',
+			'quality'    => 40,
+			'caption'    => 'This is an image defined in the template, from the figure plugin.',
+		)); ?>
+
 		<?php echo $page->intro()->kirbytext(); ?>
 		<?php echo $page->text()->kirbytext(); ?>
 
