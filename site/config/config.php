@@ -417,21 +417,26 @@ Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
 c::set('lazyload', true);                                                       // Set to true to lazyload images
 
 
-/* --------------------------------------------------------------------------------
-Resrc setup
---------------------------------------------------------------------------------
-
-If you want to use Resrc's responsive images solution, enable it here.
+/* -----------------------------------------------------------------------------
+Responsive images
 
 Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
+Layzysizes handles the srcset and sizes
 
+--------------------------------------------------------------------------------
 */
 
-c::set('resrc', true);                                                          // Set to true to use resrc
-c::set('resrc.plan', 'app.resrc.it');                                           // Set to 'trial.resrc.it' while using a resrc trail plan, otherwise set to 'app.resrc.it'
-c::set('resrc.width.default', 800);                                             // Resrc default width param value (also used for generating noscript fallback images)
-c::set('resrc.quality.default', 78);                                            // Resrc default quality param value (also for generating noscript fallback images)
-c::set('resrc.dpi', 1);                                                         // Resrc default pixel density value (or image width multiplier)
+c::set('responsiveimages.sources', array(
+    'small'  => array('width' => 320),
+    'compact'  => array('width' => 480),
+    'medium' => array('width' => 768),
+    'large'  => array('width' => 1024),
+    'wide'  => array('width' => 1280),
+    'huge'  => array('width' => 1920),
+    'max'   => array('width' => 2400), // the maximum thumb size (as default)
+));
+// you can add for debugging: 'grayscale' => true
+
 
 /* -----------------------------------------------------------------------------
 Twitter
