@@ -113,7 +113,6 @@
 
 // @import "pages/pages.home";
 
-
 // --------------------------------------------------------------------------
 // plugins
 // --------------------------------------------------------------------------
@@ -123,11 +122,14 @@
 @import "plugins/animations/animations";
 
 // --------------------------------------------------------------------------
-// Grunticon
+// custom (web) fonts
 // --------------------------------------------------------------------------
 
-// Data SVG
-@import "grunticon/grunticon.data-svg";
+@import "../../fonts/firasans/firasans";
 
-// PNG fall-back if Modernizr detects no support for SVG!
-.no-svg { @import "grunticon/grunticon.fallback-png"; }
+// --------------------------------------------------------------------------
+// icons (grunticon)
+// --------------------------------------------------------------------------
+
+@import "grunticon/grunticon.data-svg";                                         // Data SVG
+.no-svg { @import "grunticon/grunticon.fallback-png"; }                         // PNG fall-back if Modernizr detects no support for SVG!

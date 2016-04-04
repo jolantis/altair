@@ -12,8 +12,8 @@
 // Shorthand font stack
 // --------------------------------------------------------------------------
 
-@mixin font($fontFamily: $sans-font, $weight: false, $letter-spacing: false, $line-height: false, $size: false) {
-	@if $fontFamily != false { font-family: $fontFamily; }
+@mixin font($font-family: $sans-font-stack, $weight: false, $letter-spacing: false, $line-height: false, $size: false) {
+	@if $font-family != false { font-family: $font-family; }
 	@include font-vars($weight,$letter-spacing,$line-height,$size);
 }
 
@@ -21,7 +21,7 @@
 // --------------------------------------------------------------------------
 
 @mixin sans-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
-	font-family: $sans-font;
+	font-family: $sans-font-stack;
 	@include font-vars($weight,$letter-spacing,$line-height,$size);
 }
 
@@ -29,7 +29,7 @@
 // --------------------------------------------------------------------------
 
 @mixin serif-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
-	font-family: $serif-font;
+	font-family: $serif-font-stack;
 	@include font-vars($weight,$letter-spacing,$line-height,$size);
 }
 
@@ -37,7 +37,7 @@
 // --------------------------------------------------------------------------
 
 @mixin mono-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
-	font-family: $mono-font;
+	font-family: $mono-font-stack;
 	@include font-vars($weight,$letter-spacing,$line-height,$size);
 }
 
@@ -45,6 +45,6 @@
 // --------------------------------------------------------------------------
 
 @mixin heading-font($weight: false, $letter-spacing: false, $line-height: false, $size: false) {
-	font-family: $heading-font;
+	font-family: $heading-font-stack;
 	@include font-vars($weight,$letter-spacing,$line-height,$size);
 }

@@ -7,9 +7,13 @@
  */
 
 %u-headingSettings {
-	@include heading-font(400);
+	@include heading-font(700);
 
 	letter-spacing: .01em;
+
+	.fonts-loaded & {
+		font-family: $heading-web-font;
+	}
 }
 
 /**

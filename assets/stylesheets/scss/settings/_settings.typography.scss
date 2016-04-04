@@ -5,10 +5,14 @@
 // Font stacks
 // --------------------------------------------------------------------------
 
-$sans-font:                     "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
-$serif-font:                    "Lucida Bright", "LucidaBright", Georgia, serif;
-$mono-font:                     Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif;
-$heading-font:                  "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold", "Arial Narrow Bold", "ArialNarrow-Bold", "Arial Narrow", "ArialNarrow", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+$sans-font-stack:               "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
+$sans-web-font:                 "Fira Sans";
+
+$heading-font-stack:            "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold", "Arial Narrow Bold", "ArialNarrow-Bold", "Arial Narrow", "ArialNarrow", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+$heading-web-font:              "Fira Sans";
+
+$serif-font-stack:              "Lucida Bright", "LucidaBright", Georgia, serif;
+$mono-font-stack:               Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif;
 
 // Text max-width
 // --------------------------------------------------------------------------
@@ -31,9 +35,9 @@ $text-sizes: (
 
 $text-alpha: (																		// alpha heading font size(s) and line height(s)
 	null:    (2rem, 1.25),
-	medium:  (2.5rem),
+	medium:  (2.25rem),
 	// medium:  (2.5rem, 1.125),
-	large:   (3rem),
+	large:   (2.5rem),
 	// large:   (3rem, 1.05),
 );
 
