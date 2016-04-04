@@ -187,8 +187,8 @@
 							</fieldset>
 						</li>
 						<li class="Form-item Form-item--stacked">
-							<label for="comments" class="Form-label">Comments</label>
-							<textarea id="comments" rows="8" cols="24" class="Form-input Form-input--full"></textarea>
+							<label for="comments-textarea" class="Form-label">Comments</label>
+							<textarea id="comments-textarea" rows="8" cols="24" class="Form-input Form-input--full"></textarea>
 						</li>
 					</ol>
 
