@@ -17,6 +17,7 @@
 			'cropratio'  => '1/2',
 			'quality'    => 40,
 			'caption'    => 'This is an image defined in the template, from the figure plugin.',
+			'alt'        => 'Alt text defined in template'
 		)); ?>
 
 		<?php echo $page->intro()->kirbytext(); ?>

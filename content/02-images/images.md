@@ -56,7 +56,7 @@ Examples of the figure tag in action, surrounded by some awesome Star Wars Ipsum
 
 I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. You are a part of the Rebel Alliance and a traitor! Take her away! But with the blast shield down, I can't even see! How am I supposed to fight? What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like&hellip;suicide. You're all clear, kid. Let's blow this thing and go home!
 
-(figure: unsplash_525d7892901ff_1.jpg quality: 55)
+(figure: unsplash_525d7892901ff_1.jpg quality: 55 alt: An alt tag)
 
 (figure: unsplash_525f012329589_1.jpg)
 

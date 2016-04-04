@@ -200,6 +200,11 @@ kirbytext::$tags['figure'] = array(
 		$width      = $tag->attr('width');
 		$height     = $tag->attr('height');
 
+		// Alt tag should not be 'null' but an empty string
+		if(!isset($alt) || is_null($alt)) {
+			$alt = ' ';
+		}
+
 		// Get width variable(s) of image(s)
 		if($is_multifigure) {
 			$widths = str::split(str_replace(' ', '', $tag->attr('width')), ',');
