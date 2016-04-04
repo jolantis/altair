@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			tasks: ['scripts-hint'],
 		},
 		livereload: {
-			options: { livereload: true },
+			options: { livereload: false },
 			files: [
 				'<%= project.styles_dev %>/main.dev.css',
 				'<%= project.scripts_dev %>/head.scripts.dev.js',
