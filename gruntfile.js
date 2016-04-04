@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/ls.print.js',               // Out-comment when there's a need to be able to print lazyloaded images!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smooth-scroll.js',
-					'<%= project.scripts_plugins %>/gumshoe.js',
+					// '<%= project.scripts_plugins %>/gumshoe.js',
 					// '<%= project.scripts_plugins %>/photoswipe/photoswipe.js',  // Photoswipe
 					// '<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
 
