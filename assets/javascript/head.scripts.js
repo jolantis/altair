@@ -2,7 +2,7 @@
  * head.script.js
  *
  * Essential scripts, to be loaded in the head of the document
- * Use gruntfile.js to include script files
+ * Use gruntfile.js to include the necessary script files.
  */
 
 /**
@@ -20,84 +20,26 @@
 // assets/javascript/vendor/enhance.js,
 
 /**
- * Typekit
+ * Font Face Observer
  *
- * Load Typekit fonts asynchronously with controlling the Flash of
- * Unstyled Text (FOUT) using Font Events (.wf-loading, etc.).
+ * Font Face Observer is a small @font-face loader and monitor compatible with
+ * any web font service (Google Fonts, Typekit, and Webtype or be self-hosted).
  *
- * Enable the use of Typekit font, by adding (out-commenting) it in the
- * gruntfile.js in the jsfiles section.
+ * It will monitor when a web font is applied to the page and notify you.
+ * It does not limit you in any way in where, when, or how you load your web
+ * fonts. Unlike the Web Font Loader Font Face Observer uses scroll events to
+ * detect font loads efficiently and with minimum overhead.
  *
- * Make sure to set the Typekit account id in typekit.min.js.
+ * Enable the use of Font Face Observer, by adding (out-commenting) the correct
+ * line in the gruntfile.js in the 'plugins' part of the 'JS files and
+ * order' section for both main and mobile scripts, plus add (out-commenting)
+ * the Font Face Observer class in the `others` section.
+ *
+ * Add the (local) font files to be used to the `/assets/fonts` directory,
+ * update the corrrespoding stylesheet (`/assets/fonts/<fontname>/<fontname>.css`),
+ * and import the stylesheet in the `main.scss` file. Last but ot least, update
+ * the font stacks in `settings.typohraphy.scss` and among others, add/incldue
+ * the fonts to the base (html element) and headings Sass partials.
  */
 
-// "assets/javascript/vendor/typekit.min.js",
-
-/**
- * WebFont Loader
- *
- * Load custom, Google, Ascender, Fonts.com (Monotype), Fontdeck and/or
- * Typekit web fonts (or from multiple) with Google's WebFont Loader.
- * Version of webfont.min.js: 1.6.15 (check: http://j.mp/1475wC9).
- *
- * Enable the use of WebFont Loader, by adding (out-commenting) the correct
- * line in the gruntfile.js in the 'head' part of the 'Set js files and
- * order' section. Then out-comment the code snippet below and use the webfont
- * service of your choice or use custom (sef-hosted) web fonts!
- */
-
-// "assets/javascript/vendor/webfont.min.js",
-
-/* Call webfont loader */
-
-// WebFont.load({
-//	google: { families: ['Fontname1', 'Fontname2']},
-//	ascender: { key:'xxxxxxx', families: ['Fontname:bold,bolditalic,italic,regular']},
-//	monotype: { projectId: 'xxxxxxx'},
-//	fontdeck: { id: 'xxxxx'},
-//	typekit: { id: 'xxxxxxx'},
-// 	custom: {
-// 		families:['TeXGyreAdventor-Bold', 'TeXGyreAdventor-Regular'],
-// 		urls:['/assets/webfonts/texgyreadventor/texgyreadventor.css'],
-// 	},
-// });
-
-/**
- * Resrc
- *
- * Resrc delivers responsive images on-demand, direct from the cloud.
- * The Resrc script is loaded asynchronously.
- * For more information see: http://www.resrc.it/docs/javascript/0.7
- *
- * Enable the use of Resrc, by adding (out-commenting) it in the
- * gruntfile.js in the jsfiles section.
- *
- * -----------------------------------------------------------------------------
- * HOW TO USE ROXY (FOR LOCAL RESRC TESTING)
- * -----------------------------------------------------------------------------
- *
- * Download the latest version of roxy:
- *
- * https://github.com/resrcit/roxy
- *
- * Extraxt and place roxy in your  ‘Sites' folder for inctance (it needs to be
- * able to run PHP).
- *
- * Now make sure local.roxy is declared in your /etc/hosts file by adding the
- * following line:
- *
- * 127.0.0.1 local.roxy
- *
- * The roxy (stand-alone proxy) server can now be started. In a terminal
- * window, navigate to the extracted roxy folder, and run:
- *
- * HOST=local.roxy PORT=8080 ./start "your-api-key"
- *
- * for the *.studiodumbar.com (sub)domein this is:
- *
- * HOST=local.roxy PORT=8080 ./start "ZG9tYWluXzEwNzI6Y2QxNjc1ODgtZWRkNy00OTBkLWIxNzctN2QxNmY1MjJmNjk3"
- *
- * This will start the roxy server! Enjoy testing resrc locally.
- *
- * For more info see: https://github.com/resrcit/roxy
- */
+// assets/javascript/vendor/fontfaceobserver.js',

@@ -48,8 +48,6 @@ module.exports = function(grunt) {
 		jsfiles: {
 			head: [
 				'<%= project.scripts_vendor %>/enhance.js',
-				// '<%= project.scripts_vendor %>/typekit.min.js',
-				// '<%= project.scripts_vendor %>/webfont.min.js',
 				'<%= project.scripts_vendor %>/modernizr.dev.js',
 				// '<%= project.scripts_vendor %>/modernizr.min.js',               // ALWAYS use custom build modernizr in production!
 				'<%= project.scripts %>/head.scripts.js',
@@ -61,6 +59,7 @@ module.exports = function(grunt) {
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
+					'<%= project.scripts_vendor %>/fontfaceobserver.js',
 					'<%= project.scripts_vendor %>/lazysizes.min.js',           // Out-comment when using lazyload!!!
 					// '<%= project.scripts_plugins %>/ls.respimg.js',             // Out-comment when using polyfilling responsive images!!!
 					'<%= project.scripts_plugins %>/ls.rias.js',                // Out-comment when using lazyload + resrc!!!
@@ -86,6 +85,7 @@ module.exports = function(grunt) {
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
 					'<%= project.scripts_classes %>/lazysizes.class.js',
+					'<%= project.scripts_classes %>/fontobserver.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 					// '<%= project.scripts_classes %>/photoswipe.class.js',
 					'<%= project.scripts_classes %>/popup.class.js',
@@ -100,6 +100,7 @@ module.exports = function(grunt) {
 				],
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate.js',
+					'<%= project.scripts_vendor %>/fontfaceobserver.js',
 					'<%= project.scripts_vendor %>/lazysizes.min.js',           // Out-comment when using lazyload!!!
 					// '<%= project.scripts_plugins %>/ls.respimg.js',             // Out-comment when using polyfilling responsive images!!!
 					'<%= project.scripts_plugins %>/ls.rias.js',                // Out-comment when using lazyload + resrc!!!
@@ -122,6 +123,7 @@ module.exports = function(grunt) {
 				other: [
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
+					'<%= project.scripts_classes %>/fontobserver.class.js',
 					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 					// '<%= project.scripts_classes %>/photoswipe.class.js',

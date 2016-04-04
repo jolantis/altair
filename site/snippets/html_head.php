@@ -52,11 +52,18 @@ if(!isset($criticalcss) || $criticalcss == false): $criticalcss = 'home'; endif;
 // 'snippet_detect('html_head', array('prev_next' => true));'
 if(!isset($prev_next)): $prev_next = false; endif;
 
+// Check for the presence of Font Face Observer cookie (e.g. `fonts-loaded`)
+// and if so adds `fonts-loaded` class to html element, to avoid re-downloading
+// web fonts over and over again.
+if(isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 'true'):
+	$fontobserver = ' fonts-loaded';
+endif;
+
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
 <!-- <html manifest="/cache.appcache" lang="<?php echo $site->language()->locale(); ?>"> -->
-<html class="no-js" lang="<?php echo $site->language()->locale(); ?>">
+<html class="no-js<?php echo $fontobserver ?>" lang="<?php echo $site->language()->locale(); ?>">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">

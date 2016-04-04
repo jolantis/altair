@@ -60,12 +60,19 @@ if(!isset($prerender)): $prerender = false; endif;
 // 'snippet_detect('html_head', array('prefetch' => true));'
 if(!isset($prefetch)): $prefetch = false; endif;
 
+// Check for the presence of Font Face Observer cookie (e.g. `fonts-loaded`)
+// and if so adds `fonts-loaded` class to html element, to avoid re-downloading
+// web fonts over and over again.
+if(isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 'true'):
+	$fontobserver = ' fonts-loaded';
+endif;
+
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="<?php echo $site->language()->locale(); ?>"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" lang="<?php echo $site->language()->locale(); ?>"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $site->language()->locale(); ?>"> <!--<![endif]-->
+<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8<?php echo $fontobserver ?>" lang="<?php echo $site->language()->locale(); ?>"><![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9<?php echo $fontobserver ?>" lang="<?php echo $site->language()->locale(); ?>"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js<?php echo $fontobserver ?>" lang="<?php echo $site->language()->locale(); ?>"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -120,11 +127,11 @@ if(!isset($prefetch)): $prefetch = false; endif;
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/'. $env_suffix .'/' . $head_js . '.js'); ?></script>
 	<?php if(isset($_COOKIE['fullcss']) && $_COOKIE['fullcss'] == 'true'): ?>
 		<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'); ?>">
+		<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'); ?>" media="print">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . $criticalcss . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . $criticalcss . '.css'); ?></style>
 		<noscript><link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'); ?>"></noscript>
 	<?php endif; ?>
-	<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'); ?>" media="print">
 
 	<!--[if (gte IE 7) & (lte IE 8)]>
 	<script src="<?php echo url('/assets/javascript/vendor/html5shiv.min.js'); ?>"></script>
