@@ -14,7 +14,7 @@
 		<?php echo $page->text()->kirbytext(); ?>
 
 		<section aria-labelledby="BlockGrid">
-			<h2 id="BlockGrid">BlockGrid &lsquo;grid&rsquo;</h2>
+			<h2 id="BlockGrid" class="u-spaceTrailerM">BlockGrid &lsquo;grid&rsquo;</h2>
 
 			<div class="BlockGrid BlockGrid--withGutter BlockGrid--compact2col BlockGrid--medium3to1 BlockGrid--large4col">
 
@@ -46,7 +46,7 @@
 		</section>
 
 		<section aria-labelledby="GridGrid">
-			<h2 class="GridGrid">Grid &lsquo;grid&rsquo;</h2>
+			<h2 id="GridGrid" class="u-spaceTrailerM">Grid &lsquo;grid&rsquo;</h2>
 
 			<div class="Grid Grid--withGutter">
 
