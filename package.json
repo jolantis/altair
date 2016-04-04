@@ -1,7 +1,7 @@
 {
   "name": "altair",
   "description": "Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS",
-  "version": "0.3.21",
+  "version": "0.3.22",
   "url": "http://altair.studiodumbar.info",
   "author": "Jonathan van Wunnik <jonathan@studiodumbar.com>, Marijn Tijhuis <marijn@studiodumbar.com>",
   "copyright": "Studio Dumbar",
