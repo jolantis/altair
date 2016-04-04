@@ -11,7 +11,8 @@ var expand = {
 		var expanders = document.querySelectorAll('.js-expandtarget');
 		for (i = 0; i < expanders.length; i++) {
 			var expanderid = expanders[i].getAttribute('id');
-			if(cookie.get(expanderid)) {
+			// if(cookie.get(expanderid)) {                                     // When using `cookie.util.js` (not enhance)
+			if(enhance.cookie(expanderid)) {                                    // When using enhance (and thus enhance.cookie)
 				expanders[i].parentNode.classList.add('is-open');
 				expanders[i].parentNode.querySelector('.js-expandbutton').classList.add('is-active');
 				// console.log(expanders[i]);
@@ -39,13 +40,15 @@ var expand = {
 			button.classList.add('is-active');
 			expandparent.classList.remove('is-closed');
 			expandparent.classList.add('is-open');
-			cookie.set(cookieid,'open');
+			// cookie.set(cookieid,'open');                                     // When using `cookie.util.js` (not enhance)
+			enhance.cookie(cookieid, 'open');                                   // When using enhance (and thus enhance.cookie)
 		}
 		else {
 			button.classList.remove('is-active');
 			expandparent.classList.remove('is-open');
 			expandparent.classList.add('is-closed');
-			cookie.erase(cookieid);
+			// cookie.erase(cookieid);                                          // When using `cookie.util.js` (not enhance)
+			enhance.cookie(cookieid, false);                                    // When using enhance (and thus enhance.cookie)
 		}
 	}
 };
