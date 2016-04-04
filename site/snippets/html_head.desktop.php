@@ -84,6 +84,11 @@ endif;
 	<link rel="dns-prefetch" href="https://maps.googleapis.com">
 	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
+	<?php // Prefetch custom (web) fonts ?>
+	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/FiraSans-Book.woff">
+	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/FiraSans-Bold.woff">
+	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/FiraSans-BookItalic.woff">
+
 	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>
 
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
