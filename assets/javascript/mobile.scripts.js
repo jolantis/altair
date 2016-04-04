@@ -14,6 +14,6 @@ domready(function () {
 	navMain.init();                           // Init main navigation
 	// gumshoe.init();                           // Init gumshoe (scrollspy)
 	// photoswipegallery.init();                 // Init photoswipe
-	// smoothScroll.init();                      // Init smoothscroll
+	smoothScroll.init();                      // Init smoothscroll
 
 });
