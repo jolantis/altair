@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/*
+	firasans.css
+	-------------------------------------------------------------------
+	Font Information:
+	Mozilla's open source font family.
+	-------------------------------------------------------------------
+	License:
+	Open source
+	-------------------------------------------------------------------
+	Download:
+	http://www.carrois.com/fira-4-1/
+	-------------------------------------------------------------------
+	Syntax:
+	https://css-tricks.com/snippets/css/using-font-face/
+	-------------------------------------------------------------------
+	Support:
+	- Chrome 3.5+
+	- Safari 3+
+	- Firefox 3.5+
+	- Opera 10.1+
+	- IE 9+
+	- Android 2.2+
+	- iOS 4.3+
+*/
+
+/* Book */
+
+@font-face {
+	font-family: 'Fira Sans';
+	src: url('/assets/fonts/firasans/firasans-book.woff2') format('woff2'),
+		 url('/assets/fonts/firasans/firasans-book.woff') format('woff'),
+		 url('/assets/fonts/firasans/firasans-book.ttf') format('truetype');
+	font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 400;
+	font-style: normal;
+}
+
+
+/* Book Italic */
+
+@font-face {
+	font-family: 'Fira Sans';
+	src: url('/assets/fonts/firasans/firasans-bookitalic.woff2') format('woff2'),
+		 url('/assets/fonts/firasans/firasans-bookitalic.woff') format('woff'),
+		 url('/assets/fonts/firasans/firasans-bookitalic.ttf') format('truetype');
+	font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 400;
+	font-style: italic;
+}
+
+/* Bold */
+
+@font-face {
+	font-family: 'Fira Sans';
+	src: url('/assets/fonts/firasans/firasans-bold.woff2') format('woff2'),
+		 url('/assets/fonts/firasans/firasans-bold.woff') format('woff'),
+		 url('/assets/fonts/firasans/firasans-bold.ttf') format('truetype');
+	font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
+	font-weight: 700;
+	font-style: normal;
+}
