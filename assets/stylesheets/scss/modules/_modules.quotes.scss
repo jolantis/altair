@@ -44,6 +44,7 @@
 .Blockquote {
 	margin-top: rhythm(1);
 	margin-bottom: rhythm(1);
+	margin-left: 0;
 	padding-left: rhythm(.5);
 	border-left: rhythm(.25) solid $color-gray-m-light;
 	quotes: none;
