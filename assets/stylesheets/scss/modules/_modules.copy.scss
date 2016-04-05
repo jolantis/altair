@@ -229,7 +229,7 @@
 	/* Links
 	   ========================================================================== */
 
-	a {
+	a:not(.Button) {
 		@extend .Link;
 	}
 
@@ -239,9 +239,7 @@
 
 	/* Secure link */
 
-	// [href^="https"]:before {
-	// 	content: "\E017";
-	// }
+	// [href^="https"]:before { content: "\1F512 "; }
 
 	/* PDF link */
 
@@ -253,7 +251,7 @@
 
 	/* Twitter link */
 
-	// [href*="twitter.com"] → Twitter page
+	// [href*="twitter.com"] {}
 
 	/* Tables
 	   ========================================================================== */
