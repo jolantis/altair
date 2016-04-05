@@ -169,7 +169,6 @@ html.is-openMainNav {
 	width: 44pt; /* Touch target sizes: http://j.mp/XJm4uJ */
 	height: 44pt; /* Use padding, or width/height to position icon, so it works nicely on touchdevices */
 	background-position: 50% 50%;
-	touch-action: none; /* Remove the 300ms delay between the physical touch of the screen and a click event being registered (to determine whether or not a touch is a tap, drag, or long press) */
 
 	@include breakpoint(medium) {
 		right: rhythm(2);

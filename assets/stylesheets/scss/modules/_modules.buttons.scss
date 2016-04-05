@@ -29,7 +29,6 @@
 	color: $color-base-white;
 	line-height: inherit; /* For anchor button to behave nicely */
 	cursor: pointer;
-	touch-action: none; /* Remove the 300ms delay between the physical touch of the screen and a click event being registered (to determine whether or not a touch is a tap, drag, or long press) */
 	-webkit-tap-highlight-color: rgba(0,0,0,0); /* Hide transparent highlight color that appears when tapping on iOS/Android */
 }
 
