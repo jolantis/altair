@@ -8,8 +8,9 @@
 
 .Table {
 	margin-bottom: rhythm(1);
-
 	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
 
 	th,
 	td {
@@ -54,7 +55,6 @@
 	[rowspan="1"] {
 		@extend %u-alignTop;
 	}
-
 }
 
 .Table-numerical {
@@ -99,22 +99,25 @@
  */
 
 .Table--rounded {
-
 	thead th:first-child {
 		border-top-left-radius: rhythm(.5);
 	}
-
 	thead th:last-child {
 		border-top-right-radius: rhythm(.5);
 	}
-
-	tfoot td:first-child {
+	tr:last-of-type td:first-child {
 		border-bottom-left-radius: rhythm(.5);
 	}
-
-	tfoot td:last-child {
+	tr:last-of-type td:last-child {
 		border-bottom-right-radius: rhythm(.5);
 	}
+	// tfoot td:first-child {
+	// 	border-bottom-left-radius: rhythm(.5);
+	// }
+
+	// tfoot td:last-child {
+	// 	border-bottom-right-radius: rhythm(.5);
+	// }
 }
 
 /**
@@ -124,22 +127,18 @@
 .Table--bordered {
 	th,
 	td {
-		padding-top: rhythm(.5);
-		padding-bottom: rhythm(.5);
-
+		padding: rhythm(.5);
 		border: .125em solid $color-gray-m-light;
 
 		&:empty {
 			border:none;
 		}
 	}
-
 	thead th {
-		border-bottom-width: 2px;
+		border-bottom-width: .125em;
 		border-bottom-color: $color-base-black;
 	}
-
 	tfoot tr {
-		border-top-width: 2px;
+		border-top-width: .125em;
 	}
 }
