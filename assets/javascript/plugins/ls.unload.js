@@ -55,6 +55,7 @@
 
 			lazySizes.aC(element, config.unloadedClass);
 			lazySizes.aC(element, config.lazyClass);
+			lazySizes.fire(element, 'lazyafterunload');
 		},
 		unloadElements: function(elements){
 			elements = Array.isArray(elements) ? elements : unloadElements;
@@ -112,8 +113,7 @@
 		}
 
 		if(!('unloadPixelThreshold' in config)){
-			config.unloadPixelThreshold = Math.min(docElem.clientWidth, docElem.clientHeight, 999) - 99;
-			config.unloadPixelThreshold *= config.unloadPixelThreshold / 2.5;
+			config.unloadPixelThreshold = 60000;
 		}
 
 		if(config.autoUnload){
@@ -135,8 +135,6 @@
 		addEventListener('lazybeforeunveil', throttleRun);
 		addEventListener('lazybeforeunveil', unloader._reload, true);
 	}
-
-	setTimeout(init);
 
 	addEventListener('lazybeforeunveil', init);
 })(window, document);
