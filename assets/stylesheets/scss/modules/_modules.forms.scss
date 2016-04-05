@@ -52,6 +52,10 @@
 	vertical-align: middle;
 }
 
+// .Form select {
+// 	appearance: none; // Unstyle/reset selects
+// }
+
 .Form--inline .Form-item {
 	display: inline-block;
 	margin-right: rhythm(1);
@@ -76,9 +80,10 @@
 	padding: rhythm(.25); // To keep vertical rhythm it should be smaller than rhythm podding of `.Form-label`
 	// outline: none; // Disbale default browser focus outline (make sure to add custom focus styling)
 	border: .125em solid $color-base-black;
+	border-radius: 0; // Reset iOS border radius on inputs
 	background-color: $color-gray-quiet;
 	box-shadow: inset 1px 1px 2px 0 $color-gray-light;
-	-webkit-appearance: none; /* Reset iOS inset schaodw on inputs */
+	-webkit-appearance: none; // Reset iOS inset schaodw on inputs
 
 	&:focus {
 		border-color: $color-gray-x-light;
@@ -87,7 +92,7 @@
 }
 
 .Form-input--full {
-	width: 100%; /* Causes iOS 6 orientation viewport issue: http://j.mp/Sa3zh3 */
+	width: 100%; // Causes iOS 6 orientation viewport issue: http://j.mp/Sa3zh3
 }
 
 /**
