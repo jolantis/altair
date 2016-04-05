@@ -47,6 +47,22 @@ a {
 }
 
 /**
+ * Remove the (300ms) tapping delay from clickable elements
+ */
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+	-ms-touch-action: manipulation;
+		touch-action: manipulation;
+}
+
+/**
  * Reset list items back to normal (block) display. This makes it possible to
  * use lists for semantic markup without needing to set this each time. Lists
  * only look like ‘lists’ in blocks of copy.
