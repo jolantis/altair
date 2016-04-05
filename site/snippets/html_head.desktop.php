@@ -85,9 +85,9 @@ endif;
 	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
 	<?php // Prefetch custom (web) fonts ?>
-	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/FiraSans-Book.woff">
-	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/FiraSans-Bold.woff">
-	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/FiraSans-BookItalic.woff">
+	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-book.woff">
+	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-bold.woff">
+	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-bookItalic.woff">
 
 	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>
 
