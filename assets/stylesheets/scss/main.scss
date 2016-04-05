@@ -44,8 +44,8 @@
 // base (order is of importance)
 // --------------------------------------------------------------------------
 
-@import "base/base.normalize";
 @import "base/base.reset";
+@import "base/base.normalize";
 @import "base/base.box-sizing";
 @import "base/base.page";
 @import "base/base.text-selection";
