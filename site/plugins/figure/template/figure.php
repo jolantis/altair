@@ -8,7 +8,7 @@
 	<?php // [2] Lazyload image; responsive image via srcset  ?>
 	<?php if($lazyload == true && c::get('resrc') == false): ?>
 		<div class="FigureImage-lazy lazyload" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
-			<img data-sizes="auto" data-srcset="<?php echo $srcset; ?>" data-src="<?php echo $defaultthumb; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
+			<img data-sizes="<?php echo $sizes; ?>" data-srcset="<?php echo $srcset; ?>" data-src="<?php echo $defaultthumb; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 		</div>
 		<noscript>
 			<img src="<?php echo $defaultthumb; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />

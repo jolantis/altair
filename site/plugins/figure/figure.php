@@ -87,6 +87,11 @@ function figure($image=false, $options=array()) {
 		$srcset = figure_get_srcset($image, $options['quality'], $options['crop'], $options['cropratio']);
 	}
 
+	// Sizes builder
+	if($image && empty($sizes)) {
+		$sizes = figure_get_sizes($image);
+	}
+
 	// Set height for default thumb
 	if(isset($options['cropratio']) && isset($options['crop'])) {
 		$defaultthumbheight = figure_height_by_cropratio( $options['cropratio'], kirby()->option('responsiveimages.sources')['large']['width'] );
@@ -110,6 +115,7 @@ function figure($image=false, $options=array()) {
 	$options['customquality'] = $options['quality'];
 	$options['ratio'] = $ratio;
 	$options['srcset'] = $srcset;
+	$options['sizes'] = $sizes;
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'template/figure.php', $options);
@@ -354,6 +360,11 @@ kirbytext::$tags['figure'] = array(
 			// Srcset builder
 			$srcset = figure_get_srcset($image, $quality, $crop, $cropratio);
 
+			// Sizes builder
+			if($image && empty($sizes)) {
+				$sizes = figure_get_sizes($image, $width);
+			}
+
 			// Set height for default thumb
 			if(isset($cropratio) && isset($crop)) {
 				$defaultthumbheight = figure_height_by_cropratio( $cropratio, kirby()->option('responsiveimages.sources')['large']['width'] );
@@ -410,7 +421,8 @@ kirbytext::$tags['figure'] = array(
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-src'  => $defaultthumburl,
-					'srcset' => $srcset,
+					'srcset'    => $srcset,
+					'sizes'     => $sizes,
 					// 'data-width'     => $image->width(),
 					// 'data-height'    => $image->height(),
 					'class'     => $class . ' lazyload',
