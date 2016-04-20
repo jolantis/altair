@@ -427,16 +427,53 @@ Layzysizes handles the srcset and sizes
 */
 
 c::set('responsiveimages.sources', array(
-    'small'  => array('width' => 320),
-    'compact'  => array('width' => 480),
-    'medium' => array('width' => 768),
-    'large'  => array('width' => 1024),
-    'wide'  => array('width' => 1280),
-    'huge'  => array('width' => 1920),
-    'max'   => array('width' => 2400), // the maximum thumb size (as default)
+	'small'    => array('width' => 320),
+	'compact'  => array('width' => 480),
+	'medium'   => array('width' => 768),
+	'large'    => array('width' => 1024),
+	'wide'     => array('width' => 1280),
+	'huge'     => array('width' => 1920),
+	'max'      => array('width' => 2400), // the maximum thumb size (as default)
 ));
 // you can add for debugging: 'grayscale' => true
 
+c::set('responsiveimages.sizes', array(
+	'default' => array( // The default sizes, for full width images
+		'all' => array(
+			'size_value' => 'calc(88vw)', // 100vw - 2 * contain percentage
+		)
+	),
+	'1of2' => array( // 50% wide images
+		'compact-and-up' => array(
+			'mq_value'   => '30em',
+			'mq_name'    => 'min-width',
+			'size_value' => 'calc(44vw)'
+		),
+		'small' => array(
+			'size_value' => 'calc(88vw)'
+		)
+	),
+	'1of3' => array( // 33% wide images
+		'compact-and-up' => array(
+			'mq_value'   => '30em',
+			'mq_name'    => 'min-width',
+			'size_value' => 'calc(29.04vw)'
+		),
+		'small' => array(
+			'size_value' => 'calc(88vw)'
+		)
+	),
+	'2of3' => array( // 66% wide images
+		'compact-and-up' => array(
+			'mq_value'   => '30em',
+			'mq_name'    => 'min-width',
+			'size_value' => 'calc(58.08vw)'
+		),
+		'small' => array(
+			'size_value' => 'calc(88vw)'
+		)
+	),
+));
 
 /* -----------------------------------------------------------------------------
 Twitter
