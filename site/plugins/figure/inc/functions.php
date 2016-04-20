@@ -23,13 +23,6 @@ function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
         $maxthumbheight = null;
     }
 
-    $maxthumb = thumb($file, array(
-        'width' => kirby()->option('responsiveimages.sources')['max']['width'],
-        'quality' => $quality,
-        'crop' => $crop,
-        'height' => $maxthumbheight,
-    ));
-    $srcset = $maxthumb->url() .' '. $maxthumb->width() .'w';
     $sources_arr = figure_get_srcset_array( $file );
 
     foreach ($sources_arr as $source) {
