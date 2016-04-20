@@ -32,6 +32,10 @@
 			top: 0;
 			left: 0;
 
+			// To discuss: hide image while lazysizes is not finished. To prevent image flashing after lazysizes has loaded.
+			&.lazyload {
+				opacity: 0;
+			}
 			&.lazyloading {
 				opacity: 0; // Hide lazyloaded image (with lazysizes) as soon as possibe. Fixes flicker of cached images on iOS!
 			}
