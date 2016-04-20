@@ -11,6 +11,7 @@ var lazysizes = {
 	 * Init lazysizes
 	 */
 	init: function() {
+/*
 		document.addEventListener('lazyriasmodifyoptions', function(e) {
 			// If pixel ratio > 1.4 set (resrc) jpg quality to a lower percentage
 			e.detail.quality = (window.devicePixelRatio || 1) > 1.4 ? 60 : 78;
@@ -34,5 +35,6 @@ var lazysizes = {
 			// 	e.target.removeAttribute('data-bg');
 			// }
 		});
+*/
 	},
 };
