@@ -418,62 +418,96 @@ c::set('lazyload', true);                                                       
 
 
 /* -----------------------------------------------------------------------------
-Responsive images
-
-Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
-Layzysizes handles the srcset and sizes
-
+[1] Responsive images
 --------------------------------------------------------------------------------
+
+By default, thumbnails that are 320, 700, 900, 1280, 1600, 1920 and (max) 2880
+pixels wide will be generated.
+
+Overwrite these source widths to your liking. Out-comment unused widths and/or
+change tyeh values of others.
+
+Add `array('width' => 900, 'grayscale' => true)` for better debugging images.
+
 */
 
 c::set('responsiveimages.sources', array(
 	'small'    => array('width' => 320),
-	'compact'  => array('width' => 480),
-	'medium'   => array('width' => 768),
-	'large'    => array('width' => 1024),
-	'wide'     => array('width' => 1280),
+	'compact'  => array('width' => 700),
+	'medium'   => array('width' => 900),
+	'large'    => array('width' => 1280),
+	'wide'     => array('width' => 1600),
 	'huge'     => array('width' => 1920),
-	'max'      => array('width' => 2400), // the maximum thumb size (as default)
+	'max'      => array('width' => 2880),                                       // the maximum thumb size (as default)
 ));
-// you can add for debugging: 'grayscale' => true
+
+
+/* -----------------------------------------------------------------------------
+[2] Responsive images
+--------------------------------------------------------------------------------
+
+Set default and feed images width from sources array (to keep the number of
+generated images within limits).
+
+The default image size is the image used/displayed in browsers that do not
+suppert `srcset`!
+
+*/
+
+c::set('responsiveimages.default', 'compact');
+c::set('responsiveimages.feed', 'wide');
+
+
+/* -----------------------------------------------------------------------------
+[3] Responsive images
+--------------------------------------------------------------------------------
+
+To control the sizes attribute media queries can be used. Add for every width
+attribute used in figure images (e.g. `1of2`, `1of3`, `3of4`, etc.) a
+corresponding sizes array, with the classnames to match
+
+*/
+
+c::set('vw_width', '88');                                                       // 100 - 2 * `$contain-percentage`
 
 c::set('responsiveimages.sizes', array(
-	'default' => array( // The default sizes, for full width images
+	'default' => array(                                                         // The default sizes, for full width images
 		'all' => array(
-			'size_value' => 'calc(88vw)', // 100vw - 2 * contain percentage
+			'size_value' => c::get('vw_width') . 'vw'
 		)
 	),
-	'1of2' => array( // 50% wide images
+	'1of2' => array(                                                            // 50% wide images
+		'compact-and-up' => array(
+			'mq_value'   => '30em',                                             // Same as compact breakpoint value from `$breakpoints` Sass list
+			'mq_name'    => 'min-width',
+			'size_value' => c::get('vw_width') / 2 . 'vw'
+		),
+		'small' => array(
+			'size_value' => c::get('vw_width') . 'vw'
+		)
+	),
+	'1of3' => array(                                                            // 33% wide images
 		'compact-and-up' => array(
 			'mq_value'   => '30em',
 			'mq_name'    => 'min-width',
-			'size_value' => 'calc(44vw)'
+			'size_value' => c::get('vw_width') / 3 . 'vw'
 		),
 		'small' => array(
-			'size_value' => 'calc(88vw)'
+			'size_value' => c::get('vw_width') . 'vw'
 		)
 	),
-	'1of3' => array( // 33% wide images
+	'2of3' => array(                                                            // 66% wide images
 		'compact-and-up' => array(
 			'mq_value'   => '30em',
 			'mq_name'    => 'min-width',
-			'size_value' => 'calc(29.04vw)'
+			'size_value' => c::get('vw_width') / 3 * 2 . 'vw'
 		),
 		'small' => array(
-			'size_value' => 'calc(88vw)'
+			'size_value' => c::get('vw_width') . 'vw'
 		)
-	),
-	'2of3' => array( // 66% wide images
-		'compact-and-up' => array(
-			'mq_value'   => '30em',
-			'mq_name'    => 'min-width',
-			'size_value' => 'calc(58.08vw)'
-		),
-		'small' => array(
-			'size_value' => 'calc(88vw)'
-		)
-	),
+	)
 ));
+
 
 /* -----------------------------------------------------------------------------
 Twitter
