@@ -40,7 +40,6 @@ The `--recursive` flag is necessary to initiate and pull the kirby and toolkit s
 
 ````
 c::set('license', 'your license key');
-c::set('resrc', true);
 c::set('twitter.key', 'your api key');
 c::set('twitter.secret', 'your api secret');
 c::set('analytics.tool', 'ga-universal');
