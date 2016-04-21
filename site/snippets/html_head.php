@@ -75,10 +75,8 @@ endif;
 	<link rel="dns-prefetch" href="https://maps.googleapis.com">
 	<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
-	<?php // Prefetch custom (web) fonts ?>
-	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-book.woff">
-	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-bold.woff">
-	<link rel="prefetch" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-bookItalic.woff">
+	<?php // Preload assets (fonts, stylesheets, etc.) ?>
+	<link rel="preload" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-bold.woff2" as="font" type="font/woff2">
 
 	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>
 
