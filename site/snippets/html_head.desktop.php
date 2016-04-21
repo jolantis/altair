@@ -98,7 +98,7 @@ endif;
 	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo (c::get('url') != '/') ? $site->url() . '/blog/feed' : '/blog/feed'; ?>"><?php endif; ?>
 	<?php if($site->google_plus() != ''): ?><link rel="publisher" href="https://plus.google.com/xxxxxxxxxxxxxxxxxxxxx"><?php endif; ?>
 
-	<?php // Canonical rel link on pages that can be dynamic (e.g. …/paramkey:paramvalue); by default the script checks if the 'tags' field is present; make sure to change or add field names based on project specifics! ?>
+	<?php // Canonical rel link on pages that can be dynamic (e.g. .../paramkey:paramvalue); by default the script checks if the 'tags' field is present; make sure to change or add field names based on project specifics! ?>
 	<?php foreach($page->children()->visible() as $child_page): if($child_page->tags() != '' && (!param() || is_numeric(param(key(param()))))): ?><link rel="canonical" href="<?php if(is_numeric(param(key(param())))): echo $page->url() . '/page:' . param('page'); else: echo $page->url(); endif; ?>"><?php break; endif; endforeach; ?>
 	<?php foreach($page->siblings($self=false)->visible() as $sibling_page): if($sibling_page->tags() != '' && !$page->isHomePage() && !param()): ?><link rel="canonical" href="<?php echo $page->url(); ?>"><?php break; endif; endforeach; ?>
 
