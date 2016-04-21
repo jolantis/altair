@@ -15,7 +15,8 @@
 		overflow: hidden;
 		// height: 0; // Height is set by inline percentage-padding in figure plugin/tag to prevent reflow on image load
 
-		&.lazyload:after {
+		&.lazyload:after,
+		&.lazyloading:after {
 			position: absolute;
 			right: rhythm(.5);
 			bottom: rhythm(.5);
