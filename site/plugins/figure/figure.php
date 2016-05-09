@@ -421,7 +421,7 @@ kirbytext::$tags['figure'] = array(
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-src'  => $defaultthumburl,
-					'srcset'    => $srcset,
+					'data-srcset'    => $srcset,
 					'sizes'     => $sizes,
 					// 'data-width'     => $image->width(),
 					// 'data-height'    => $image->height(),
