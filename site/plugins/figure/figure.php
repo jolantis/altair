@@ -110,7 +110,7 @@ function figure($image=false, $options=array()) {
 	// Add more values to options array, for use in template
 	$options['image'] = $image;
 	$options['thumbwidth'] = $thumbwidth;
-	$options['thumbheight'] = $thumbheight;
+	$options['thumbheight'] = $defaultthumbheight;
 	$options['customwidth'] = $options['width'];
 	$options['customquality'] = $options['quality'];
 	$options['ratio'] = $ratio;

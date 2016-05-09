@@ -36,7 +36,10 @@ function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
 
         $thumb = thumb($file, $source);
         if($i > 0) {
-            $srcset .= ', ';
+            $srcset = ', ';
+        }
+        else {
+            $srcset = '';
         }
         $srcset .= $thumb->url() .' '. $thumb->width() .'w';
         $i++;
