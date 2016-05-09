@@ -57,6 +57,8 @@ if(!isset($prev_next)): $prev_next = false; endif;
 // web fonts over and over again.
 if(isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 'true'):
 	$fontobserver = ' fonts-loaded';
+else:
+	$fontobserver = '';
 endif;
 
 ////////////////////////////////////////////////////////// ?>
