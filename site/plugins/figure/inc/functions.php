@@ -26,6 +26,7 @@ function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
     $sources_arr = figure_get_srcset_array( $file );
 
     $i = 0;
+    $srcset = '';
     foreach ($sources_arr as $source) {
         $source['quality'] = $quality;
         $source['crop'] = $crop;
@@ -36,10 +37,7 @@ function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
 
         $thumb = thumb($file, $source);
         if($i > 0) {
-            $srcset = ', ';
-        }
-        else {
-            $srcset = '';
+            $srcset .= ', ';
         }
         $srcset .= $thumb->url() .' '. $thumb->width() .'w';
         $i++;
