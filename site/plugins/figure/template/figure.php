@@ -1,8 +1,8 @@
  <figure class="FigureImage">
 
 	<?php // [1] Regular image; resized thumb (thumbs.width.default) ?>
-		<img src="<?php echo $defaultthumb; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 	<?php if($lazyload == false): ?>
+		<img sizes="<?php echo $sizes; ?>" srcset="<?php echo $srcset; ?>" src="<?php echo $defaultthumb; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
 	<?php endif; ?>
 
 	<?php // [2] Lazyload image; responsive image via srcset  ?>

@@ -393,6 +393,8 @@ kirbytext::$tags['figure'] = array(
 				$imagethumb = html::img($defaultthumburl,array(
 					// 'data-width'     => $image->width(),
 					// 'data-height'    => $image->height(),
+					'srcset'    => $srcset,
+					'sizes'     => $sizes,
 					'class'     => $class,
 					'alt'       => html($alt)
 					)
@@ -408,7 +410,7 @@ kirbytext::$tags['figure'] = array(
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
 					'data-src'  => $defaultthumburl,
 					'data-srcset'    => $srcset,
-					'sizes'     => $sizes,
+					'data-sizes'     => $sizes,
 					// 'data-width'     => $image->width(),
 					// 'data-height'    => $image->height(),
 					'class'     => $class . ' lazyload',
