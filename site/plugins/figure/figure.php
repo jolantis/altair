@@ -45,17 +45,10 @@ function figure($image=false, $options=array()) {
 		$thumbwidth = c::get('thumbs.width.feed', 1200);
 	}
 	else {
-		// without resrc, maximize thumb width, for speedier loading of page!
-		if(c::get('resrc') == false) {
-			if(!isset($options['width'])) {
-				$thumbwidth = c::get('thumbs.width.default', 800);
-			} else {
-				$thumbwidth = $options['width'];
-			}
-		}
-		else {
-			// If resrc is enabled, use original image width
-			$thumbwidth = $image->width();
+		if(!isset($options['width'])) {
+			$thumbwidth = c::get('thumbs.width.default', 800);
+		} else {
+			$thumbwidth = $options['width'];
 		}
 	}
 
@@ -278,14 +271,7 @@ kirbytext::$tags['figure'] = array(
 				$thumbwidth = c::get('thumbs.width.feed', 1200);
 			}
 			else {
-				// Without resrc, maximize thumb width, for speedier loading of page!
-				if(c::get('resrc') == false) {
-					$thumbwidth = c::get('thumbs.width.default', 800);
-				}
-				else {
-					// If resrc is enabled, use original image width
-					$thumbwidth = $image->width();
-				}
+				$thumbwidth = c::get('thumbs.width.default', 800);
 			}
 
 			// When a cropratio is set, calculate the ratio based height
