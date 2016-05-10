@@ -40,13 +40,17 @@ function figure($image=false, $options=array()) {
 		$feed = false;
 	}
 
+	// Set identifiers for default thumb sizes
+	$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
+	$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+
 	// Set thumb width
 	if($feed == true) {
-		$thumbwidth = c::get('thumbs.width.feed', 1200);
+		$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbfeedwidthname]['width'];
 	}
 	else {
 		if(!isset($options['width'])) {
-			$thumbwidth = c::get('thumbs.width.default', 800);
+			$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'];
 		} else {
 			$thumbwidth = $options['width'];
 		}
@@ -87,14 +91,14 @@ function figure($image=false, $options=array()) {
 
 	// Set height for default thumb
 	if(isset($options['cropratio']) && isset($options['crop'])) {
-		$defaultthumbheight = figure_height_by_cropratio( $options['cropratio'], kirby()->option('responsiveimages.sources')['large']['width'] );
+		$defaultthumbheight = figure_height_by_cropratio( $options['cropratio'], kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'] );
 	}
 	else {
 		$defaultthumbheight = null;
 	}
 
 	$options['defaultthumb'] = thumb($image, array(
-		'width' => kirby()->option('responsiveimages.sources')['large']['width'],
+		'width' => kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'],
 		'height' => $defaultthumbheight,
 		'quality' => $options['quality'],
 		'crop'    => $options['crop']
@@ -256,6 +260,10 @@ kirbytext::$tags['figure'] = array(
 			$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
 		}
 
+		// Set identifiers for default thumb sizes
+		$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
+		$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+
 		// Create markup for every image
 		$i = 0;
 		foreach($imageresult as $image) {
@@ -268,10 +276,10 @@ kirbytext::$tags['figure'] = array(
 
 			// Set thumb width for feed
 			if($feed == true) {
-				$thumbwidth = c::get('thumbs.width.feed', 1200);
+				$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbfeedwidthname]['width'];
 			}
 			else {
-				$thumbwidth = c::get('thumbs.width.default', 800);
+				$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'];
 			}
 
 			// When a cropratio is set, calculate the ratio based height
@@ -353,14 +361,14 @@ kirbytext::$tags['figure'] = array(
 
 			// Set height for default thumb
 			if(isset($cropratio) && isset($crop)) {
-				$defaultthumbheight = figure_height_by_cropratio( $cropratio, kirby()->option('responsiveimages.sources')['large']['width'] );
+				$defaultthumbheight = figure_height_by_cropratio( $cropratio, kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'] );
 			}
 			else {
 				$defaultthumbheight = null;
 			}
 
 			$defaultthumburl = thumb($image, array(
-				'width' => kirby()->option('responsiveimages.sources')['large']['width'],
+				'width' => kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'],
 				'height' => $defaultthumbheight,
 				'quality' => $quality,
 				'crop'    => $crop,
