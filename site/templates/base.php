@@ -22,6 +22,9 @@
 			<p>
 				<input type="submit" name="submit" value="Submit button" class="Button"/>
 				<input type="button" name="submit" value="Input button" class="Button"/>
+			</p>
+
+			<p>
 				<button class="Button">Button button</button>
 				<a href="#" class="Button Button--primary" role="button">Anchor button (primary)</a>
 			</p>
@@ -32,10 +35,8 @@
 			<p><input type="submit" name="submit" value="Small button" class="Button Button--small"/></p>
 			<p><input type="submit" name="submit" value="Large button" class="Button Button--large"/></p>
 
-			<p>
-				<button class="Button Button--primary Button--full">Button button (primary, full)</button>
-				<a href="#" class="Button Button--full" role="button">Anchor button (full)</a>
-			</p>
+			<p><button class="Button Button--primary Button--full">Button button (primary, full)</button></p>
+			<p><a href="#" class="Button Button--full" role="button">Anchor button (full)</a></p>
 
 			<p><button class="Button Button--primary is-disabled">Button button (primary, disabled)</button></p>
 			<p class="u-spaceTrailerM"><a href="#" class="Button is-disabled" role="button">Anchor button (disabled)</a></p>

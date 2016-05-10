@@ -7,10 +7,17 @@
  */
 
 .List {
-	margin-left: rhythm(1); // roughly equal to offset the outdent of a two-figure number (1 of 2)
+	margin-left: rhythm(1.25); // .75rem + .5 baseline (vertical rhythm)
+	list-style-position: outside;
 
 	li {
 		display: list-item;
+
+		& > ul,
+		& > ol,
+		& + li {
+			margin-top: rhythm(.25);
+		}
 
 		& > ul,
 		& > ol {
@@ -18,9 +25,9 @@
 		}
 	}
 
-	@include breakpoint(medium) {
-		margin-left: 0; // reset left margin from medium and up
-	}
+	// @include breakpoint(medium) {
+	// 	margin-left: 0; // reset left margin from medium and up
+	// }
 }
 
 .List {

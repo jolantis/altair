@@ -47,12 +47,28 @@
 	}
 
 	/**
-	 * Reset some top-margins on smaller headings
+	 * Reset (decrease) some margins for better typography (proximity)
+	 * See: http://zellwk.com/blog/wrong-about-vertical-rhythm/
 	 */
 
-	> h4 + p,
-	> h5 + p,
-	> h6 + p {
+	> *:not(.Grid) + p {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> *:not(.Grid) + ul,
+	> *:not(.Grid) + ol,
+	> *:not(.Grid) + dl {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> h2 + *:not(.Grid),
+	> h3 + *:not(.Grid) {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> h4 + p:not(.Grid),
+	> h5 + p:not(.Grid),
+	> h6 + p:not(.Grid) {
 		margin-top: 0 !important;
 	}
 
