@@ -29,17 +29,14 @@ function bgimage($image=false, $options=array()) {
 	// Merge defaults and options
 	$options = array_merge($defaults, $options);
 
-	// Without resrc, maximize thumb width, for speedier loading of page!
-	if(c::get('resrc') == false) {
-		if(!isset($options['width'])) {
-			$thumbwidth = c::get('thumbs.width.default', 800);
-		} else {
-			$thumbwidth = $options['width'];
-		}
-	}
-	else {
-		// If resrc is enabled, use original image width
-		$thumbwidth = $image->width();
+	// Set identifiers for default thumb sizes
+	$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
+
+	// Without width set, use default image width
+	if(!isset($options['width'])) {
+		$thumbwidth = $thumbwidth = kirby()->option('responsiveimages.sources')[$thumbfeedwidthname]['width'];
+	} else {
+		$thumbwidth = $options['width'];
 	}
 
 	// If no crop variable is defined *and* no cropratio
@@ -69,8 +66,18 @@ function bgimage($image=false, $options=array()) {
 		$thumbheight = round($thumbwidth * $ratio);
 	}
 
+	// Srcset builder
+	if($image && empty($srcset)) {
+		$srcset = figure_get_srcset($image, $options['quality'], $options['crop'], $options['cropratio']);
+	}
+
+	// Sizes builder
+	if($image && empty($sizes)) {
+		$sizes = figure_get_sizes($image);
+	}
+
 	// Create thumb url (create a new thumb object)
-	$options['thumburl'] = thumb($image, array(
+	$options['defaultthumburl'] = thumb($image, array(
 		'width'   => $thumbwidth,
 		'height'  => $thumbheight,
 		'quality' => $options['quality'],
@@ -81,6 +88,8 @@ function bgimage($image=false, $options=array()) {
 	$options['customwidth'] = $options['width'];
 	$options['customquality'] = $options['quality'];
 	$options['ratio'] = $ratio;
+	$options['srcset'] = $srcset;
+	$options['sizes'] = $sizes;
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'template/bgimage.php', $options);
