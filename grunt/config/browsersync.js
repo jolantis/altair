@@ -14,10 +14,13 @@ module.exports = function(grunt) {
 			},
 			options: {
 				watchTask: true,
+				open: 'external',
+				host: 'local.altair',
 				proxy: 'local.altair',
+				port: 3000,
 				// logConnections: true,
 				logFileChanges: true,
-				// open: 'ui',
+				// open: false, // 'ui'
 				browser: 'google chrome',
 				// xip: true,
 				// reloadOnRestart: true,
