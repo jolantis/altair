@@ -104,6 +104,17 @@ function figure($image=false, $options=array()) {
 		'crop'    => $options['crop']
 	), false);
 
+	// Get Photoswipe options
+	$photoswipe = c::get('photoswipe', false);
+	if($photoswipe) {
+		$pswphref = $options['defaultthumb'];
+		$pswpsize = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'].'x'.$defaultthumbheight;
+	}
+	else {
+		$pswphref = null;
+		$pswpsize = null;
+	}
+
 	// Add more values to options array, for use in template
 	$options['image'] = $image;
 	$options['thumbwidth'] = $thumbwidth;
@@ -113,6 +124,9 @@ function figure($image=false, $options=array()) {
 	$options['ratio'] = $ratio;
 	$options['srcset'] = $srcset;
 	$options['sizes'] = $sizes;
+	$options['photoswipe'] = $photoswipe;
+	$options['pswphref'] = $pswphref;
+	$options['pswpsize'] = $pswpsize;
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'template/figure.php', $options);
@@ -202,6 +216,7 @@ kirbytext::$tags['figure'] = array(
 		$cropratio  = $tag->attr('cropratio');
 		$width      = $tag->attr('width');
 		$height     = $tag->attr('height');
+		$photoswipe = c::get('photoswipe', false);
 
 		// Alt tag should not be 'null' but an empty string
 		if(!isset($alt) || is_null($alt)) {
@@ -395,16 +410,29 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
+			// Set variables for Photoswipe if needed
+			if($photoswipe) {
+				$class .= ' pswp-img';
+				$pswphref = $defaultthumburl;
+				$pswpsize = $image->width().'x'.$image->height();
+			}
+			else {
+				$pswphref = '';
+				$pswpsize = '';
+			}
+
 			// [1] Regular image; resized thumb (e.g. thumbs.width.default)
 			if($lazyload == false) {
 
 				$imagethumb = html::img($defaultthumburl,array(
 					// 'data-width'     => $image->width(),
 					// 'data-height'    => $image->height(),
-					'srcset'    => $srcset,
-					'sizes'     => $sizes,
-					'class'     => $class,
-					'alt'       => html($alt)
+					'srcset'         => $srcset,
+					'sizes'          => $sizes,
+					'class'          => $class,
+					'alt'            => html($alt),
+					'data-pswp-href' => $pswphref,
+					'data-pswp-size' => $pswpsize
 					)
 				);
 
@@ -422,7 +450,9 @@ kirbytext::$tags['figure'] = array(
 					// 'data-width'     => $image->width(),
 					// 'data-height'    => $image->height(),
 					'class'     => $class . ' lazyload',
-					'alt'       => html($alt)
+					'alt'       => html($alt),
+					'data-pswp-href' => $pswphref,
+					'data-pswp-size' => $pswpsize
 					)
 				);
 

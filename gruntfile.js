@@ -69,10 +69,10 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_plugins %>/ls.unveilhooks.js',         // Out-comment when using lazyload + unveil/lazyload scripts/widgets, background images, styles and video/audio elements!!!
 					'<%= project.scripts_plugins %>/ls.print.js',               // Out-comment when there's a need to be able to print lazyloaded images!!!
 					'<%= project.scripts_plugins %>/transitionend.js',
+					'<%= project.scripts_plugins %>/photoswipe.js',  // Photoswipe
+					'<%= project.scripts_plugins %>/photoswipe-ui-default.js', // Photoswipe UI
 					'<%= project.scripts_plugins %>/smooth-scroll.js',
 					// '<%= project.scripts_plugins %>/gumshoe.js',
-					// '<%= project.scripts_plugins %>/photoswipe/photoswipe.js',  // Photoswipe
-					// '<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
 
 				],
 				utils: [
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/fontobserver.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
-					// '<%= project.scripts_classes %>/photoswipe.class.js',
+					'<%= project.scripts_classes %>/photoswipe.class.js',
 					'<%= project.scripts_classes %>/popup.class.js',
 				// Main
 					'<%= project.scripts %>/main.scripts.js',
@@ -110,10 +110,10 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_plugins %>/ls.unload.js',              // Out-comment when using lazyload and want to unload not in view images to improve memory consumption and orientationchange/resize performance!!!
 					// '<%= project.scripts_plugins %>/ls.unveilhooks.js',         // Out-comment when using lazyload + unveil/lazyload scripts/widgets, background images, styles and video/audio elements!!!
 					'<%= project.scripts_plugins %>/ls.print.js',               // Out-comment when there's a need to be able to print lazyloaded images!!!
+					'<%= project.scripts_plugins %>/photoswipe.js',  // Photoswipe
+					'<%= project.scripts_plugins %>/photoswipe-ui-default.js', // Photoswipe UI
 					'<%= project.scripts_plugins %>/transitionend.js',
 					'<%= project.scripts_plugins %>/smooth-scroll.js',
-					// '<%= project.scripts_plugins %>/photoswipe/photoswipe.js',  // Photoswipe
-					// '<%= project.scripts_plugins %>/photoswipe/ui/photoswipe-ui-default.js', // Photoswipe ui
 				],
 				utils: [
 					'<%= project.scripts_utils %>/extend.util.js',
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_classes %>/fontobserver.class.js',
 					'<%= project.scripts_classes %>/lazysizes.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
-					// '<%= project.scripts_classes %>/photoswipe.class.js',
+					'<%= project.scripts_classes %>/photoswipe.class.js',
 				// Main
 					'<%= project.scripts %>/mobile.scripts.js',
 				],
