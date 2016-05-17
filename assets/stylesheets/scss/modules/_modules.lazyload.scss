@@ -35,7 +35,7 @@
 
 			&.lazyload,
 			&.lazyloading {
-				opacity: 0; // Hide lazyloaded image (with lazysizes) as soon as possibe. Fixes flicker of cached images on iOS!
+				opacity: 0; // Hide lazyloaded image (with lazysizes) as soon as possibe. Fixes flicker of cached images!
 			}
 			&.lazyloaded {
 				animation: FadeIn .56s ease-in both; // Fade-in animation of (lazy)loaded images
@@ -50,7 +50,14 @@
 
 .BgImage {
 
-	&.lazyloaded {
-		animation: FadeIn .56s ease-in both; // Fade-in animation
+	.ctm & {
+
+		&.lazyload,
+		&.lazyloading {
+			opacity: 0; // Hide lazyloaded background image (with lazysizes) as soon as possibe. Fixes flicker of cached images!
+		}
+		&.lazyloaded {
+			animation: FadeIn .56s ease-in both; // Fade-in animation
+		}
 	}
 }
