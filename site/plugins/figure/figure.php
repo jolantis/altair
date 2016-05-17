@@ -275,10 +275,6 @@ kirbytext::$tags['figure'] = array(
 			$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
 		}
 
-		// Set identifiers for default thumb sizes
-		$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
-		$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
-
 		// Create markup for every image
 		$i = 0;
 		foreach($imageresult as $image) {
