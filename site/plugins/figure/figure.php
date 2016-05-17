@@ -41,8 +41,8 @@ function figure($image=false, $options=array()) {
 	}
 
 	// Set identifiers for default thumb sizes
-	$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
-	$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+	// $thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
+	// $thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
 
 	// Set thumb width
 	if($feed == true) {
@@ -274,6 +274,10 @@ kirbytext::$tags['figure'] = array(
 		if($feed != true) {
 			$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
 		}
+
+		// Set identifiers for default thumb sizes
+		$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
+		$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
 
 		// Create markup for every image
 		$i = 0;
