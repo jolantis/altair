@@ -517,22 +517,21 @@ figure plugin/tag.
 
 Do not forget to enable the Javascript and Stylesheet assets when enabling!
 
+Use it like this:
+
+foreach($this->kirby->option('photoswipe.pages') as $pattern) {
+	if(fnmatch($pattern, $this->uri()) === true) {
+		return false;
+	}
+}
+
+See on how to implement this in plugin!
+
 */
 
 c::set('photoswipe', true);
 c::set('photoswipe.pages', array('images' ,'projects', 'blog/*'));                     // Wildcards can be used as well, e.g.: projects/*
 
-/*
-Use it like this:
-
-foreach($this->kirby->option('photoswipe.pages') as $pattern) {
-  if(fnmatch($pattern, $this->uri()) === true) {
-    return false;
-  }
-}
-
-See on how to implement this in plugin!
-*/
 
 /* -----------------------------------------------------------------------------
 Twitter
