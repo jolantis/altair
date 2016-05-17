@@ -7,7 +7,11 @@
 	<?php snippet('banner'); ?>
 
 	<!-- Background image example  -->
-	<?php echo bgimage($page->images()->first(), array('width' => 1200, 'cropratio' => 2/3, 'class' => 'BgImage BgImage--3by2 BgImage--large16by9 BgImage--huge2by1')); ?>
+	<?php echo bgimage($page->images()->first(), array(
+		'width'     => 1200,
+		'cropratio' => 2/3,
+		'class'     => 'BgImage BgImage--3by2 BgImage--large16by9 BgImage--huge2by1'
+	)); ?>
 
 	<div class="Contain">
 
