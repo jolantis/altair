@@ -421,7 +421,7 @@ kirbytext::$tags['figure'] = array(
 				$pswpsize = '';
 			}
 
-			// [1] Regular image; resized thumb (e.g. thumbs.width.default)
+			// [1] Regular image; resized thumb (e.g. `responsiveimages.default`)
 			if($lazyload == false) {
 
 				$imagethumb = html::img($defaultthumburl,array(

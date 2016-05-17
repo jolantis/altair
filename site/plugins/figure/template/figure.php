@@ -1,6 +1,6 @@
  <figure class="FigureImage">
 
-	<?php // [1] Regular image; resized thumb (thumbs.width.default) ?>
+	<?php // [1] Regular image; resized thumb (e.g. `responsiveimages.default`) ?>
 	<?php if($lazyload == false): ?>
 		<img sizes="<?php echo $sizes; ?>" srcset="<?php echo $srcset; ?>" src="<?php echo $defaultthumb; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?><?php if($photoswipe): ?> pswp-img<?php endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>"<?php if($photoswipe): ?> data-pswp-href="<?php echo $pswphref;?>" data-pswp-size="<?php echo $pswpsize;?>"<?php endif; ?> />
 	<?php endif; ?>
