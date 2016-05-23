@@ -3,13 +3,13 @@
 
 	<channel>
 		<title><?php echo xml($title); ?></title>
-		<link><?php echo url($channel); ?></link>
+		<link><?php echo xml($channel); ?></link>
 		<generator><?php echo c::get('feed.generator', 'Kirby'); ?></generator>
 		<lastBuildDate><?php echo date('r', $modified) ?></lastBuildDate>
 		<?php /* <lastBuildDate><?php echo $site->find($channel)->modified('r'); ?></lastBuildDate> */ ?>
 		<atom:link href="<?php echo url($channel); ?>/feed" rel="self" type="application/rss+xml" />
 
-		<?php if(!is_null($description)): ?>
+		<?php if(!empty($description)): ?>
 			<description><?php echo xml($description); ?></description>
 		<?php endif ?>
 
@@ -17,7 +17,7 @@
 			<item>
 				<title><?php echo xml($item->title()); ?></title>
 				<link><?php echo xml($item->url()); ?></link>
-				<guid><?php echo xml($item->url()); ?></guid>
+				<guid><?php echo xml($item->id()); ?></guid>
 				<pubDate><?php echo $datefield == 'modified' ? $item->modified('r') : $item->date('r', $datefield); ?></pubDate>
 				<?php if($excerpt == true): ?>
 					<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
