@@ -133,7 +133,7 @@ files are being ignored:
 
 array('.', '..', '.DS_Store', '.svn', '.git', '.htaccess');
 
-… so you don't have to add them.
+... so you don't have to add them.
 
 */
 
