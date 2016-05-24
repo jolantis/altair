@@ -229,6 +229,7 @@ More information about language codes, locales and multi-language sitemaps:
 
 c::set('language.multi', false);
 c::set('language.locale', 'en');
+c::set('locale', 'en_US.UTF8');
 
 // c::set('languages', array(
 // 	array(
