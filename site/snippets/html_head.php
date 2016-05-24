@@ -25,6 +25,10 @@ else:
 	$mobile_js = json_decode($assets_js)->mobile;
 endif;
 
+// Language(s)
+if(c::get('language.multi', false)): $language_locale = $site->language()->locale();
+else: $language_locale = c::get('language.locale', 'en'); endif;
+
 // Page title
 if($page->isHomePage() && $site->descriptor() != ''): $pagetitle = $site->descriptor()->smartypants()->titlecase();
 elseif($page->subtitle() != ''): $pagetitle = $page->subtitle()->smartypants()->titlecase();
@@ -64,8 +68,8 @@ endif;
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!-- <html manifest="/cache.appcache" lang="<?php echo $site->language()->locale(); ?>"> -->
-<html class="no-js<?php echo $fontobserver ?>" lang="<?php echo $site->language()->locale(); ?>">
+<!-- <html manifest="/cache.appcache" lang="<?php echo $language_locale; ?>"> -->
+<html class="no-js<?php echo $fontobserver ?>" lang="<?php echo $language_locale; ?>">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -96,7 +100,7 @@ endif;
 	<?php foreach($page->siblings($self=false)->visible() as $sibling_page): if($sibling_page->tags() != '' && !$page->isHomePage() && !param()): ?><link rel="canonical" href="<?php echo $page->url(); ?>"><?php break; endif; endforeach; ?>
 
 	<?php // Alternate language rel link(s) for matching languages in config and available text files (e.g. blogarticle.md, blogarticle.en.md) ?>
-	<?php foreach($site->languages() as $language): if($site->languages()->count() > 1 && $site->language() != $language && isset($page->inventory()['content'][$language->code()])): ?><link rel="alternate" href="<?php echo $page->url($language->code()); ?>" hreflang="<?php echo $language->locale(); ?>"><?php endif; endforeach; ?>
+	<?php if(c::get('language.multi', false)): foreach($site->languages() as $language): if($site->languages()->count() > 1 && $site->language() != $language && isset($page->inventory()['content'][$language->code()])): ?><link rel="alternate" href="<?php echo $page->url($language->code()); ?>" hreflang="<?php echo $language->locale(); ?>"><?php endif; endforeach; endif; ?>
 
 	<?php // Shortlink (to use enable tinyurl in config.php) ?>
 	<?php if(c::get('tinyurl.enabled') && !$page->isHomepage()): ?><link rel="shortlink" href="<?php echo $page->tinyurl(); ?>"><?php endif; ?>

@@ -202,19 +202,23 @@ c::set('routes', array(
 
 
 /* -----------------------------------------------------------------------------
-Languages
+Language(s)
 --------------------------------------------------------------------------------
 
-Language definition for multi-language sites.
+Language definitions for (default) locale and/or multi-languages.
+
+To enable multi-languages set `language.multi` to `true` and out-comment
+the `languages` array.
 
 The URL for the default language will not have the language code part, but the
 other languages will (automatically) have the language code part added:
 
 http://yourdomain.com/nl/blog
 
-Even if only one (default) language is set — basically not enabling
-multi-language — this one default lanuage is used to set among other things
-the lang atribute on the html element, .
+The `language.locale` variable is used to set the lang atribute on the html
+element. If multi-language is enabled (see previous point), the `locale` key
+of the `languages` variable array is used instead, while `language.locale` is
+further ignored.
 
 More information about language codes, locales and multi-language sitemaps:
 - https://support.google.com/webmasters/answer/189077?hl=en&topic=2370587&ctx=topic
@@ -223,26 +227,29 @@ More information about language codes, locales and multi-language sitemaps:
 
 */
 
-c::set('languages', array(
-	array(
-		'default'   => true,
-		'code'      => 'en',
-		'name'      => 'English',
-		'locale'    => 'en',                                                    // English content
-		// 'locale'    => 'en_US',                                                 // English content, for US users
-		// 'locale'    => 'en_GB',                                                 // English content, for United Kingdom users
-		'url'       => '/',
-		'direction' => 'ltr'
-	),
-	// array(
-	// 	'code'      => 'nl',
-	// 	'name'      => 'Nederlands',
-	// 	'locale'    => 'nl_NL',                                                 // Dutch content
-	// 	// 'locale'    => 'nl_BE'                                                  // Dutch content, for Belgium user
-	// 	'url'       => '/nl',
-	// 	'direction' => 'ltr'
-	// ),
-));
+c::set('language.multi', false);
+c::set('language.locale', 'en');
+
+// c::set('languages', array(
+// 	array(
+// 		'default'   => true,
+// 		'code'      => 'en',
+// 		'name'      => 'English',
+// 		'locale'    => 'en',                                                    // English content
+// 		// 'locale'    => 'en_US',                                                 // English content, for US users
+// 		// 'locale'    => 'en_GB',                                                 // English content, for United Kingdom users
+// 		'url'       => '/',
+// 		'direction' => 'ltr'
+// 	),
+// 	array(
+// 		'code'      => 'nl',
+// 		'name'      => 'Nederlands',
+// 		'locale'    => 'nl_NL',                                                 // Dutch content
+// 		// 'locale'    => 'nl_BE'                                                  // Dutch content, for Belgium user
+// 		'url'       => '/nl',
+// 		'direction' => 'ltr'
+// 	),
+// ));
 
 
 /* -----------------------------------------------------------------------------
