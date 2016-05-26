@@ -91,14 +91,14 @@ function figure($image=false, $options=array()) {
 
 	// Set height for default thumb
 	if(isset($options['cropratio']) && isset($options['crop'])) {
-		$defaultthumbheight = figure_height_by_cropratio( $options['cropratio'], kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'] );
+		$defaultthumbheight = figure_height_by_cropratio( $options['cropratio'], $thumbwidth );
 	}
 	else {
 		$defaultthumbheight = null;
 	}
 
 	$options['defaultthumb'] = thumb($image, array(
-		'width' => kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'],
+		'width' => $thumbwidth,
 		'height' => $defaultthumbheight,
 		'quality' => $options['quality'],
 		'crop'    => $options['crop']
@@ -108,7 +108,7 @@ function figure($image=false, $options=array()) {
 	$photoswipe = c::get('photoswipe', false);
 	if($photoswipe) {
 		$pswphref = $options['defaultthumb'];
-		$pswpsize = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'].'x'.$defaultthumbheight;
+		$pswpsize = $thumbwidth.'x'.$defaultthumbheight;
 	}
 	else {
 		$pswphref = null;
@@ -376,18 +376,11 @@ kirbytext::$tags['figure'] = array(
 
 			// Set height for default thumb
 			if(isset($cropratio) && isset($crop)) {
-				$defaultthumbheight = figure_height_by_cropratio( $cropratio, kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'] );
+				$defaultthumbheight = figure_height_by_cropratio( $cropratio, $thumbwidth );
 			}
 			else {
 				$defaultthumbheight = null;
 			}
-
-			$defaultthumburl = thumb($image, array(
-				'width' => kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'],
-				'height' => $defaultthumbheight,
-				'quality' => $quality,
-				'crop'    => $crop,
-			), false);
 
 			// $thumburl = thumb($image,array(
 			// 	'width'   => $thumbwidth,
@@ -396,19 +389,16 @@ kirbytext::$tags['figure'] = array(
 			// 	'crop'    => $crop,
 			// ), false);
 
-			if($feed == true) {
-
-				$imagethumb = html::img($defaultthumburl,array(
-					// 'data-width'     => $image->width(),
-					// 'data-height'    => $image->height(),
-					'class'     => $class,
-					'alt'       => html($alt)
-					)
-				);
-
+			if($feed == true) { // Default image in a feed (full width)
 				$noscript = false;
-
 			}
+
+			$defaultthumburl = thumb($image, array(
+				'width' => $thumbwidth,
+				'height' => $defaultthumbheight,
+				'quality' => $quality,
+				'crop'    => $crop,
+			), false);
 
 			// Set variables for Photoswipe if needed
 			if($photoswipe) {
