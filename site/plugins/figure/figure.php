@@ -371,7 +371,12 @@ kirbytext::$tags['figure'] = array(
 
 			// Sizes builder
 			if($image && empty($sizes)) {
-				$sizes = figure_get_sizes($image, $width);
+				if ($feed == true) {
+					$sizes = '100vw'; // Set sizes on full viewport width for feed
+				}
+				else {
+					$sizes = figure_get_sizes($image, $width);
+				}
 			}
 
 			// Set height for default thumb
