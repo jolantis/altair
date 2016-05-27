@@ -101,17 +101,6 @@ c::set('ssl', false);
 
 
 /* -----------------------------------------------------------------------------
-Locale
---------------------------------------------------------------------------------
-
-Sets the global locale setting for PHP.
-
-*/
-
-c::set('locale', 'en_US.UTF8');
-
-
-/* -----------------------------------------------------------------------------
 Content File Extension
 --------------------------------------------------------------------------------
 
@@ -215,10 +204,10 @@ other languages will (automatically) have the language code part added:
 
 http://yourdomain.com/nl/blog
 
-The `language.locale` variable is used to set the lang atribute on the html
-element. If multi-language is enabled (see previous point), the `locale` key
-of the `languages` variable array is used instead, while `language.locale` is
-further ignored.
+The `language.locale` variable is used to set among other things the lang
+atribute on the html element. If multi-language is enabled (see previous point),
+the `locale` key of the `languages` variable array is used instead,
+while `language.locale` is further ignored.
 
 More information about language codes, locales and multi-language sitemaps:
 - https://support.google.com/webmasters/answer/189077?hl=en&topic=2370587&ctx=topic
@@ -227,9 +216,9 @@ More information about language codes, locales and multi-language sitemaps:
 
 */
 
-c::set('language.multi', false);
-c::set('language.locale', 'en');
-c::set('locale', 'en_US.UTF8');
+c::set('locale', 'en_US.UTF8');                                                 // Sets the global locale setting for PHP (e.g. format a local time/date according to locale settings)
+c::set('language.multi', false);                                                // Enable multi-language support (also make sure to out-comment the `languages` variabel array below!)
+c::set('language.locale', 'en');                                                // Variable to set (amont other things) the lang atribute on the html element when multi-language is disabled
 
 // c::set('languages', array(
 // 	array(
@@ -251,20 +240,6 @@ c::set('locale', 'en_US.UTF8');
 // 		'direction' => 'ltr'
 // 	),
 // ));
-
-
-/* -----------------------------------------------------------------------------
-Date handler
---------------------------------------------------------------------------------
-
-Change Kirby's default date handler date() function to strftime() by simply
-out-commening the line below. This is especially relevant for non-english
-websites, where you want to work with translated month names, which should
-react to the locale settings
-
-*/
-
-// c::set('date.handler', 'strftime');
 
 
 /* -----------------------------------------------------------------------------
