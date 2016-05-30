@@ -388,7 +388,7 @@ c::set('lazyload', true);                                                       
 
 
 /* -----------------------------------------------------------------------------
-[1] Responsive images
+[1] Responsive images (sources)
 --------------------------------------------------------------------------------
 
 By default, thumbnails that are 320, 700, 900, 1280, 1600, 1920 and (max) 2880
@@ -408,28 +408,27 @@ c::set('responsiveimages.sources', array(
 	'large'    => array('width' => 1280),
 	'wide'     => array('width' => 1600),
 	'huge'     => array('width' => 1920),
-	'max'      => array('width' => 2880),                                       // the maximum thumb size (as default)
+	'max'      => array('width' => 2880),                                       // The maximum thumb size (as default)
 ));
 
 
 /* -----------------------------------------------------------------------------
-[2] Responsive images
+[2] Responsive images (defaults)
 --------------------------------------------------------------------------------
 
-Set default and feed images width from sources array (to keep the number of
-generated images within limits).
+Set default and feed images width.
 
-The default image size is the image used/displayed in browsers that do not
-suppert `srcset`!
+To keep the number of generated images within limits, a size (e.g. `compact`,
+`wide`) from the responsive images sources array (above) has to selected.
 
 */
 
-c::set('responsiveimages.default', 'compact');
-c::set('responsiveimages.feed', 'wide');
+c::set('responsiveimages.default', 'compact');                                  // The default thumb size used/displayed in browsers that do not suppert `srcset`
+c::set('responsiveimages.feed', 'wide');                                        // An arbitrary (maximum) width for generated thumbs used in feeds (via `figure` tag)
 
 
 /* -----------------------------------------------------------------------------
-[3] Responsive images
+[3] Responsive images (sizes)
 --------------------------------------------------------------------------------
 
 To control the sizes attribute media queries can be used. Add for every width
