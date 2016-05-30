@@ -364,7 +364,6 @@ Thumbs
 c::set('thumbs.driver', 'im');                                                  // The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
 // c::set('thumbs.filename', '{safeName}-{hash}.{extension}');                     // The naming scheme for thumb files (default is: {safeName}-{hash}.{extension})
 c::set('thumbs.quality', 78);                                                   // The default jpg compression (or quality setting) for thumbs (figure plugin and tag);
-c::set('thumbs.width.feed', 1600);                                              // An arbitrary width for thumbs used in feeds (via figure tag)
 
 
 /* -----------------------------------------------------------------------------
