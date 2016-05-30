@@ -13,7 +13,7 @@
 		<?php echo figure($page->images()->first(), array(
 			'crop'       => true,
 			'cropratio'  => '1/2',
-			'quality'    => 40,
+			'quality'    => 78,
 			'caption'    => 'This is an image defined in the template, from the figure plugin.',
 			'alt'        => 'Alt text defined in template'
 		)); ?>
