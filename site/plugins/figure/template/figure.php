@@ -8,7 +8,7 @@
 	<?php // [2] Lazyload image; responsive image via srcset  ?>
 	<?php if($lazyload == true): ?>
 		<div class="FigureImage-lazy lazyload" style="padding-bottom: <?php echo $percentage_padding; ?>%;">
-			<img data-sizes="<?php echo $sizes; ?>" data-srcset="<?php echo $srcset; ?>" data-src="<?php echo $defaultthumb; ?>" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?><?php if($photoswipe): ?> pswp-img<?php endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>"<?php if($photoswipe): ?> data-pswp-href="<?php echo $pswphref;?>" data-pswp-size="<?php echo $pswpsize;?>"<?php endif; ?> />
+			<img data-sizes="<?php echo $sizes; ?>" data-srcset="<?php echo $srcset; ?>" data-src="<?php echo $defaultthumb; ?>" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="FigureImage-item lazyload<?php if($class): echo ' ' . $class; endif; ?><?php if($photoswipe): ?> pswp-img<?php endif; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" alt="<?php if($alt): echo $alt; endif; ?>"<?php if($photoswipe): ?> data-pswp-href="<?php echo $pswphref;?>" data-pswp-size="<?php echo $pswpsize;?>"<?php endif; ?> />
 		</div>
 		<noscript>
 			<img src="<?php echo $defaultthumb; ?>" width="<?php echo $thumbwidth; ?>" height="<?php echo $thumbheight; ?>" class="FigureImage-item<?php if($class): echo ' ' . $class; endif; ?>" alt="<?php if($alt): echo $alt; endif; ?>" />
