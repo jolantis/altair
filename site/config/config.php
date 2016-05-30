@@ -380,7 +380,7 @@ c::set('figureimage.gutter', 'default');                                        
 Lazyload images
 --------------------------------------------------------------------------------
 
-Use `lazysizes.init()` in main.scripts.js and mobile.scripts.js
+Enable `lazysizes` and it's related plugin in gruntfile.js.
 
 */
 
