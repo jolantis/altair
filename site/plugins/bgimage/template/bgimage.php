@@ -5,7 +5,7 @@
 
 <?php // [2] Lazyload responsive image; bgset and sizes ?>
 <?php if($lazyload == true): ?>
-	<div data-sizes="auto" data-bgset="<?php echo $srcset; ?>" data-default-bgset="<?php echo $defaultthumburl; ?>" class="<?php if($class): echo $class . ' '; endif; ?>lazyload"></div>
+	<div data-sizes="auto" data-bgset="<?php echo $srcset; ?>" data-bgsrc="<?php echo $defaultthumburl; ?>" class="<?php if($class): echo $class . ' '; endif; ?>lazyload"></div>
 	<noscript>
 		<div style="background-image:url(<?php echo $defaultthumburl; ?>);" <?php if($class): echo 'class="' . $class . '"'; endif; ?>></div>
 	</noscript>
