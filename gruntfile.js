@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 				other: [
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
-					'<%= project.scripts_classes %>/lazysizes.class.js',
+					// '<%= project.scripts_classes %>/lazysizes.class.js',     // Out-comment when apply custom actions on lazysizes init (also out-comment `lazysizes.init();` in main and mobile scripts)
 					'<%= project.scripts_classes %>/fontobserver.class.js',
 					'<%= project.scripts_classes %>/navmain.class.js',
 					'<%= project.scripts_classes %>/photoswipe.class.js',
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 				// Classes
 					'<%= project.scripts_classes %>/expand.class.js',
 					'<%= project.scripts_classes %>/fontobserver.class.js',
-					'<%= project.scripts_classes %>/lazysizes.class.js',
+					// '<%= project.scripts_classes %>/lazysizes.class.js',     // Out-comment when apply custom actions on lazysizes init (also out-comment `lazysizes.init();` in main and mobile scripts)
 					'<%= project.scripts_classes %>/navmain.class.js',
 					'<%= project.scripts_classes %>/photoswipe.class.js',
 				// Main
