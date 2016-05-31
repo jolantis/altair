@@ -502,6 +502,9 @@ See on how to implement this in plugin!
 c::set('photoswipe', true);
 c::set('photoswipe.pages', array('images' ,'projects', 'blog/*'));                     // Wildcards can be used as well, e.g.: projects/*
 
+// Photoswipe enlarged image sizes, based on responsiveimages.sources identifiers
+c::set('photoswipe.mobile', 'wide');
+c::set('photoswipe.desktop', 'max');
 
 /* -----------------------------------------------------------------------------
 Twitter

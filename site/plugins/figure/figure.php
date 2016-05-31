@@ -43,6 +43,8 @@ function figure($image=false, $options=array()) {
 	// Set identifiers for default thumb sizes
 	$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
 	$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+	$thumbmaxwidthname = c::get('photoswipe.desktop', 'max');
+	$thumbmobilemaxwidthname = c::get('photoswipe.mobile', 'wide');
 
 	// Set thumb width
 	if($feed == true) {
@@ -54,6 +56,19 @@ function figure($image=false, $options=array()) {
 		} else {
 			$thumbwidth = $options['width'];
 		}
+	}
+
+	// Set width for maximum thumb size, based on mobile or not
+	if(s::get('device_class') == 'mobile') {
+		$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmobilemaxwidthname]['width'];
+	}
+	else {
+		$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmaxwidthname ]['width'];
+	}
+
+	// Set smaller width if max thumb width exeeds the image width (otherwise it wont use the thumbs folder)
+	if($maxthumbwidth > $image->width()) {
+		$maxthumbwidth = $image->width();
 	}
 
 	// if no crop variable is defined *and* no cropratio
@@ -92,9 +107,11 @@ function figure($image=false, $options=array()) {
 	// Set height for default thumb
 	if(isset($options['cropratio']) && isset($options['crop'])) {
 		$defaultthumbheight = figure_height_by_cropratio( $options['cropratio'], $thumbwidth );
+		$maxthumbheight = figure_height_by_cropratio( $options['cropratio'], $maxthumbwidth );
 	}
 	else {
 		$defaultthumbheight = null;
+		$maxthumbheight = round($maxthumbwidth * $ratio); // Use intrinsic ratio, set earlier
 	}
 
 	$options['defaultthumb'] = thumb($image, array(
@@ -104,11 +121,19 @@ function figure($image=false, $options=array()) {
 		'crop'    => $options['crop']
 	), false);
 
+	// Set Max thumb, used for Photoswipe
+	$options['maxthumb'] = thumb($image, array(
+		'width' => $maxthumbwidth,
+		'height' => $maxthumbheight,
+		'quality' => $options['quality'],
+		'crop'    => $options['crop']
+	), false);
+
 	// Get Photoswipe options
 	$photoswipe = c::get('photoswipe', false);
 	if($photoswipe) {
-		$pswphref = $options['defaultthumb'];
-		$pswpsize = $thumbwidth.'x'.$defaultthumbheight;
+		$pswphref = $options['maxthumb'];
+		$pswpsize = $maxthumbwidth.'x'.$maxthumbheight;
 	}
 	else {
 		$pswphref = null;
@@ -275,9 +300,11 @@ kirbytext::$tags['figure'] = array(
 			$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
 		}
 
-		// Set identifiers for default thumb sizes
+		// Set identifiers for default thumb and photoswipe sizes
 		$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
 		$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+		$thumbmaxwidthname = c::get('photoswipe.desktop', 'max');
+		$thumbmobilemaxwidthname = c::get('photoswipe.mobile', 'wide');
 
 		// Create markup for every image
 		$i = 0;
@@ -295,6 +322,19 @@ kirbytext::$tags['figure'] = array(
 			}
 			else {
 				$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'];
+			}
+
+			// Set width for maximum thumb size, based on mobile or not
+			if(s::get('device_class') == 'mobile') {
+				$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmobilemaxwidthname]['width'];
+			}
+			else {
+				$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmaxwidthname ]['width'];
+			}
+
+			// Set smaller width if max thumb width exeeds the image width (otherwise it wont use the thumbs folder)
+			if($maxthumbwidth > $image->width()) {
+				$maxthumbwidth = $image->width();
 			}
 
 			// When a cropratio is set, calculate the ratio based height
@@ -382,17 +422,12 @@ kirbytext::$tags['figure'] = array(
 			// Set height for default thumb
 			if(isset($cropratio) && isset($crop)) {
 				$defaultthumbheight = figure_height_by_cropratio( $cropratio, $thumbwidth );
+				$maxthumbheight = figure_height_by_cropratio( $cropratio, $maxthumbwidth );
 			}
 			else {
 				$defaultthumbheight = null;
+				$maxthumbheight = round($maxthumbwidth * $ratio); // Use intrinsic ratio, set earlier
 			}
-
-			// $thumburl = thumb($image,array(
-			// 	'width'   => $thumbwidth,
-			// 	'height'  => $thumbheight,
-			// 	'quality' => $quality,
-			// 	'crop'    => $crop,
-			// ), false);
 
 			if($feed == true) { // Default image in a feed (full width)
 				$noscript = false;
@@ -405,11 +440,18 @@ kirbytext::$tags['figure'] = array(
 				'crop'    => $crop,
 			), false);
 
+			$maxthumburl = thumb($image, array(
+				'width' => $maxthumbwidth,
+				'height' => $maxthumbheight,
+				'quality' => $quality,
+				'crop'    => $crop,
+			), false);
+
 			// Set variables for Photoswipe if needed
 			if($photoswipe) {
 				$class .= ' pswp-img';
-				$pswphref = $defaultthumburl;
-				$pswpsize = $image->width().'x'.$image->height();
+				$pswphref = $maxthumburl;
+				$pswpsize = $maxthumbwidth.'x'.$maxthumbheight;
 			}
 			else {
 				$pswphref = '';
