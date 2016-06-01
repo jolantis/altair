@@ -4,9 +4,22 @@
 // ----------------------------------------------------------
 // Photoswipe DOM elements
 // ----------------------------------------------------------
+
+function is_photoswipe_page($page) {
+	foreach(kirby()->option('photoswipe.pages') as $pattern) {
+		// Return true if page uri matches the option values
+		if(fnmatch($pattern, $page->uri()) === true) {
+			return true;
+		}
+	}
+	// If it doesn't match in the loop, return false
+	return false;
+}
+
 ///////////////////////////////////////////////////////////// ?>
 
-<?php if(c::get('photoswipe', false)): ?>
+<?php if(c::get('photoswipe', false) && is_photoswipe_page($page)): ?>
+
 	<!-- Root element of PhotoSwipe. Must have class pswp. -->
 	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 

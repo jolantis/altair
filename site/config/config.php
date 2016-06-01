@@ -487,20 +487,10 @@ figure plugin/tag.
 
 Do not forget to enable the Javascript and Stylesheet assets when enabling!
 
-Use it like this:
-
-foreach($this->kirby->option('photoswipe.pages') as $pattern) {
-	if(fnmatch($pattern, $this->uri()) === true) {
-		return false;
-	}
-}
-
-See on how to implement this in plugin!
-
 */
 
 c::set('photoswipe', true);
-c::set('photoswipe.pages', array('images' ,'projects', 'blog/*'));                     // Wildcards can be used as well, e.g.: projects/*
+c::set('photoswipe.pages', array('images' ,'projects', 'blog', 'blog/*'));      // Include in these pages. Wildcards can be used as well, e.g.: projects/*
 
 // Photoswipe enlarged image sizes, based on responsiveimages.sources identifiers
 c::set('photoswipe.mobile', 'wide');
