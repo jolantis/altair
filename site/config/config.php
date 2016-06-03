@@ -512,15 +512,11 @@ c::set('twitter.secret','your api secret');
 Analytics, tracking, site stats
 --------------------------------------------------------------------------------
 
-Set analytics method first [1] (ga-classic, ga-universal, gosquared or
-segment-io) and then make sure the associated tracking ID/API KEY [2] is set
-to start tracking/measuring for production environment only (tracking is
-disabled for local and staging environments as long as no tracking code is
-added to these environment specific config files!).
+First make sure to set the right Google analytics tracking ID/API KEY for your
+website [2], before enabling analytics tracking [1] for production environment.
+Tracking is disabled by default for local and staging environments.
 
 */
 
-c::set('analytics.tool', 'ga-universal');                                       // [1] Set tracking method
+c::set('google.analytics', false);                                              // [1] Set tracking method
 c::set('google.analytics.id', 'TRACKING ID IS NOT SET');                        // [2] Google Analytics ID
-c::set('gosquared.id', 'TRACKING ID IS NOT SET');                               // [2] GoSquared ID
-c::set('segment.io.api.key', 'TRACKING API KEY IS NOT SET');                    // [2] Segment.io API Key

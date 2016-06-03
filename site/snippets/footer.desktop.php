@@ -16,6 +16,6 @@
 
 	<?php snippet('photoswipe_dom'); ?>
 	<?php snippet('no_ctm_fallback'); ?>
-	<?php snippet('analytics'); ?>
+	<?php snippet('google_analytics'); ?>
 </body>
 </html>

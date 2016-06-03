@@ -66,4 +66,4 @@ Analytics, tracking, site stats
 
 */
 
-c::set('analytics.tool', false);
+c::set('google.analytics', false);
