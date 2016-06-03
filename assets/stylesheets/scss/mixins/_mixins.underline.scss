@@ -21,7 +21,7 @@ $offset: 1px !default;
 		text-decoration: underline !important;
 	}
 
-	@include device-pixel-ratio(1.5) {
+	@include hidpi-media(1.5) {
 		background-image: linear-gradient(to top, transparent, transparent $offset * .5, $color $offset * .5, $color ($offset + $weight) * .5, transparent ($offset + $weight) * .5); // Apply .5 pixel (1 retina-pixel) for HiDPI/Retina screens!
 	}
 }

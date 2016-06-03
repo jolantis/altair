@@ -41,34 +41,9 @@
 	-webkit-background-clip: text;
 }
 
-// Image 2x (HiDPI, Retina, Hi-res)
+// HiDPI media
 // --------------------------------------------------------------------------
-// Specify a minimum Webkit device pixel ratio of 1.25 instead of 1.5, to serve
-// 2x images to Android devices that are between 1 and 1.5x (like the Nexus 7).
-// Firefox and Opera will respond to 1.5x on these devices, but Chrome will not.
-// Specify min-resolution, which covers Firefox 19. Opera on Android also supports
-// min-resolution, but Opera Mini does not support dppx, so the dpi unit is used.
-//
-// Link: http://j.mp/T9h80Z
-//
-// Usage:
-//   .logo {
-//     @include image-2x('logo-2x.png',100px,25px);
-//     background: img-url('logo.png') no-repeat;
-//   }
-
-@mixin image-2x($image, $width, $height) {
-	@media (-webkit-min-device-pixel-ratio: 1.25),
-				(-o-min-device-pixel-ratio: 5/4),
-						   (min-resolution: 120dpi) {
-		background-image: img-url($image);
-		background-size: $width $height;
-	}
-}
-
-// Device pixels
-// --------------------------------------------------------------------------
-// Use a ratio of 1.3 to creat a media query that captures:
+// A media query that captures:
 //
 // - Retina iOS devices
 // - Retina Macs running Safari
@@ -80,37 +55,43 @@
 // - Chrome running on high DPI Macs and PCs
 // - Opera running on high DPI Macs, PCs and mobile devices
 //
-// Please note that that this code assumes you'll swap a 2× version
+// Please note that that this code assumes you'll swap a 2x version
 // of your images. If you'd like to supply finer increments, other
 // thresholds might be appropriate.
-//
-// A test for CSS pixel densites can be found here:
-// http://bjango.com/articles/min-device-pixel-ratio/
 
-// Not yet prefixed in autoprefixer
-// See issue here: https://github.com/ai/autoprefixer/issues/122
-// Use this until it's fixed:
-
-@mixin device-pixel-ratio($pixel-ratio: 1.3) {
-	@media only screen and (-webkit-min-device-pixel-ratio: $pixel-ratio),
-	only screen and (min--moz-device-pixel-ratio: $pixel-ratio),
-	only screen and (  -o-min-device-pixel-ratio: #{($pixel-ratio*10)}/10),
-	only screen and (     min-device-pixel-ratio: $pixel-ratio),
-	only screen and (             min-resolution: #{($pixel-ratio*96)}dpi),
-	only screen and (             min-resolution: #{$pixel-ratio}dppx) {
-		@content;
+@mixin hidpi-media($pixel-ratio: 1.3) {
+	@media
+		only screen and (min-resolution: #{$pixel-ratio}dppx),
+		only screen and (min-resolution: #{($pixel-ratio*96)}dpi) {
+			@content;
 	}
 }
 
-// After it's fixed use this instead:
+// HiDPI background image
+// --------------------------------------------------------------------------
+// Specify a minimum Webkit device pixel ratio of 1.25 instead of 1.5, to serve
+// 2x images to Android devices that are between 1 and 1.5x .
+// Firefox and Opera will respond to 1.5x on these devices, but Chrome will not.
+// Specify min-resolution, which covers Firefox 19. Opera on Android also supports
+// min-resolution.
+// Since `dppx` is not supported by all browsers the media query still needs
+// the `dpi` fallback
+//
+// Usage:
+//   .logo {
+//     @include hidpi-bg-image('logo-2x.png',100px);
+//        background: img-url('logo.png') no-repeat;
+//     }
+//   }
 
-// @mixin device-pixel-ratio($pixel-ratio: 1.3) {
-// 	@media only screen and ( min-device-pixel-ratio: $pixel-ratio),
-// 	only screen and (        min-resolution: #{($pixel-ratio*96)}dpi),
-// 	only screen and (        min-resolution: #{$pixel-ratio}dppx) {
-// 		@content;
-// 	}
-// }
+@mixin hidpi-bg-image($image, $width: auto, $height: auto, $pixel-ratio: 1.25) {
+	@media
+		(min-resolution: #{$pixel-ratio}dppx),
+		(min-resolution: #{($pixel-ratio*96)}dpi) {
+			background-image: img-url($image);
+			background-size: $width $height;
+	}
+}
 
 // Attention
 // --------------------------------------------------------------------------
