@@ -25,7 +25,7 @@ function is_photoswipe_page($page) {
 
 		<!-- Background of PhotoSwipe.
 		It's a separate element as animating opacity is faster than rgba(). -->
-		<div class="pswp__bg"></div>
+		<div class="Photoswipe-bg"></div>
 
 		<!-- Slides wrapper with overflow:hidden. -->
 		<div class="pswp__scroll-wrap">
