@@ -20,7 +20,7 @@ if(!isset($address)) $address = 'Mannheim, Germany';
 ////////////////////////////////////////////////////////// ?>
 
 <?php if(!$instances): ?>
-	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript">
 		var kmap = {
 
