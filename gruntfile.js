@@ -74,7 +74,6 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/pswp.show-hide-transition.js',   // Photoswipe **required**
 					'<%= project.scripts_plugins %>/pswp.items-controller.js',       // Photoswipe **required**
 					'<%= project.scripts_plugins %>/pswp.desktop-zoom.js',           // Photoswipe optional
-					'<%= project.scripts_plugins %>/pswp.tap.js',                    // Photoswipe optional
 					'<%= project.scripts_plugins %>/pswp.history.js',                // Photoswipe optional
 					'<%= project.scripts_plugins %>/pswp.endfile.js',                // Photoswipe **required**, always last!
 					'<%= project.scripts_plugins %>/pswp.photoswipe-ui-default.js',  // Photoswipe UI **required**
