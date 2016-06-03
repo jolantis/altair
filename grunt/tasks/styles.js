@@ -45,8 +45,8 @@ module.exports = function(grunt) {
 			'clean:styles',
 			'css_mqpacker:main',
 			// 'css_mqpacker:mobile',
-			'csso:styles',
-			'remfallback' // Generate px fallbacks for CSS properties with rem values for lt IE 9!
+			'csso:styles'
+			// 'remfallback' // Generate px fallbacks for CSS properties with rem values for lt IE 9!
 		);
 	});
 
