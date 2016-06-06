@@ -35,10 +35,11 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 				h: parseInt(size[1], 10)
 			};
 
+			var caption = linkEl.getAttribute('data-pswp-caption');
+
 			// Change this to correct caption attr
-			if(figureEl.children.length > 1) {
-				// <figcaption> content
-				item.title = figureEl.children[1].innerHTML;
+			if(typeof caption === 'string' && caption.length > 1) {
+				item.title = linkEl.getAttribute('data-pswp-caption');
 			}
 
 			// Change this to correct src attr

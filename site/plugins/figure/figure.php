@@ -140,6 +140,17 @@ function figure($image=false, $options=array()) {
 		$pswpsize = null;
 	}
 
+	// If no caption given as attribute, set caption from file
+	if(!isset($options['caption'])) {
+		if(!$image->caption()->empty()) {
+			$options['caption'] = $image->caption();
+		}
+		else {
+			$options['caption'] = false;
+		}
+	}
+
+
 	// Add more values to options array, for use in template
 	$options['image'] = $image;
 	$options['thumbwidth'] = $thumbwidth;
@@ -310,6 +321,13 @@ kirbytext::$tags['figure'] = array(
 		$i = 0;
 		foreach($imageresult as $image) {
 
+			if(!$image->caption()->empty()) {
+				$pswpcaption = $image->caption();
+			}
+			else {
+				$pswpcaption = false;
+			}
+
 			// If the crop variable is explicitly set to 'false' string *and*
 			// no cropratio is set, the crop variable is always set to false
 			if($crop == 'false' && !isset($cropratio)) {
@@ -469,7 +487,8 @@ kirbytext::$tags['figure'] = array(
 					'class'          => $class,
 					'alt'            => html($alt),
 					'data-pswp-href' => $pswphref,
-					'data-pswp-size' => $pswpsize
+					'data-pswp-size' => $pswpsize,
+					'data-pswp-caption' => $pswpcaption
 					)
 				);
 
@@ -489,7 +508,8 @@ kirbytext::$tags['figure'] = array(
 					'class'     => $class . ' lazyload',
 					'alt'       => html($alt),
 					'data-pswp-href' => $pswphref,
-					'data-pswp-size' => $pswpsize
+					'data-pswp-size' => $pswpsize,
+					'data-pswp-caption' => $pswpcaption
 					)
 				);
 
