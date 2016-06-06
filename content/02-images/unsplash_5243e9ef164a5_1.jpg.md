@@ -1,0 +1,1 @@
+Caption: Two classic cars in front of yellow garage doors.
