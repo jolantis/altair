@@ -75,7 +75,8 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 		options = {
 
 			// define gallery index (for URL)
-			galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+			// galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+			galleryUID: '1', // There's just one gallery, so use one :)
 
 			getThumbBoundsFn: function(index) {
 				// See Options -> getThumbBoundsFn section of documentation for more info
@@ -206,7 +207,7 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 	// Parse URL and open gallery if it contains #&pid=3&gid=1
 	var hashData = photoswipeParseHash();
 	if(hashData.pid && hashData.gid) {
-		openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+		openPhotoSwipe( hashData.pid , document.querySelectorAll('body')[0], true, true );
 	}
 };
 
