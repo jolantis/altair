@@ -140,16 +140,13 @@ function figure($image=false, $options=array()) {
 		$pswpsize = null;
 	}
 
-	// If no caption given as attribute, set caption from file
-	if(!isset($options['caption'])) {
-		if(!$image->caption()->empty()) {
-			$options['caption'] = $image->caption();
-		}
-		else {
-			$options['caption'] = false;
-		}
+	// If caption is set from file, use for photoswipe
+	if(!$image->caption()->empty()) {
+		$pswpcaption = $image->caption();
 	}
-
+	else {
+		$pswpcaption = false;
+	}
 
 	// Add more values to options array, for use in template
 	$options['image'] = $image;
@@ -163,6 +160,7 @@ function figure($image=false, $options=array()) {
 	$options['photoswipe'] = $photoswipe;
 	$options['pswphref'] = $pswphref;
 	$options['pswpsize'] = $pswpsize;
+	$options['pswpcaption'] = $pswpcaption;
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'template/figure.php', $options);
