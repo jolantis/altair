@@ -35,14 +35,11 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 				h: parseInt(size[1], 10)
 			};
 
-
-
 			// Change this to correct caption attr
 			if(figureEl.children.length > 1) {
 				// <figcaption> content
 				item.title = figureEl.children[1].innerHTML;
 			}
-
 
 			// Change this to correct src attr
 			if(linkEl.children.length > 0) {
@@ -74,9 +71,10 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 		// define options (if needed)
 		options = {
 
-			// define gallery index (for URL)
+			// There's just one gallery, so use one :)
+			// If you need more galleries support something like..
 			// galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-			galleryUID: '1', // There's just one gallery, so use one :)
+			galleryUID: '1',
 
 			getThumbBoundsFn: function(index) {
 				// See Options -> getThumbBoundsFn section of documentation for more info
@@ -140,12 +138,12 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 
 		// find index of clicked item by looping through all child nodes
 		// alternatively, you may define index via data- attribute
+		// Set body as clickedGalley, because we only use one gallery
 		var clickedGallery = document.querySelector('body'),
 		childNodes = document.querySelectorAll('.pswp-img'),
 		numChildNodes = childNodes.length,
 		nodeIndex = 0,
 		index;
-
 
 		for (var i = 0; i < numChildNodes; i++) {
 			if(childNodes[i].nodeType !== 1) {
@@ -207,15 +205,15 @@ var initPhotoSwipeFromDOM = function(galleryLinkSelector) {
 	// Parse URL and open gallery if it contains #&pid=3&gid=1
 	var hashData = photoswipeParseHash();
 	if(hashData.pid && hashData.gid) {
-		openPhotoSwipe( hashData.pid , document.querySelectorAll('body')[0], true, true );
+		// We use body as the gallery element, because we only use one gallery
+		var galleryElement = document.querySelectorAll('body')[0];
+		openPhotoSwipe( hashData.pid , galleryElement, true, true );
 	}
 };
 
 var photoswipegallery = {
 	init : function() {
 		initPhotoSwipeFromDOM('.pswp-img');
-
-		// Check for hash and then init, or something?
 	}
 };
 
