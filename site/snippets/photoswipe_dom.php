@@ -86,4 +86,9 @@ function is_photoswipe_page($page) {
 		</div>
 
 	</div>
+
+	<script>
+		var pswpJS = enhance.getMeta( 'photoswipejs' );
+		enhance.loadJS( pswpJS.content );
+	</script>
 <?php endif; ?>

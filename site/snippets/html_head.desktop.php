@@ -15,12 +15,14 @@ if(c::get('environment') == 'local'):
 	$print_css = 'print.dev';
 	$head_js = 'head.scripts.dev';
 	$main_js = 'main.scripts.dev';
+	$photoswipe_js = 'photoswipe.scripts.dev';
 else:
 	$env_suffix = 'min';
 	$main_css = json_decode($assets_css)->main;
 	$print_css = json_decode($assets_css)->print;
 	$head_js = json_decode($assets_js)->head;
 	$main_js = json_decode($assets_js)->main;
+	$photoswipe_js = json_decode($assets_js)->protoswipe;
 endif;
 
 // Language(s)
@@ -130,6 +132,7 @@ endif;
 	<?php // Enhance stylesheets and scripts (https://github.com/filamentgroup/enhance) ?>
 	<meta name="fullcss" content="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'); ?>">
 	<meta name="fulljs" content="<?php echo url('/assets/javascript/'. $env_suffix .'/' . $main_js . '.js'); ?>">
+	<meta name="photoswipejs" content="<?php echo url('/assets/javascript/'. $env_suffix .'/' . $photoswipe_js . '.js'); ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/'. $env_suffix .'/' . $head_js . '.js'); ?></script>
 	<?php if(isset($_COOKIE['fullcss']) && $_COOKIE['fullcss'] == 'true'): ?>
 		<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'); ?>">
