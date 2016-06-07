@@ -1,7 +1,7 @@
 /**
- * main.script.js
+ * photoswipe.script.js
  *
- * Custom, additional scripts
+ * Specific Photoswipe scripts
  */
 
 // Executed on DOM ready
