@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 				{
 					src: '<%= project.scripts_min %>/photoswipe.scripts.min.js',
 					dest: '<%= project.scripts_min %>/{{hash}}.js',
-					key: 'mobile',
+					key: 'photoswipe',
 				},
 			],
 		},
