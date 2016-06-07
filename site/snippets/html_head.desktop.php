@@ -22,7 +22,7 @@ else:
 	$print_css = json_decode($assets_css)->print;
 	$head_js = json_decode($assets_js)->head;
 	$main_js = json_decode($assets_js)->main;
-	$photoswipe_js = json_decode($assets_js)->protoswipe;
+	$photoswipe_js = json_decode($assets_js)->photoswipe;
 endif;
 
 // Language(s)

@@ -24,7 +24,7 @@ else:
 	$print_css = json_decode($assets_css)->print;
 	$head_js = json_decode($assets_js)->head;
 	$mobile_js = json_decode($assets_js)->mobile;
-	$photoswipe_js = json_decode($assets_js)->protoswipe;
+	$photoswipe_js = json_decode($assets_js)->photoswipe;
 endif;
 
 // Language(s)
