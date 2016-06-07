@@ -13,7 +13,6 @@ domready(function () {
 	// lazysizes.init();                         // Init lazysizes; out-comment when apply custom actions on lazysizes init (also out-comment `lazysizes.class.js` in gruntfile.js)
 	navMain.init();                           // Init main navigation
 	// gumshoe.init();                           // Init gumshoe (scrollspy)
-	photoswipegallery.init();                 // Init photoswipe
 	smoothScroll.init();                      // Init smoothscroll
 
 });

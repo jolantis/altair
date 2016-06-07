@@ -53,6 +53,11 @@ module.exports = function(grunt) {
 					dest: '<%= project.scripts_min %>/{{hash}}.js',
 					key: 'mobile',
 				},
+				{
+					src: '<%= project.scripts_min %>/photoswipe.scripts.min.js',
+					dest: '<%= project.scripts_min %>/{{hash}}.js',
+					key: 'mobile',
+				},
 			],
 		},
 	});
