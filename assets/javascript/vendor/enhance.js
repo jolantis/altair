@@ -4,7 +4,7 @@
 	// Enable JS strict mode
 	"use strict";
 
-	var setTimeout = window.setTimeout;
+  var setTimeout = window.setTimeout;
 
 	var enhance = {};
 
@@ -16,6 +16,8 @@
 		fullCSSKey = "fullcss",
 		// this references a meta tag's name whose content attribute should define the path to the enhanced JS file for the site (delivered to qualified browsers)
 		fullJSKey = "fulljs",
+		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
+		fontsKey = "fonts",
 		// classes to be added to the HTML element in qualified browsers
 		htmlClasses = [ "enhanced", "ctm" ];
 
@@ -95,7 +97,7 @@
 
 	// cookie function from https://github.com/filamentgroup/cookie/
 	function cookie( name, value, days ){
-		var expires;
+    var expires;
 		// if value is undefined, get the cookie value
 		if( value === undefined ){
 			var cookiestring = "; " + window.document.cookie;
@@ -140,11 +142,8 @@
 		cookie( fullCSSKey, "true", 7 );
 	}
 
-	/* Enhancements for qualified browsers - “Cutting the Mustard”
-		Add your qualifications for major browser experience divisions here.
-		For example, you might choose to only enhance browsers that support document.querySelector (IE8+, etc).
-		Or you might choose to enhance browsers that support document.querySelector, localStorage and addEventListener (IE9+, etc).
-		Use case will vary. More about BBC's ctm concpet here: http://responsivenews.co.uk/post/18948466399/cutting-the-mustard
+	/* Check if the browser qualifies as a "Cutting the Mustard" browser.
+		More about CTM here: http://responsivenews.co.uk/post/18948466399/cutting-the-mustard
 		*/
 	function ctm() {
 		if("querySelector" in doc && "localStorage" in window && "addEventListener" in window ) {
@@ -158,9 +157,13 @@
 	// expose it
 	enhance.ctm = ctm;
 
+	/* Enhancements for qualified browsers - “Cutting the Mustard”
+		Add your qualifications for major browser experience divisions here.
+		For example, you might choose to only enhance browsers that support document.querySelector (IE8+, etc).
+		Use case will vary.
+		*/
 	if( !( ctm() ) ){
 		// basic browsers: last stop here!
-		window.enhance = enhance; // expose enhance to window, to use in older browsers
 		return;
 	}
 
@@ -174,11 +177,41 @@
 		A meta tag with a name matching the fullJSKey should have a content attribute referencing the path to this JavaScript file.
 		*/
 	var fullJS = getMeta( fullJSKey );
+	// Add scoping classes to HTML element
+	function addEnhanceClass(){
+		docElem.className += " " + docClasses.join(" ");
+	}
+
+	function removeEnhanceClass(){
+		docElem.className = docElem.className.replace( docClasses.join(" "), " " );
+	}
+
+	addEnhanceClass();
+
+	// load global js on any template
 	if( fullJS ){
-		loadJS( fullJS.content );
+		var script = loadJS( fullJS.content );
+		var fallback = setTimeout( removeEnhanceClass, 8000 );
+
+		script.onload = function(){
+			clearTimeout( fallback );
+			// just in case it was removed already (we can't cancel this request so it might arrive any time)
+			addEnhanceClass();
+		};
+	}
+
+	/* Load custom fonts
+		We prefer to load fonts asynchronously so that they do not block page rendering.
+		To do this, a meta tag with a name matching the fontsWoffKey should have a content attribute referencing the path to this fonts file.
+		NOTE: You may want to have logic here to choose between one of many font formats before loading it.
+			For example, we often load WOFF, Truetype, or SVG. If so, just define meta tags for each
+		*/
+	var fonts = getMeta( fontsKey );
+	if( fonts ){
+		loadCSS( fonts.content );
 	}
 
 	// expose the 'enhance' object globally. Use it to expose anything in here that's useful to other parts of your application.
-	window.enhance = enhance;
+  window.enhance = enhance;
 
 }( this ));
