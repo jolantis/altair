@@ -19,7 +19,8 @@
 		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
 		fontsKey = "fonts",
 		// classes to be added to the HTML element in qualified browsers
-		htmlClasses = [ "enhanced", "ctm" ];
+		htmlClasses = [ "enhanced", "ctm" ],
+		docClasses = htmlClasses;
 
 	/* Some commonly used functions - delete anything you don't need! */
 
