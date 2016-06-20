@@ -17,13 +17,13 @@ You can use this in a template file.
 ### Snippets
 
 ```php
-<?php echo bgimage($page->images()->first(), array('class' => 'BgImage FluidEmbed--16by9')); ?>
+<?php echo bgimage($page->images()->first(), array('class' => 'bg-image default-16by9')); ?>
 ```
 
 or…
 
 ```<?php
-<?php echo bgimage($page->images()->first(), array('width' => 1200, 'cropratio' => 2/3, 'class' => 'BgImage FluidEmbed--16by9')); ?>
+<?php echo bgimage($page->images()->first(), array('width' => 1200, 'cropratio' => 2/3, 'class' => 'bg-image default-16by9')); ?>
 ```
 
 ### Options

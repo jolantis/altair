@@ -10,7 +10,7 @@
 
 <!-- Container -->
 
-<div id="leaflet-map" class="FluidEmbed FluidEmbed--16by9 u-spaceTrailerM"></div>
+<div id="leaflet-map" class="fluid-embed default-16by9 u-spaceTrailerM"></div>
 
 <!-- Scripts -->
 

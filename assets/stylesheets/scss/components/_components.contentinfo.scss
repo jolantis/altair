@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Contentinfo (aka site footer)
+   ========================================================================== */
+
+.contentinfo {
+	@extend .contain;
+
+	margin-top: 0;
+
+	.ctm & {
+		margin-top: rhythm(1.5);
+	}
+	footer {
+		padding: rhythm(1.5) rhythm(0);
+	}
+}

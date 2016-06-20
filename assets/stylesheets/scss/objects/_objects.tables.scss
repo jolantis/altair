@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Default styles
+ */
+
+.table {
+	margin-bottom: rhythm(1);
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	th,
+	td {
+		padding-top: rhythm(.5);
+		padding-bottom: rhythm(.5);
+
+		text-align: left;
+	}
+
+	/* Table head */
+
+	th {
+		font-weight: inherit;
+		vertical-align: middle;
+		// white-space: nowrap
+	}
+
+	/* Table cell */
+
+	td {
+		vertical-align: top;
+	}
+
+	/* Table footer */
+
+	tfoot {
+		font-style: italic;
+	}
+
+	/* Cell alignments */
+
+	[colspan] {
+		text-align: center;
+	}
+	[colspan="1"] {
+		text-align: left;
+	}
+	[rowspan] {
+		vertical-align: middle;
+	}
+	[rowspan="1"] {
+		vertical-align: top;
+	}
+}
+
+.table__numerical {
+	text-align: right;
+}
+
+
+/**
+ * Striped tables
+ */
+
+.table--striped {
+	th,
+	td {
+		padding: rhythm(.5);
+	}
+	th {
+		background-color: $color-base-black;
+		color: $color-base-white;
+	}
+	th + th,
+	td + td {
+		border-left: .125em solid $color-base-white;
+	}
+
+	/* Zebra-striping */
+
+	tbody {
+		tr:nth-child(even) td {
+			background-color: $color-gray-m-light;
+		}
+		tr:hover td {
+			background-color: $color-base-black;
+			color: $color-base-white;
+		}
+	}
+
+}
+
+/**
+ * Rounded corners
+ */
+
+.table--rounded {
+	thead th:first-child {
+		border-top-left-radius: rhythm(.5);
+	}
+	thead th:last-child {
+		border-top-right-radius: rhythm(.5);
+	}
+	tr:last-of-type td:first-child {
+		border-bottom-left-radius: rhythm(.5);
+	}
+	tr:last-of-type td:last-child {
+		border-bottom-right-radius: rhythm(.5);
+	}
+	// tfoot td:first-child {
+	// 	border-bottom-left-radius: rhythm(.5);
+	// }
+
+	// tfoot td:last-child {
+	// 	border-bottom-right-radius: rhythm(.5);
+	// }
+}
+
+/**
+ * Bordered tables
+ */
+
+.table--bordered {
+	th,
+	td {
+		padding: rhythm(.5);
+		border: .125em solid $color-gray-m-light;
+
+		&:empty {
+			border:none;
+		}
+	}
+	thead th {
+		border-bottom-width: .125em;
+		border-bottom-color: $color-base-black;
+	}
+	tfoot tr {
+		border-top-width: .125em;
+	}
+}

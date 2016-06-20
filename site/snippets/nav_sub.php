@@ -11,11 +11,11 @@ $items = ($open) ? $open->children()->visible() : false;
 ////////////////////////////////////////////////////////// ?>
 
 <?php if($items && $items->count()): ?>
-	<nav role="navigation" class="Copy">
+	<nav role="navigation" class="copy">
 		<h2>Sub navigation</h2>
-		<ul class="List List--links">
+		<ul class="list list--links">
 			<?php foreach($items as $item): ?>
-				<li class="NavSub-item<?php echo ($item->isOpen()) ? ' is-active' : ''; ?>"><a href="<?php echo $item->url(); ?>"><?php echo $item->title()->smartypants(); ?></a></li>
+				<li class="list__item<?php echo ($item->isOpen()) ? ' is-active' : ''; ?>"><a href="<?php echo $item->url(); ?>"><?php echo $item->title()->smartypants(); ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 	</nav>

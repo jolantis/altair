@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Copy
+   ========================================================================== */
+
+/**
+ * Scoped styles of blocks of (body) content
+ */
+
+.copy {
+
+	/* Baseline
+	   ========================================================================== */
+
+	// $lh: 22px;
+	// background: repeating-linear-gradient(to bottom, transparent 0px, transparent #{$lh - 1px}, black #{$lh - 1px}, black $lh);
+	// background-position: 0 2px;
+
+	/* Vertical spacing
+	   ========================================================================== */
+
+	/**
+	 * Set default vertical spacing for all elements:
+	 * 1. every second, third, etc. element that has not a `.grid` class
+	 * 2. every element with a `.grid` class that is not proceded
+	 *    by an element with a `.grid` class
+	 *
+	 * Based on 'The "Leftover Glue" problem' solution:
+	 * http://slides.com/heydon/effortless-style/#/22
+	 */
+
+	> * + *:not(.grid), // [1]
+	> *:not(.grid) + .grid { // [2]
+		margin-top: rhythm(1);
+	}
+
+	/**
+	 * Set additonal vertical spacing aroundf figure elements:
+	 * 3. every figure with a `figure-image` class that comes direclty
+	 *    after an element without a `.grid` class
+	 * 4. every element that has not a `.grid` class and is proceded
+	 *    by a figure element with `.figure-image` class
+	 */
+
+	> *:not(.grid) + .figure-image, // [3]
+	> .figure-image + *:not(.grid) { // [4]
+		margin-top: rhythm(3);
+	}
+
+	/**
+	 * Reset (decrease) some margins for better typography (proximity)
+	 * See: http://zellwk.com/blog/wrong-about-vertical-rhythm/
+	 */
+
+	> *:not(.grid) + p {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> *:not(.grid) + ul,
+	> *:not(.grid) + ol,
+	> *:not(.grid) + dl {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> h2 + *:not(.grid),
+	> h3 + *:not(.grid) {
+		margin-top: rhythm(.5) !important;
+	}
+
+	> h4 + p:not(.grid),
+	> h5 + p:not(.grid),
+	> h6 + p:not(.grid) {
+		margin-top: 0 !important;
+	}
+
+	/* Text max width
+	========================================================================== */
+
+	> h1, > h2, > h3, > h4, > h5, > h6,
+	> p,
+	> ul li,
+	> ol li,
+	> dl dt,
+	> dl dd,
+	> time,
+	> table,
+	> form,
+	> .blockquote,
+	figcaption p {
+		max-width: $text-max-width;//breakpoint-value-for("medium");
+		// margin-right: auto; // Center maximized text 'column'
+		// margin-left: auto;
+	}
+
+	/* Hyphenation
+	========================================================================== */
+
+	> p,
+	> ul li,
+	> ol li,
+	> dl dt,
+	> dl dd,
+	> time,
+	> table,
+	figcaption p {
+		hyphens: auto;
+	}
+
+	/**
+	 * Overrule hyphenation
+	 *
+	 * For Kirby tag 'nohyphen';
+	 * Usage: (nohyphen: <your text not to be hyphenated>)
+	 */
+
+	.text-no-hyphen {
+		hyphens: none;
+	}
+
+	/* Paragraphs
+	   ========================================================================== */
+
+	// p:first-of-type { }
+
+	// p:first-child { }
+
+	// p + p {
+	// 	margin-top: rhythm(-1);
+	// 	text-indent: rhythm(1);
+	// }
+
+	// p:first-child:first-letter { }
+
+	/* Headings
+	   ========================================================================== */
+
+	/* Scoped headings (see extend-selectors.scss for corresponding 'unscoped' classes) */
+
+	// h1.tera-heading { @extend .tera-heading; }
+	// h1.giga-heading { @extend .giga-heading; }
+	// h1.mega-heading { @extend .mega-heading; }
+
+	h1 { @extend .alpha-heading; }
+	h2 { @extend .beta-heading; }
+	h3 { @extend .gamma-heading; }
+	h4 { @extend .delta-heading; }
+	h5 { @extend .epsilon-heading; }
+	h6 { @extend .zeta-heading; }
+
+	/* Figures
+	   ========================================================================== */
+
+	// figcaption {}
+
+	/* Pull, block- and run-in quotes
+	   ========================================================================== */
+
+	// .quote {}
+
+	// .blockquote {}
+
+	// .pullquote {}
+
+	/* Inline Elements
+	   ========================================================================== */
+
+	i,
+	em,
+	cite {
+		@extend %text-italic;
+	}
+
+	b,
+	strong {
+		@extend %text-bold;
+	}
+
+	small {
+		@extend %text-small;
+	}
+
+	time {
+		@extend %text-time;
+	}
+
+	/* Addresses styling not present in IE7/8/9 */
+
+	mark {
+		background-color: rgb(248,248,0);
+		color: $color-base-black;
+	}
+
+	ins {
+		@include underline($color-gray-m-light, rgb(253,254,206));
+
+		background-color: rgb(253,254,206);
+		color: $color-base-black;
+	}
+
+	del {
+		background-color: rgb(248,0,0);
+		color: $color-base-black;
+	}
+
+	/* Addresses styling not present in IE7/8/9, S5, Chrome */
+
+	abbr {
+		text-transform: lowercase;
+		letter-spacing: .05em;
+		font-variant: small-caps; // https://developer.mozilla.org/en-US/docs/CSS/font-variant
+	}
+
+	code,
+	kbd,
+	pre,
+	samp {
+		@include mono-font();
+	}
+
+	code {
+		background-color: $color-gray-x-light;
+	}
+
+	/* Lists
+	   ========================================================================== */
+
+	/* Unordered lists */
+
+	ul,
+	ol {
+		@extend .list;
+	}
+
+	/* Definition lists */
+
+	// dl { }
+
+	dt {
+		font-weight: 700;
+	}
+
+	dd {
+		margin-left: rhythm(1);
+	}
+
+	/* Links
+	   ========================================================================== */
+
+	a:not(.button) {
+		@extend .link;
+	}
+
+	/* External page links */
+
+	// [href^="http:"]:not([href*="mydomain.com"]) { }
+
+	/* Secure link */
+
+	// [href^="https"]:before { content: "\1F512 "; }
+
+	/* PDF link */
+
+	// [href$="pdf"] { }
+
+	/* Email link */
+
+	// [href^="mailto:"] { }
+
+	/* Twitter link */
+
+	// [href*="twitter.com"] {}
+
+	/* Tables
+	   ========================================================================== */
+
+	table {
+		@extend .table;
+		@extend .table--striped;
+	}
+
+}

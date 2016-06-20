@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Contain
+   ========================================================================== */
+
+.contain {
+	padding-right: $contain-percentage !important;
+	padding-left: $contain-percentage !important;
+
+	@include breakpoint(medium) {
+		padding-right: rhythm($contain-rhythm-unit) !important;
+		padding-left: rhythm($contain-rhythm-unit) !important;
+	}
+}
+
+.contain--width {
+	max-width: 60rem;
+	margin-right: auto;
+	margin-left: auto;
+}

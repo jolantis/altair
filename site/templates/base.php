@@ -6,9 +6,9 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="Contain">
+	<main role="main" class="contain">
 
-		<div class="Copy u-spaceTrailerM">
+		<div class="copy u-spaceTrailerM">
 
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
@@ -17,68 +17,68 @@
 
 			<hr>
 
-			<h2 id="buttons" class="BetaHeading u-spaceLeaderM">Button</h2>
+			<h2 id="buttons" class="beta-heading u-spaceLeaderM">Button</h2>
 
 			<p>
-				<input type="submit" name="submit" value="Submit button" class="Button"/>
-				<input type="button" name="submit" value="Input button" class="Button"/>
+				<input type="submit" name="submit" value="Submit button" class="button"/>
+				<input type="button" name="submit" value="Input button" class="button"/>
 			</p>
 
 			<p>
-				<button class="Button">Button button</button>
-				<a href="#" class="Button Button--primary" role="button">Anchor button (primary)</a>
+				<button class="button">Button button</button>
+				<a href="#" class="button button--primary" role="button">Anchor button (primary)</a>
 			</p>
 
-			<p><input type="submit" name="submit" value="Submit button" class="Button"/></p>
-			<p><input type="button" name="submit" value="Input button (primary)" class="Button Button--primary"/></p>
+			<p><input type="submit" name="submit" value="Submit button" class="button"/></p>
+			<p><input type="button" name="submit" value="Input button (primary)" class="button button--primary"/></p>
 
-			<p><input type="submit" name="submit" value="Small button" class="Button Button--small"/></p>
-			<p><input type="submit" name="submit" value="Large button" class="Button Button--large"/></p>
+			<p><input type="submit" name="submit" value="Small button" class="button button--small"/></p>
+			<p><input type="submit" name="submit" value="Large button" class="button button--large"/></p>
 
-			<p><button class="Button Button--primary Button--full">Button button (primary, full)</button></p>
-			<p><a href="#" class="Button Button--full" role="button">Anchor button (full)</a></p>
+			<p><button class="button button--primary button--full">Button button (primary, full)</button></p>
+			<p><a href="#" class="button button--full" role="button">Anchor button (full)</a></p>
 
-			<p><button class="Button Button--primary is-disabled">Button button (primary, disabled)</button></p>
-			<p class="u-spaceTrailerM"><a href="#" class="Button is-disabled" role="button">Anchor button (disabled)</a></p>
+			<p><button class="button button--primary is-disabled">Button button (primary, disabled)</button></p>
+			<p class="u-spaceTrailerM"><a href="#" class="button is-disabled" role="button">Anchor button (disabled)</a></p>
 
 			<hr>
 
-			<h2 id="form" class="BetaHeading">Form</h2>
+			<h2 id="form" class="beta-heading">Form</h2>
 
-			<form method="post" action="#" class="Form">
+			<form method="post" action="#" class="form">
 
 				<fieldset>
 					<!-- <legend><span>Legend</span></legend> -->
-					<ol class="Form-fields">
-						<li class="Form-item Form-item--stacked">
-							<label for="label" class="Form-label">Label</label>
-							<input type="text" name="label" id="label" class="Form-input" required/>
+					<ol class="form__fields">
+						<li class="form__item form__item--stacked">
+							<label for="label" class="form__label">Label</label>
+							<input type="text" name="label" id="label" class="form__input" required/>
 						</li>
-						<li class="Form-item Form-item--stacked">
+						<li class="form__item form__item--stacked">
 							<fieldset>
-								<span class="Form-label">Radio set <em class="Form-optional">(optional)</em></span>
+								<span class="form__label">Radio set <em class="form__optional">(optional)</em></span>
 
-								<ul class="InputSet InputSet--horizontal">
+								<ul class="input-set input-set--horizontal">
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="radio" name="radioset" value="Option 1"/>
 											<span>Option 1</span>
 										</label>
 									</li>
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="radio" name="radioset" value="Option 2"/>
 											<span>Option 2</span>
 										</label>
 									</li>
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="radio" name="radioset" value="Option 3"/>
 											<span>Option 3</span>
 										</label>
 									</li>
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="radio" name="radioset" value="Option 3"/>
 											<span>Option 3</span>
 										</label>
@@ -87,8 +87,8 @@
 
 							</fieldset>
 						</li>
-						<li class="Form-item Form-item--stacked">
-							<label for="bmonth" class="Form-label">Date of birth</label>
+						<li class="form__item form__item--stacked">
+							<label for="bmonth" class="form__label">Date of birth</label>
 							<select id="bmonth">
 								<option>Month:</option>
 								<option value="Jan">Jan</option>
@@ -107,38 +107,38 @@
 								<option value="1980">1980</option>
 							</select>
 						</li>
-						<li class="Form-item">
-							<label for="text" class="Form-label">Type="text"</label>
-							<input type="text" autocapitalize="none" name="text" id="text" class="Form-input" placeholder="Placeholder"/>
+						<li class="form__item">
+							<label for="text" class="form__label">Type="text"</label>
+							<input type="text" autocapitalize="none" name="text" id="text" class="form__input" placeholder="Placeholder"/>
 						</li>
-						<li class="Form-item">
-							<label for="email" class="Form-label">Type="email"</label>
-							<input type="email" name="email" id="email" class="Form-input"/>
+						<li class="form__item">
+							<label for="email" class="form__label">Type="email"</label>
+							<input type="email" name="email" id="email" class="form__input"/>
 							<!-- <a href="#">Weet ik niet?</a> -->
 						</li>
-						<li class="Form-item">
-							<label for="url" class="Form-label">Type="url"</label>
-							<input type="url" name="url" id="url" class="Form-input"/>
+						<li class="form__item">
+							<label for="url" class="form__label">Type="url"</label>
+							<input type="url" name="url" id="url" class="form__input"/>
 						</li>
-						<li class="Form-item">
-							<label for="number" class="Form-label">Type="number"</label>
-							<input type="number" name="number" id="number" class="Form-input"/>
+						<li class="form__item">
+							<label for="number" class="form__label">Type="number"</label>
+							<input type="number" name="number" id="number" class="form__input"/>
 						</li>
-						<li class="Form-item">
-							<label for="tel" class="Form-label">Type="tel"</label>
-							<input type="tel" name="tel" id="tel" class="Form-input"/>
+						<li class="form__item">
+							<label for="tel" class="form__label">Type="tel"</label>
+							<input type="tel" name="tel" id="tel" class="form__input"/>
 						</li>
-						<li class="Form-item">
-							<label for="password" class="Form-label">Type="password"</label>
-							<input type="password" name="password" id="password" class="Form-input" value="password"/>
+						<li class="form__item">
+							<label for="password" class="form__label">Type="password"</label>
+							<input type="password" name="password" id="password" class="form__input" value="password"/>
 						</li>
-						<li class="Form-item">
-							<label for="zipcode" class="Form-label">Zip code</label>
-							<input type="text" name="zipcode" id="zipcode" class="Form-input" pattern="^[0-9]{4}\s*[a-zA-Z]{2}" title="A Dutch zip code, with or without space" placeholder="1234 AB"/>
-							<small class="Form-helper">Dutch zip code pattern check</small>
+						<li class="form__item">
+							<label for="zipcode" class="form__label">Zip code</label>
+							<input type="text" name="zipcode" id="zipcode" class="form__input" pattern="^[0-9]{4}\s*[a-zA-Z]{2}" title="A Dutch zip code, with or without space" placeholder="1234 AB"/>
+							<small class="form__helper">Dutch zip code pattern check</small>
 						</li>
-						<li class="Form-item Form-item--stacked">
-							<label for="select" class="Form-label">Select with optgroup <em class="Form-optional">(optional)</em></label>
+						<li class="form__item form__item--stacked">
+							<label for="select" class="form__label">Select with optgroup <em class="form__optional">(optional)</em></label>
 							<select id="select">
 							  <optgroup label="Optgroup 1">
 							  <option value="Option 1">Option 1</option>
@@ -156,30 +156,30 @@
 							  </optgroup>
 							</select>
 						</li>
-						<li class="Form-item">
+						<li class="form__item">
 							<fieldset>
-								<span class="Form-label">Check set</span>
-								<ul class="InputSet">
+								<span class="form__label">Check set</span>
+								<ul class="input-set">
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="checkbox" name="checkset" value="Option 1"/>
 											<span>Option 1</span>
 										</label>
 									</li>
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="checkbox" name="checkset" value="Option 2"/>
 											<span>Option 2</span>
 										</label>
 									</li>
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="checkbox" name="checkset" value="Option 3"/>
 											<span>Option 3</span>
 										</label>
 									</li>
 									<li>
-										<label class="InputSet-label">
+										<label class="input-set__label">
 											<input type="checkbox" name="checkset" value="Option 4"/>
 											<span>Option 4</span>
 										</label>
@@ -187,9 +187,9 @@
 								</ul>
 							</fieldset>
 						</li>
-						<li class="Form-item Form-item--stacked">
-							<label for="comments-textarea" class="Form-label">Comments</label>
-							<textarea id="comments-textarea" rows="8" cols="24" class="Form-input Form-input--full"></textarea>
+						<li class="form__item form__item--stacked">
+							<label for="comments-textarea" class="form__label">Comments</label>
+							<textarea id="comments-textarea" rows="8" cols="24" class="form__input form__input--full"></textarea>
 						</li>
 					</ol>
 
@@ -199,7 +199,7 @@
 
 				</fieldset>
 
-				<input type="submit" name="submit" class="Button Button--full Button--primary" value="Submit button"/>
+				<input type="submit" name="submit" class="button button--full button--primary" value="Submit button"/>
 
 			</form>
 

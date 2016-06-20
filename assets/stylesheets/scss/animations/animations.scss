@@ -1,0 +1,147 @@
+// --------------------------------------------------------------------------
+// Based on Animate.css - http://daneden.me/animate
+// Licensed under the MIT license - http://opensource.org/licenses/MIT
+ // Copyright (c) 2014 Daniel Eden
+// --------------------------------------------------------------------------
+
+// How to use:
+//   1. import (only) the animations you want to use!
+//   2. call the animation name (e.g. Bounce) and…
+//   3. add duration, fill-mode, count, ect.
+
+// Example:
+// .masthead {
+//   animation bounce 1.6s ease-out;
+// }
+//
+// Animation settings:
+//   animation-delay: .4s;
+//   animation-fill-mode: both; (or forwards)
+//   animation-iteration-count: infinite;
+//   animation-direction: alternate;
+
+// --------------------------------------------------------------------------
+// Attention seekers
+// --------------------------------------------------------------------------
+
+// @import "attention-seekers/bounce";
+@import "attention-seekers/flash";
+// @import "attention-seekers/pulse";
+// @import "attention-seekers/rubber-band";
+// @import "attention-seekers/shake";
+// @import "attention-seekers/swing";
+// @import "attention-seekers/tada";
+// @import "attention-seekers/wobble";
+
+// --------------------------------------------------------------------------
+// Bouncing entrances
+// --------------------------------------------------------------------------
+
+// @import "bouncing-entrances/bounce-in";
+// @import "bouncing-entrances/bounce-in-down";
+// @import "bouncing-entrances/bounce-in-left";
+// @import "bouncing-entrances/bounce-in-right";
+// @import "bouncing-entrances/bounce-in-ip";
+
+// --------------------------------------------------------------------------
+// Bouncing exits
+// --------------------------------------------------------------------------
+
+// @import "bouncing-exits/bounce-out";
+// @import "bouncing-exits/bounce-out-down";
+// @import "bouncing-exits/bounce-out-left";
+// @import "bouncing-exits/bounce-out-right";
+// @import "bouncing-exits/bounce-out-up";
+
+// --------------------------------------------------------------------------
+// Fading entrances
+// --------------------------------------------------------------------------
+
+@import "fading-entrances/fade-in";
+// @import "fading-entrances/fade-in-down";
+// @import "fading-entrances/fade-in-left";
+// @import "fading-entrances/fade-in-right";
+// @import "fading-entrances/fade-in-up";
+// @import "fading-entrances/fade-in-down-big";
+// @import "fading-entrances/fade-in-left-big";
+// @import "fading-entrances/fade-in-right-big";
+// @import "fading-entrances/fade-in-up-big";
+
+// --------------------------------------------------------------------------
+// Fading exits
+// --------------------------------------------------------------------------
+
+// @import "fading-exits/fade-out";
+// @import "fading-exits/fade-out-down";
+// @import "fading-exits/fade-out-left";
+// @import "fading-exits/fade-out-right";
+// @import "fading-exits/fade-out-up";
+// @import "fading-exits/fade-out-down-big";
+// @import "fading-exits/fade-out-left-big";
+// @import "fading-exits/fade-out-right-big";
+// @import "fading-exits/fade-out-up-big";
+
+// --------------------------------------------------------------------------
+// Flippers
+// --------------------------------------------------------------------------
+
+// @import "flippers/flip";
+// @import "flippers/flip-in-x";
+// @import "flippers/flip-in-y";
+// @import "flippers/flip-out-x";
+// @import "flippers/flip-out-y";
+
+// --------------------------------------------------------------------------
+// Lightspeed
+// --------------------------------------------------------------------------
+
+// @import "lightspeed/light-speed-in";
+// @import "lightspeed/light-speed-out";
+
+// --------------------------------------------------------------------------
+// Rotating entrances
+// --------------------------------------------------------------------------
+
+// @import "rotating-entrances/rotate-in";
+// @import "rotating-entrances/rotate-in-down-left";
+// @import "rotating-entrances/rotate-in-down-right";
+// @import "rotating-entrances/rotate-in-up-left";
+// @import "rotating-entrances/rotate-in-up-right";
+
+// --------------------------------------------------------------------------
+// Rotating exits
+// --------------------------------------------------------------------------
+
+// @import "rotating-exits/rotate-out";
+// @import "rotating-exits/rotate-out-down-left";
+// @import "rotating-exits/rotate-out-down-right";
+// @import "rotating-exits/rotate-out-up-left";
+// @import "rotating-exits/rotate-out-up-right";
+
+// --------------------------------------------------------------------------
+// Specials
+// --------------------------------------------------------------------------
+
+// @import "specials/hinge";
+// @import "specials/roll-in";
+// @import "specials/roll-out";
+
+// --------------------------------------------------------------------------
+// Zooming entrances
+// --------------------------------------------------------------------------
+
+// @import "zooming-entrances/zoom-in";
+// @import "zooming-entrances/zoom-in-down";
+// @import "zooming-entrances/zoom-in-left";
+// @import "zooming-entrances/zoom-in-right";
+// @import "zooming-entrances/zoom-in-up";
+
+// --------------------------------------------------------------------------
+// Zooming exits
+// --------------------------------------------------------------------------
+
+// @import "zooming-exits/zoom-out";
+// @import "zooming-exits/zoom-out-down";
+// @import "zooming-exits/zoom-out-left";
+// @import "zooming-exits/zoom-out-right";
+// @import "zooming-exits/zoom-out-up";

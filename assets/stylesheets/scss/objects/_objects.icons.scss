@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Icons, not via fonts, but with images
+   ========================================================================== */
+
+.icon {
+	display: inline-block;
+	margin-right: rhythm(.25);
+	background-position: 0 16%;
+	background-repeat: no-repeat;
+	width: rhythm(1);
+	height: rhythm(1);
+	vertical-align: middle;
+}
+
+.icon--right {
+	margin-right: 0;
+	margin-left: rhythm(.25);
+}
+
+.icon--posright {
+	position: absolute;
+	right: 0;
+}
+
+// .icon--arrow-blue-right {
+// 	@extend %grunt-arrow-blue-right;
+// 	width: rhythm(.5);
+// }
+
+// .icon--arrow-white-left {
+// 	@extend %grunt-arrow-white-left;
+// 	width: rhythm(.5);
+// }
+
+// .icon--arrow-white-right {
+// 	@extend %grunt-arrow-white-right;
+// 	width: rhythm(.5);
+// }

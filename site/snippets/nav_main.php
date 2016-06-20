@@ -4,13 +4,13 @@
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 
-<nav role="navigation" id="NavMain" class="NavMain js-navMain">
+<nav role="navigation" id="nav-main" class="nav-main js-nav-main">
 	<h2 class="is-hiddenVisually">Main navigation</h2>
-	<ul class="NavMain-list">
-		<li class="NavMain-item"><a rel="home" href="<?php echo $site->url(); ?>">Home</a></li>
+	<ul class="nav-main__list">
+		<li class="nav-main__item"><a rel="home" href="<?php echo $site->url(); ?>">Home</a></li>
 		<?php foreach($pages->visible() as $page): ?>
-			<li class="NavMain-item<?php echo ($page->isOpen()) ? ' is-active' : ''; ?>"><a href="<?php echo $page->url(); ?>"><?php echo $page->title()->smartypants(); ?></a></li>
+			<li class="nav-main__item<?php echo ($page->isOpen()) ? ' is-active' : ''; ?>"><a href="<?php echo $page->url(); ?>"><?php echo $page->title()->smartypants(); ?></a></li>
 		<?php endforeach; ?>
 	</ul>
-	<a href="#PageTop" class="NavMainToggle NavMainToggle--close js-navMainHide">Back to top</a>
+	<a href="#PageTop" class="nav-main-toggle nav-main-toggle--close js-nav-main-hide">Back to top</a>
 </nav>

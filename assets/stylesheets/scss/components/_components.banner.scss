@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Banner (aka page header)
+   ========================================================================== */
+
+.banner {
+	@extend .contain;
+	@include clearfix();
+
+	position: relative;
+	z-index: $z-index-banner;
+	padding-top: rhythm(1);
+	padding-bottom: rhythm(1);
+}

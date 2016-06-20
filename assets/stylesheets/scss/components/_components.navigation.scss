@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+
+/**
+ * Simple navigation
+ * When used on an `ol` or `ul`, it throws the list into horizontal mode
+ *
+ * Example HTML:
+ * <nav role="navigation" class="nav">
+ *   <ul>
+ *     <li class="nav__item"><a href="">link item 1</a></li>
+ *     <li class="nav__item"><a href="">link item 2</a></li>
+ *   </ul>
+ * </nav>
+ */
+
+.nav {
+	list-style: none;
+
+	> li {
+		&,
+		> a {
+			display: inline-block;
+		}
+	}
+}
+
+/**
+ * Simple stacked (vertical) navigation
+ *
+ * Example HTML:
+ * <nav role="navigation">
+ *   <ul class="nav nav--stacked">
+ *     <li><a href="">link item 1</a></li>
+ *     <li><a href="">link item 2</a></li>
+ *     <li><a href="">link item 3</a></li>
+ *   </ul>
+ * </nav>
+ */
+
+.nav--stacked {
+
+	> li {
+		display: list-item;
+
+		> a {
+			display:block;
+		}
+	}
+}
+
+// .nav__item {}
+
+/**
+ * Responsive horizontal/stacked (main) navigation
+ *
+ * Example HTML:
+ * <div class="nav-main"
+ *   <nav role="navigation" class="nav-main__list">
+ *     <ul>
+ *       <li class="nav-main__item"><a href="">link item 1</a></li>
+ *       <li class="nav-main__item"><a href="">link item 2</a></li>
+ *     </ul>
+ *   </nav>
+ * </div>
+ */
+
+/* Nav main (wrapper) */
+
+.nav-main {
+	@include rgb-alpha(background-color, $color-base-black, .96);
+
+	position: relative;
+	margin-top: rhythm(1.5);
+	width: 100%;
+
+	.ctm & {
+		position: fixed;
+		top: 0;
+		z-index: $z-index-hidden;
+		opacity: 0;
+		margin-top: 0;
+		height: 100%;
+		transform: scale(1.32);
+	}
+	.ctm.is-open-main-nav & {
+		z-index: $z-index-nav-main;
+		overflow-y: auto;
+		transition: opacity .32s, transform .32s;
+		transform: scale(1);
+		opacity: 100;
+		-webkit-overflow-scrolling: touch; /* Adds momentum scrolling on iOS! */
+	}
+	.ctm.is-closing-main-nav & {
+		transition: opacity .32s, transform .32s;
+		transform: scale(1.32);
+		opacity: 0;
+	}
+}
+
+/* Main nav (list) */
+
+.nav-main__list {
+	padding: rhythm(1.5) $contain-percentage;
+
+	.ctm & {
+		padding-top: rhythm(2);
+		padding-bottom: rhythm(2);
+		min-height: 100%;
+		max-width: 100%;
+	}
+	// .is-open-main-nav & {}
+}
+
+/* Stacked (vertical) nav */
+
+.nav-main__item {
+	display: list-item;
+	border-bottom: .1em solid $color-gray-m-dark;
+
+	&:last-child {
+		border: none;
+	}
+	> a {
+		display: block;
+		padding-top: rhythm(.5);
+		padding-bottom: rhythm(.5);
+		color: $color-base-white;
+
+		&:hover {
+			color: $color-gray-light;
+		}
+	}
+
+	// @include breakpoint(medium) {
+	// 	margin-bottom: 0;
+	// 	border-bottom: 0;
+
+	// 	&,
+	// 	> a { /* Horizontal nav */
+	// 		display: inline-block;
+	// 		padding-right: rhythm(1);
+	// 		padding-left: rhythm(1);
+	// 	}
+	// }
+}
+
+/**
+ * Prevent double scrollbars when `.nav-main` is open
+ */
+
+html.is-open-main-nav {
+	overflow: hidden;
+}
+
+/**
+ * Main nav toggle
+ */
+
+.nav-main-toggle {
+	@extend %u-isHiddenText;
+
+	position: absolute;
+	top: rhythm(1);
+	right: $contain-percentage;
+	z-index: $z-index-nav-toggle;
+	display: block;
+	width: 44pt; /* Touch target sizes: http://j.mp/XJm4uJ */
+	height: 44pt; /* Use padding, or width/height to position icon, so it works nicely on touchdevices */
+	background-position: 50% 50%;
+
+	@include breakpoint(medium) {
+		right: rhythm(2);
+	}
+}
+
+.nav-main-toggle--open {
+	@extend %grunt-icon-menu;
+
+	// .ctm & {}
+}
+
+.nav-main-toggle--close {
+	@extend %grunt-icon-close;
+
+	display: none;
+
+	.ctm & {
+		display: block;
+	}
+}

@@ -11,7 +11,7 @@
 <script>
 	if(enhance.ctm() === false) {
 		// Display lazyloaded images with default width and quality,
-		// see: `responsiveimages.default` width and `thumbs.quality` in config
+		// see: `responsiveimage.default` width and `thumbs.quality` in config
 		var lazyloadimgs = document.querySelectorAll('img.lazyload');
 		for(i = 0; i < lazyloadimgs.length; i++) {
 			// Set data-bgsrc as src
@@ -25,7 +25,7 @@
 		}
 
 		// Display lazyloaded background images with default width and quality,
-		// see: `responsiveimages.default` width and `thumbs.quality` in config
+		// see: `responsiveimage.default` width and `thumbs.quality` in config
 		var lazyloaddivs = document.querySelectorAll('[data-bgsrc]');
 		for(i = 0; i < lazyloaddivs.length; i++) {
 			// Set data-bgset as style background

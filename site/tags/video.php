@@ -26,10 +26,10 @@ kirbytext::$tags['video'] = array(
 
 		// fill the ratio string
 		if($ratio == ''){
-			$ratio = 'FluidEmbed--16by9';
+			$ratio = 'default-16by9';
 		}
 		else {
-			$ratio = 'FluidEmbed--' . $ratio;
+			$ratio = 'default-' . $ratio;
 		}
 
 		// display the embedcode
@@ -40,11 +40,11 @@ kirbytext::$tags['video'] = array(
 			$videoelement = '<iframe width="' . c::get('video.width', '500') . '" height="' . c::get('video.height', '281') . '" src="https://www.youtube.com/embed/' . $video . '?rel=0" frameborder="0" allowfullscreen></iframe>';
 		}
 		else {
-			$videoelement = '<a href="' . $video . '" class="FluidEmbed-item">' . $video . '</a>';
+			$videoelement = '<a href="' . $video . '" class="fluid-embed__item">' . $video . '</a>';
 		}
 
 		$figure = new Brick('figure');
-		$figure->addClass('FluidEmbed '.$ratio);
+		$figure->addClass('fluid-embed ' . $ratio);
 		$figure->append($videoelement);
 
 		return $figure;

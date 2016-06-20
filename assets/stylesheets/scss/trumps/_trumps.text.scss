@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Text (https://github.com/suitcss/utils-text)
+   ========================================================================== */
+
+/**
+ * Horizontal text alignment
+ */
+
+%text-center {
+	text-align: center;
+}
+
+%text-left {
+	text-align: left;
+}
+
+%text-right {
+	text-align: right;
+}
+
+/**
+ * Kerning
+ *
+ * Enables font kerning in all browsers:
+ * http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+ *
+ * Text rendering: http://bocoup.com/weblog/text-rendering/
+ *
+ * The text-rendering options are: `auto` (default), `optimizeLegibility` and
+ * `optimizeSpeed`. Be careful with the `optimizeLegibility` setting, because
+ * it can be really slow and bog down an entire page. For now best to only
+ * apply to bigger headings if using at all.
+ *
+ * Support:
+ * 1. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
+ * 2. Chrome (not Windows), Firefox, IE 10+
+ * 3. Safari 7 and future browsers
+ */
+
+%text-kern {
+	text-rendering: optimizeLegibility; // [1]
+	font-feature-settings: "kern" 1; // [2]
+	font-kerning: normal; // [3]
+}
+
+/**
+ * Justify, hyphenate and word breaking
+ *
+ * Use justify text always in combination with text hyphenate and
+ * word breaking (%text-break).
+ *
+ * Word breaking break strings when their length exceeds the width of
+ * their container.
+ *
+ * For more about hyphenate and word breaking see: http://bit.ly/JixVfL
+ */
+
+%text-hyphen {
+	hyphens: auto;
+}
+
+%text-no-hyphen {
+	hyphens: none;
+}
+
+%text-justify {
+	text-align: inherit;
+
+	@include breakpoint(medium) {
+		& {
+			text-align: justify;
+		}
+	}
+}
+
+%text-break {
+	word-wrap: break-word;
+}
+
+/**
+ * Text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+
+%text-truncate {
+	max-width: 100%; // [1]
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal; // [2]
+}
+
+/**
+ * Inline elements
+ */
+
+ %text-bold {
+	font-weight: 700;
+ }
+
+ %text-italic {
+	font-weight: 400;
+	font-style: italic;
+ }
+
+%text-small {
+	@include responsive-text-size($text-nano);
+}
+
+%text-time {
+	text-transform: uppercase;
+}

@@ -33,7 +33,7 @@ or…
 	echo figure($page->images()->first(), array(
 		'crop'       => true,
 		'cropratio'  => .5,
-		'class'      => 'Image Image--left',
+		'class'      => 'image image--left',
 		'alt'        => $page->title()->smartypants(),
 		'caption'    => 'A beautiful image of trees'
 		'lazyload'   => false

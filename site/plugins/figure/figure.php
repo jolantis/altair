@@ -41,18 +41,18 @@ function figure($image=false, $options=array()) {
 	}
 
 	// Set identifiers for default thumb sizes
-	$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
-	$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+	$thumbdefaultwidthname = c::get('responsiveimage.default', 'compact');
+	$thumbfeedwidthname = c::get('responsiveimage.feed', 'wide');
 	$thumbmaxwidthname = c::get('photoswipe.desktop', 'max');
 	$thumbmobilemaxwidthname = c::get('photoswipe.mobile', 'wide');
 
 	// Set thumb width
 	if($feed == true) {
-		$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbfeedwidthname]['width'];
+		$thumbwidth = kirby()->option('responsiveimage.sources')[$thumbfeedwidthname]['width'];
 	}
 	else {
 		if(!isset($options['width'])) {
-			$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'];
+			$thumbwidth = kirby()->option('responsiveimage.sources')[$thumbdefaultwidthname]['width'];
 		} else {
 			$thumbwidth = $options['width'];
 		}
@@ -60,10 +60,10 @@ function figure($image=false, $options=array()) {
 
 	// Set width for maximum thumb size, based on mobile or not
 	if(s::get('device_class') == 'mobile') {
-		$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmobilemaxwidthname]['width'];
+		$maxthumbwidth = kirby()->option('responsiveimage.sources')[$thumbmobilemaxwidthname]['width'];
 	}
 	else {
-		$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmaxwidthname ]['width'];
+		$maxthumbwidth = kirby()->option('responsiveimage.sources')[$thumbmaxwidthname ]['width'];
 	}
 
 	// Set smaller width if max thumb width exeeds the image width (otherwise it wont use the thumbs folder)
@@ -268,8 +268,8 @@ kirbytext::$tags['figure'] = array(
 
 		// Set classes used in layout grid
 		if(count($imageresult) > 1 || $tag->attr('gutter') || isset($griditem)) {
-			$gridclass = ' Grid Grid--withGutter' . (($gutter == 'percentage') ? 'Percentage' : '');
-			$gridcellclass = 'Grid-cell ';
+			$gridclass = ' grid grid--' . (($gutter == 'percentage') ? 'percentage-' : '') . 'gutter';
+			$gridcellclass = 'grid__cell ';
 		}
 		else {
 			$gridclass = '';
@@ -278,7 +278,7 @@ kirbytext::$tags['figure'] = array(
 
 		// Set break class used in layout grid
 		if(count($imageresult) > 1) {
-			$breakclass = ' Grid--breakFrom'.ucfirst($break);
+			$breakclass = ' ' . strtolower($break).'-break';
 		}
 		else {
 			$breakclass = '';
@@ -286,7 +286,7 @@ kirbytext::$tags['figure'] = array(
 
 		// Set possible align classes
 		if(isset($align)) {
-			$alignclass = ' FigureImage--align'.ucfirst($align); // Add capitalized align class (IE: Grid--alignCenter)
+			$alignclass = ' figure-image--align-'.strtolower($align); // Add capitalized align class (IE: grid--align-center)
 		}
 		else {
 			$alignclass = '';
@@ -306,12 +306,12 @@ kirbytext::$tags['figure'] = array(
 		// Add figure DOM element with appended classes
 		$figure = new Brick('figure');
 		if($feed != true) {
-			$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
+			$figure->addClass('figure-image' . $gridclass . $breakclass . $alignclass);
 		}
 
 		// Set identifiers for default thumb and photoswipe sizes
-		$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
-		$thumbfeedwidthname = c::get('responsiveimages.feed', 'wide');
+		$thumbdefaultwidthname = c::get('responsiveimage.default', 'compact');
+		$thumbfeedwidthname = c::get('responsiveimage.feed', 'wide');
 		$thumbmaxwidthname = c::get('photoswipe.desktop', 'max');
 		$thumbmobilemaxwidthname = c::get('photoswipe.mobile', 'wide');
 
@@ -334,18 +334,18 @@ kirbytext::$tags['figure'] = array(
 
 			// Set thumb width for feed
 			if($feed == true) {
-				$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbfeedwidthname]['width'];
+				$thumbwidth = kirby()->option('responsiveimage.sources')[$thumbfeedwidthname]['width'];
 			}
 			else {
-				$thumbwidth = kirby()->option('responsiveimages.sources')[$thumbdefaultwidthname]['width'];
+				$thumbwidth = kirby()->option('responsiveimage.sources')[$thumbdefaultwidthname]['width'];
 			}
 
 			// Set width for maximum thumb size, based on mobile or not
 			if(s::get('device_class') == 'mobile') {
-				$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmobilemaxwidthname]['width'];
+				$maxthumbwidth = kirby()->option('responsiveimage.sources')[$thumbmobilemaxwidthname]['width'];
 			}
 			else {
-				$maxthumbwidth = kirby()->option('responsiveimages.sources')[$thumbmaxwidthname ]['width'];
+				$maxthumbwidth = kirby()->option('responsiveimage.sources')[$thumbmaxwidthname ]['width'];
 			}
 
 			// Set smaller width if max thumb width exeeds the image width (otherwise it wont use the thumbs folder)
@@ -377,7 +377,7 @@ kirbytext::$tags['figure'] = array(
 					$griddiv = new Brick('div');
 				}
 				$lazydiv = new Brick('div');
-				$lazydiv->addClass('FigureImage-lazy lazyload');
+				$lazydiv->addClass('figure-image__lazy lazyload');
 				$lazydiv->attr('style', 'padding-bottom: ' . $percentage_padding . '%;');
 			}
 
@@ -394,28 +394,28 @@ kirbytext::$tags['figure'] = array(
 					// Add extra griddiv for lazyload
 					if($lazyload == true) {
 						// Set the class for the image
-						$class = 'FigureImage-item';
+						$class = 'figure-image__item';
 						// Set the class on the grid div
 						if(isset($griddiv)) {
-							$griddiv->addClass($gridcellclass.'u-size' . $width . '--' . $break);
+							$griddiv->addClass($gridcellclass . $break . '-' . $width);
 						}
 					}
 					else {
-						$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
+						$class = 'figure-image__item ' . $gridcellclass . $break . '-' . $width;
 					}
 				}
 				else {
 					// Add extra griddiv for lazyload
 					if($lazyload == true) {
 						// Set the class for the image
-						$class = 'FigureImage-item';
+						$class = 'figure-image__item';
 						// Set the class for the grid div
 						if(isset($griddiv)) {
 							$griddiv->addClass($gridcellclass);
 						}
 					}
 					else {
-						$class = 'FigureImage-item ' . $gridcellclass . 'u-size' . $width . '--' . $break;
+						$class = 'figure-image__item ' . $gridcellclass . $break . '-' . $width;
 					}
 				}
 			} else {
@@ -474,18 +474,18 @@ kirbytext::$tags['figure'] = array(
 				$pswpsize = '';
 			}
 
-			// [1] Regular image; resized thumb (e.g. `responsiveimages.default`)
+			// [1] Regular image; resized thumb (e.g. `responsiveimage.default`)
 			if($lazyload == false) {
 
 				$imagethumb = html::img($defaultthumburl,array(
-					// 'data-width'     => $image->width(),
-					// 'data-height'    => $image->height(),
-					'srcset'         => $srcset,
-					'sizes'          => $sizes,
-					'class'          => $class,
-					'alt'            => html($alt),
-					'data-pswp-href' => $pswphref,
-					'data-pswp-size' => $pswpsize,
+					// 'data-width'        => $image->width(),
+					// 'data-height'       => $image->height(),
+					'srcset'            => $srcset,
+					'sizes'             => $sizes,
+					'class'             => $class,
+					'alt'               => html($alt),
+					'data-pswp-href'    => $pswphref,
+					'data-pswp-size'    => $pswpsize,
 					'data-pswp-caption' => $pswpcaption
 					)
 				);
@@ -498,15 +498,15 @@ kirbytext::$tags['figure'] = array(
 			if($lazyload == true) {
 
 				$imagethumb = html::img('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',array(
-					'data-src'  => $defaultthumburl,
-					'data-srcset'    => $srcset,
-					'data-sizes'     => $sizes,
-					// 'data-width'     => $image->width(),
-					// 'data-height'    => $image->height(),
-					'class'     => $class . ' lazyload',
-					'alt'       => html($alt),
-					'data-pswp-href' => $pswphref,
-					'data-pswp-size' => $pswpsize,
+					// 'data-width'        => $image->width(),
+					// 'data-height'       => $image->height(),
+					'data-src'          => $defaultthumburl,
+					'data-srcset'       => $srcset,
+					'data-sizes'        => $sizes,
+					'class'             => $class . ' lazyload',
+					'alt'               => html($alt),
+					'data-pswp-href'    => $pswphref,
+					'data-pswp-size'    => $pswpsize,
 					'data-pswp-caption' => $pswpcaption
 					)
 				);
@@ -544,10 +544,10 @@ kirbytext::$tags['figure'] = array(
 		if(isset($caption)) {
 			// Also add break class to figcaption if alignment is set to image
 			if(count($widths) > 0 && isset($align)) {
-				$figure->append('<figcaption class="FigureImage-caption u-size' . $width . '--' . $break  . '">' . kirbytext($caption) . '</figcaption>');
+				$figure->append('<figcaption class="figure-image__caption ' . $break . '-' . $width  . '">' . kirbytext($caption) . '</figcaption>');
 			}
 			else {
-				$figure->append('<figcaption class="FigureImage-caption">' . kirbytext($caption) . '</figcaption>');
+				$figure->append('<figcaption class="figure-image__caption">' . kirbytext($caption) . '</figcaption>');
 			}
 		}
 

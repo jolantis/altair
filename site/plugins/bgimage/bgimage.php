@@ -30,11 +30,11 @@ function bgimage($image=false, $options=array()) {
 	$options = array_merge($defaults, $options);
 
 	// Set identifiers for default thumb sizes
-	$thumbdefaultwidthname = c::get('responsiveimages.default', 'compact');
+	$thumbdefaultwidthname = c::get('responsiveimage.default', 'compact');
 
 	// Without width set, use default image width
 	if(!isset($options['width'])) {
-		$thumbwidth = $thumbwidth = kirby()->option('responsiveimages.sources')[$thumbfeedwidthname]['width'];
+		$thumbwidth = $thumbwidth = kirby()->option('responsiveimage.sources')[$thumbfeedwidthname]['width'];
 	} else {
 		$thumbwidth = $options['width'];
 	}

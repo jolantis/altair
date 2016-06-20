@@ -6,11 +6,11 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="Contain">
+	<main role="main" class="contain">
 
 		<?php snippet('breadcrumb'); ?>
 
-		<article class="Copy u-spaceLeaderM u-spaceTrailerM">
+		<article class="copy u-spaceLeaderM u-spaceTrailerM">
 
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 

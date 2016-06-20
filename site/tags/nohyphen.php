@@ -19,7 +19,7 @@ kirbytext::$tags['nohyphen'] = array(
 
 		$text = $tag->attr('nohyphen');
 
-		return '<span class="u-textNoHyphen">' . $text . '</span>';
+		return '<span class="text-no-hyphen">' . $text . '</span>';
 
 	}
 );

@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Media object
+   ========================================================================== */
+
+/**
+ * Usage:
+ * Place any image- and text-like content side-by-side, as per: http://j.mp/1iqV00F
+ *
+ * Example HTML:
+ * <div class="media">
+ *   <img src="http://placekitten.com/200/300" alt="" class="media__image">
+ *   <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+ *   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+ * </div>
+ */
+
+.media {
+	@include clearfix();
+
+	display:block;
+}
+
+.media__image {
+	float: left;
+	margin-right: rhythm(1);
+}
+
+/* Reversed image location (right instead of left). */
+
+.media__image--rev {
+	float: right;
+	margin-left: rhythm(1);
+}
+
+/* For when img element is wrapped in acnhor link */
+
+.media__image img,
+.media__image--rev img {
+	display: block;
+}
+
+.media__body {
+	overflow: hidden;
+}
+
+.media__body,
+.media__body > :last-child {
+	margin-bottom: 0;
+}

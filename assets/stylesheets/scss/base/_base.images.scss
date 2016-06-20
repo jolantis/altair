@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+/**
+ * Reset 1em 40px margin from figure, set in normalize.css
+ */
+
+figure {
+	margin: 0;
+}
+
+/**
+ * Fluid images
+ */
+
+img {
+	max-width: 100%;
+	height: auto;
+	// border: 0;
+}
+
+/**
+ * Images in `figure` elements
+ */
+
+figure > img {
+	display: block;
+}
+
+/**
+ * 1. Google Maps breaks if `max-width: 100%` acts upon it; use their selector
+ *    to remove the effects.
+ * 2. If a `width` and/or `height` attribute have been explicitly defined, let's
+ *    not make the image fluid.
+ */
+.gm-style img, // [1]
+img[width], // [2]
+img[height] { // [2]
+	max-width: none;
+}

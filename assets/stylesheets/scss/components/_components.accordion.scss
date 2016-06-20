@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Accordion (expand / collapse)
+   ========================================================================== */
+
+.accordion {
+	position: relative;
+	padding: rhythm(1);
+	margin: rhythm(1) 0;
+	background-color: $color-gray-x-light;
+}
+
+.accordion__target {
+	.is-closed & {
+		position: relative;
+		overflow: hidden;
+		height: 0;
+	}
+	.is-open & {
+		height: auto;
+		padding-top: rhythm(1);
+	}
+}

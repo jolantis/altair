@@ -5,7 +5,7 @@
  * Inline quotation with language locale.
  *
  * What it does:
- * Wraps  passed text string in <q> tag, with class `Quote`
+ * Wraps  passed text string in <q> tag, with class `quote`
  * and passed or oterhwise default language attribute.
  *
  * Usage:
@@ -31,7 +31,7 @@ kirbytext::$tags['quote'] = array(
 			$language_locale = 'en'; // Fallback language locale if no is passed, e.g. 'en, nl_NL', 'de_DE', ect.
 		}
 
-		return '<q class="Quote" lang="' . $language_locale . '">' . $text . '</q>';
+		return '<q class="quote" lang="' . $language_locale . '">' . $text . '</q>';
 
 	}
 );

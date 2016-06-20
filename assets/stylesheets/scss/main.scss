@@ -1,26 +1,10 @@
-// --------------------------------------------------------------------------
-// functions
-// --------------------------------------------------------------------------
-//
-@import "functions/functions.color-schemer";
-@import "functions/functions.paths";
-@import "functions/functions.rhythm";
-@import "functions/functions.strip-unit";
-@import "functions/functions.typography";
-
-// --------------------------------------------------------------------------
-// mixins
-// --------------------------------------------------------------------------
-
-@import "mixins/mixins.breakpoints";
-@import "mixins/mixins.clearfix";
-@import "mixins/mixins.font-families";
-@import "mixins/mixins.gradients";
-@import "mixins/mixins.helpers";
-@import "mixins/mixins.translucency";
-@import "mixins/mixins.typography";
-@import "mixins/mixins.underline";
-@import "mixins/mixins.vertically-centered";
+// Settings: Global variables, site-wide settings, config switches, etc.
+// Tools: Site-wide mixins and functions.
+// Generic: Low-specificity, far-reaching rulesets (e.g. resets).
+// Base: Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+// Objects: Objects, abstractions, and design patterns (e.g. .media {}).
+// Components: Discrete, complete chunks of UI (e.g. .carousel {}). This is the one layer that inuitcss doesn’t get involved with.
+// Trumps: High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
 
 // --------------------------------------------------------------------------
 // settings
@@ -35,90 +19,97 @@
 @import "settings/settings.z-indices";
 
 // --------------------------------------------------------------------------
-// debug
+// tools
 // --------------------------------------------------------------------------
 
-@import "debug/debug.breakpoints";
+@import "tools/tools.breakpoints";
+@import "tools/tools.clearfix";
+@import "tools/tools.color-schemer";
+@import "tools/tools.font-families";
+@import "tools/tools.font-size";
+@import "tools/tools.gradients";
+@import "tools/tools.helpers";
+@import "tools/tools.paths";
+@import "tools/tools.rhythm";
+@import "tools/tools.strip-unit";
+@import "tools/tools.translucency";
+@import "tools/tools.responsive-typography";
+@import "tools/tools.underline";
+@import "tools/tools.vertically-centered";
 
 // --------------------------------------------------------------------------
-// base (order is of importance)
+// generic (reset comes before normalize!)
 // --------------------------------------------------------------------------
 
-@import "base/base.reset";
-@import "base/base.normalize";
-@import "base/base.box-sizing";
+@import "generic/generic.reset";
+@import "generic/generic.normalize";
+@import "generic/generic.box-sizing";
+@import "generic/generic.text-selection";
+@import "generic/generic.viewport";
+
+// --------------------------------------------------------------------------
+// base
+// --------------------------------------------------------------------------
+
+@import "base/base.copy";
+@import "base/base.headings";
+@import "base/base.images";
 @import "base/base.page";
-@import "base/base.text-selection";
-@import "base/base.viewport";
-@import "base/base.wf-loading.scss";
+@import "base/base.quotes";
+@import "base/base.ruler";
 
 // --------------------------------------------------------------------------
-// utils
+// objetcs
 // --------------------------------------------------------------------------
 
-@import "utils/utils.layout";
-@import "utils/utils.position";
-@import "utils/utils.ratios";
-@import "utils/utils.sizes";
-@import "utils/utils.spacing";
-@import "utils/utils.states";
-@import "utils/utils.text";
+@import "objects/objects.block-grid";
+@import "objects/objects.block-link";
+@import "objects/objects.buttons";
+@import "objects/objects.contain";
+@import "objects/objects.fluid-embed";
+@import "objects/objects.forms";
+@import "objects/objects.grid";
+@import "objects/objects.icons";
+@import "objects/objects.links";
+@import "objects/objects.lists";
+@import "objects/objects.media";
+@import "objects/objects.pseudo-link";
+@import "objects/objects.tables";
 
 // --------------------------------------------------------------------------
-// modules
+// components
 // --------------------------------------------------------------------------
 
-@import "modules/modules.accordion";
-@import "modules/modules.alerts";
-@import "modules/modules.backdrop";
-@import "modules/modules.bg-image";
-@import "modules/modules.block-link";
-@import "modules/modules.breadcrumb";
-@import "modules/modules.buttons";
-@import "modules/modules.copy";
-@import "modules/modules.figure-image";
-@import "modules/modules.fluid-embed";
-@import "modules/modules.forms";
-@import "modules/modules.cover";
-@import "modules/modules.headings";
-@import "modules/modules.icons";
-@import "modules/modules.images";
-@import "modules/modules.lazyload";
-@import "modules/modules.links";
-@import "modules/modules.lists";
-@import "modules/modules.masthead";
-@import "modules/modules.media";
-@import "modules/modules.navigation";
-@import "modules/modules.oldie-message";
-@import "modules/modules.pagination";
-@import "modules/modules.photoswipe";
-@import "modules/modules.pseudo-link";
-@import "modules/modules.ruler";
-@import "modules/modules.quotes";
-@import "modules/modules.tables";
-@import "modules/modules.tooltips";
+@import "components/components.accordion";
+@import "components/components.alerts";
+@import "components/components.backdrop";
+@import "components/components.banner";
+@import "components/components.bg-image";
+@import "components/components.breadcrumb";
+@import "components/components.contentinfo";
+@import "components/components.cover";
+@import "components/components.figure-image";
+@import "components/components.lazyload";
+@import "components/components.masthead";
+@import "components/components.navigation";
+@import "components/components.oldie-message";
+@import "components/components.pagination";
+@import "components/components.photoswipe";
+@import "components/components.tooltips";
 
 // --------------------------------------------------------------------------
-// layout
+// Animations
 // --------------------------------------------------------------------------
 
-@import "layout/layout.banner";
-@import "layout/layout.contain";
-@import "layout/layout.contentinfo";
-@import "layout/layout.block-grid";
-@import "layout/layout.grid";
+@import "animations/animations";
 
 // --------------------------------------------------------------------------
-// pages
+// trumps
 // --------------------------------------------------------------------------
 
-// @import "pages/pages.home";
-
-// --------------------------------------------------------------------------
-// plugins
-// --------------------------------------------------------------------------
-
-@import "plugins/animations/animations";
+@import "trumps/trumps.spacing";
+@import "trumps/trumps.states";
+@import "trumps/trumps.text";
 
 // --------------------------------------------------------------------------
 // custom (web) fonts
@@ -131,4 +122,10 @@
 // --------------------------------------------------------------------------
 
 @import "grunticon/grunticon.data-svg";                                         // Data SVG
-.no-svg { @import "grunticon/grunticon.fallback-png"; }                         // PNG fall-back if Modernizr detects no support for SVG!
+// .no-svg { @import "grunticon/grunticon.fallback-png"; }                         // PNG fall-back if Modernizr detects no support for SVG!
+
+// --------------------------------------------------------------------------
+// debug
+// --------------------------------------------------------------------------
+
+// @import "debug/debug.breakpoints";

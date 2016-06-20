@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Block link
+   ========================================================================== */
+
+/**
+ * Quasi-nested (post) links; e.g 'read more' links nested within a
+ * block, while the whole block needs to be clickable.
+ *
+ * Example HTML:
+ * <article class="block-link">
+ *   <h2>Post title</h2>
+ *   <p> ... </p>
+ *   <a href="#" class="block-link__anchor">More</a>
+ * </article>
+ *
+ * More on the class naming conventions: http://j.mp/H2b8ai
+ */
+
+/* Post (block) link, used with a 'read more' link */
+
+.block-link {
+	position: relative;
+	z-index: inherit;
+
+	/*
+	 * Position any links in the post excerpt at
+	 * the top of the 'z-index' stack
+	 */
+
+	a {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+/**
+ * Stretch the 'read more' link over the whole of the post
+ * and hide the 'read more' link's text
+ */
+
+a.block-link__anchor {
+	@extend %u-isHiddenText;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	display: block;
+	background: $color-base-white; // Fix for IE7/8/9
+	opacity: 0; // Fix for IE7/8/9
+}

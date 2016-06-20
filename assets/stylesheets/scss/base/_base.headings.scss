@@ -1,0 +1,60 @@
+/* ==========================================================================
+-s* ==========================================================================
+   Headings
+   ========================================================================== */
+
+/**
+ * Shared heading settings
+ */
+
+%heading-settings {
+	@include heading-font(700);
+
+	letter-spacing: .01em;
+
+	.fonts-loaded & {
+		font-family: $heading-web-font;
+	}
+}
+
+/**
+ * Heading sizes
+ */
+
+// .tera-heading {}
+// .giga-heading {}
+// .mega-heading {}
+
+/* Alpha */
+
+.alpha-heading {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-alpha);
+}
+
+/* Beta */
+
+.beta-heading {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-beta);
+}
+
+/* Gamma */
+
+.gamma-heading {
+	@extend %heading-settings;
+	@include responsive-text-size($text-gamma);
+}
+
+.delta-heading {
+	@extend %heading-settings;
+	@include responsive-text-size($text-delta);
+}
+
+.epsilon-heading,
+.zeta-heading {
+	@extend %heading-settings;
+	@include responsive-text-size($text-epsilon);
+}

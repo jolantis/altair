@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+.form {
+	margin-bottom: rhythm(1);
+}
+
+/* Fieldset */
+
+.form fieldset {
+	margin: 0 0 rhythm(1);
+	padding: 0;
+	border: 0;
+}
+
+/**
+ * Group sets of form fieldsets in a (ordered) list, e.g.:
+ * <form class="form">
+ *    <fieldset>
+ *       <ol class="form__fields">
+ *          <li class="form__item form__item--stacked">
+ *             <label for="text" class="form__label">...</label>
+ *             <input id="text" type="text">
+ *          </li>
+ *          <li class="form__item form__item--stacked">
+ *             ...
+ *          </li>
+ *          <li class="form__item">
+ *             ...
+ *          </li>
+ *       </ol>
+ * </form>
+ */
+
+.form__fields {
+
+	.copy & { // Reset form list within `copy` class
+		margin-left: 0;
+
+		li {
+			list-style: none;
+		}
+	}
+}
+
+.form label,
+.form input,
+.form textarea,
+.form select {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+// .form__select {
+// 	appearance: none; // Unstyle/reset selects
+// }
+
+.form--inline .form__item {
+	display: inline-block;
+	margin-right: rhythm(1);
+}
+
+.form__item {
+	margin-bottom: rhythm(1);
+}
+
+.form__label {
+	font-weight: 700;
+}
+
+.form__item--stacked .form__label {
+	display: block;
+	margin-bottom: rhythm(.5);
+}
+
+.form__input {
+	@include input-placeholder { color: $color-gray-x-light; }
+
+	padding: rhythm(.25); // To keep vertical rhythm it should be smaller than rhythm podding of `.form__label`
+	// outline: none; // Disbale default browser focus outline (make sure to add custom focus styling)
+	border: .125em solid $color-base-black;
+	border-radius: 0; // Reset iOS border radius on inputs
+	background-color: $color-gray-quiet;
+	box-shadow: inset 1px 1px 2px 0 $color-gray-light;
+	-webkit-appearance: none; // Reset iOS inset schaodw on inputs
+
+	&:focus {
+		border-color: $color-gray-x-light;
+		background-color: $color-base-white;
+	}
+}
+
+.form-input--full {
+	width: 100%; // Causes iOS 6 orientation viewport issue: http://j.mp/Sa3zh3
+}
+
+/**
+ * Override the normalize.css search input `box-sizing` normalization.
+ */
+
+.form__input[type="search"] {
+	box-sizing: border-box;
+}
+
+/**
+ * Extra help text after input on focus:
+ * <li class="form__item form__item--stacked">
+ *    <label class="form__label">Label text</label>
+ *    <input class="form__input"/>
+ *    <small class="form__helper">Helper text</small>
+ * </li>
+ */
+
+.form__helper {
+	display: inline-block;
+	visibility: hidden;
+}
+
+.form__input:active + .form__helper,
+.form__input:focus + .form__helper {
+	visibility:visible;
+}
+
+/**
+ * Set optional label like this:
+ * <label class="form__label">Label text <small class="form__optional">(Optional)</small></label>
+ */
+
+.form__optional {
+	font-weight: normal;
+}
+
+/**
+ * Error handling (inline)
+ */
+
+.form__helper-error {
+	display: inline-block;
+}
+
+.form .is-error {
+
+	.form__label,
+	.form__helperError {
+		color: $color-base-red;
+	}
+
+	.form__input {
+		border: .125em solid $color-base-red;
+	}
+}
+
+/**
+ * Lists of checkboxes and radio buttons, e.g.:
+ * <li class="form__item form__item--stacked">
+ *    <fieldset>
+ *       <span class="form__label">Radio set</span>
+ *       <ul class="input-set input-set--horizontal">
+ *          <li>
+ *             <label class="input-set-label">
+ *                <input type="radio" class="radio" name="radioset" value="Option 1"/>
+ *                <span>Option 1</span>
+ *             </label>
+ *          </li>
+ *          <li>
+ *             ...
+ *          </li>
+ *       </ul>
+ *    </fieldset>
+ * </li>
+ */
+
+.input-set {
+	margin: 0;
+}
+
+/* Horizontal */
+
+.input-set--horizontal > li {
+	display: inline-block;
+	margin-right: rhythm(1);
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+/* Labels of checkboxes/radio buttons  */
+
+// .input-set__label {}

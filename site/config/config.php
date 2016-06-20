@@ -372,8 +372,8 @@ Figureimage (layout grid) settings
 
 */
 
-c::set('figureimage.break', 'compact');                                         // The default 'breakpoint' for `.FigureImage` items in a layout grid; the 'breakpoint' defines where to switch from linear to inline items; options are 'compact' and 'medium' (make sure the corresponding grid sizes are set and/or added in `_layout.grid.scss`!)
-c::set('figureimage.gutter', 'default');                                        // The gutter unit for `.FigureImage` items in a layout grid; options are 'default' (rhythm unit) and 'percentage'
+c::set('figureimage.break', 'compact');                                         // The default 'breakpoint' for `.figure-image` items in a layout grid; the 'breakpoint' defines where to switch from linear to inline items; options are 'compact' and 'medium' (make sure the corresponding grid sizes are set and/or added in `_layout.grid.scss`!)
+c::set('figureimage.gutter', 'default');                                        // The gutter unit for `.figure-image` items in a layout grid; options are 'default' (rhythm unit) and 'percentage'
 
 
 /* -----------------------------------------------------------------------------
@@ -401,7 +401,7 @@ Add `array('width' => 900, 'grayscale' => true)` for better debugging images.
 
 */
 
-c::set('responsiveimages.sources', array(
+c::set('responsiveimage.sources', array(
 	'small'    => array('width' => 320),
 	'compact'  => array('width' => 700),
 	'medium'   => array('width' => 900),
@@ -423,8 +423,8 @@ To keep the number of generated images within limits, a size (e.g. `compact`,
 
 */
 
-c::set('responsiveimages.default', 'compact');                                  // The default thumb size used/displayed in browsers that do not suppert `srcset`
-c::set('responsiveimages.feed', 'wide');                                        // An arbitrary (maximum) width for generated thumbs used in feeds (via `figure` tag)
+c::set('responsiveimage.default', 'compact');                                   // The default thumb size used/displayed in browsers that do not suppert `srcset`
+c::set('responsiveimage.feed', 'wide');                                         // An arbitrary (maximum) width for generated thumbs used in feeds (via `figure` tag)
 
 
 /* -----------------------------------------------------------------------------
@@ -439,40 +439,40 @@ corresponding sizes array, with the classnames to match
 
 c::set('vw_width', '88');                                                       // 100 - 2 * `$contain-percentage`
 
-c::set('responsiveimages.sizes', array(
+c::set('responsiveimage.sizes', array(
 	'default' => array(                                                         // The default sizes, for full width images
 		'all' => array(
 			'size_value' => c::get('vw_width') . 'vw'
 		)
 	),
 	'1of2' => array(                                                            // 50% wide images
+		'small' => array(
+			'size_value' => c::get('vw_width') . 'vw'
+		),
 		'compact-and-up' => array(
 			'mq_value'   => '30em',                                             // Same as compact breakpoint value from `$breakpoints` Sass list
 			'mq_name'    => 'min-width',
 			'size_value' => c::get('vw_width') / 2 . 'vw'
-		),
-		'small' => array(
-			'size_value' => c::get('vw_width') . 'vw'
 		)
 	),
 	'1of3' => array(                                                            // 33% wide images
+		'small' => array(
+			'size_value' => c::get('vw_width') . 'vw'
+		),
 		'compact-and-up' => array(
 			'mq_value'   => '30em',
 			'mq_name'    => 'min-width',
 			'size_value' => c::get('vw_width') / 3 . 'vw'
-		),
-		'small' => array(
-			'size_value' => c::get('vw_width') . 'vw'
 		)
 	),
 	'2of3' => array(                                                            // 66% wide images
+		'small' => array(
+			'size_value' => c::get('vw_width') . 'vw'
+		),
 		'compact-and-up' => array(
 			'mq_value'   => '30em',
 			'mq_name'    => 'min-width',
 			'size_value' => c::get('vw_width') / 3 * 2 . 'vw'
-		),
-		'small' => array(
-			'size_value' => c::get('vw_width') . 'vw'
 		)
 	)
 ));
@@ -490,22 +490,9 @@ Do not forget to enable the Javascript and Stylesheet assets when enabling!
 */
 
 c::set('photoswipe', true);
-c::set('photoswipe.pages', array('images' ,'projects', 'blog', 'blog/*'));      // Include in these pages. Wildcards can be used as well, e.g.: projects/*
-
-// Photoswipe enlarged image sizes, based on responsiveimages.sources identifiers
-c::set('photoswipe.mobile', 'wide');
-c::set('photoswipe.desktop', 'max');
-
-/* -----------------------------------------------------------------------------
-Twitter
---------------------------------------------------------------------------------
-
-Public and private keys, used by the Twitter API (from v1.1 and up).
-
-*/
-
-c::set('twitter.key','your api key');
-c::set('twitter.secret','your api secret');
+c::set('photoswipe.pages', array('images', 'blog/*'));                          // Include in these pages. Wildcards can be used as well, e.g.: projects/*
+c::set('photoswipe.mobile', 'wide');                                            // Enlarged image size for mobile, defined by one of the `responsiveimage.sources` identifier
+c::set('photoswipe.desktop', 'max');                                            // Enlarged image size for desktop, defined by one of the `responsiveimage.sources` identifier
 
 
 /* -----------------------------------------------------------------------------

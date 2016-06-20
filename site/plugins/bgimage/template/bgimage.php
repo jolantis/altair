@@ -1,4 +1,4 @@
-<?php // [1] Regular responsivebackground image; default sized thumb (e.g. `responsiveimages.default`) ?>
+<?php // [1] Regular responsivebackground image; default sized thumb (e.g. `responsiveimage.default`) ?>
 <?php if($lazyload == false): ?>
 	<div style="background-image:url(<?php echo $defaultthumburl; ?>);"<?php if($class): echo ' class="' . $class . '"'; endif; ?>></div>
 <?php endif; ?>

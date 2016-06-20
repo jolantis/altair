@@ -41,7 +41,7 @@ kirbytext::$tags['blockquote'] = array(
 			$lang_attr = '';
 		}
 
-		$html = '<figure class="Blockquote">';
+		$html = '<figure class="blockquote">';
 		$html .= '<blockquote' . $lang_attr . '>';
 		$html .= kirbytext($text);
 		$html .= '</blockquote>';

@@ -33,7 +33,7 @@ if(!empty($results)) {
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="Contain Copy">
+	<main role="main" class="contain copy">
 
 		<h1>
 			<?php
@@ -49,7 +49,7 @@ if(!empty($results)) {
 			<input type="submit" value="Search" class="Btn Btn--fancy" />
 		</form>
 
-		<div class="SearchResults">
+		<div class="search-results">
 			<?php if($results) : ?>
 
 				<?php snippet('nav_pagination', array('pagination' => $pagination)); ?>
@@ -65,7 +65,7 @@ if(!empty($results)) {
 							<!-- Without sarch keyword highlighting -->
 							<!-- <p><?php echo excerpt($result->text()); ?></p> -->
 
-							<p class="SearchResults-url"><?php echo html($result->url()); ?></p>
+							<p class="search-results__url"><?php echo html($result->url()); ?></p>
 						</a>
 					</article>
 				<?php endforeach; ?>

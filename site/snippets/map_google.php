@@ -16,9 +16,9 @@
 
 <!-- Container -->
 
-<div id="google-map" class="FluidEmbed FluidEmbed--16by9"></div>
+<div id="google-map" class="fluid-embed default-16by9"></div>
 <?php /*
-<noscript class="FluidEmbed FluidEmbed--16by9">
+<noscript class="fluid-embed default-16by9">
 	<img src="http://maps.googleapis.com/maps/api/staticmap?center=Eindstraat+58,+Schinveld&amp;zoom=13&amp;scale=1&amp;size=600x300&amp;maptype=roadmap&amp;sensor=false&amp;format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:red%7Clabel:%7CEindstraat+58,+Schinveld" alt="Google Map of Eindstraat 58, Schinveld">
 </noscript>
 */ ?>

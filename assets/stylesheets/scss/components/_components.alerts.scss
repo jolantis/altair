@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Alerts (inline, bar and modal)
+   ========================================================================== */
+
+/**
+ * Default
+ */
+
+.alert {
+	position: relative;
+	z-index: $z-index-alert;
+	display: block;
+	overflow: hidden;
+	padding: rhythm(1);
+	width: 100%;
+	border: .25em solid;
+	background: $color-base-white;
+	color: $color-base-black;
+}
+
+/**
+ * Inline alert
+ */
+
+.alert--inline {
+	border-color: $color-gray-x-light;
+	z-index: auto;
+}
+
+/**
+ * Bar alert
+ */
+
+.alert--bar {
+	border: none;
+	border-bottom: .25em solid;
+
+	// Animation
+	&.js-alert {
+		transition: transform .64s ease-out;
+
+		@include breakpoint(medium) {
+			position: fixed;
+			transform: translateY(-100%);
+			left: 0;
+		}
+	}
+	&.is-visible {
+		display: block;
+
+		@include breakpoint(medium) {
+			transform: translateY(0);
+		}
+	}
+	&.is-hidden {
+		display: none;
+
+		@include breakpoint(medium) {
+			display: block;
+			transform: translateY(-100%);
+		}
+	}
+}
+
+/**
+ * Model alert
+ */
+
+.alert--modal {
+	position: fixed; // Better `relative` with lots of content in alert modal!
+	top: 10%;
+	left: 25%;
+	z-index: $z-index-alert-modal;
+	padding: rhythm(1);
+	width: 50%;
+
+	.csstransforms & {
+		// See http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	// Animation
+	&.js-alert {
+		opacity: 0;
+		transition: opacity .24s ease-out;
+	}
+	&.is-visible {
+		opacity: 1;
+	}
+	&.is-hidden {
+		opacity: 0;
+		z-index: $z-index-hidden;
+	}
+}
+
+/**
+ * The alert message
+ */
+
+.alert__message {
+	padding-right: rhythm(1.5);
+
+	a {
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+/**
+ * Close alert (`times` text icon)
+ */
+
+.alert__close {
+	@extend .pseudo-link;
+
+	position: absolute !important;
+	top: rhythm(1);
+	right: rhythm(1);
+	display: block;
+}
+
+/**
+ * Alert functions
+ */
+
+.alert--success {
+	border-color: $color-base-green;
+	background-color: $color-green-quiet;
+	color: $color-base-green;
+}
+
+.alert--error {
+	border-color: $color-base-red;
+	background-color: $color-red-quiet;
+	color: $color-base-red;
+}
+
+.alert--warning {
+	border-color: $color-base-tangerine;
+	background-color: $color-tangerine-quiet;
+	color: $color-base-tangerine;
+}
+
+.alert--info {
+	border-color: $color-base-blue;
+	background-color: $color-blue-quiet;
+	color: $color-base-blue;
+}

@@ -79,19 +79,19 @@ var alerts = {
 
 		if(alerts.options.type === 'bar' || typeof alerts.options.type === 'undefined'){
 			// Create message DOM element
-			message_element.className = 'Alert Alert--bar Alert--' + alerts.options.status + ' js-alert';
+			message_element.className = 'alert alert--bar alert--' + alerts.options.status + ' js-alert';
 			message_element.setAttribute('data-element-type','bar');
-			message_element.innerHTML = '<div class="Alert-message">' + alerts.options.content + '</div><button type="button" class="Alert-close" data-dismiss="Alert" aria-hidden="true" role="presentation">&times;</button>';
+			message_element.innerHTML = '<div class="alert__message">' + alerts.options.content + '</div><button type="button" class="alert__close" data-dismiss="alert" aria-hidden="true" role="presentation">&times;</button>';
 			document.body.insertBefore(message_element, document.body.firstChild);
 		}
 		if(alerts.options.type === 'modal'){
 			// Create backdrop DOM element
 			backdrop_element = document.createElement('div');
-			backdrop_element.className = 'Backdrop js-backdrop';
+			backdrop_element.className = 'backdrop js-backdrop';
 			// Create message DOM element
-			message_element.className = 'Alert Alert--modal Alert--' + alerts.options.status + ' js-alert';
+			message_element.className = 'alert alert--modal alert--' + alerts.options.status + ' js-alert';
 			message_element.setAttribute('data-element-type','modal');
-			message_element.innerHTML = '<div class="Alert-message">' + alerts.options.content + '</div><button class="Button Button--primary" data-dismiss="Alert">'+ this.settings.dismiss +'</button>';
+			message_element.innerHTML = '<div class="alert__message">' + alerts.options.content + '</div><button class="button button--primary" data-dismiss="alert">'+ this.settings.dismiss +'</button>';
 			document.body.appendChild(backdrop_element);
 			document.body.appendChild(message_element);
 		}
@@ -122,7 +122,7 @@ var alerts = {
 
 		// notification.classList.add('is-visible');
 		if(alerts.options.type === 'modal'){
-			var backdrops = document.querySelectorAll('.Backdrop');
+			var backdrops = document.querySelectorAll('.backdrop');
 			Array.prototype.forEach.call(backdrops, function(el, i){
 				el.classList.add('is-visible');
 			});
@@ -140,7 +140,7 @@ var alerts = {
 		notification.classList.remove('is-visible');
 		notification.classList.remove('is-hidden');
 		if(alerts.options.type === 'modal'){
-			var backdrop = document.querySelector('.Backdrop');
+			var backdrop = document.querySelector('.backdrop');
 			backdrop.classList.remove('is-visible');
 			backdrop.classList.add('is-hiding');
 		}
@@ -172,7 +172,7 @@ var alerts = {
 		var elementtype = element.getAttribute('data-element-type');
 		element.parentNode.removeChild(element);
 		if(elementtype === 'modal'){
-			var backdrop = document.querySelector('.Backdrop');
+			var backdrop = document.querySelector('.backdrop');
 			backdrop.parentNode.removeChild(backdrop);
 		}
 	},

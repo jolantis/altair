@@ -30,16 +30,16 @@ var _options = {
 	mainScrollEndFriction: 0.35,
 	panEndFriction: 0.35,
 	isClickableElement: function(el) {
-        return el.tagName === 'A';
-    },
-    getDoubleTapZoom: function(isMouseClick, item) {
-    	if(isMouseClick) {
-    		return 1;
-    	} else {
-    		return item.initialZoomLevel < 0.7 ? 1 : 1.5;
-    	}
-    },
-    maxSpreadZoom: 2,
+		return el.tagName === 'A';
+	},
+	getDoubleTapZoom: function(isMouseClick, item) {
+		if(isMouseClick) {
+			return 1;
+		} else {
+			return item.initialZoomLevel < 0.7 ? 1 : 1.5;
+		}
+	},
+	maxSpreadZoom: 2,
 	modal: true,
 
 	// not fully implemented yet
@@ -491,7 +491,7 @@ var publicMethods = {
 
 		self.framework = framework; // basic function
 		self.template = template; // root DOM element of PhotoSwipe
-		self.bg = framework.getChildByClass(template, 'Photoswipe-bg');
+		self.bg = framework.getChildByClass(template, 'pswp-bg');
 
 		_initalClassName = template.className;
 		_isOpen = true;

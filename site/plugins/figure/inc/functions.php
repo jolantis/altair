@@ -16,33 +16,33 @@
 
 function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
 
-    if(isset($cropratio) && isset($crop)) {
-        $maxthumbheight = figure_height_by_cropratio( $cropratio, kirby()->option('responsiveimages.sources')['max']['width'] );
-    }
-    else {
-        $maxthumbheight = null;
-    }
+	if(isset($cropratio) && isset($crop)) {
+		$maxthumbheight = figure_height_by_cropratio( $cropratio, kirby()->option('responsiveimage.sources')['max']['width'] );
+	}
+	else {
+		$maxthumbheight = null;
+	}
 
-    $sources_arr = figure_get_srcset_array( $file );
+	$sources_arr = figure_get_srcset_array( $file );
 
-    $i = 0;
-    $srcset = '';
-    foreach ($sources_arr as $source) {
-        $source['quality'] = $quality;
-        $source['crop'] = $crop;
+	$i = 0;
+	$srcset = '';
+	foreach ($sources_arr as $source) {
+		$source['quality'] = $quality;
+		$source['crop'] = $crop;
 
-        if(isset($cropratio) && isset($crop)) {
-            $source['height'] = figure_height_by_cropratio( $cropratio, $source['width'] );
-        }
+		if(isset($cropratio) && isset($crop)) {
+			$source['height'] = figure_height_by_cropratio( $cropratio, $source['width'] );
+		}
 
-        $thumb = thumb($file, $source);
-        if($i > 0) {
-            $srcset .= ', ';
-        }
-        $srcset .= $thumb->url() .' '. $thumb->width() .'w';
-        $i++;
-    }
-    return $srcset;
+		$thumb = thumb($file, $source);
+		if($i > 0) {
+			$srcset .= ', ';
+		}
+		$srcset .= $thumb->url() .' '. $thumb->width() .'w';
+		$i++;
+	}
+	return $srcset;
 }
 
 /**
@@ -53,17 +53,17 @@ function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
  *  @return  array
  */
 function figure_get_srcset_array( $file ) {
-    $sources_arr = kirby()->option('responsiveimages.sources');
+	$sources_arr = kirby()->option('responsiveimage.sources');
 
-    // set some arbitrary defaults
-    if (empty($sources_arr)) {
-        $sources_arr = array(
-            'small'  => array('width' => 480),
-            'medium' => array('width' => 768),
-            'large'  => array('width' => 1200),
-        );
-    }
-    return $sources_arr;
+	// set some arbitrary defaults
+	if (empty($sources_arr)) {
+		$sources_arr = array(
+			'small'  => array('width' => 480),
+			'medium' => array('width' => 768),
+			'large'  => array('width' => 1200),
+		);
+	}
+	return $sources_arr;
 }
 
 /**
@@ -78,8 +78,8 @@ function figure_get_srcset_array( $file ) {
  */
 
 function figure_height_by_cropratio( $cropratio, $width ) {
-    // calculate new thumb height based on cropratio
-    return round($width * figure_convert_cropratio($cropratio));
+	// calculate new thumb height based on cropratio
+	return round($width * figure_convert_cropratio($cropratio));
 }
 
 /**
@@ -92,13 +92,13 @@ function figure_height_by_cropratio( $cropratio, $width ) {
  */
 
 function figure_convert_cropratio( $cropratio ) {
-    // if cropratio is a fraction string (e.g. 1/2)
-    if(strpos($cropratio, '/') !== false) {
-        list($numerator, $denominator) = str::split($cropratio, '/');
-        // convert to decimal
-        $cropratio = $numerator / $denominator;
-    }
-    return $cropratio;
+	// if cropratio is a fraction string (e.g. 1/2)
+	if(strpos($cropratio, '/') !== false) {
+		list($numerator, $denominator) = str::split($cropratio, '/');
+		// convert to decimal
+		$cropratio = $numerator / $denominator;
+	}
+	return $cropratio;
 }
 
 /**
@@ -112,42 +112,42 @@ function figure_convert_cropratio( $cropratio ) {
  */
 function figure_get_sizes( $file, $width = null, $imgclass = array() ) {
 
-    $sizes = '';
-    $sizes_arr = figure_get_sizes_array( $file, $width );
+	$sizes = '';
+	$sizes_arr = figure_get_sizes_array( $file, $width );
 
-    foreach ( $sizes_arr as $key => $size ) {
+	foreach ( $sizes_arr as $key => $size ) {
 
-        // skip if the size should only be applied to a given class
-        if (is_string($key) && ! empty($imgclass) && ! in_array($key, $imgclass)) {
-            continue;
-        }
+		// skip if the size should only be applied to a given class
+		if (is_string($key) && ! empty($imgclass) && ! in_array($key, $imgclass)) {
+			continue;
+		}
 
-        // Use 100vw as the size value unless something else is specified.
-        $size_value = ( $size['size_value'] ) ? $size['size_value'] : '100vw';
-        // If a media length is specified, build the media query.
-        if ( ! empty( $size['mq_value'] ) ) {
-            $media_length = $size['mq_value'];
-            // Use max-width as the media condition unless min-width is specified.
-            $media_condition = ( ! empty( $size['mq_name'] ) ) ? $size['mq_name'] : 'max-width';
-            // If a media_length was set, create the media query.
-            $media_query = '(' . $media_condition . ": " . $media_length . ') ';
-        } else {
-            // If not meda length was set, $media_query is blank.
-            $media_query = '';
-        }
-        // Add to the source size list string.
-        $sizes .= $media_query . $size_value . ', ';
-    }
-    // Remove the trailing comma and space from the end of the string.
-    $sizes = substr( $sizes, 0, -2 );
+		// Use 100vw as the size value unless something else is specified.
+		$size_value = ( $size['size_value'] ) ? $size['size_value'] : '100vw';
+		// If a media length is specified, build the media query.
+		if ( ! empty( $size['mq_value'] ) ) {
+			$media_length = $size['mq_value'];
+			// Use max-width as the media condition unless min-width is specified.
+			$media_condition = ( ! empty( $size['mq_name'] ) ) ? $size['mq_name'] : 'max-width';
+			// If a media_length was set, create the media query.
+			$media_query = '(' . $media_condition . ": " . $media_length . ') ';
+		} else {
+			// If not meda length was set, $media_query is blank.
+			$media_query = '';
+		}
+		// Add to the source size list string.
+		$sizes .= $media_query . $size_value . ', ';
+	}
+	// Remove the trailing comma and space from the end of the string.
+	$sizes = substr( $sizes, 0, -2 );
 
-    return $sizes;
+	return $sizes;
 }
 
 /**
  *  Returns the sizes for a given Kirby file
  *
- *  Uses 'responsiveimages.sizes' option to let site owners overwrite the defaults
+ *  Uses 'responsiveimage.sizes' option to let site owners overwrite the defaults
  *
  *  @param   File  $file
  *  @param   int  $width  Optional. Use when you want to force image to a certain width (retina/high-PPi usecase)
@@ -156,35 +156,35 @@ function figure_get_sizes( $file, $width = null, $imgclass = array() ) {
  */
 function figure_get_sizes_array( $file, $width = null ) {
 
-    // let users overwrite the sizes via config
-    $sizes_arr = kirby()->option('responsiveimages.sizes');
+	// let users overwrite the sizes via config
+	$sizes_arr = kirby()->option('responsiveimage.sizes');
 
-    $widthname = (is_null($width)) ? 'default' : $width;
-    $sizes_arr = $sizes_arr[$widthname];
+	$widthname = (is_null($width)) ? 'default' : $width;
+	$sizes_arr = $sizes_arr[$widthname];
 
-    // let users overwrite the native image size via attribute
-    $img_width = $file->width() . 'px';
+	// let users overwrite the native image size via attribute
+	$img_width = $file->width() . 'px';
 
-    // default to the image width
-    if (empty($sizes_arr)) {
-        $sizes_arr = array(
-            array(
-                'size_value' => '100vw',
-                'mq_value'   => $img_width,
-                'mq_name'    => 'max-width'
-            ),
-            array(
-                'size_value' => $img_width
-            ),
-        );
-    } else {
-        $sizes_arr = array_map(function($value) use ($img_width) {
-            // allow config rules relative to native image size
-            return str_replace( '$img_width', $img_width, $value );
-        }, $sizes_arr);
-    }
+	// default to the image width
+	if (empty($sizes_arr)) {
+		$sizes_arr = array(
+			array(
+				'size_value' => '100vw',
+				'mq_value'   => $img_width,
+				'mq_name'    => 'max-width'
+			),
+			array(
+				'size_value' => $img_width
+			),
+		);
+	} else {
+		$sizes_arr = array_map(function($value) use ($img_width) {
+			// allow config rules relative to native image size
+			return str_replace( '$img_width', $img_width, $value );
+		}, $sizes_arr);
+	}
 
-    return $sizes_arr;
+	return $sizes_arr;
 }
 
 ?>

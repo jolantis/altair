@@ -9,21 +9,21 @@
 var navMain = {
 
 	elements: {
-		banner: document.querySelector('.Banner'),
+		banner: document.querySelector('.banner'),
 		html: document.querySelector('html'),
-		navEl: document.querySelector('.js-navMain')
+		navEl: document.querySelector('.js-nav-main')
 	},
 
 	/**
 	 * Initiate navigation
 	 */
 	init: function(type) {
-		var navMainShow = document.querySelector('.js-navMainShow');
-		var navMainHide = document.querySelector('.js-navMainHide');
+		var navMainShow = document.querySelector('.js-nav-main-show');
+		var navMainHide = document.querySelector('.js-nav-main-hide');
 
-		navMain.elements.navEl = document.querySelector('.js-navMain');
+		navMain.elements.navEl = document.querySelector('.js-nav-main');
 
-		// Check if NavMain, and NavMainShow DOM elements exist
+		// Check if nav-main, and nav-main-show DOM elements exist
 		if (typeof(navMain.elements.navEl) !== 'undefined' && navMain.elements.navEl !== null && typeof(navMainShow) !== 'undefined' && navMainShow !== null) {
 			// Set the event listeners
 			navMainShow.addEventListener('click', navMain.open, false);
@@ -45,14 +45,14 @@ var navMain = {
 
 	handleNavClick: function(event) {
 		var target = event.target;
-		if((target.classList.contains('js-navMain')) || (event.keyCode === 27)) {
+		if((target.classList.contains('js-nav-main')) || (event.keyCode === 27)) {
 			navMain.close(event);
 		}
 	},
 
 	open: function(event) {
 		event.preventDefault();
-		navMain.elements.html.classList.add('is-openMainNav');
+		navMain.elements.html.classList.add('is-open-main-nav');
 		navMain.setNavHandlers();
 	},
 
@@ -60,12 +60,12 @@ var navMain = {
 		event.preventDefault();
 
 		navMain.elements.navEl.addEventListener(transitionEnd, function endTransitionNavClose(){
-			navMain.elements.html.classList.remove('is-closingMainNav');
-			navMain.elements.html.classList.remove('is-openMainNav');
+			navMain.elements.html.classList.remove('is-closing-main-nav');
+			navMain.elements.html.classList.remove('is-open-main-nav');
 			this.removeEventListener(transitionEnd, endTransitionNavClose, false);
 		},false);
 
-		navMain.elements.html.classList.add('is-closingMainNav');
+		navMain.elements.html.classList.add('is-closing-main-nav');
 
 		navMain.unsetNavHandlers();
 	}

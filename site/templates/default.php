@@ -10,12 +10,12 @@
 	<?php echo bgimage($page->images()->first(), array(
 		'width'     => 1200,
 		'cropratio' => 2/3,
-		'class'     => 'BgImage BgImage--3by2 BgImage--large16by9 BgImage--huge2by1'
+		'class'     => 'bg-image default-3by2 large-16by9 huge-2by1'
 	)); ?>
 
-	<div class="Contain">
+	<div class="contain">
 
-		<main role="main" class="Copy u-spaceTrailerM">
+		<main role="main" class="copy u-spaceTrailerM">
 
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
