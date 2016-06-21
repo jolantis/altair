@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 			mobile: {
 				plugins: [
 					// '<%= project.scripts_plugins %>/domdelegate/domdelegate.js',
-					'<%= project.scripts_polyfills %>/domready/domready.js',
+					'<%= project.scripts_plugins %>/domready/domready.js',
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js',
 					'<%= project.scripts_plugins %>/lazysizes/lazysizes.min.js',           // Out-comment when using lazyload
 					// '<%= project.scripts_plugins %>/lazysizes/ls.respimg.js',             // Out-comment when using lazyload, and need to polyfill responsive images
