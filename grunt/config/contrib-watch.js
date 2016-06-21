@@ -9,11 +9,10 @@ module.exports = function(grunt) {
 			files: [
 				'gruntfile.js',
 				'<%= project.scripts %>/*.js',
-				'<%= project.scripts_classes %>/*.js',
+				'<%= project.scripts_modules %>/*.js',
 				'<%= project.scripts_polyfills %>/*.js',
 				'<%= project.scripts_plugins %>/*.js',
 				'<%= project.scripts_utils %>/*.js',
-				'<%= project.scripts_vendor %>/*.js',
 			],
 			tasks: ['scripts'],
 		},
