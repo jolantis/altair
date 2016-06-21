@@ -4,11 +4,11 @@
  *
  * Example:
  *
- * extend({}, objA, objB);
+ * Extend({}, objA, objB);
  */
 
 
-var extend = {
+var Extend = {
 
 	object: function(out) {
 		out = out || {};

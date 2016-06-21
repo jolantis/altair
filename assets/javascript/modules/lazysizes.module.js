@@ -1,26 +1,28 @@
 /**
- * Lazysizes
+ * Lazysizes module
  *
- * Lazy loader class for (responsive) images
+ * Lazy loader module for (responsive) images
  * https://github.com/aFarkas/lazysizes
  */
 
-var lazysizes = {
+var Lazysizes = (function () {
 
 	/**
-	 * Init lazysizes
+	 * Return public methods
 	 */
-	init: function() {
+	return {
+		init: function() {
 
-		// Room for actions on lazysizes init
+			// Room for actions on lazysizes init
 
-		// Example: Basic support for background images (for without bgset plugin)
-		// document.addEventListener('lazybeforeunveil', function(e){
-		// 	var bg = e.target.getAttribute('data-bg');
-		// 	if(bg) {
-		// 		e.target.style.backgroundImage = 'url(' + bg + ')';
-		// 		e.target.removeAttribute('data-bg');
-		// 	}
-		// });
-	}
-};
+			// Example: Basic support for background images (for without bgset plugin)
+			// document.addEventListener('lazybeforeunveil', function(e){
+			// 	var bg = e.target.getAttribute('data-bg');
+			// 	if(bg) {
+			// 		e.target.style.backgroundImage = 'url(' + bg + ')';
+			// 		e.target.removeAttribute('data-bg');
+			// 	}
+			// });
+		}
+	};
+})();
