@@ -36,49 +36,50 @@ var NavMain = (function () {
 		document.removeEventListener('keyup', handleNavClick, false);
 	}
 
+	function openNav(event) {
+		if(typeof event !== 'undefined'){
+			event.preventDefault();
+		}
+		navelements.html.classList.add('is-open-main-nav');
+		setNavHandlers(true);
+	}
+
+	function closeNav(event) {
+		if(typeof event !== 'undefined'){
+			event.preventDefault();
+		}
+
+		navelements.navEl.addEventListener(transitionEnd, function endTransitionNavClose(){
+			navelements.html.classList.remove('is-closing-main-nav');
+			navelements.html.classList.remove('is-open-main-nav');
+			this.removeEventListener(transitionEnd, endTransitionNavClose, false);
+		},false);
+
+		navelements.html.classList.add('is-closing-main-nav');
+
+		unsetNavHandlers();
+	}
+
+	function init() {
+		var navMainShow = document.querySelector('.js-nav-main-show');
+		var navMainHide = document.querySelector('.js-nav-main-hide');
+
+		navelements.navEl = document.querySelector('.js-nav-main');
+
+		// Check if nav-main, and nav-main-show DOM navelements exist
+		if (typeof(navelements.navEl) !== 'undefined' && navelements.navEl !== null && typeof(navMainShow) !== 'undefined' && navMainShow !== null) {
+			// Set the event listeners
+			navMainShow.addEventListener('click', openNav, false);
+			navMainHide.addEventListener('click', closeNav, false);
+		}
+	}
+
 	/**
 	 * Return public methods
 	 */
 	return {
-		openNav : function(event) {
-			if(typeof event !== 'undefined'){
-				event.preventDefault();
-			}
-			navelements.html.classList.add('is-open-main-nav');
-			setNavHandlers(true);
-		},
-
-		closeNav : function(event) {
-			if(typeof event !== 'undefined'){
-				event.preventDefault();
-			}
-
-			navelements.navEl.addEventListener(transitionEnd, function endTransitionNavClose(){
-				navelements.html.classList.remove('is-closing-main-nav');
-				navelements.html.classList.remove('is-open-main-nav');
-				this.removeEventListener(transitionEnd, endTransitionNavClose, false);
-			},false);
-
-			navelements.html.classList.add('is-closing-main-nav');
-
-			unsetNavHandlers();
-		},
-
-		/**
-		 * Initiate navigation
-		 */
-		init : function() {
-			var navMainShow = document.querySelector('.js-nav-main-show');
-			var navMainHide = document.querySelector('.js-nav-main-hide');
-
-			navelements.navEl = document.querySelector('.js-nav-main');
-
-			// Check if nav-main, and nav-main-show DOM navelements exist
-			if (typeof(navelements.navEl) !== 'undefined' && navelements.navEl !== null && typeof(navMainShow) !== 'undefined' && navMainShow !== null) {
-				// Set the event listeners
-				navMainShow.addEventListener('click', NavMain.openNav, false);
-				navMainHide.addEventListener('click', NavMain.closeNav, false);
-			}
-		}
+		openNav: openNav,
+		closeNav: closeNav,
+		init: init
 	};
 })();

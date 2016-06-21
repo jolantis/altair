@@ -213,13 +213,16 @@ var Photoswipegallery = (function () {
 			openPhotoSwipe( hashData.pid , galleryElement, true, true );
 		}
 	};
+
+	function init() {
+		initPhotoSwipeFromDOM('.pswp-img');
+	}
+
 	/**
 	 * Return public methods
 	 */
 	return {
-		init : function() {
-			initPhotoSwipeFromDOM('.pswp-img');
-		}
+		init: init
 	};
 })();
 
