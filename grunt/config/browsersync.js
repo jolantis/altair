@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_dev %>/head.scripts.dev.js',
 					'<%= project.scripts_dev %>/main.scripts.dev.js',
 					'<%= project.scripts_dev %>/mobile.scripts.dev.js',
+					'<%= project.scripts_dev %>/photoswipe.scripts.dev.js',
 					'site/templates/*.php',
 					'site/snippets/*.php',
 				]
