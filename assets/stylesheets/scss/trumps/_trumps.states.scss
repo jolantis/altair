@@ -3,35 +3,17 @@
    ========================================================================== */
 
 /**
- * Indicate that interaction will result in an (in)action.
- */
-
-%u-isActionable {
-	cursor: pointer;
-}
-
-%u-isDisabled {
-	cursor: default;
-}
-
-%u-isDraggable {
-	cursor: move;
-}
-
-/**
  * Completely remove from the flow and screen readers.
  */
 
-%u-isHidden {
-	display: none;
-}
+// .is-hidden { display: none !important; }
 
 /**
  * Completely remove from the flow but leave available to screen readers.
  */
 
-.is-hiddenVisually,
-%u-isHiddenVisually {
+.is-hidden-visually,
+%is-hidden-visually {
 	position: absolute;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -47,11 +29,11 @@
  * And use for nice trick: http://j.mp/1qhPKiU
  */
 
-%u-isInvisible {
+%is-invisible {
 	visibility: hidden;
 }
 
-%u-isVisible {
+%is-visible {
 	visibility: visible;
 }
 
@@ -59,7 +41,7 @@
  * Hide text (use for image replacement).
  */
 
-@mixin u-isHiddenText($param: false) {
+@mixin is-hidden-text($param: false) {
 	// Scott Kellum method (http://wp.me/p4WtR-2xq)
 	@if $param == skm {
 		text-indent: 200%;
@@ -81,4 +63,4 @@
 	}
 }
 
-%u-isHiddenText { @include u-isHiddenText(); }
+%is-hidden-text { @include is-hidden-text(); }

@@ -67,7 +67,7 @@ else {
 
 <?php if($has_prev || $has_next): ?>
 <nav role="navigation" class="pagination">
-	<h2 class="is-hiddenVisually">Next/previous navigation</h2>
+	<h2 class="is-hidden-visually">Next/previous navigation</h2>
 	<ul>
 		<?php if($has_next): ?>
 			<li class="pagination__newer<?php if($has_prev == false): echo ' pagination__newer--first'; endif; ?>">

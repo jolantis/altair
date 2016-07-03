@@ -15,7 +15,7 @@
  */
 
 .media {
-	@include clearfix();
+	@extend %clearfix;
 
 	display:block;
 }

@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .banner {
-	@extend .contain;
-	@include clearfix();
+	@extend %clearfix;
+	@extend %contain-padding;
 
 	position: relative;
 	z-index: $z-index-banner;

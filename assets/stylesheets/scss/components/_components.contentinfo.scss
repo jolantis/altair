@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .contentinfo {
-	@extend .contain;
+	@extend %contain-padding;
 
 	margin-top: 0;
 

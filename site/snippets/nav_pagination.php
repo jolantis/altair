@@ -18,7 +18,7 @@
 
 	<?php if($pagination->countItems() > $pagination->limit()): ?>
 	<nav role="navigation" class="pagination__nav">
-		<h2 class="is-hiddenVisually">Page navigation</h2>
+		<h2 class="is-hidden-visually">Page navigation</h2>
 		<ul>
 			<?php if(isset($start_end) && $start_end == true): ?>
 				<?php if(!$pagination->isFirstPage()): ?>

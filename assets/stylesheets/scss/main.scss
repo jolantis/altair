@@ -1,13 +1,7 @@
-// Settings: Global variables, site-wide settings, config switches, etc.
-// Tools: Site-wide mixins and functions.
-// Generic: Low-specificity, far-reaching rulesets (e.g. resets).
-// Base: Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
-// Objects: Objects, abstractions, and design patterns (e.g. .media {}).
-// Components: Discrete, complete chunks of UI (e.g. .carousel {}). This is the one layer that inuitcss doesn’t get involved with.
-// Trumps: High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
-
 // --------------------------------------------------------------------------
-// settings
+// [1] Settings
+// --------------------------------------------------------------------------
+// Global variables, site-wide settings, config switches, etc.
 // --------------------------------------------------------------------------
 
 @import "settings/settings.breakpoints";
@@ -19,11 +13,12 @@
 @import "settings/settings.z-indices";
 
 // --------------------------------------------------------------------------
-// tools
+// [2] Tools
+// --------------------------------------------------------------------------
+// Site-wide mixins and functions.
 // --------------------------------------------------------------------------
 
 @import "tools/tools.breakpoints";
-@import "tools/tools.clearfix";
 @import "tools/tools.color-schemer";
 @import "tools/tools.font-families";
 @import "tools/tools.font-size";
@@ -38,7 +33,9 @@
 @import "tools/tools.vertically-centered";
 
 // --------------------------------------------------------------------------
-// generic (reset comes before normalize!)
+// [3] gGeneric (reset comes before normalize!)
+// --------------------------------------------------------------------------
+// Low-specificity, far-reaching rulesets (e.g. resets).
 // --------------------------------------------------------------------------
 
 @import "generic/generic.reset";
@@ -48,7 +45,9 @@
 @import "generic/generic.viewport";
 
 // --------------------------------------------------------------------------
-// base
+// [4] Base
+// --------------------------------------------------------------------------
+// Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
 // --------------------------------------------------------------------------
 
 @import "base/base.copy";
@@ -59,13 +58,14 @@
 @import "base/base.ruler";
 
 // --------------------------------------------------------------------------
-// objetcs
+// [5] Objetcs
+// --------------------------------------------------------------------------
+// Objects, abstractions, and design patterns (e.g. .media {}).
 // --------------------------------------------------------------------------
 
 @import "objects/objects.block-grid";
 @import "objects/objects.block-link";
 @import "objects/objects.buttons";
-@import "objects/objects.contain";
 @import "objects/objects.fluid-embed";
 @import "objects/objects.forms";
 @import "objects/objects.grid";
@@ -77,7 +77,10 @@
 @import "objects/objects.tables";
 
 // --------------------------------------------------------------------------
-// components
+// [6] Components
+// --------------------------------------------------------------------------
+// Discrete, complete chunks of UI (e.g. .accordion {}).
+// This is the one layer that inuitcss doesn't get involved with.
 // --------------------------------------------------------------------------
 
 @import "components/components.accordion";
@@ -98,34 +101,39 @@
 @import "components/components.tooltips";
 
 // --------------------------------------------------------------------------
-// Animations
+// [7] Animations
 // --------------------------------------------------------------------------
 
 @import "animations/animations";
 
 // --------------------------------------------------------------------------
-// trumps
+// [8] Trumps
+// --------------------------------------------------------------------------
+// High-specificity, very explicit selectors. Overrides and helper
+// classes (e.g. .is-hidden-visually {}).
 // --------------------------------------------------------------------------
 
+@import "trumps/trumps.clearfix";
+@import "trumps/trumps.contain";
 @import "trumps/trumps.spacing";
 @import "trumps/trumps.states";
 @import "trumps/trumps.text";
 
 // --------------------------------------------------------------------------
-// custom (web) fonts
+// [9] Custom (web) fonts
 // --------------------------------------------------------------------------
 
 @import "../../fonts/firasans/firasans";
 
 // --------------------------------------------------------------------------
-// icons (grunticon)
+// [10] SVG Icons (grunticon)
 // --------------------------------------------------------------------------
 
 @import "grunticon/grunticon.data-svg";                                         // Data SVG
 // .no-svg { @import "grunticon/grunticon.fallback-png"; }                         // PNG fall-back if Modernizr detects no support for SVG!
 
 // --------------------------------------------------------------------------
-// debug
+// [11] Debug
 // --------------------------------------------------------------------------
 
 // @import "debug/debug.breakpoints";

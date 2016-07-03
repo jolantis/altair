@@ -159,7 +159,7 @@ html.is-open-main-nav {
  */
 
 .nav-main-toggle {
-	@extend %u-isHiddenText;
+	@extend %is-hidden-text;
 
 	position: absolute;
 	top: rhythm(1);

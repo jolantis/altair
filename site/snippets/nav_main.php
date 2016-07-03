@@ -5,7 +5,7 @@
 ////////////////////////////////////////////////////////// ?>
 
 <nav role="navigation" id="nav-main" class="nav-main js-nav-main">
-	<h2 class="is-hiddenVisually">Main navigation</h2>
+	<h2 class="is-hidden-visually">Main navigation</h2>
 	<ul class="nav-main__list">
 		<li class="nav-main__item"><a rel="home" href="<?php echo $site->url(); ?>">Home</a></li>
 		<?php foreach($pages->visible() as $page): ?>

@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="contain">
+	<main role="main" class="contain-padding">
 
 		<div class="copy">
 
@@ -19,7 +19,7 @@
 
 		<?php /*
 
-		<h2 class="beta-heading u-spaceLeaderM">Icons list</h2>
+		<h2 class="beta-heading space-leader-m">Icons list</h2>
 		<ul>
 			<li>
 				<span aria-hidden="true" class="icon icon--phone"></span>
@@ -55,46 +55,46 @@
 			</li>
 		</ul>
 
-		<h2 class="beta-heading u-spaceLeaderM">Icons alone</h2>
-		<a href="#" class="u-spaceTrailerM">
+		<h2 class="beta-heading space-leader-m">Icons alone</h2>
+		<a href="#" class="space-trailer-m">
 			<span aria-hidden="true" class="Icon Icon--fixed-width Icon--facebook"></span>
-			<span class="is-hiddenVisually">Facebook</span>
+			<span class="is-hidden-visually">Facebook</span>
 		</a>
 		<a href="#">
 			<span aria-hidden="true" class="icon icon--fixed-width icon--paper-plane"></span>
-			<span class="is-hiddenVisually">Email</span>
+			<span class="is-hidden-visually">Email</span>
 		</a>
 		<a href="#">
 			<span aria-hidden="true" class="icon icon--fixed-width icon--phone"></span>
-			<span class="is-hiddenVisually">Smartphone</span>
+			<span class="is-hidden-visually">Smartphone</span>
 		</a>
 		<a href="#">
 			<span aria-hidden="true" class="icon icon--fixed-width icon--pencil"></span>
-			<span class="is-hiddenVisually">Write</span>
+			<span class="is-hidden-visually">Write</span>
 		</a>
 		<a href="#">
 			<span aria-hidden="true" class="icon icon--fixed-width icon--mobile"></span>
-			<span class="is-hiddenVisually">Smartphone</span>
+			<span class="is-hidden-visually">Smartphone</span>
 		</a>
 		<a href="#">
 			<span aria-hidden="true" class="icon icon--fixed-width icon--attach"></span>
-			<span class="is-hiddenVisually">Attachment</span>
+			<span class="is-hidden-visually">Attachment</span>
 		</a>
 
 		*/ ?>
 
-		<h2 class="beta-heading u-spaceLeaderM">Block link list</h2>
-		<div class="block-link u-spaceTrailerM">
+		<h2 class="beta-heading space-leader-m">Block link list</h2>
+		<div class="block-link space-trailer-m">
 			<h3><a href="<?php echo url('base.php'); ?>">Base</a></h3>
 			<p>A long list of all base elements and their styling</p>
 			<a href="<?php echo url('base.php'); ?>" class="block-link__anchor">Visit the Base page</a>
 		</div>
-		<div class="block-link u-spaceTrailerM">
+		<div class="block-link space-trailer-m">
 			<h3><a href="<?php echo url('grid.php'); ?>">Grid</a></h3>
 			<p>Examples of the Altair grid system</p>
 			<a href="<?php echo url('grid.php'); ?>" class="block-link__anchor">Visit the Grid page</a>
 		</div>
-		<div class="block-link u-spaceTrailerM">
+		<div class="block-link space-trailer-m">
 			<h3><a href="<?php echo url('javascript.php'); ?>">Javascript</a></h3>
 			<p>Some nifty javascript magic</p>
 			<a href="<?php echo url('javascript.php'); ?>" class="block-link__anchor">Visit the Javascript page</a>

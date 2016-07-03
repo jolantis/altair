@@ -6,9 +6,9 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="contain">
+	<main role="main" class="contain-padding">
 
-		<div class="copy u-spaceTrailerM">
+		<div class="copy space-trailer-m">
 
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
@@ -17,7 +17,7 @@
 
 			<hr>
 
-			<h2 id="buttons" class="beta-heading u-spaceLeaderM">Button</h2>
+			<h2 id="buttons" class="beta-heading space-leader-m">Button</h2>
 
 			<p>
 				<input type="submit" name="submit" value="Submit button" class="button"/>
@@ -39,7 +39,7 @@
 			<p><a href="#" class="button button--full" role="button">Anchor button (full)</a></p>
 
 			<p><button class="button button--primary is-disabled">Button button (primary, disabled)</button></p>
-			<p class="u-spaceTrailerM"><a href="#" class="button is-disabled" role="button">Anchor button (disabled)</a></p>
+			<p class="space-trailer-m"><a href="#" class="button is-disabled" role="button">Anchor button (disabled)</a></p>
 
 			<hr>
 

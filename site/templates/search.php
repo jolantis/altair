@@ -33,7 +33,7 @@ if(!empty($results)) {
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="contain copy">
+	<main role="main" class="contain-padding copy">
 
 		<h1>
 			<?php

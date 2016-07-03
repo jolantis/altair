@@ -13,9 +13,9 @@
 		'class'     => 'bg-image default-3by2 large-16by9 huge-2by1'
 	)); ?>
 
-	<div class="contain">
+	<div class="contain-padding">
 
-		<main role="main" class="copy u-spaceTrailerM">
+		<main role="main" class="copy space-trailer-m">
 
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 

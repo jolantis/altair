@@ -10,22 +10,22 @@
  * Rhythm spacing = top + bottom margins
  */
 
-%u-spaceTrailerXS { margin-bottom: rhythm(.25); }
-%u-spaceTrailerS  { margin-bottom: rhythm(.5); }
-.u-spaceTrailerM,
-%u-spaceTrailerM  { margin-bottom: rhythm(1); }
-.u-spaceTrailerL,
-%u-spaceTrailerL  { margin-bottom: rhythm(2); }
-%u-spaceTrailerXL { margin-bottom: rhythm(4); }
+%space-trailer-xs { margin-bottom: rhythm(.25) !important; }
+%space-trailer-s  { margin-bottom: rhythm(.5) !important; }
+.space-trailer-m,
+%space-trailer-m  { margin-bottom: rhythm(1) !important; }
+.space-trailer-l,
+%space-trailer-l  { margin-bottom: rhythm(2) !important; }
+%space-trailer-xl { margin-bottom: rhythm(4) !important; }
 
-%u-spaceLeaderXS  { margin-top: rhythm(.25); }
-%u-spaceLeaderS   { margin-top: rhythm(.5); }
-.u-spaceLeaderM,
-%u-spaceLeaderM   { margin-top: rhythm(1); }
-%u-spaceLeaderL   { margin-top: rhythm(2); }
-%u-spaceLeaderXL  { margin-top: rhythm(4); }
+%space-leader-xs  { margin-top: rhythm(.25) !important; }
+%space-leader-s   { margin-top: rhythm(.5) !important; }
+.space-leader-m,
+%space-leader-m   { margin-top: rhythm(1) !important; }
+%space-leader-l   { margin-top: rhythm(2) !important; }
+%space-leader-xl  { margin-top: rhythm(4) !important; }
 
-%u-spaceRhythmS   { margin-top: rhythm(.5); margin-bottom: rhythm(.5); }
-%u-spaceRhythmM   { margin-top: rhythm(1); margin-bottom: rhythm(1); }
-%u-spaceRhythmL   { margin-top: rhythm(2); margin-bottom: rhythm(2); }
-%u-spaceRhythmXL  { margin-top: rhythm(4); margin-bottom: rhythm(4); }
+%space-thythms    { margin-top: rhythm(.5); margin-bottom: rhythm(.5) !important; }
+%space-thythmm    { margin-top: rhythm(1); margin-bottom: rhythm(1) !important; }
+%space-thythml    { margin-top: rhythm(2); margin-bottom: rhythm(2) !important; }
+%space-thythmxl   { margin-top: rhythm(4); margin-bottom: rhythm(4) !important; }

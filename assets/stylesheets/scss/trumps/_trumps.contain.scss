@@ -2,7 +2,8 @@
    Contain
    ========================================================================== */
 
-.contain {
+.contain-padding,
+%contain-padding {
 	padding-right: $contain-percentage !important;
 	padding-left: $contain-percentage !important;
 
@@ -12,8 +13,8 @@
 	}
 }
 
-.contain--width {
-	max-width: 60rem;
-	margin-right: auto;
-	margin-left: auto;
+%contain-width {
+	max-width: 60rem !important;
+	margin-right: auto !important;
+	margin-left: auto !important;
 }

@@ -39,7 +39,7 @@
  */
 
 a.block-link__anchor {
-	@extend %u-isHiddenText;
+	@extend %is-hidden-text;
 
 	position: absolute;
 	top: 0;

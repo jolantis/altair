@@ -6,7 +6,7 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="contain u-spaceTrailerL">
+	<main role="main" class="contain-padding space-trailer-l">
 
 		<div class="copy">
 
@@ -15,7 +15,7 @@
 			<?php echo $page->text()->kirbytext(); ?>
 
 			<!-- Inline alert example -->
-			<div class="alert alert--inline u-spaceTrailerM js-dismissable">
+			<div class="alert alert--inline space-trailer-m js-dismissable">
 				<div class="alert__message">
 					<p>This is an inline alert example&hellip; you can close me!</p>
 				</div>
@@ -31,7 +31,7 @@
 	<h3 class="beta-heading contain">Leafletjs map</h3>
 	<?php snippet('map_leafletjs'); ?>
 
-	<h3 class="beta-heading contain u-spaceLeaderM">Google map</h3>
+	<h3 class="beta-heading contain space-leader-m">Google map</h3>
 	<?php snippet('map_google'); ?>
 
 <?php snippet_detect('footer'); ?>

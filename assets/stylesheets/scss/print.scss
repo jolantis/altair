@@ -3,7 +3,11 @@
    ========================================================================== */
 
 
-* {
+*,
+*:before,
+*:after,
+*:first-letter,
+*:first-line {
 	position: static !important;
 	margin: 0 !important;
 	padding: 0 !important;
@@ -36,12 +40,17 @@ pre, blockquote {
 	border: 1px solid rgb(153,153,153);
 	page-break-inside: avoid;
 }
+
 hr { background-color: rgb(204,204,204); }
 
-/* Page break (define page breaks in HTML for print (add class 'PageBreak')) */
+/* Page break (define page breaks in HTML for print (add class 'page-break')) */
 
 @page { margin: .5cm; }
-.PageBreak { display: block; page-break-after: always; }
+
+.page-break {
+	display: block;
+	page-break-after: always;
+}
 
 /* Images (basic styling of images for print) */
 
@@ -53,16 +62,26 @@ a img { border: none; }
 
 /* Styling of links (anchors) in print */
 
-a, a:visited {
+a,
+a:visited {
 	text-decoration: underline;
 }
 
-a[href]:after { content: " (" attr(href) ")"; }
-abbr[title]:after { content: " (" attr(title) ")"; }
+a[href]:after {
+	content: " (" attr(href) ")";
+}
+
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
 
 /* Don't show links for images (refers to image replacement (.ir) class) */
 
-.u-isHiddenText a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+.is-hidden-text a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+	content: "";
+}
 
 /* Tables (basic table styling for print) */
 
@@ -117,7 +136,7 @@ h1, h2, h3 {
 	color: black;
 }
 
-/* Hide elements */
+/* Hide components */
 
 .banner,
 .nav-main,
