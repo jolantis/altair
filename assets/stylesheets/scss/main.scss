@@ -1,19 +1,5 @@
 // --------------------------------------------------------------------------
-// [1] Settings
-// --------------------------------------------------------------------------
-// Global variables, site-wide settings, config switches, etc.
-// --------------------------------------------------------------------------
-
-@import "settings/settings.breakpoints";
-@import "settings/settings.colors";
-@import "settings/settings.grid";
-@import "settings/settings.page";
-@import "settings/settings.ratios";
-@import "settings/settings.typography";
-@import "settings/settings.z-indexes";
-
-// --------------------------------------------------------------------------
-// [2] Tools
+// [1] Tools
 // --------------------------------------------------------------------------
 // Site-wide mixins and functions.
 // --------------------------------------------------------------------------
@@ -33,7 +19,20 @@
 @import "tools/tools.vertically-centered";
 
 // --------------------------------------------------------------------------
-// [3] gGeneric (reset comes before normalize!)
+// [2] Settings
+// --------------------------------------------------------------------------
+// Global variables, site-wide settings, config switches, etc.
+// --------------------------------------------------------------------------
+
+@import "settings/settings.breakpoints";
+@import "settings/settings.colors";
+@import "settings/settings.grid";
+@import "settings/settings.page";
+@import "settings/settings.ratios";
+@import "settings/settings.typography";
+@import "settings/settings.z-indexes";
+
+// --------------------------------------------------------------------------
 // [3] Generic (reset comes before normalize!)
 // --------------------------------------------------------------------------
 // Low-specificity, far-reaching rulesets (e.g. resets).
