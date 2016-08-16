@@ -3,7 +3,7 @@
 // Clearfix
 // --------------------------------------------------------------------------
 // Micro clearfix, as per:
-// - css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+// - http://cssmojo.com/the-very-latest-clearfix-reloaded/
 // --------------------------------------------------------------------------
 // Extend the clearfix placeholder class `%clearfix` with Sass to avoid
 // the `.clearfix` class appearing over and over in your markup.
@@ -14,7 +14,7 @@
 
 	&:after {
 		content: "";
-		display: table;
+		display: block;
 		clear: both;
 	}
 
