@@ -12,8 +12,7 @@
  * Completely remove from the flow but leave available to screen readers.
  */
 
-.is-hidden-visually,
-%is-hidden-visually {
+@mixin is-hidden-visually() {
 	position: absolute;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -22,6 +21,9 @@
 	height: 1px;
 	border: 0;
 }
+
+.is-hidden-visually,
+%is-hidden-visually { @include is-hidden-visually(); }
 
 /**
  * Control visibility without affecting flow.
