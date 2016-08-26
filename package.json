@@ -22,9 +22,9 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-criticalcss": "^1.0.2",
+    "grunt-criticalcss": "^1.0.3",
     "grunt-css-mqpacker": "^3.0.1",
-    "grunt-csso": "^1.0.0",
+    "grunt-csso": "^2.0.1",
     "grunt-grunticon": "^2.2.3",
     "grunt-hashify": "0.0.7",
     "grunt-imageoptim": "^1.4.1",
@@ -32,9 +32,9 @@
     "grunt-penthouse": "^0.3.0",
     "grunt-pixrem": "^0.1.2",
     "grunt-remfallback": "^0.0.5",
-    "grunt-sass": "^1.2.0",
+    "grunt-sass": "^1.2.1",
     "grunt-stripmq": "0.0.6",
     "grunt-svgmin": "^3.2.0",
-    "jshint-stylish": "^2.2.0"
+    "jshint-stylish": "^2.2.1"
   }
 }
