@@ -52,7 +52,7 @@ endif;
 // or disable criticalcss for a template, add the name of another file to the
 // include snippet (at the top of the template), like this:
 // `snippet_detect('html_head', array('criticalcss' => 'name_criticalss_file'));`
-$criticalcss = ($criticalcss) ? $criticalcss : $page->intendedTemplate();
+$criticalcss = (isset($criticalcss)) ? $criticalcss : $page->intendedTemplate();
 
 // Variable to set next and previous rel="next/prev" links (e.g. news item,
 // project detail, blogpost, etc.). To enable add a 'prev_next' array to the
