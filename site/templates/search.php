@@ -26,9 +26,7 @@ if(!empty($results)) {
 ////////////////////////////////////////////////////////// ?>
 
 <?php snippet_detect('html_head', array(
-	'criticalcss' => false,
-	'prev_next' => false,
-	'prerender' => false
+	'criticalcss' => false
 )); ?>
 
 	<?php snippet('banner'); ?>

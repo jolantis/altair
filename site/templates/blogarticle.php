@@ -1,7 +1,6 @@
 <?php snippet_detect('html_head', array(
 	'criticalcss' => false,
-	'prev_next' => true,
-	'prerender' => true
+	'prev_next' => true
 )); ?>
 
 	<?php snippet('banner'); ?>

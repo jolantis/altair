@@ -44,36 +44,24 @@ else:
 	else: $meta_description = ''; endif;
 endif;
 
-// Variable to set 'critical' css file to link to on a template basis.
-// To enable add array to 'snippet_detect('html_head');' at top of template:
-// 'snippet_detect('html_head', array('criticalcss' => 'home'));'
-// If no varibale is set for a template the critical css of the
-// 'home' page is used as a 'fallback'.
-if(!isset($criticalcss) || $criticalcss == false): $criticalcss = 'home'; endif;
+// Variable to set 'critical' css file name to link to on a template basis.
+// By default the varibale is set to the name of the intended template (this is
+// the name of the content md/text file). To link to another 'critical' css file
+// or disable criticalcss for a template, add the name of another file to the
+// include snippet (at the top of the template), like this:
+// `snippet_detect('html_head', array('criticalcss' => 'name_criticalss_file'));`
+$criticalcss = ($criticalcss) ? $criticalcss : $page->intendedTemplate();
 
-// Variable to set next and previous rel="next/prev" links.
-// To enable add array to 'snippet_detect('html_head');' at top of template:
+// Variable to set next and previous rel="next/prev" links (e.g. news item,
+// project detail, blogpost, etc.). To enable add a 'prev_next' array to the
+// include snippet (at top of the template), like this:
 // 'snippet_detect('html_head', array('prev_next' => true));'
 if(!isset($prev_next)): $prev_next = false; endif;
-
-// Variable to set next and previous rel="prerender" links.
-// To enable add add array to 'snippet_detect('html_head');' at top of template:
-// 'snippet_detect('html_head', array('prerender' => true));'
-if(!isset($prerender)): $prerender = false; endif;
-
-// Variable to set next and previous rel="prefetch" links.
-// To enable add add array to 'snippet_detect('html_head');' at top of template:
-// 'snippet_detect('html_head', array('prefetch' => true));'
-if(!isset($prefetch)): $prefetch = false; endif;
 
 // Check for the presence of Font Face Observer cookie (e.g. `fonts-loaded`)
 // and if so adds `fonts-loaded` class to html element, to avoid re-downloading
 // web fonts over and over again.
-if(isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 'true'):
-	$fontobserver = ' fonts-loaded';
-else:
-	$fontobserver = '';
-endif;
+$fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 'true') ? ' fonts-loaded' : '';
 
 ////////////////////////////////////////////////////////// ?>
 
