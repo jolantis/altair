@@ -56,7 +56,7 @@ $criticalcss = (isset($criticalcss)) ? $criticalcss : $page->intendedTemplate();
 // project detail, blogpost, etc.). To enable add a 'prev_next' array to the
 // include snippet (at top of the template), like this:
 // 'snippet_detect('html_head', array('prev_next' => true));'
-if(!isset($prev_next)): $prev_next = false; endif;
+$prev_next = (isset($prev_next)) ? $prev_next : false;
 
 // Check for the presence of Font Face Observer cookie (e.g. `fonts-loaded`)
 // and if so adds `fonts-loaded` class to html element, to avoid re-downloading
