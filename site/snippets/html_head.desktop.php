@@ -108,12 +108,6 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php if($prev_next && $page->hasNextVisible()): ?><link rel="next" href="<?php echo $page->nextVisible()->url(); ?>" title="<?php echo $page->nextVisible()->title()->smartypants(); ?>"><?php endif; ?>
 	<?php if($prev_next && $page->hasPrevVisible()): ?><link rel="prev" href="<?php echo $page->prevVisible()->url(); ?>" title="<?php echo $page->prevVisible()->title()->smartypants(); ?>"><?php endif; ?>
 
-	<?php // Prerender next and previous pages (to use set $prerender varibale in template). Chrome only?! ?>
-	<?php if($prerender): ?>
-		<?php if($page->hasNextVisible()): ?><link rel="prerender" href="<?php echo $page->nextVisible()->url(); ?>"><?php endif; ?>
-		<?php if($page->hasPrevVisible()): ?><link rel="prerender" href="<?php echo $page->prevVisible()->url(); ?>"><?php endif; ?>
-	<?php endif; ?>
-
 	<?php // Favicons, MS tile and theme colors, App names, etc. ?>
 	<?php snippet('icons'); ?>
 
