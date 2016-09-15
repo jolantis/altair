@@ -16,16 +16,8 @@ Title: Lists
 
 Text:
 
-## YAML lists
+## Lists with pagination and prev-next
 
-### Details
+An example of a list, with pagination. See the detail pages for the example of prev-next links.
 
-This is a list of the staff and their details.
-
-(customlist: persons class: List type: unordered order: alphabetical reverse: false)
-
-### Definitions
-
-And this is a definition list of what each staffmember does
-
-(customlist: personsdefinition class: List type: definition order: default reverse: true)
+### Planets
