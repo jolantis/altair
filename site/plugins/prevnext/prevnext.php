@@ -46,9 +46,7 @@ function back_to_overview_url($page, $order = NULL) {
 		$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
 	}
 	else {
-		// This formula has to be fixed! Jonathan to the rescue!
-		$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
-		echo "ceil(($item_number - ($total_items + 1)) / -$items_per_page)"; // Debugging echo
+		$page_number = ceil((($total_items + 1) / $items_per_page) - (($item_number - ($total_items + 1)) / -$items_per_page));
 	}
 	$page_param = ($page_number != 1 && !params()) ? '/page:' .  $page_number : '';
 	$param_key = (param()) ? '/' . key(param()) . ':' : '';
