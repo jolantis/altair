@@ -42,8 +42,14 @@ function back_to_overview_url($page, $order = NULL) {
 	$total_pages = ceil($total_items / $items_per_page);
 	$item_number = $page->num();
 
-	// Jonathan: HELP! Werkt nie... :(
-	$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
+	if($order == 'flipped') {
+		$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
+	}
+	else {
+		// This formula has to be fixed! Jonathan to the rescue!
+		$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
+		echo "ceil(($item_number - ($total_items + 1)) / -$items_per_page)"; // Debugging echo
+	}
 	$page_param = ($page_number != 1 && !params()) ? '/page:' .  $page_number : '';
 	$param_key = (param()) ? '/' . key(param()) . ':' : '';
 	$param_tag = (params()) ? param()[key(param())] : '';
