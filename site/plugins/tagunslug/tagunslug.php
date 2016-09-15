@@ -16,7 +16,7 @@ field::$methods['tagunslug'] = function($field) {
 // Convert tag slug (see tagslug plugin) string to tag name
 function tagunslug($text){
 	// uppercase first character after -and-
-	$text = implode('-and-', array_map('ucfirst', explode('-and-', $text)));
+	// $text = implode('-and-', array_map('ucfirst', explode('-and-', $text)));
 
 	// replace -and- by <space>&<space>
 	$text = str_replace('-and-', ' & ', $text);
@@ -25,7 +25,7 @@ function tagunslug($text){
 	$text = str_replace('-', ' ', $text);
 
 	// uppercase
-	$text = ucfirst($text);
+	// $text = ucfirst($text);
 
 	return $text;
 }
