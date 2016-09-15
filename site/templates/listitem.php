@@ -21,6 +21,15 @@
 			<?php echo $page->intro()->kirbytext(); ?>
 			<?php echo $page->text()->kirbytext(); ?>
 
+			<?php if($page->tags() != ''): ?>
+				<p>
+					<strong>Tagged with: </strong>
+					<?php $i = 0; foreach($tags = str::split($page->tags(),',') as $tag): ?>
+						<a href="<?php echo $page->parent()->url().'/tags:'.tagslug($tag); ?>"><?php echo $tag; ?></a><?php if($i < (count($tags) -1)): echo '<span>,</span> '; endif; ?>
+					<?php $i++; endforeach; ?>
+				</p>
+			<?php endif; ?>
+
 			<p>Content taken from: <a href="http://starwars.wikia.com">Wookiepedia</a></p>
 
 		</main>

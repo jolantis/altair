@@ -2,8 +2,16 @@
 	'criticalcss' => false
 ));
 
-// Check if pagination is set
-$pagination = (c::get('pagination.' . $page->intendedTemplate()) == false) ? false : true;
+if(param() && !param('page')) {
+	$key = key(param());
+	$tag = tagunslug(param(key(param())));
+	$planets = $page->children()->visible()->filterBy($key, ($tag), ',');
+	$pagination = false;
+}
+else {
+	$pagination = (c::get('pagination.' . $page->intendedTemplate()) == false) ? false : true;
+	$planets = ($pagination) ? $page->children()->visible()->paginate(c::get('pagination.' . $page->intendedTemplate())) : $page->children()->visible();
+}
 ?>
 
 	<?php snippet('banner'); ?>
@@ -18,10 +26,24 @@ $pagination = (c::get('pagination.' . $page->intendedTemplate()) == false) ? fal
 
 			<?php echo $page->text()->kirbytext(); ?>
 
-			<?php $planets = ($pagination) ? $page->children()->visible()->paginate(c::get('pagination.' . $page->intendedTemplate())) : $page->children()->visible(); ?>
+			<h4>List by tag:</h4>
+
+			<p>
+				<?php $tags = $page->children()->visible()->pluck('tags', ',', true); ?>
+				<?php foreach($tags as $tag): ?>
+					<span><a href="<?php echo url($page->url() . '/tags:' . tagslug($tag)) ?>"><?php echo html($tag); ?></a>,</span>
+				<?php endforeach; ?>
+				<?php if(param() && !param('page')): ?>
+					<span><a href="<?php echo url($page->url()); ?>">all</a></span>
+				<?php endif; ?>
+			</p>
+
+			<h4>List of planets</h4>
+
 			<ul>
 				<?php foreach($planets as $planet): ?>
-					<li><a href="<?php echo url($planet->url()); ?>"><?php echo $planet->title()->smartypants(); ?></a></li>
+					<?php $planet_url = (param() && !param('page')) ? $planet->url() . '/' . key(param()) . ':' . param(key(param())) : $planet->url(); ?>
+					<li><a href="<?php echo url($planet_url); ?>"><?php echo $planet->title()->smartypants(); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 
