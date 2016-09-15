@@ -12,4 +12,4 @@ Following the rise of Sheev Palpatine's Galactic Empire, Alderaan played a pivot
 
 ----
 
-Tags: Princess leia
+Tags: princess leia

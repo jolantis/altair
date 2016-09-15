@@ -10,4 +10,4 @@ Dagobah was a planet in the Dagobah system, and one of the purest places in the 
 
 ----
 
-Tags: Luke skywalker, Master yoda
+Tags: luke skywalker, master yoda

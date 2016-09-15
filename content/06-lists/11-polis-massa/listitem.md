@@ -10,4 +10,4 @@ Following the execution of Order 66, Polis Massa became a safe haven for survivi
 
 ----
 
-Tags: Princess amidala, Princess leia, Luke skywalker, Darth vader, Obi wan kenobi
+Tags: princess amidala, princess leia, luke skywalker, darth vader, obi wan kenobi

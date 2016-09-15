@@ -12,4 +12,4 @@ Years of war left the planet inhospitable, forcing the Mandalorians to live with
 
 ----
 
-Tags: Obi wan kenobi
+Tags: obi wan kenobi

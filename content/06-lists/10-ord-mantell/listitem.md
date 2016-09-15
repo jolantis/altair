@@ -10,4 +10,4 @@ Ord Mantell was a planet that housed a base of operations for the criminal syndi
 
 ----
 
-Tags: Han solo
+Tags: han solo

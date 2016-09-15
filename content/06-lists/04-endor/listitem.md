@@ -8,4 +8,4 @@ Endor was a planet located in the Endor system, a binary star system positioned 
 
 ----
 
-Tags: Princess leia, Luke skywalker, Han solo
+Tags: princess leia, luke skywalker, han solo

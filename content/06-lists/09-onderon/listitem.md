@@ -8,4 +8,4 @@ Onderon was a jungle world located within the Inner Rim. During the Clone Wars, 
 
 ----
 
-Tags: Emperor palpatine
+Tags: emperor palpatine

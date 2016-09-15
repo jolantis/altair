@@ -10,4 +10,4 @@ Hoth was a remote, icy planet that was the sixth planet in the star system of th
 
 ----
 
-Tags: Princess leia, Luke skywalker, Han solo
+Tags: princess leia, luke skywalker, han solo

@@ -16,4 +16,4 @@ Luke Skywalker, to C-3PO)
 
 ----
 
-Tags: Luke skywalker, Darth vader
+Tags: luke skywalker, darth vader
