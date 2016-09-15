@@ -6,6 +6,13 @@
  * @version 1.0.0
  */
 
+/**
+ * Build a lookup page array based on a page collection with param key and values
+ * @param { paramkey } string
+ * @param { paramvalue } string
+ * @param { page } the kirby page variable
+ * @return { lookup_page } array
+ */
 function get_lookup_page($paramkey, $paramvalue, $page) {
 	// Filter projects by param
 	$page_items = $page->siblings()->visible()->filterBy($paramkey, ($paramvalue), ',')->flip();
@@ -22,7 +29,13 @@ function get_lookup_page($paramkey, $paramvalue, $page) {
 	return $lookup_page;
 }
 
-function back_to_overview_url($page) {
+/**
+ * Generate back to overview url, based on the page
+ * @param { page } the kirby page variable
+ * @param { order } string, set as 'flipped' when the order of the list has ->flip()
+ * @return { url } string with href
+ */
+function back_to_overview_url($page, $order = NULL) {
 
 	$items_per_page = c::get('pagination.' . $page->parent()->intendedTemplate());
 	$total_items = $page->parent()->children()->visible()->count();
@@ -38,6 +51,10 @@ function back_to_overview_url($page) {
 	return $page->parent()->url() . $param_key .  $param_tag . $page_param . '#' . $page->slug();
 }
 
+/**
+ * Echo meta tags for prev, next and canonical. Based on the page, pagination settings and used params
+ * @param { page } the kirby page variable
+ */
 function meta_prevnext_listing($page) {
 
 	if(count(params()) >= 1):
@@ -86,6 +103,10 @@ function meta_prevnext_listing($page) {
 
 }
 
+/**
+ * Echo meta tags for prev, next used on specific prev_next pages (siblings), enable 'prev_next' => true in page template!
+ * @param { page } the kirby page variable
+ */
 function meta_prevnext_single($page) {
 
 	if(params() && count(params()) >= 1) {
