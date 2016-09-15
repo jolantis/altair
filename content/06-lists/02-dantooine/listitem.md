@@ -8,3 +8,7 @@ Dantooine was a planet in the Outer Rim Territories within the Galactic Republic
 
 (blockquote: Dantooine. They're on Dantooine. attribution:
 Leia Organa, lying about the location of the Rebel base)
+
+----
+
+Tags: Princess leia

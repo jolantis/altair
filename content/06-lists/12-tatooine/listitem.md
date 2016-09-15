@@ -13,3 +13,7 @@ Largely ignored by the galaxy at large, Tatooine gained the notice of the Empire
 
 (blockquote: Well, if there's a bright center to the universe, you're on the planet that it's farthest from. attribution:
 Luke Skywalker, to C-3PO)
+
+----
+
+Tags: Luke skywalker, Darth vader
