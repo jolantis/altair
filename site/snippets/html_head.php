@@ -95,19 +95,17 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo (c::get('url') != '/') ? $site->url() . '/blog/feed' : '/blog/feed'; ?>"><?php endif; ?>
 	<?php if($site->google_plus() != ''): ?><link rel="publisher" href="https://plus.google.com/xxxxxxxxxxxxxxxxxxxxx"><?php endif; ?>
 
-	<?php // Canonical rel link on pages that can be dynamic (e.g. .../paramkey:paramvalue); by default the script checks if the 'tags' field is present; make sure to change or add field names based on project specifics! ?>
-	<?php foreach($page->children()->visible() as $child_page): if($child_page->tags() != '' && (!param() || is_numeric(param(key(param()))))): ?><link rel="canonical" href="<?php if(is_numeric(param(key(param())))): echo $page->url() . '/page:' . param('page'); else: echo $page->url(); endif; ?>"><?php break; endif; endforeach; ?>
-	<?php foreach($page->siblings($self=false)->visible() as $sibling_page): if($sibling_page->tags() != '' && !$page->isHomePage() && !param()): ?><link rel="canonical" href="<?php echo $page->url(); ?>"><?php break; endif; endforeach; ?>
+	<?php // Next, previous and canonical rel links (used when page is a listing) ?>
+	<?php if(params()) : meta_prevnext_listing($page); endif; ?>
+
+	<?php // Next and previous rel links (to use set $prev_next varibale in template) ?>
+	<?php if($prev_next): meta_prevnext_single($page); endif; ?>
 
 	<?php // Alternate language rel link(s) for matching languages in config and available text files (e.g. blogarticle.md, blogarticle.en.md) ?>
 	<?php if(c::get('language.multi', false)): foreach($site->languages() as $language): if($site->languages()->count() > 1 && $site->language() != $language && isset($page->inventory()['content'][$language->code()])): ?><link rel="alternate" href="<?php echo $page->url($language->code()); ?>" hreflang="<?php echo $language->locale(); ?>"><?php endif; endforeach; endif; ?>
 
 	<?php // Shortlink (to use enable tinyurl in config.php) ?>
 	<?php if(c::get('tinyurl.enabled') && !$page->isHomepage()): ?><link rel="shortlink" href="<?php echo $page->tinyurl(); ?>"><?php endif; ?>
-
-	<?php // Next and previous rel links (to use set $prev_next varibale in template) ?>
-	<?php if($prev_next && $page->hasNextVisible()): ?><link rel="next" href="<?php echo $page->nextVisible()->url(); ?>" title="<?php echo $page->nextVisible()->title()->smartypants(); ?>"><?php endif; ?>
-	<?php if($prev_next && $page->hasPrevVisible()): ?><link rel="prev" href="<?php echo $page->prevVisible()->url(); ?>" title="<?php echo $page->prevVisible()->title()->smartypants(); ?>"><?php endif; ?>
 
 	<?php // Favicons, MS tile and theme colors, App names, etc. ?>
 	<?php snippet('icons'); ?>

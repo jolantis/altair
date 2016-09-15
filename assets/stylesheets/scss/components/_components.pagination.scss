@@ -2,4 +2,45 @@
    Pagination
    ========================================================================== */
 
-// .pagination {}
+.pagination {
+	display: block;
+	margin-top: rhythm(1);
+}
+
+.pagination__count {
+	margin-bottom: rhythm(.5);
+	text-align: center;
+}
+
+.pagination__nav {
+	display: block;
+	margin-bottom: rhythm(.5);
+	text-align: center;
+}
+
+.pagination__item {
+	display: inline-block;
+	margin-left: rhythm(1);
+	color: $color-gray-light;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	a {
+		color: $color-base-black;
+	}
+}
+
+.pagination-range {
+	display: inline-block;
+}
+
+.pagination-range__item {
+	display: inline-block;
+	margin-left: rhythm(1);
+
+	&.is-active {
+		font-weight: bold;
+	}
+}

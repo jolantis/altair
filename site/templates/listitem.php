@@ -1,0 +1,34 @@
+<?php snippet_detect('html_head', array(
+	'criticalcss' => 'home',
+	'prev_next' => true
+)); ?>
+
+	<?php snippet('banner'); ?>
+
+	<!-- Background image example  -->
+	<?php echo bgimage($page->images()->first(), array(
+		'width'     => 1200,
+		'cropratio' => 2/3,
+		'class'     => 'bg-image default-3by2 large-16by9 huge-2by1'
+	)); ?>
+
+	<div class="contain-padding">
+
+		<main role="main" class="copy space-trailer-m">
+
+			<h1>Planet: <?php echo $page->title()->smartypants()->widont(); ?></h1>
+
+			<?php echo $page->intro()->kirbytext(); ?>
+			<?php echo $page->text()->kirbytext(); ?>
+
+			<p>Content taken from: <a href="http://starwars.wikia.com">Wookiepedia</a></p>
+
+		</main>
+
+		<?php snippet('nav_nextprev', array('back_to_overview_url' => back_to_overview_url($page))); ?>
+
+		<?php snippet('share_page'); ?>
+
+	</div>
+
+<?php snippet_detect('footer'); ?>

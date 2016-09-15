@@ -1,6 +1,10 @@
 <?php snippet_detect('html_head', array(
 	'criticalcss' => false
-)); ?>
+));
+
+// Check if pagination is set
+$pagination = (c::get('pagination.' . $page->intendedTemplate()) == false) ? false : true;
+?>
 
 	<?php snippet('banner'); ?>
 
@@ -11,75 +15,21 @@
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
 			<?php echo $page->intro()->kirbytext(); ?>
+
 			<?php echo $page->text()->kirbytext(); ?>
+
+			<?php $planets = ($pagination) ? $page->children()->visible()->paginate(c::get('pagination.' . $page->intendedTemplate())) : $page->children()->visible(); ?>
+			<ul>
+				<?php foreach($planets as $planet): ?>
+					<li><a href="<?php echo url($planet->url()); ?>"><?php echo $planet->title()->smartypants(); ?></a></li>
+				<?php endforeach; ?>
+			</ul>
 
 		</div>
 
-		<?php /*
-
-		<h2 class="beta-heading space-leader-m">Icons list</h2>
-		<ul>
-			<li>
-				<span aria-hidden="true" class="icon icon--phone"></span>
-				phone
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--mobile"></span>
-				smartphone
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--mouse"></span>
-				mouse
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--address"></span>
-				roadsign
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--paper-plane"></span>
-				mail (paper plane)
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--pencil"></span>
-				write
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--attach"></span>
-				attachment
-			</li>
-			<li>
-				<span aria-hidden="true" class="icon icon--facebook"></span>
-				facebook
-			</li>
-		</ul>
-
-		<h2 class="beta-heading space-leader-m">Icons alone</h2>
-		<a href="#" class="space-trailer-m">
-			<span aria-hidden="true" class="Icon Icon--fixed-width Icon--facebook"></span>
-			<span class="is-hidden-visually">Facebook</span>
-		</a>
-		<a href="#">
-			<span aria-hidden="true" class="icon icon--fixed-width icon--paper-plane"></span>
-			<span class="is-hidden-visually">Email</span>
-		</a>
-		<a href="#">
-			<span aria-hidden="true" class="icon icon--fixed-width icon--phone"></span>
-			<span class="is-hidden-visually">Smartphone</span>
-		</a>
-		<a href="#">
-			<span aria-hidden="true" class="icon icon--fixed-width icon--pencil"></span>
-			<span class="is-hidden-visually">Write</span>
-		</a>
-		<a href="#">
-			<span aria-hidden="true" class="icon icon--fixed-width icon--mobile"></span>
-			<span class="is-hidden-visually">Smartphone</span>
-		</a>
-		<a href="#">
-			<span aria-hidden="true" class="icon icon--fixed-width icon--attach"></span>
-			<span class="is-hidden-visually">Attachment</span>
-		</a>
-
-		*/ ?>
+		<?php if($pagination == true): ?>
+			<?php snippet('nav_pagination', array('pagination' => $planets->pagination(), 'start_end' => true, 'range' => 3, 'mod_class' => 'pagination')); ?>
+		<?php endif; ?>
 
 		<h2 class="beta-heading space-leader-m">Block link list</h2>
 		<div class="block-link space-trailer-m">

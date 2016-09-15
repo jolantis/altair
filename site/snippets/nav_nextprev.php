@@ -15,17 +15,8 @@ if(param()) {
 	// Save param and tag for use in URL
 	$paramurl = key(param()) . ':' . param(key(param()));
 
-	// Filter projects by param
-	$page_items = $page->siblings()->visible()->filterBy($paramkey, ($paramvalue), ',')->flip();
-
-	$lookup_page = [];
-	$i = 0;
-
-	// Build an array with all project id's of the filtered projects
-	foreach($page_items as $page_item) {
-		$lookup_page[$i] = $page_item->id();
-		$i++;
-	}
+	// Get lookup page array from params
+	$lookup_page = get_lookup_page($paramkey, $paramvalue, $page);
 
 	// return the key of the array where the current page is located
 	$current_page_index = array_search($page->id(), $lookup_page);
@@ -74,6 +65,9 @@ else {
 				<a href="<?php echo $next_url; ?>"><?php echo $next_title; ?></a> &rarr;
 			</li>
 		<?php endif; ?>
+			<li>
+				<a href="<?php echo $back_to_overview_url; ?>"><span>Back to overview</span></a>
+			</li>
 		<?php if($has_prev): ?>
 			<li class="pagination__older<?php if($has_next == false): echo ' pagination__older--first'; endif; ?>">
 				&larr; <a href="<?php echo $prev_url; ?>"><?php echo $prev_title; ?></a>
