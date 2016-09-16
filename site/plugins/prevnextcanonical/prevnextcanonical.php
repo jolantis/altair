@@ -1,6 +1,6 @@
 <?php
 /**
- * Prev / next control plugin
+ * Prev / next / canonical control plugin
  *
  * @author Marijn Tijhuis <marijn@studiodumbar.com>
  * @version 1.0.0
@@ -59,7 +59,7 @@ function back_to_overview_url($page, $order = NULL) {
  * Echo meta tags for prev, next and canonical. Based on the page, pagination settings and used params
  * @param { page } the kirby page variable
  */
-function meta_prevnext_listing($page) {
+function meta_prevnextcanonical_general($page) {
 
 	if(count(params()) >= 1):
 
@@ -111,12 +111,12 @@ function meta_prevnext_listing($page) {
  * Echo meta tags for prev, next used on specific prev_next pages (siblings), enable 'prev_next' => true in page template!
  * @param { page } the kirby page variable
  */
-function meta_prevnext_single($page) {
+function meta_prevnextcanonical_single($page) {
 
 	if(params() && count(params()) >= 1) {
 
 		// Get the first key of the param array, but when the first key in url is `tag` (singular), make sure to use `tags` (plural; used in the text files) as the key value!
-		$paramkey = (key(params()) == 'category') ? 'categories' : key(params());
+		$paramkey = (key(params()) == 'tag') ? 'tags' : key(params());
 
 		// Unslug the param to a tag
 		$paramvalue = tagunslug(params()[key(params())]);

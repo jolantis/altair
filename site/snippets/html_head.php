@@ -95,11 +95,11 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php if(page('blog/feed')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo page('blog/feed')->title()->smartypants(); ?>" href="<?php echo (c::get('url') != '/') ? $site->url() . '/blog/feed' : '/blog/feed'; ?>"><?php endif; ?>
 	<?php if($site->google_plus() != ''): ?><link rel="publisher" href="https://plus.google.com/xxxxxxxxxxxxxxxxxxxxx"><?php endif; ?>
 
-	<?php // Next, previous and canonical rel links (used when page is a listing) ?>
-	<?php if(params()) : meta_prevnext_listing($page); endif; ?>
+	<?php // Next, previous and canonical rel links for all pages ?>
+	<?php if(params()) : meta_prevnextcanonical_general($page); endif; ?>
 
-	<?php // Next and previous rel links (to use set $prev_next varibale in template) ?>
-	<?php if($prev_next): meta_prevnext_single($page); endif; ?>
+	<?php // Next and previous rel links on specific pages (to use set $prev_next varibale in template) ?>
+	<?php if($prev_next): meta_prevnextcanonical_single($page); endif; ?>
 
 	<?php // Alternate language rel link(s) for matching languages in config and available text files (e.g. blogarticle.md, blogarticle.en.md) ?>
 	<?php if(c::get('language.multi', false)): foreach($site->languages() as $language): if($site->languages()->count() > 1 && $site->language() != $language && isset($page->inventory()['content'][$language->code()])): ?><link rel="alternate" href="<?php echo $page->url($language->code()); ?>" hreflang="<?php echo $language->locale(); ?>"><?php endif; endforeach; endif; ?>

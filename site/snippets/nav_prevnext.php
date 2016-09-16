@@ -15,7 +15,7 @@ if(param()) {
 	// Save param and tag for use in URL
 	$paramurl = key(param()) . ':' . param(key(param()));
 
-	// Get lookup page array from params
+	// Get lookup page array from params, function is in plugins->prevnextcanonical
 	$lookup_page = get_lookup_page($paramkey, $paramvalue, $page);
 
 	// return the key of the array where the current page is located

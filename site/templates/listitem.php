@@ -34,7 +34,7 @@
 
 		</main>
 
-		<?php snippet('nav_nextprev', array('back_to_overview_url' => back_to_overview_url($page))); ?>
+		<?php snippet('nav_prevnext', array('back_to_overview_url' => back_to_overview_url($page))); ?>
 
 		<?php snippet('share_page'); ?>
 
