@@ -45,12 +45,11 @@ else:
 endif;
 
 // Variable to set 'critical' css file name to link to on a template basis.
-// By default the varibale is set to the name of the intended template (this is
-// the name of the content md/text file). To link to another 'critical' css file
-// or disable criticalcss for a template, add the name of another file to the
-// include snippet (at the top of the template), like this:
-// `snippet_detect('html_head', array('criticalcss' => 'name_criticalss_file'));`
-$criticalcss = (isset($criticalcss)) ? $criticalcss : $page->intendedTemplate();
+// By default the varibale is set to 'default'. To link to another 'critical'
+// css file, add name of another file to the include snippet (at the top
+// of the template), like this:
+// `snippet_detect('html_head', array('criticalcss' => 'another_criticalss_file'));`
+$criticalcss = (isset($criticalcss)) ? $criticalcss : 'default';
 
 // Variable to set next and previous rel="next/prev" links (e.g. news item,
 // project detail, blogpost, etc.). To enable add a 'prev_next' array to the

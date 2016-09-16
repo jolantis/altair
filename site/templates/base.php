@@ -1,5 +1,5 @@
 <?php snippet_detect('html_head', array(
-	// 'criticalcss' => 'base'
+	'criticalcss' => 'base',
 )); ?>
 
 	<?php snippet('banner'); ?>
