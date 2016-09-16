@@ -121,9 +121,6 @@ function meta_prevnextcanonical_single($page) {
 		// Unslug the param to a tag
 		$paramvalue = tagunslug(params()[key(params())]);
 
-		// Save param and tag for use in URL
-		$paramurl = $page->parent()->url() . '/' . params()[key(params())];
-
 		// Get lookup page array from params
 		$lookup_page = get_lookup_page($paramkey, $paramvalue, $page);
 
@@ -135,14 +132,14 @@ function meta_prevnextcanonical_single($page) {
 			if($current_page_index > 0) {
 				$next_page = page($lookup_page[$current_page_index - 1]);
 				$next_title = $next_page->title();
-				$next_url = $paramurl . '/' . $next_page->slug();
+				$next_url = $next_page->url() . '/' . key(params()) . ':' . $paramvalue ;
 				echo '<link rel="next" href="' . $next_url . '" title="' . $next_title . '">';
 			}
 			// If the current page is not the last of the filtered list
 			if(($current_page_index + 1) < count($lookup_page)) {
 				$prev_page = page($lookup_page[$current_page_index + 1]);
 				$prev_title = $prev_page->title();
-				$prev_url = $paramurl . '/' . $prev_page->slug();
+				$prev_url = $prev_page->url() . '/' . key(params()) . ':' . $paramvalue ;
 				echo '<link rel="prev" href="' . $prev_url . '" title="' . $prev_title . '">';
 			}
 		}
