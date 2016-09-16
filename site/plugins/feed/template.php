@@ -24,12 +24,17 @@
 					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
 					<description><![CDATA[
 						<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>
-						<?php if($excerptimage == true): ?>
+						<?php if($image == true): ?>
 							<?php echo figure($item->images()->first(), array('lazyload' => false)); ?>
 						<?php endif; ?>
 					]]></description>
 				<?php else: ?>
-					<description><![CDATA[<?php echo $item->{$textfield}()->kirbytext(); ?>]]></description>
+					<description><![CDATA[
+						<?php echo $item->{$textfield}()->kirbytext(); ?>
+						<?php if($image == true): ?>
+							<?php echo figure($item->images()->first(), array('lazyload' => false)); ?>
+						<?php endif; ?>
+					]]></description>
 				<?php endif; ?>
 			</item>
 		<?php endforeach ?>
