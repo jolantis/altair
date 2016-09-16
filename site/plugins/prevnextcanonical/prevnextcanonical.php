@@ -32,7 +32,7 @@ function get_lookup_page($paramkey, $paramvalue, $page) {
 /**
  * Generate back to overview url, based on the page
  * @param { page } the kirby page variable
- * @param { order } string, set as 'flipped' when the order of the list has ->flip()
+ * @param { order } string, set as 'asc' when the order of the list is sorted ascending
  * @return { url } string with href
  */
 function back_to_overview_url($page, $order = NULL) {
@@ -42,11 +42,11 @@ function back_to_overview_url($page, $order = NULL) {
 	$total_pages = ceil($total_items / $items_per_page);
 	$item_number = $page->num();
 
-	if($order == 'flipped') {
-		$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
+	if(strtolower($order) == 'asc') {
+		$page_number = ceil((($total_items + 1) / $items_per_page) - (($item_number - ($total_items + 1)) / -$items_per_page));
 	}
 	else {
-		$page_number = ceil((($total_items + 1) / $items_per_page) - (($item_number - ($total_items + 1)) / -$items_per_page));
+		$page_number = ceil(($item_number - ($total_items + 1)) / -$items_per_page);
 	}
 	$page_param = ($page_number != 1 && !params()) ? '/page:' .  $page_number : '';
 	$param_key = (param()) ? '/' . key(param()) . ':' : '';
