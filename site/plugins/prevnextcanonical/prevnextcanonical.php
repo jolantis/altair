@@ -131,16 +131,20 @@ function meta_prevnextcanonical_single($page) {
 			// If the current page is not the first of the filtered list
 			if($current_page_index > 0) {
 				$next_page = page($lookup_page[$current_page_index - 1]);
-				$next_title = $next_page->title();
-				$next_url = $next_page->url() . '/' . key(params()) . ':' . $paramvalue ;
-				echo '<link rel="next" href="' . $next_url . '" title="' . $next_title . '">';
+				// $next_title = $next_page->title();
+				// $next_url = $next_page->url() . '/' . key(params()) . ':' . $paramvalue;
+				// echo '<link rel="next" href="' . $next_url . '" title="' . $next_title . '">';
+				$next_url = $next_page->url();
+				echo '<link rel="next" href="' . $next_url . '">';
 			}
 			// If the current page is not the last of the filtered list
 			if(($current_page_index + 1) < count($lookup_page)) {
 				$prev_page = page($lookup_page[$current_page_index + 1]);
-				$prev_title = $prev_page->title();
-				$prev_url = $prev_page->url() . '/' . key(params()) . ':' . $paramvalue ;
-				echo '<link rel="prev" href="' . $prev_url . '" title="' . $prev_title . '">';
+				// $prev_title = $prev_page->title();
+				// $prev_url = $prev_page->url() . '/' . key(params()) . ':' . $paramvalue;
+				// echo '<link rel="prev" href="' . $prev_url . '" title="' . $prev_title . '">';
+				$prev_url = $prev_page->url();
+				echo '<link rel="prev" href="' . $prev_url . '">';
 			}
 		}
 	}
