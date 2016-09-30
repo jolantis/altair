@@ -7,6 +7,6 @@
 // Executed on DOM ready
 domready(function () {
 
-	Photoswipegallery.init();                 // Init photoswipe
+	Photoswipegallery.init();                                                   // Init photoswipe
 
 });
