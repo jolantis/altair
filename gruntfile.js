@@ -125,6 +125,7 @@ module.exports = function(grunt) {
 			},
 			photoswipe: {
 				plugins: [
+					'<%= project.scripts_plugins %>/domready/domready.js',
 					'<%= project.scripts_plugins %>/photoswipe/pswp.startfile.js',              // Photoswipe **required**, always first!
 					'<%= project.scripts_plugins %>/photoswipe/pswp.framework-bridge.js',       // Photoswipe **required**
 					'<%= project.scripts_plugins %>/photoswipe/pswp.core.js',                   // Photoswipe **required**
@@ -135,9 +136,6 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/photoswipe/pswp.history.js',                // Photoswipe optional
 					'<%= project.scripts_plugins %>/photoswipe/pswp.endfile.js',                // Photoswipe **required**, always last!
 					'<%= project.scripts_plugins %>/photoswipe/pswp.photoswipe-ui-default.js',  // Photoswipe UI **required**
-				],
-				polyfills: [
-					'<%= project.scripts_polyfills %>/domready.js',
 				],
 				other: [
 				// Modules
