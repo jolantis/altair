@@ -67,7 +67,6 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!-- <html manifest="/cache.appcache" lang="<?php echo $language_locale; ?>"> -->
 <html class="no-js<?php echo $fontobserver ?>" lang="<?php echo $language_locale; ?>">
 <head>
 	<meta charset="utf-8">
