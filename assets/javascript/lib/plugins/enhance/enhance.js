@@ -98,7 +98,7 @@
 
 	// cookie function from https://github.com/filamentgroup/cookie/
 	function cookie( name, value, days ){
-    var expires;
+	var expires;
 		// if value is undefined, get the cookie value
 		if( value === undefined ){
 			var cookiestring = "; " + window.document.cookie;
