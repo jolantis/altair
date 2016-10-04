@@ -10,7 +10,7 @@
  *    `fluid-base-text()` is used instead of the `responsive-base-text()` mixin.
  * 3. `Font-size` is set to `small` size (without mq) for browsers that don't
  *    cut the mustard (aka `no-ctm`).
- * 4. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ * 4. Force scrollbars to always be visible to prevent awkward 'jumps' when
  *    navigating between pages that do/do not have enough content to produce
  *    scrollbars naturally.
  * 5. Prevent horizontal scrollbar when using layout grids!
