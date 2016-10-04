@@ -9,9 +9,9 @@ module.exports = function(grunt) {
 		scripts: {
 			files: {
 				'<%= project.scripts_dev %>/head.scripts.dev.js': '<%= jsfiles.head %>', // destination: source
-				'<%= project.scripts_dev %>/main.scripts.dev.js': ['<%= jsfiles.main.polyfills %>', '<%= jsfiles.main.plugins %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.main.other %>'],
-				'<%= project.scripts_dev %>/mobile.scripts.dev.js': ['<%= jsfiles.mobile.polyfills %>', '<%= jsfiles.mobile.plugins %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.mobile.other %>'],
-				'<%= project.scripts_dev %>/photoswipe.scripts.dev.js': ['<%= jsfiles.photoswipe.polyfills %>', '<%= jsfiles.photoswipe.plugins %>', '<%= jsfiles.photoswipe.other %>'],
+				'<%= project.scripts_dev %>/main.scripts.dev.js': ['<%= jsfiles.main.plugins %>', '<%= jsfiles.main.polyfills %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.main.modules %>'],
+				'<%= project.scripts_dev %>/mobile.scripts.dev.js': ['<%= jsfiles.mobile.plugins %>', '<%= jsfiles.mobile.polyfills %>', '<%= jsfiles.main.utils %>', '<%= jsfiles.mobile.modules %>'],
+				'<%= project.scripts_dev %>/photoswipe.scripts.dev.js': ['<%= jsfiles.photoswipe.plugins %>', '<%= jsfiles.photoswipe.modules %>'],
 			},
 		},
 		forhint: {
@@ -22,9 +22,9 @@ module.exports = function(grunt) {
 			},
 			files: {
 				'<%= project.scripts_dev %>/head.scripts.hint.js': '<%= project.scripts %>/head.scripts.js', // destination: source
-				'<%= project.scripts_dev %>/main.scripts.hint.js': '<%= jsfiles.main.other %>',
-				'<%= project.scripts_dev %>/mobile.scripts.hint.js': '<%= jsfiles.mobile.other %>',
-				'<%= project.scripts_dev %>/photoswipe.scripts.hint.js': '<%= jsfiles.photoswipe.other %>',
+				'<%= project.scripts_dev %>/main.scripts.hint.js': '<%= jsfiles.main.modules %>',
+				'<%= project.scripts_dev %>/mobile.scripts.hint.js': '<%= jsfiles.mobile.modules %>',
+				'<%= project.scripts_dev %>/photoswipe.scripts.hint.js': '<%= jsfiles.photoswipe.modules %>',
 			},
 		},
 	});
