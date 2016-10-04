@@ -40,7 +40,7 @@ var FontObserverHandler = (function () {
 		// Init the observer on the defined font settings
 		Object.keys(fontFamilies).forEach(function(family) {
 			fontObservers.push(fontFamilies[family].map(function(config) {
-				return new FontFaceObserver(family, config).check();
+				return new FontFaceObserver(family, config).load();
 			}));
 		});
 
