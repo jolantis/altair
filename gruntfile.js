@@ -77,8 +77,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_utils %>/domparents.util.js',
 					'<%= project.scripts_utils %>/extend.util.js',
 				],
-				other: [
-				// Modules
+				modules: [
 					'<%= project.scripts_modules %>/alerts.module.js',
 					'<%= project.scripts_modules %>/expand.module.js',
 					// '<%= project.scripts_modules %>/lazysizes.module.js',     // Out-comment when apply custom actions on lazysizes init (also out-comment `lazysizes.init();` in main and mobile scripts)
@@ -106,6 +105,7 @@ module.exports = function(grunt) {
 				],
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',
+					// '<%= project.scripts_polyfills %>/promise.js',
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
@@ -113,8 +113,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_utils %>/domparents.util.js',
 					'<%= project.scripts_utils %>/extend.util.js',
 				],
-				other: [
-				// Modules
+				modules: [
 					'<%= project.scripts_modules %>/alerts.module.js',
 					'<%= project.scripts_modules %>/expand.module.js',
 					// '<%= project.scripts_modules %>/lazysizes.module.js',     // Out-comment when apply custom actions on lazysizes init (also out-comment `lazysizes.init();` in main and mobile scripts)
@@ -138,13 +137,12 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/photoswipe/pswp.endfile.js',                // Photoswipe **required**, always last!
 					'<%= project.scripts_plugins %>/photoswipe/pswp.photoswipe-ui-default.js',  // Photoswipe UI **required**
 				],
-				other: [
-				// Modules
+				modules: [
 					'<%= project.scripts_modules %>/photoswipe.module.js',
 				// Main
 					'<%= project.scripts %>/photoswipe.scripts.js',
 				],
-			}
+			},
 		},
 	});
 
