@@ -15,17 +15,18 @@ module.exports = function(grunt) {
 			},
 			options: {
 				watchTask: true,
-				open: 'external',
+				open: false, // 'external'
 				host: 'local.altair',
 				proxy: 'local.altair',
 				port: 3000,
+				// tunnel: 'altair',                                               // Attempt to use the URL "http://altair.localtunnel.me"
 				// logConnections: true,
 				logFileChanges: true,
 				// open: false, // 'ui'
 				browser: 'google chrome',
 				// xip: true,
-				// reloadOnRestart: true,
-				// notify: false,
+				reloadOnRestart: true,
+				notify: false,
 				ghostMode: {
 					clicks: true,
 					forms: true,
