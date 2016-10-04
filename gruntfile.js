@@ -69,6 +69,7 @@ module.exports = function(grunt) {
 				],
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',
+					// '<%= project.scripts_polyfills %>/promise.js',
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
