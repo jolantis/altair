@@ -6,10 +6,10 @@
 // ----------------------------------------------------------
 ///////////////////////////////////////////////////////////// ?>
 
-<script>if(enhance.ctm()===!1){var lazyloadimgs=document.querySelectorAll("img.lazyload");for(i=0;i<lazyloadimgs.length;i++){var datasrc=lazyloadimgs[i].getAttribute("data-bgsrc");lazyloadimgs[i].setAttribute("src",datasrc),lazyloadimgs[i].style.display="block",lazyloadimgs[i].parentNode.style.display="block",lazyloadimgs[i].parentNode.style.paddingBottom="0px"}var lazyloaddivs=document.querySelectorAll("[data-bgsrc]");for(i=0;i<lazyloaddivs.length;i++){var datasrc=lazyloaddivs[i].getAttribute("data-bgsrc");lazyloaddivs[i].style.backgroundImage="url("+datasrc+")"}}</script>
+<script>if(!("querySelector" in window.document)){var lazyloadimgs=document.querySelectorAll("img.lazyload");for(i=0;i<lazyloadimgs.length;i++){var datasrc=lazyloadimgs[i].getAttribute("data-bgsrc");lazyloadimgs[i].setAttribute("src",datasrc),lazyloadimgs[i].style.display="block",lazyloadimgs[i].parentNode.style.display="block",lazyloadimgs[i].parentNode.style.paddingBottom="0px"}var lazyloaddivs=document.querySelectorAll("[data-bgsrc]");for(i=0;i<lazyloaddivs.length;i++){var datasrc=lazyloaddivs[i].getAttribute("data-bgsrc");lazyloaddivs[i].style.backgroundImage="url("+datasrc+")"}}</script>
 <?php /* ///////////////////// UNMINIFIED! /////////////////////
 <script>
-	if(enhance.ctm() === false) {
+	if( !( "querySelector" in window.document ) ){
 		// Display lazyloaded images with default width and quality,
 		// see: `responsiveimage.default` width and `thumbs.quality` in config
 		var lazyloadimgs = document.querySelectorAll('img.lazyload');
