@@ -59,6 +59,9 @@ $criticalcss = (isset($criticalcss)) ? $criticalcss : 'default';
 // 'snippet_detect('html_head', array('prev_next' => true));'
 $prev_next = (isset($prev_next)) ? $prev_next : false;
 
+// Variable to set page template name to html element for styling purpose.
+$page_template = ($page->intendedTemplate()) ? ' template-' . $page->intendedTemplate() : '';
+
 // Check for the presence of Font Face Observer cookie (e.g. `fonts-loaded`)
 // and if so adds `fonts-loaded` class to html element, to avoid re-downloading
 // web fonts over and over again.
@@ -67,7 +70,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<html class="no-js<?php echo $fontobserver ?>" lang="<?php echo $language_locale; ?>">
+<html class="no-js<?php echo $page_template . $fontobserver ?>" lang="<?php echo $language_locale; ?>">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
