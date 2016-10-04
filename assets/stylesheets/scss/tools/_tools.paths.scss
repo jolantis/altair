@@ -5,10 +5,6 @@
 // Example usage: `background-image: img-url('background.png');`
 // --------------------------------------------------------------------------
 
-@function icon-url($filename) {
-	@return url(../img/icons/#{$filename});
-}
-
 @function img-url($filename) {
-	@return url(../img/#{$filename});
+	@return url(/assets/stylesheets/img/#{$filename});
 }
