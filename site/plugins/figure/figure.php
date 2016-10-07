@@ -101,7 +101,12 @@ function figure($image=false, $options=array()) {
 
 	// Sizes builder
 	if($image && empty($sizes)) {
-		$sizes = figure_get_sizes($image);
+		if(isset($options['setsizes'])) {
+			$sizes = figure_get_sizes($image, $options['setsizes']);
+		}
+		else {
+			$sizes = figure_get_sizes($image, false);
+		}
 	}
 
 	// Set height for default thumb
@@ -240,7 +245,7 @@ kirbytext::$tags['figure'] = array(
 		$upscale    = $tag->attr('upscale');
 		$quality    = $tag->attr('quality', c::get('thumbs.quality', 92));
 		$caption    = $tag->attr('caption');
-		$break      = $tag->attr('break', c::get('figureimage.break', 'small'));
+		$break      = $tag->attr('break', 'small');
 		$gutter     = $tag->attr('gutter', c::get('figureimage.gutter', 'default'));
 		$offset     = $tag->attr('offset');
 		$align      = $tag->attr('align');
@@ -426,12 +431,17 @@ kirbytext::$tags['figure'] = array(
 			$srcset = figure_get_srcset($image, $quality, $crop, $cropratio);
 
 			// Sizes builder
-			if($image && empty($sizes)) {
+			if($image) {
 				if ($feed == true) {
 					$sizes = '100vw'; // Set sizes on full viewport width for feed
 				}
 				else {
-					$sizes = figure_get_sizes($image, $width);
+					if($break && $width) {
+						$sizes = figure_get_sizes($image, array($break . '-' . $width), $width);
+					}
+					else {
+						$sizes = figure_get_sizes($image, false, $width);
+					}
 				}
 			}
 

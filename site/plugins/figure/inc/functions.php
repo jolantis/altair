@@ -31,6 +31,10 @@ function figure_get_srcset( $file, $quality, $crop, $cropratio ) {
 		$source['quality'] = $quality;
 		$source['crop'] = $crop;
 
+		if($file->width() < $source['width']) {
+			$source['width'] = $file->width();
+		}
+
 		if(isset($cropratio) && isset($crop)) {
 			$source['height'] = figure_height_by_cropratio( $cropratio, $source['width'] );
 		}
@@ -110,15 +114,17 @@ function figure_convert_cropratio( $cropratio ) {
  *
  *  @return  string
  */
-function figure_get_sizes( $file, $width = null, $imgclass = array() ) {
+function figure_get_sizes( $file, $allsizes = null, $width = null, $imgclass = array() ) {
 
 	$sizes = '';
-	$sizes_arr = figure_get_sizes_array( $file, $width );
+	$sizes_arr = figure_get_sizes_array( $file, $width, $allsizes );
 
-	foreach ( $sizes_arr as $key => $size ) {
+	foreach ( array_reverse($sizes_arr) as $key => $size ) {
+
+		$size = end($size);
 
 		// skip if the size should only be applied to a given class
-		if (is_string($key) && ! empty($imgclass) && ! in_array($key, $imgclass)) {
+		if (is_string($key) && !empty($imgclass) && !in_array($key, $imgclass)) {
 			continue;
 		}
 
@@ -154,34 +160,69 @@ function figure_get_sizes( $file, $width = null, $imgclass = array() ) {
  *
  *  @return  array
  */
-function figure_get_sizes_array( $file, $width = null ) {
+function figure_get_sizes_array( $file, $width = null, $allsizes ) {
 
 	// let users overwrite the sizes via config
-	$sizes_arr = kirby()->option('responsiveimage.sizes');
-
-	$widthname = (is_null($width)) ? 'default' : $width;
-	$sizes_arr = $sizes_arr[$widthname];
+	$sizes_config_arr = kirby()->option('responsiveimage.sizes');
 
 	// let users overwrite the native image size via attribute
 	$img_width = $file->width() . 'px';
 
-	// default to the image width
-	if (empty($sizes_arr)) {
-		$sizes_arr = array(
-			array(
-				'size_value' => '100vw',
-				'mq_value'   => $img_width,
-				'mq_name'    => 'max-width'
-			),
-			array(
-				'size_value' => $img_width
-			),
-		);
-	} else {
-		$sizes_arr = array_map(function($value) use ($img_width) {
-			// allow config rules relative to native image size
-			return str_replace( '$img_width', $img_width, $value );
-		}, $sizes_arr);
+	if($allsizes) {
+		// build an array to compare with the config file
+		$givensizes = [];
+		foreach ($allsizes as $sizestring) {
+			$keystring = explode('-', $sizestring);
+			$givensizes[$keystring[1]] = $keystring[0];
+		}
+
+		foreach ($sizes_config_arr as $key => $size) {
+			// If the key is default, always add it to sizes
+			if($key == 'default') {
+				// map size to sizes array
+				$sizes_arr[] = array_map(function($value) use ($img_width) {
+					// allow config rules relative to native image size
+					return str_replace( '$img_width', $img_width, $value );
+				}, $size);
+			}
+			// Does the config width (ie: 1of2) exist in the provided sizes array?
+			if(array_key_exists($key, $givensizes)) {
+				// Does the provided breakpoint (ie: medium) exist in the config?
+				if(array_key_exists($givensizes[$key], $size)) {
+					// map size to sizes array
+					$sizes_arr[][$key] = array_map(function($value) use ($img_width) {
+						// allow config rules relative to native image size
+						return str_replace( '$img_width', $img_width, $value );
+					}, $size[$givensizes[$key]]);
+				}
+			}
+		}
+	}
+	else {
+
+		$widthname = (is_null($width)) ? 'default' : $width;
+		$sizes_arr[$widthname] = $sizes_config_arr[$widthname];
+		$sizes_arr['default'] = $sizes_config_arr['default'];
+
+		// default to the image width
+		if (empty($sizes_arr)) {
+			$sizes_arr = array(
+				array(
+					'size_value' => '100vw',
+					'mq_value'   => $img_width,
+					'mq_name'    => 'max-width'
+				),
+				array(
+					'size_value' => $img_width
+				),
+			);
+		} else {
+			$sizes_arr = array_map(function($value) use ($img_width) {
+				// allow config rules relative to native image size
+				return str_replace( '$img_width', $img_width, $value );
+			}, $sizes_arr);
+		}
+
 	}
 
 	return $sizes_arr;

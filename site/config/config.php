@@ -396,7 +396,6 @@ Figureimage (layout grid) settings
 
 */
 
-c::set('figureimage.break', 'compact');                                         // The default 'breakpoint' for `.figure-image` items in a layout grid; the 'breakpoint' defines where to switch from linear to inline items; options are 'compact' and 'medium' (make sure the corresponding grid sizes are set and/or added in `_layout.grid.scss`!)
 c::set('figureimage.gutter', 'default');                                        // The gutter unit for `.figure-image` items in a layout grid; options are 'default' (rhythm unit) and 'percentage'
 
 
@@ -471,34 +470,30 @@ c::set('responsiveimage.sizes', array(
 	),
 	'1of2' => array(                                                            // 50% wide images
 		'small' => array(
-			'size_value' => c::get('vw_width') . 'vw'
+			'mq_value'   => '20em',                                             // Same as compact breakpoint value from `$breakpoints` Sass list
+			'mq_name'    => 'min-width',
+			'size_value' => c::get('vw_width') / 2 . 'vw'
 		),
-		'compact-and-up' => array(
+		'compact' => array(
 			'mq_value'   => '30em',                                             // Same as compact breakpoint value from `$breakpoints` Sass list
 			'mq_name'    => 'min-width',
 			'size_value' => c::get('vw_width') / 2 . 'vw'
 		)
 	),
 	'1of3' => array(                                                            // 33% wide images
-		'small' => array(
-			'size_value' => c::get('vw_width') . 'vw'
-		),
-		'compact-and-up' => array(
+		'compact' => array(
 			'mq_value'   => '30em',
 			'mq_name'    => 'min-width',
 			'size_value' => c::get('vw_width') / 3 . 'vw'
 		)
 	),
 	'2of3' => array(                                                            // 66% wide images
-		'small' => array(
-			'size_value' => c::get('vw_width') . 'vw'
-		),
-		'compact-and-up' => array(
+		'compact' => array(
 			'mq_value'   => '30em',
 			'mq_name'    => 'min-width',
 			'size_value' => c::get('vw_width') / 3 * 2 . 'vw'
 		)
-	)
+	),
 ));
 
 
