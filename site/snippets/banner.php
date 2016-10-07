@@ -4,7 +4,7 @@
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 
-<header role="banner" id="PageTop" class="banner">
+<header role="banner" id="page-top" class="banner">
 	<?php if($page->isHomePage()): echo '<span'; else: echo '<a href="' . $site->url() . '" title="Return to the homepage" rel="home"'; endif; echo ' class="masthead">'?>
 		<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Altair"/>
 		<?php // echo $site->title(); ?>

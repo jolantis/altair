@@ -12,5 +12,5 @@
 			<li class="nav-main__item<?php echo ($page->isOpen()) ? ' is-active' : ''; ?>"><a href="<?php echo $page->url(); ?>"><?php echo $page->title()->smartypants(); ?></a></li>
 		<?php endforeach; ?>
 	</ul>
-	<a href="#PageTop" class="nav-main-toggle nav-main-toggle--close js-nav-main-hide">Back to top</a>
+	<a href="#page-top" class="nav-main-toggle nav-main-toggle--close js-nav-main-hide">Back to top</a>
 </nav>
