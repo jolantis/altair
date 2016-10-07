@@ -128,4 +128,13 @@
 	&+ .medium-break .grid__cell {
 		@include breakpoint(medium) { margin-top: 0; }
 	}
+	&+ .large-break .grid__cell {
+		@include breakpoint(large) { margin-top: 0; }
+	}
+	&+ .wide-break .grid__cell {
+		@include breakpoint(wide) { margin-top: 0; }
+	}
+	&+ .huge-break .grid__cell {
+		@include breakpoint(huge) { margin-top: 0; }
+	}
 }
