@@ -396,7 +396,7 @@ Figureimage (layout grid) settings
 
 */
 
-c::set('figureimage.gutter', 'default');                                        // The gutter unit for `.figure-image` items in a layout grid; options are 'default' (rhythm unit) and 'percentage'
+c::set('figureimage.gutter', 'percentage');                                     // The gutter unit for `.figure-image` items in a layout grid; options are 'default' (rhythm unit) and 'percentage'
 
 
 /* -----------------------------------------------------------------------------
