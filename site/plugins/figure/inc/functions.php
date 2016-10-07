@@ -228,4 +228,16 @@ function figure_get_sizes_array( $file, $width = null, $allsizes ) {
 	return $sizes_arr;
 }
 
+function figure_on_photoswipe_page($page) {
+	foreach(kirby()->option('photoswipe.pages') as $pattern) {
+		// Return true if page uri matches the option values
+		if(fnmatch($pattern, $page->uri()) === true) {
+			return true;
+		}
+	}
+	// If it doesn't match in the loop, return false
+	return false;
+}
+
+
 ?>

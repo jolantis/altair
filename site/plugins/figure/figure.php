@@ -134,8 +134,14 @@ function figure($image=false, $options=array()) {
 		'crop'    => $options['crop']
 	), false);
 
-	// Get Photoswipe options
-	$photoswipe = c::get('photoswipe', false);
+	// Get Photoswipe options if photoswipe is needed at this page
+	if(figure_on_photoswipe_page(kirby()->page())){
+		$photoswipe = c::get('photoswipe', false);
+	}
+	else {
+		$photoswipe = false;
+	}
+
 	if($photoswipe) {
 		$pswphref = $options['maxthumb'];
 		$pswpsize = $maxthumbwidth.'x'.$maxthumbheight;
@@ -255,7 +261,6 @@ kirbytext::$tags['figure'] = array(
 		$cropratio  = $tag->attr('cropratio');
 		$width      = $tag->attr('width');
 		$height     = $tag->attr('height');
-		$photoswipe = c::get('photoswipe', false);
 
 		// Alt tag should not be 'null' but an empty string
 		if(!isset($alt) || is_null($alt)) {
@@ -306,6 +311,14 @@ kirbytext::$tags['figure'] = array(
 		else {
 			$lazyload = c::get('lazyload', false);
 			$feed = false;
+		}
+
+		// If photoswipe is needed on the page, set it
+		if(figure_on_photoswipe_page(kirby()->page())){
+			$photoswipe = c::get('photoswipe', false);
+		}
+		else {
+			$photoswipe = false;
 		}
 
 		// Add figure DOM element with appended classes
