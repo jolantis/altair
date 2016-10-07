@@ -173,7 +173,11 @@
 
 /* Small and up */
 
-// @include breakpoint(small) {}
+@include breakpoint(small) {
+	.small-1of2 { width: 50% !important; }
+	// .small-1of3 { width: percentage(1/3) !important; }
+	// .small-2of3 { width: percentage(2/3) !important; }
+}
 
 /* Compact and up */
 
