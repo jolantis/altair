@@ -120,7 +120,7 @@
 *:not(.figure-image) {
 
 	&+ .small-break .grid__cell {
-		@include breakpoint(compact) { margin-top: 0; }
+		@include breakpoint(small) { margin-top: 0; }
 	}
 	&+ .compact-break .grid__cell {
 		@include breakpoint(compact) { margin-top: 0; }
