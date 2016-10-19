@@ -128,7 +128,7 @@ You are a part of the Rebel Alliance and a traitor! Take her away! I care. So, w
 
 #### Knights of the Old Republic
 
-What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide. I'm trying not to, kid. I'm trying not to, kid. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
+What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like suicide. I'm trying not to, kid. I'm trying not to, kid. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
 
 (figure: unsplash_5263605581e32_1.jpg griditem: true)
 
