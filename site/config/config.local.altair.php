@@ -56,7 +56,8 @@ Cache
 */
 
 c::set('cache', false);
-c::set('cache.driver', 'file');                                                 // Valid values: file, memcached or apc
+c::set('cache.driver', 'file');                                                 // Valid values are: file, memcached and apc
+// c::set('cache.options', array('prefix' => 'altair_'));                          // Prefix memcached keys (prevent collision of caches when pages are named the same, acros sites in a multisite environment)
 
 
 /* -----------------------------------------------------------------------------
