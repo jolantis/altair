@@ -26,60 +26,60 @@ $text-max-width:                37em;
 // --------------------------------------------------------------------------
 
 $text-sizes: (
-	null:    (14px, 1.4),														// base font size(s) and line height(s)
-	small:   (15px),
-	compact: (16px),
-	medium:  (18px, 1.5),
-	large:   (22px),
+	null:                       (14px, 1.4),                                    // base font size(s) and line height(s)
+	small:                      (15px),
+	compact:                    (16px),
+	medium:                     (18px, 1.5),
+	large:                      (22px),
 );
 
-$text-alpha: (																		// alpha heading font size(s) and line height(s)
-	null:    (2rem, 1.25),
-	medium:  (2.25rem),
-	// medium:  (2.5rem, 1.125),
-	large:   (2.5rem),
-	// large:   (3rem, 1.05),
+$text-alpha: (                                                                  // alpha heading font size(s) and line height(s)
+	null:                       (2rem, 1.25),
+	medium:                     (2.25rem),
+	// medium:                     (2.5rem, 1.125),
+	large:                      (2.5rem),
+	// large:                      (3rem, 1.05),
 );
 
-$text-beta: (																		// beta heading font size(s) and line height(s)
-	null:    (1.625rem, 1.154),
-	medium:  (2rem),
-	// medium:  (2rem, 1.25),
-	large:   (2.25rem),
-	// medium:  (2.25rem, 1.25),
+$text-beta: (                                                                   // beta heading font size(s) and line height(s)
+	null:                       (1.625rem, 1.154),
+	medium:                     (2rem),
+	// medium:                     (2rem, 1.25),
+	large:                      (2.25rem),
+	// medium:                     (2.25rem, 1.25),
 );
 
-$text-gamma: (																		// gamma heading font size(s) and line height(s)
-	null:    (1.375rem, 1.136),
-	medium:  (1.5rem),
-	// medium:  (1.5rem, 1.25),
-	large:   (1.75rem),
-	// large:   (1.75rem, 1.25),
+$text-gamma: (                                                                  // gamma heading font size(s) and line height(s)
+	null:                       (1.375rem, 1.136),
+	medium:                     (1.5rem),
+	// medium:                     (1.5rem, 1.25),
+	large:                      (1.75rem),
+	// large:                      (1.75rem, 1.25),
 );
 
-$text-delta: (																		// delta heading font size(s) and line height(s)
-	null:    (1.125rem),
-	// null:    (1.125rem, 1.111),
-	medium:  (1.125rem),
-	// medium:  (1.125rem, 1.222),
+$text-delta: (                                                                  // delta heading font size(s) and line height(s)
+	null:                       (1.125rem),
+	// null:                       (1.125rem, 1.111),
+	medium:                     (1.125rem),
+	// medium:                     (1.125rem, 1.222),
 );
 
-$text-epsilon: (																		// epsilon heading font size(s) and line height(s)
-	null:    (1rem),
-	// null:    (1rem, 1.4),
+$text-epsilon: (                                                                // epsilon heading font size(s) and line height(s)
+	null:                       (1rem),
+	// null:                       (1rem, 1.4),
 );
 
-$text-zeta: (																		// zeta heading font size(s) and line height(s)
-	null:    (1rem),
-	// null:    (1rem, 1.4),
+$text-zeta: (                                                                   // zeta heading font size(s) and line height(s)
+	null:                       (1rem),
+	// null:                       (1rem, 1.4),
 );
 
-$text-nano: (																		// nano heading font size(s) and line height(s)
-	null:    (.875rem),
+$text-nano: (                                                                   // nano heading font size(s) and line height(s)
+	null:                       (.875rem),
 );
 
-$text-pico: (																		// pico heading font size(s) and line height(s)
-	null:    (.75rem),
+$text-pico: (                                                                   // pico heading font size(s) and line height(s)
+	null:                       (.75rem),
 );
 
 
