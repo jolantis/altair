@@ -83,7 +83,7 @@ URL / SSL
 
 To use root relative URLs:
 
-c::set('url', '/');
+c::set('url', '');
 
 Or when in a subdirectory:
 
