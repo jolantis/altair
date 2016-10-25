@@ -376,7 +376,7 @@ videos embedded in Kirby text width the custom video tag, like this:
 */
 
 c::set('video.width', 480);
-c::set('video.height', 358);
+c::set('video.height', 270);
 
 
 /* -----------------------------------------------------------------------------

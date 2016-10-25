@@ -34,10 +34,10 @@ kirbytext::$tags['video'] = array(
 
 		// display the embedcode
 		if($source == 'vimeo') {
-			$videoelement = '<iframe src="https://player.vimeo.com/video/' . $video . '?title=0&amp;byline=0&amp;portrait=0&amp;color=0000ff" width="' . c::get('video.height', '500') . '" height="' . c::get('video.width', '281') . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+			$videoelement = '<iframe src="https://player.vimeo.com/video/' . $video . '?title=0&amp;byline=0&amp;portrait=0&amp;color=0000ff" width="' . c::get('video.height', '480') . '" height="' . c::get('video.width', '270') . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 		}
 		elseif ($source == 'youtube') {
-			$videoelement = '<iframe width="' . c::get('video.width', '500') . '" height="' . c::get('video.height', '281') . '" src="https://www.youtube.com/embed/' . $video . '?rel=0" frameborder="0" allowfullscreen></iframe>';
+			$videoelement = '<iframe width="' . c::get('video.width', '480') . '" height="' . c::get('video.height', '270') . '" src="https://www.youtube.com/embed/' . $video . '?rel=0" frameborder="0" allowfullscreen></iframe>';
 		}
 		else {
 			$videoelement = '<a href="' . $video . '" class="fluid-embed__item">' . $video . '</a>';
