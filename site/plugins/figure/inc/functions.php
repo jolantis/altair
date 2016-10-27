@@ -179,7 +179,9 @@ function figure_get_sizes_array( $file, $width = null, $allsizes ) {
 		foreach ($sizes_config_arr as $key => $size) {
 			// If the key is default, always add it to sizes
 			if($key == 'default') {
-				// map size to sizes array
+				// Remove everyting but 'all' from default size
+				array_splice($size, 1);
+				// map default size to sizes array
 				$sizes_arr[] = array_map(function($value) use ($img_width) {
 					// allow config rules relative to native image size
 					return str_replace( '$img_width', $img_width, $value );
@@ -201,11 +203,9 @@ function figure_get_sizes_array( $file, $width = null, $allsizes ) {
 	else {
 
 		$widthname = (is_null($width)) ? 'default' : $width;
-		$sizes_arr[$widthname] = $sizes_config_arr[$widthname];
-		$sizes_arr['default'] = $sizes_config_arr['default'];
 
 		// default to the image width
-		if (empty($sizes_arr)) {
+		if (empty($sizes_config_arr[$widthname])) {
 			$sizes_arr = array(
 				array(
 					'size_value' => '100vw',
@@ -217,10 +217,14 @@ function figure_get_sizes_array( $file, $width = null, $allsizes ) {
 				),
 			);
 		} else {
-			$sizes_arr = array_map(function($value) use ($img_width) {
-				// allow config rules relative to native image size
-				return str_replace( '$img_width', $img_width, $value );
-			}, $sizes_arr);
+			// loop the 'default' config array for available sizes
+			foreach ($sizes_config_arr[$widthname] as $key => $size) {
+				// map size to sizes array
+				$sizes_arr[][$key] = array_map(function($value) use ($img_width) {
+					// allow config rules relative to native image size
+					return str_replace( '$img_width', $img_width, $value );
+				}, $size);
+			}
 		}
 
 	}
