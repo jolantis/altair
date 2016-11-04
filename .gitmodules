@@ -2,7 +2,6 @@
 	path = kirby
 	url = https://github.com/getkirby/kirby.git
 	update = checkout
-	fetchRecurseSubmodules = false
 [submodule "panel"]
 	path = panel
 	url = https://github.com/getkirby/panel.git
