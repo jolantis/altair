@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 // Ignore pages
-$ignore = array('base', 'sitemap', 'search', 'feed', 'error', 'drafts');
+$ignore = array('base', 'sitemap', 'search', 'error', 'drafts');
 
 // Set header
 header('Content-type: text/xml; charset="utf-8"');

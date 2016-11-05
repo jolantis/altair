@@ -32,7 +32,7 @@ function figure($image=false, $options=array()) {
 	$options = array_merge($defaults, $options);
 
 	// If feed/rss page, set $feed variable to tue
-	if(kirby()->request()->path()->last() == 'feed') {
+	if(page()->representation() == 'rss') {
 		$feed = true;
 	}
 	// Else variable is false
@@ -303,7 +303,7 @@ kirbytext::$tags['figure'] = array(
 		}
 
 		// If feed/rss page, lazyload is always disable
-		if(kirby()->request()->path()->last() == 'feed') {
+		if(page()->representation() == 'rss') {
 			$lazyload = false;
 			$feed = true;
 		}

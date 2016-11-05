@@ -1,13 +1,12 @@
 <!-- generator="<?php echo $generator ?>" -->
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
-
 	<channel>
 		<title><?php echo xml($title); ?></title>
 		<link><?php echo xml($channel); ?></link>
 		<generator><?php echo c::get('feed.generator', 'Kirby'); ?></generator>
 		<lastBuildDate><?php echo date('r', $modified) ?></lastBuildDate>
 		<?php /* <lastBuildDate><?php echo $site->find($channel)->modified('r'); ?></lastBuildDate> */ ?>
-		<atom:link href="<?php echo url($channel); ?>/feed" rel="self" type="application/rss+xml" />
+		<atom:link href="<?php echo url($channel); ?>.rss" rel="self" type="application/rss+xml" />
 
 		<?php if(!empty($description)): ?>
 			<description><?php echo xml($description); ?></description>
