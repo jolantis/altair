@@ -37,10 +37,10 @@
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/favicon-96x96.png'); ?>" sizes="96x96">
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/android-chrome-192x192.png'); ?>" sizes="192x192">
 <link rel="icon" type="image/png" href="<?php echo url('/assets/images/favicon-16x16.png'); ?>" sizes="16x16">
-<link rel="mask-icon" type="image/svg+xml" color="<?php echo ($site->theme_color() != '') ? $site->theme_color() : '#141414' ; ?>" href="<?php echo url('/assets/images/pinned_icon.svg'); ?>" sizes="any"> <?php // Safari 9 pinned tab ?>
+<link rel="mask-icon" type="image/svg+xml" color="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>" href="<?php echo url('/assets/images/pinned_icon.svg'); ?>" sizes="any"> <?php // Safari 9 pinned tab ?>
 <meta name="msapplication-TileImage" content="<?php echo url('/assets/images/mstile-144x144.png'); ?>"> <?php // Microsoft Windows 8 ?>
-<meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color() != '') ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8/8.1 ?>
-<meta name="theme-color" content="<?php echo ($site->theme_color() != '') ? $site->theme_color() : '#141414' ; ?>"> <?php // Safari 9 pinned tab active color (http://j.mp/1JNVn3h) + Android Lollipop task bar collor in the switcher (http://j.mp/1xVyGVc) ?>
+<meta name="msapplication-TileColor" content="<?php echo ($site->ms_tile_color()->isNotEmpty()) ? $site->ms_tile_color() : '#141414' ; ?>"> <?php // Microsoft Windows 8/8.1 ?>
+<meta name="theme-color" content="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"> <?php // Safari 9 pinned tab active color (http://j.mp/1JNVn3h) + Android Lollipop task bar collor in the switcher (http://j.mp/1xVyGVc) ?>
 <?php if($site->app_name()->isNotEmpty()): ?>
 	<meta name="apple-mobile-web-app-title" content="<?php echo $site->app_name()->smartypants(); ?>"> <?php // Custom bookmarked page title on iOS ?>
 	<meta name="application-name" content="<?php echo $site->app_name()->smartypants(); ?>"> <?php // Custom bookmarked page title on Windows 8 ?>

@@ -32,17 +32,17 @@ if(c::get('language.multi', false)): $language_locale = $site->language()->local
 else: $language_locale = c::get('language.locale', 'en'); endif;
 
 // Page title
-if($page->isHomePage() && $site->descriptor() != ''): $pagetitle = $site->descriptor()->smartypants()->titlecase();
-elseif($page->subtitle() != ''): $pagetitle = $page->subtitle()->smartypants()->titlecase();
+if($page->isHomePage() && $site->descriptor()->isNotEmpty()): $pagetitle = $site->descriptor()->smartypants()->titlecase();
+elseif($page->subtitle()->isNotEmpty()): $pagetitle = $page->subtitle()->smartypants()->titlecase();
 else: $pagetitle = $page->title()->smartypants()->titlecase(); endif;
 
 // Meta description
 if($page->isHomePage()):
-	if($site->meta_description() != ''): $meta_description = $site->meta_description()->smartypants();
+	if($site->meta_description()->isNotEmpty()): $meta_description = $site->meta_description()->smartypants();
 	else: $meta_description = ''; endif;
 else:
-	if($page->meta_description() != ''): $meta_description = $page->meta_description()->smartypants();
-	elseif($site->meta_description() != ''): $meta_description = $site->meta_description()->smartypants();
+	if($page->meta_description()->isNotEmpty()): $meta_description = $page->meta_description()->smartypants();
+	elseif($site->meta_description()->isNotEmpty()): $meta_description = $site->meta_description()->smartypants();
 	else: $meta_description = ''; endif;
 endif;
 
@@ -88,7 +88,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>
 
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
-	<?php if($meta_description != ''): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
+	<?php if($meta_description->isNotEmpty()): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
 
 	<link rel="home" href="<?php echo $site->url(); ?>">

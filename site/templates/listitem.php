@@ -21,7 +21,7 @@
 			<?php echo $page->intro()->kirbytext(); ?>
 			<?php echo $page->text()->kirbytext(); ?>
 
-			<?php if($page->tags() != ''): ?>
+			<?php if($page->tags()->isNotEmpty()): ?>
 				<p>
 					<strong>Tagged with: </strong>
 					<?php $i = 0; foreach($tags = str::split($page->tags(),',') as $tag): ?>
