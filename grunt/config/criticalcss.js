@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	grunt.config('criticalcss', {
 		default : {
 			options: {
-				url: 'http://local.altair',
+				url: 'http://altair.dev',
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/default.css',
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 		},
 		default_mobile : {
 			options: {
-				url: 'http://local.altair',
+				url: 'http://altair.dev',
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/default_mobile.css',
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 		},
 		home : {
 			options: {
-				url: 'http://local.altair',
+				url: 'http://altair.dev',
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/home.css',
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 		},
 		home_mobile : {
 			options: {
-				url: 'http://local.altair',
+				url: 'http://altair.dev',
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/home_mobile.css',
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 		},
 		base : {
 			options: {
-				url: 'http://local.altair/base',
+				url: 'http://altair.dev/base',
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/base.css',
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 		},
 		base_mobile : {
 			options: {
-				url: 'http://local.altair/base',
+				url: 'http://altair.dev/base',
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/base_mobile.css',
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 		},
 		images : {
 			options: {
-				url: 'http://local.altair/images',
+				url: 'http://altair.dev/images',
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/images.css',
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 		},
 		images_mobile : {
 			options: {
-				url: 'http://local.altair/images',
+				url: 'http://altair.dev/images',
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/images_mobile.css',
