@@ -32,9 +32,13 @@ if(c::get('language.multi', false)): $language_locale = $site->language()->local
 else: $language_locale = c::get('language.locale', 'en'); endif;
 
 // Page title
-if($page->isHomePage() && $site->descriptor()->isNotEmpty()): $pagetitle = $site->descriptor()->smartypants()->titlecase();
-elseif($page->subtitle()->isNotEmpty()): $pagetitle = $page->subtitle()->smartypants()->titlecase();
-else: $pagetitle = $page->title()->smartypants()->titlecase(); endif;
+if($page->isHomePage()):
+	if($site->descriptor()->isNotEmpty()): $pagetitle = ': ' . $site->descriptor()->smartypants()->titlecase();
+	else: $pagetitle = ''; endif;
+else:
+	if($page->long_title()->isNotEmpty()): $pagetitle = ': ' . $page->long_title()->smartypants()->titlecase();
+	else: $pagetitle = ': ' . $page->title()->smartypants()->titlecase(); endif;
+endif;
 
 // Meta description
 if($page->isHomePage()):
@@ -85,10 +89,10 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php // Preload assets (fonts, stylesheets, etc.) ?>
 	<link rel="preload" href="<?php $site->url(); ?>/assets/fonts/firasans/firasans-bold.woff2" as="font" type="font/woff2">
 
-	<title><?php echo $site->title()->smartypants() . ': ' . $pagetitle; ?></title>
+	<title><?php echo $site->title()->smartypants() . $pagetitle; ?></title>
 
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
-	<?php if($meta_description->isNotEmpty()): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
+	<?php if($meta_description): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
