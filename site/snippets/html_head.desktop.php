@@ -92,7 +92,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<title><?php echo $site->title()->smartypants() . $pagetitle; ?></title>
 
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
-	<?php if($meta_description->isNotEmpty()): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
+	<?php if($meta_description): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
