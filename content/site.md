@@ -46,4 +46,4 @@ Author: Studio Dumbar, Jonathan van Wunnik, Marijn Tijhuis
 
 ----
 
-Copyright: © 2009-(date: Year) (link: http://altair.studiodumbar.info text: Altair)
+Copyright: © 2009-(date: Year) (link: http://altair.studiodumbar.com text: Altair)
