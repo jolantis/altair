@@ -2,7 +2,7 @@ Title: Search
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
@@ -10,8 +10,8 @@ Meta description: Search the website
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 
-[Text:]
+Text:

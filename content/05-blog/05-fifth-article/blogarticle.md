@@ -2,11 +2,11 @@ Title: Fifth article
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
@@ -14,7 +14,7 @@ Date: 2012/08/28
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

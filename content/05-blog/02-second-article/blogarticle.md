@@ -2,11 +2,11 @@ Title: Second article
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
@@ -14,7 +14,7 @@ Date: 2012/05/12
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

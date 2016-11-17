@@ -2,11 +2,11 @@ Title: Third article
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
@@ -14,7 +14,7 @@ Date: 2012/06/20
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

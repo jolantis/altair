@@ -2,11 +2,11 @@ Title: Fourth article
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
@@ -14,7 +14,7 @@ Date: 2012/07/11
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

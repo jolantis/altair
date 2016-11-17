@@ -2,15 +2,15 @@ Title: Lists
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

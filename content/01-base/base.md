@@ -2,11 +2,11 @@ Title: Base
 
 ----
 
-Subtitle: Base HTML elements
+Long title: Base HTML elements
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
@@ -117,20 +117,20 @@ Donec blandit, quam et tempus egestas, nulla enim viverra orci, ac scelerisque m
 ### Nested list
 
 - Consectetur adipisicing elit
-  - Pellentesque habitant morbi tristique senectus
-  - Sed magna nisl, porta id
+	- Pellentesque habitant morbi tristique senectus
+	- Sed magna nisl, porta id
 - Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-  - Praesent nunc urna, suscipit at
-  - Cras at magna turpis. Vivamus
+	- Praesent nunc urna, suscipit at
+	- Cras at magna turpis. Vivamus
 
 ### Nested list
 
 1. Lorem ipsum dolor sit amet
-  - Aliquam fringilla massa lacus, at ornare
-  - Aliquam facilisis erat vitae metus
+	- Aliquam fringilla massa lacus, at ornare
+	- Aliquam facilisis erat vitae metus
 2. Consectetur adipisicing elit
-  - Pellentesque habitant morbi tristique senectus
-  - Sed magna nisl, porta id
+	- Pellentesque habitant morbi tristique senectus
+	- Sed magna nisl, porta id
 
 ### Definition list
 

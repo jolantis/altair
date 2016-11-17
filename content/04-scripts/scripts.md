@@ -2,11 +2,11 @@ Title: Scripts
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
@@ -16,4 +16,4 @@ This page shows some nifty JavaScript implementation.
 
 ----
 
-[Text:]
+Text:

@@ -2,7 +2,7 @@ Title: Error 404
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
@@ -10,7 +10,7 @@ Meta description: Page not found (404)
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

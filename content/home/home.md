@@ -2,15 +2,15 @@ Title: Home
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 

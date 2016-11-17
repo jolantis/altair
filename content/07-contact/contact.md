@@ -2,19 +2,19 @@ Title: Contact
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 
-[Text:]
+Text:
 
 ----
 

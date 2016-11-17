@@ -2,15 +2,15 @@ Title: Blog
 
 ----
 
-[Subtitle:]
+Long title:
 
 ----
 
-[Meta description:]
+Meta description:
 
 ----
 
-[Intro:]
+Intro:
 
 ----
 
