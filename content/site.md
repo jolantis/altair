@@ -18,10 +18,6 @@ Theme Color: #332c29
 
 ----
 
-MS Tile Color: #332c29
-
-----
-
 Twitter:
 
 ----
