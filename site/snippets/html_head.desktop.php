@@ -97,8 +97,8 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
 	<link rel="sitemap" type="application/xml" title="<?php echo $site->title()->smartypants(); ?>: Sitemap" href="<?php echo (c::get('url') != '/') ? $site->url() . '/sitemap.xml' :  '/sitemap.xml'; ?>">
-	<?php if($site->google_plus()->isNotEmpty()): ?><link rel="publisher" href="https://plus.google.com/xxxxxxxxxxxxxxxxxxxxx"><?php endif; ?>
 	<?php if($pages->has('blog')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo $site->title()->smartypants(); ?>: <?php echo page('blog')->title()->smartypants(); ?> Feed" href="<?php echo (c::get('url') != '/') ? $site->url() . '/blog.rss' : '/blog.rss'; ?>"><?php endif; ?>
+	<?php if($site->google_plus()->isNotEmpty()): ?><link rel="publisher" href="https://plus.google.com/<?php echo $site->google_plus(); ?>"><?php endif; ?>
 
 	<?php // Next, previous and canonical rel links for all pages ?>
 	<?php meta_prevnextcanonical_general($page); ?>
