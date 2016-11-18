@@ -94,15 +94,14 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<meta name="author" content="<?php echo $site->author()->smartypants(); ?>">
 	<?php if($meta_description): ?><meta name="description" content="<?php echo $meta_description->smartypants(); ?>"><?php endif; ?>
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
+	<?php if($site->app_name()->isNotEmpty()): ?><meta name="apple-mobile-web-app-title" content="<?php echo $site->app_name()->smartypants(); ?>"><?php // Custom bookmarked page title on iOS ?><?php endif; ?>
+	<meta name="theme-color" content="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"><?php // For theme-color in Chrome 39+ for Android, task bar collor in the switcher (http://j.mp/1xVyGVc) ?>
 
 	<link rel="home" href="<?php echo $site->url(); ?>">
 	<?php if(c::get('tinyurl.enabled') && !$page->isHomepage()): ?><link rel="shortlink" href="<?php echo $page->tinyurl(); ?>"><?php endif; ?> <?php // Shortlink, enable tinyurl in config.php ?>
 	<link rel="sitemap" type="application/xml" title="<?php echo $site->title()->smartypants(); ?>: Sitemap" href="<?php echo (c::get('url') != '/') ? $site->url() . '/sitemap.xml' :  '/sitemap.xml'; ?>">
 	<?php if($pages->has('blog')): ?><link rel="alternate" type="application/rss+xml" title="<?php echo $site->title()->smartypants(); ?>: <?php echo page('blog')->title()->smartypants(); ?> Feed" href="<?php echo (c::get('url') != '/') ? $site->url() . '/blog.rss' : '/blog.rss'; ?>"><?php endif; ?>
 	<?php if($site->google_plus()->isNotEmpty()): ?><link rel="publisher" href="https://plus.google.com/<?php echo $site->google_plus(); ?>"><?php endif; ?>
-
-	<?php if($site->app_name()->isNotEmpty()): ?><meta name="apple-mobile-web-app-title" content="<?php echo $site->app_name()->smartypants(); ?>"><?php // Custom bookmarked page title on iOS ?><?php endif; ?>
-	<meta name="theme-color" content="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"><?php // For theme-color in Chrome 39+ for Android, task bar collor in the switcher (http://j.mp/1xVyGVc) ?>
 
 	<link rel="apple-touch-icon" href="<?php echo url('/assets/images/apple-touch-icon-180x180.png'); ?>"><?php // Touch icons, iOS and Android, 180x180 pixels in size (http://j.mp/2fnrQmw, http://j.mp/2gpJVVF) ?>
 	<link rel="icon" href="<?php echo url('/assets/images/favicon-192x192.png'); ?>"><?php // For Firefox, Chrome, Safari, IE 11+ and Opera, 192x192 pixels in size ?>
