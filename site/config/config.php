@@ -522,7 +522,8 @@ Do not forget to enable the Javascript and Stylesheet assets when enabling!
 */
 
 c::set('photoswipe', true);
-c::set('photoswipe.pages', array('images', 'blog/*'));                          // Include in these pages. Wildcards can be used as well, e.g.: projects/*
+c::set('photoswipe.pages', array('images', 'blog/*'));                          // Include in these pages. Wildcards can be used as well, e.g.: blog/*
+c::set('photoswipe.exclude', array());                                          // Exclude these specific pages from photoswipe.pages. Wildcards can be used as well, e.g.: blog/archive/*
 c::set('photoswipe.mobile', 'wide');                                            // Enlarged image size for mobile, defined by one of the `responsiveimage.sources` identifier
 c::set('photoswipe.desktop', 'max');                                            // Enlarged image size for desktop, defined by one of the `responsiveimage.sources` identifier
 

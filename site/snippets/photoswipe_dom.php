@@ -6,12 +6,24 @@
 // ----------------------------------------------------------
 
 function is_photoswipe_page($page) {
+	// Loop all photoswipe.pages uri's
 	foreach(kirby()->option('photoswipe.pages') as $pattern) {
 		// Return true if page uri matches the option values
 		if(fnmatch($pattern, $page->uri()) === true) {
+
+			// If the uri is present, check if it's not in the exclude list
+			foreach(kirby()->option('photoswipe.exclude') as $excludepattern) {
+				// Return false if page uri matches the option values
+				if(fnmatch($excludepattern, $page->uri()) === true) {
+					return false;
+				}
+			}
+
+			// It's not been returned by excludepattern, so photoswipe should be shown
 			return true;
 		}
 	}
+
 	// If it doesn't match in the loop, return false
 	return false;
 }
