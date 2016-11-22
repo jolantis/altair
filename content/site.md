@@ -34,7 +34,7 @@ Google Plus: jonathanvanwunnik
 
 ----
 
-Author: Studio Dumbar, Jonathan van Wunnik, Marijn Tijhuis
+Author: Jonathan van Wunnik, Marijn Tijhuis
 
 ----
 
