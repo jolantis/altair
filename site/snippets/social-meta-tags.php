@@ -170,7 +170,6 @@ else {
 <?php endif; ?>
 <?php if($twitter_author): ?><meta name="twitter:creator" content="@<?php echo $twitter_author ?>">
 <?php endif; ?>
-<meta property="og:site_name" content="<?php echo $site_title ?>" />
 <?php if($page_url): ?><meta property="og:url" content="<?php echo $page_url ?>">
 <?php endif; ?>
 <meta property="og:title" content="<?php echo $page_title ?>">
@@ -188,14 +187,12 @@ else {
 <?php endif; ?>
 <?php if($featured_image): ?><meta property="og:image" content="<?php echo $featured_image ?>">
 <?php endif; ?>
-<meta property="og:type" content="article" />
 <meta property="article:published_time" content="<?php echo $pub_date ?>" />
 <?php if($mod_date): ?><meta property="article:modified_time" content="<?php echo $mod_date ?>" />
 <meta property="og:updated_time" content="<?php echo $mod_date ?>" />
 <?php endif; ?>
 <?php if($page_root): ?><meta property="article:section" content="<?php echo $page_root ?>" />
 <?php endif; ?>
-<meta property="article:tag" content="Article Tag" />
 <?php if($facebook_publisher): ?><meta property="article:publisher" content="<?php echo $facebook_publisher ?>" />
 <?php endif; ?>
 <?php if($facebook_author): ?><meta property="article:author" content="<?php echo $facebook_author ?>" />
