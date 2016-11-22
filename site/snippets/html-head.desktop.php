@@ -99,7 +99,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<!-- Scripts and Stylesheets -->
 	<meta name="fullcss" content="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'); ?>">
 	<meta name="fulljs" content="<?php echo url('/assets/javascript/'. $env_suffix .'/' . $main_js . '.js'); ?>">
-	<?php /* <meta name="photoswipejs" content="<?php echo url('/assets/javascript/'. $env_suffix .'/' . $photoswipe_js . '.js'); ?>"> */ ?>
+	<meta name="photoswipejs" content="<?php echo url('/assets/javascript/'. $env_suffix .'/' . $photoswipe_js . '.js'); ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/'. $env_suffix .'/' . $head_js . '.js'); ?></script>
 	<?php if(isset($_COOKIE['fullcss']) && $_COOKIE['fullcss'] == 'true'): ?>
 		<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $main_css . '.css'); ?>">
