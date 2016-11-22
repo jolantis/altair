@@ -112,7 +112,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<link rel="stylesheet" href="<?php echo url('/assets/stylesheets/' . $env_suffix . '/' . $print_css . '.css'); ?>" media="print">
 
 	<?php // Initialize JS variables for use later on ?>
-	<?php // <script>var push_message = [];</script> ?>
+	<script>var push_message = [];</script>
 
 </head>
 <body>

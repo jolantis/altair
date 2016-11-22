@@ -117,7 +117,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<![endif;]-->
 
 	<?php // Initialize JS variables for use later on ?>
-	<?php // <script>var push_message = [];</script> ?>
+	<script>var push_message = [];</script>
 
 </head>
 <body>
