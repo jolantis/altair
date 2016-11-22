@@ -6,7 +6,7 @@
 // 1)
 //   $projects = $page->children()->visible()->flip()->paginate(24);
 // 2)
-//   snippet('nav_pagination', array('pagination' => $projects->pagination(), 'start_end' => true, 'range' => 5));
+//   snippet('nav-pagination', array('pagination' => $projects->pagination(), 'start_end' => true, 'range' => 5));
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 

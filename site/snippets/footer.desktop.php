@@ -4,7 +4,7 @@
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 
-	<?php snippet('nav_main'); ?>
+	<?php snippet('nav-main'); ?>
 
 	<div role="contentinfo" class="contentinfo">
 		<footer>
@@ -14,8 +14,8 @@
 		</footer>
 	</div>
 
-	<?php snippet('photoswipe_dom'); ?>
-	<?php snippet('no_ctm_fallback'); ?>
-	<?php snippet('google_analytics'); ?>
+	<?php snippet('photoswipe-dom'); ?>
+	<?php snippet('no-ctm-fallback'); ?>
+	<?php snippet('google-analytics'); ?>
 </body>
 </html>

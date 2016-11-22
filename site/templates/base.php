@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	'criticalcss' => 'base',
 )); ?>
 
@@ -205,7 +205,7 @@
 
 		</div>
 
-		<?php snippet('share_page'); ?>
+		<?php snippet('share-page'); ?>
 
 	</main>
 

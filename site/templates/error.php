@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 )); ?>
 

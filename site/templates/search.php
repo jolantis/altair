@@ -25,7 +25,7 @@ if(!empty($results)) {
 
 ////////////////////////////////////////////////////////// ?>
 
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 )); ?>
 
@@ -50,7 +50,7 @@ if(!empty($results)) {
 		<div class="search-results">
 			<?php if($results) : ?>
 
-				<?php snippet('nav_pagination', array('pagination' => $pagination)); ?>
+				<?php snippet('nav-pagination', array('pagination' => $pagination)); ?>
 
 				<?php foreach($results as $result): ?>
 					<article>
@@ -68,7 +68,7 @@ if(!empty($results)) {
 					</article>
 				<?php endforeach; ?>
 
-				<?php snippet('nav_pagination', array('pagination' => $pagination)); ?>
+				<?php snippet('nav-pagination', array('pagination' => $pagination)); ?>
 
 			<?php elseif($search->query()): ?>
 				<div class="SearchNoResults">No results for <strong><?php echo html($search->query()); ?></strong></div>

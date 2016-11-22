@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 	'prev_next' => true
 )); ?>
@@ -33,11 +33,11 @@
 				<!-- end -->
 			<?php endif; */ ?>
 
-			<?php snippet('share_page'); ?>
+			<?php snippet('share-page'); ?>
 
 		</article>
 
-		<?php snippet('nav_sub'); ?>
+		<?php snippet('nav-sub'); ?>
 
 	</main>
 

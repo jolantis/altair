@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 )); ?>
 
@@ -27,9 +27,9 @@
 	</main>
 
 	<h3 class="beta-heading contain">Leafletjs map</h3>
-	<?php snippet('map_leafletjs'); ?>
+	<?php snippet('map-leafletjs'); ?>
 
 	<h3 class="beta-heading contain space-leader-m">Google map</h3>
-	<?php snippet('map_google'); ?>
+	<?php snippet('map-google'); ?>
 
 <?php snippet_detect('footer'); ?>

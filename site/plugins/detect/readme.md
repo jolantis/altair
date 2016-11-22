@@ -5,7 +5,7 @@ A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets
 ## How to use it?
 
 * First add the `detect` folder to your `/site/plugins` directory.
-* Create device specific snippets by adding the `.desktop` postfix to snippets in the `/snippets` folder (e.g. html_head.desktop.php)
+* Create device specific snippets by adding the `.desktop` postfix to snippets in the `/snippets` folder (e.g. html-head.desktop.php)
 * Include the device-specific snippet:
 
 ```php
@@ -34,7 +34,7 @@ elseif($detect->isTablet()) {
 }
 ```
 
-Now make sure there are tablet device specific snippets by adding the `.tablet` postfix to the snippet file name (e.g. `html_head.tablet.php`).
+Now make sure there are tablet device specific snippets by adding the `.tablet` postfix to the snippet file name (e.g. `html-head.tablet.php`).
 
 ## Author(s)
 Jonathan van Wunnik, Marijn Tijhuis

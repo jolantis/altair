@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 	'prev_next' => true
 )); ?>
@@ -34,9 +34,9 @@
 
 		</main>
 
-		<?php snippet('nav_prevnext', array('back_to_overview_url' => back_to_overview_url($page, 'asc'))); ?>
+		<?php snippet('nav-prevnext', array('back_to_overview_url' => back_to_overview_url($page, 'asc'))); ?>
 
-		<?php snippet('share_page'); ?>
+		<?php snippet('share-page'); ?>
 
 	</div>
 

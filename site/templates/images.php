@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	'criticalcss' => 'images',
 )); ?>
 
@@ -19,7 +19,7 @@
 		<?php echo $page->intro()->kirbytext(); ?>
 		<?php echo $page->text()->kirbytext(); ?>
 
-		<?php snippet('share_page'); ?>
+		<?php snippet('share-page'); ?>
 
 	</main>
 

@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 ));
 
@@ -51,7 +51,7 @@ else {
 		</div>
 
 		<?php if($pagination == true): ?>
-			<?php snippet('nav_pagination', array('pagination' => $planets->pagination(), 'start_end' => true, 'range' => 3, 'mod_class' => 'pagination')); ?>
+			<?php snippet('nav-pagination', array('pagination' => $planets->pagination(), 'start_end' => true, 'range' => 3, 'mod_class' => 'pagination')); ?>
 		<?php endif; ?>
 
 		<h2 class="beta-heading space-leader-m">Block link list</h2>
@@ -71,7 +71,7 @@ else {
 			<a href="<?php echo url('javascript.php'); ?>" class="block-link__anchor">Visit the Javascript page</a>
 		</div>
 
-		<?php snippet('share_page'); ?>
+		<?php snippet('share-page'); ?>
 
 	</main>
 

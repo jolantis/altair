@@ -1,4 +1,4 @@
-<?php snippet_detect('html_head', array(
+<?php snippet_detect('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 )); ?>
 
@@ -15,7 +15,7 @@
 		<?php echo $page->intro()->kirbytext(); ?>
 		<?php echo $page->text()->kirbytext(); ?>
 
-		<?php snippet('nav_sub'); ?>
+		<?php snippet('nav-sub'); ?>
 
 	</main>
 
