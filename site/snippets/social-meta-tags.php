@@ -158,7 +158,7 @@ else {
 <!-- Google+ / Schema.org -->
 <?php if($google_plus): ?><link rel="publisher" href="https://plus.google.com/+<?php echo $site->google_plus(); ?>"><?php endif; ?>
 <meta itemprop="name" content="<?php echo $page_title ?>">
-<meta itemprop="description" content="<?php echo $description ?>">
+<meta itemprop="description" content="<?php echo $description->excerpt(300); ?>">
 <?php if($featured_image): ?><meta itemprop="image" content="<?php echo $featured_image ?>">
 <?php endif; ?>
 
