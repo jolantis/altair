@@ -6,7 +6,11 @@ Long title:
 
 ----
 
-Meta description:
+Description:
+
+----
+
+Featured image:
 
 ----
 

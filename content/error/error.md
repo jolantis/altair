@@ -6,7 +6,7 @@ Long title:
 
 ----
 
-Meta description: Page not found (404)
+Description: Page not found (404)
 
 ----
 

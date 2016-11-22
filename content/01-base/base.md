@@ -6,7 +6,7 @@ Long title: Base HTML elements
 
 ----
 
-Meta description:
+Description:
 
 ----
 

@@ -2,11 +2,11 @@ Title: Altair
 
 ----
 
-Descriptor: A Sass and Grunt-based front-end starter kit built on top of file-based Kirby CMS v2.
+Tagline: A Sass and Grunt-based front-end starter kit built on top of file-based Kirby CMS
 
 ----
 
-Meta description: Default (overall) site description here... max. 160 characters
+Featured image:
 
 ----
 

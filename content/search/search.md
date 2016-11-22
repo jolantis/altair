@@ -6,7 +6,7 @@ Long title:
 
 ----
 
-Meta description: Search the website
+Description: Search the website
 
 ----
 
