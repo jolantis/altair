@@ -61,49 +61,49 @@ function back_to_overview_url($page, $order = NULL) {
  */
 function meta_prevnextcanonical_general($page) {
 
-	if(count(params()) >= 1):
+	if(count(params()) >= 1) {
 
-		$i = 0; foreach(params() as $param_value):
-			if(count(params()) > 1 && array_keys(params())[0] == 'page'):
+		$i = 0; foreach(params() as $param_value) {
+			if(count(params()) > 1 && array_keys(params())[0] == 'page') {
 				go($page->url(), 301);
-			endif;
-			if($i < count(params()) && array_keys(params())[$i] == 'page'):
+			}
+			if($i < count(params()) && array_keys(params())[$i] == 'page') {
 				$page_number = param('page');
 				$pages_total = ceil($page->children()->visible()->count() / c::get('pagination.' . $page->intendedTemplate()));
-				if($page_number == 2):
+				if($page_number == 2) {
 					echo '<link rel="prev" href="' . $page->url() . '">';
-				endif;
-				if($page_number > 2 && $page_number <= $pages_total):
+				}
+				if($page_number > 2 && $page_number <= $pages_total) {
 					echo '<link rel="prev" href="' . $page->url() . '/page:' . ($page_number - 1) . '">';
-				endif;
-				if($page_number != $pages_total):
+				}
+				if($page_number != $pages_total) {
 					echo '<link rel="next" href="' . $page->url() . '/page:' . ($page_number + 1) . '">';
-				endif;
-			endif;
-		$i++; endforeach;
+				}
+			}
+		$i++; }
 
-	endif;
+	}
 
-	if(params()):
+	if(params()) {
 
-		$i = 0; foreach(params() as $param_value):
+		$i = 0; foreach(params() as $param_value) {
 			// TO DO: check for more than 1 non 'page' params!
-			if($i < count(params()) && array_keys(params())[$i] != 'page'):
+			if($i < count(params()) && array_keys(params())[$i] != 'page') {
 				// echo $params = '/' . array_keys(param())[$i] . ':' . array_values(param())[$i];
 				echo '<link rel="canonical" href="' . $page->url() . '">';
 				break;
-			endif;
-		$i++; endforeach;
+			}
+		$i++; }
 
-	endif;
+	}
 
-	if(!params() && $page->hasVisibleChildren()):
+	if(!params() && $page->hasVisibleChildren()) {
 
-		if(c::get('pagination.' . $page->intendedTemplate()) != false && ($page->children()->visible()->count() > c::get('pagination.' . $page->intendedTemplate()))):
+		if(c::get('pagination.' . $page->intendedTemplate()) != false && ($page->children()->visible()->count() > c::get('pagination.' . $page->intendedTemplate()))) {
 			echo '<link rel="next" href="' . $page->url() . '/page:2">';
-		endif;
+		}
 
-	endif;
+	}
 
 }
 
