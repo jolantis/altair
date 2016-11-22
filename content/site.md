@@ -18,23 +18,19 @@ Theme Color: #332c29
 
 ----
 
-Twitter:
+Twitter: jolantis
 
 ----
 
-Facebook:
+Facebook: jvanwunnik
 
 ----
 
-LinkedIn:
+LinkedIn: jvanwunnik
 
 ----
 
-Google Plus:
-
-----
-
-Pinterest:
+Google Plus: jonathanvanwunnik
 
 ----
 
