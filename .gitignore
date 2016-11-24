@@ -79,6 +79,9 @@ assets/avatars/*
 site/cache/*
 !site/cache/.gitkeep
 
+# License
+site/config/license.php
+
 # Local (dev) configs
 site/config/config.*.xip.io.php
 

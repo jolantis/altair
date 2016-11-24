@@ -4,12 +4,21 @@
 if(!defined('KIRBY')) die('Direct access is not allowed');
 
 /* -----------------------------------------------------------------------------
-License Setup
+License
 --------------------------------------------------------------------------------
+
+To be able to add the site's code in public repository (e.g. on Github),
+without exposing the Kirby license code, create a seperate `license.php` file
+and add it to `site/config/` folder. In this file only add the following line:
+
+<?php c::set('license', 'your-license-key-here');
+
+The `license.php` file is ignored by git, and therefore needs to be uploaded
+manually to the production server.
 
 */
 
-c::set('license', 'your license key');
+if (file_exists(__DIR__ . DS . 'license.php')) include __DIR__ . DS . 'license.php';
 
 
 /* -----------------------------------------------------------------------------
