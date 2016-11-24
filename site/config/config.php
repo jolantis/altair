@@ -410,6 +410,7 @@ Thumbs
 
 c::set('thumbs.driver', 'im');                                                  // The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
 c::set('thumbs.quality', 78);                                                   // The default jpg compression (or quality setting) for thumbs (figure plugin and tag);
+c::set('thumbs.interlace', false);                                              // Save thumb to use progressive (interlace line) rendering, meaning the image is delivered and rendered in stages
 
 
 /* -----------------------------------------------------------------------------
