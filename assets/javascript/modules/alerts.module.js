@@ -86,7 +86,7 @@ var Alerts = (function () {
 
 		var message_element;
 
-		Extend.object(alertoptions, options);
+		extend.object(alertoptions, options);
 
 		message_element = document.createElement('div');
 
