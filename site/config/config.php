@@ -92,20 +92,27 @@ URL / SSL
 
 To use root relative URLs:
 
-c::set('url', '');
+c::set('url', '/');
 
 Or when in a subdirectory:
 
 c::set('url', '/mysite');
 
-To force SSL on every page, make sure to include https
-in your url setup and set the sll setting to true:
+And when set to `false`, Kirby tries to auto-detects the correct URL:
+
+c::set('url', false);
+
+---
+
+To force **SSL** on every page, make sure to include https
+in the url setup and set the **sll** setting to true:
 
 c::set('url', 'https://yourdomain.com');
+c::set('ssl', true);
 
 */
 
-c::set('url', '');
+c::set('url', false);
 c::set('ssl', false);
 
 

@@ -36,7 +36,8 @@ URL
 
 */
 
-c::set('url', '');                                                              // To use root relative URLs: c::set('url', '/');
+c::set('url', false);
+c::set('ssl', false);
 
 
 
