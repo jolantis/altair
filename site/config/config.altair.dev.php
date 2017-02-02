@@ -67,7 +67,7 @@ Thumbs
 
 */
 
-c::set('thumbs.driver','im');                                                   // The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
+c::set('thumbs.driver','im');
 c::set('thumbs.bin', '/usr/local/bin/convert');                                 // Path to the convert bin for 'im' thumb driver setting (see: http://j.mp/1LJ8n9E)
 
 
