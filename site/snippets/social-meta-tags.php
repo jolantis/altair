@@ -198,7 +198,7 @@ else {
 <?php if($facebook_author): ?><meta property="article:author" content="<?php echo $facebook_author ?>" />
 <?php endif; ?>
 <?php if($facebook_admin): ?>
-<meta property="fb:admins" content="facebook_admin" />
+<meta property="fb:admins" content="<?php echo $facebook_admin ?>" />
 <?php endif; ?>
 */ ?>
 
