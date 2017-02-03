@@ -28,12 +28,11 @@
  */
 
 .figure-image {
+	position: relative;
 
 	.no-js & .lazyload {
 		display: none; // Noscript pattern
 	}
-
-	position: relative;
 
 	a {
 		position: absolute !important;
