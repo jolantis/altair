@@ -5,8 +5,8 @@
 // Defaults
 // --------------------------------------------------------------------------
 
-$weight: 1px !default;
-$offset: 1px !default;
+$weight: .04em !default;
+$offset: .14em !default;
 
 // (One retina-pixel) underlining
 // --------------------------------------------------------------------------
@@ -22,6 +22,6 @@ $offset: 1px !default;
 	}
 
 	@include hidpi-media(1.5) {
-		background-image: linear-gradient(to top, transparent, transparent $offset * .5, $color $offset * .5, $color ($offset + $weight) * .5, transparent ($offset + $weight) * .5); // Apply .5 pixel (1 retina-pixel) for HiDPI/Retina screens!
+		background-image: linear-gradient(to top, transparent, transparent $offset, $color $offset, $color ($offset + $weight / 2), transparent ($offset + $weight / 2)); // Apply .5 pixel (1 retina-pixel) for HiDPI/Retina screens!
 	}
 }
