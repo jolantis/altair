@@ -104,8 +104,8 @@ c::set('url', false);
 
 ---
 
-To force **SSL** on every page, make sure to include https
-in the url setup and set the **sll** setting to true:
+To force **SSL** on every page, make sure to include https in the
+url setup (also for stage) and set the **sll** setting to true:
 
 c::set('url', 'https://yourdomain.com');
 c::set('ssl', true);
