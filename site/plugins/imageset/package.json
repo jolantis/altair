@@ -1,0 +1,38 @@
+{
+  "name": "imageset",
+  "description": "A flexible, responsive image component for Kirby CMS, featuring lazy loading, fancy placeholders and more.",
+  "author": "Fabian Michael <hallo@fabianmichael.de>",
+  "license": "SEE LICENSE IN license.md",
+  "version": "1.0.1",
+  "type": "kirby-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabianmichael/kirby-imageset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fabianmichael/kirby-imageset/issues"
+  },
+  "homepage": "https://github.com/fabianmichael/kirby-imageset",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-doctoc": "^0.1.4",
+    "gulp-include": "^2.3.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.0",
+    "lazysizes": "*",
+    "postcss-assets": "^4.1.0",
+    "respimage": "*"
+  }
+}

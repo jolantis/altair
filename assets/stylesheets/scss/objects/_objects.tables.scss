@@ -9,14 +9,12 @@
 .table {
 	margin-bottom: rhythm(1);
 	width: 100%;
-	border-collapse: collapse;
 	border-spacing: 0;
 
 	th,
 	td {
 		padding-top: rhythm(.5);
 		padding-bottom: rhythm(.5);
-
 		text-align: left;
 	}
 
@@ -66,6 +64,7 @@
  */
 
 .table--striped {
+
 	th,
 	td {
 		padding: rhythm(.5);
@@ -98,6 +97,7 @@
  */
 
 .table--rounded {
+
 	thead th:first-child {
 		border-top-left-radius: rhythm(.5);
 	}
@@ -124,6 +124,8 @@
  */
 
 .table--bordered {
+	// border-collapse: collapse; // Padding has no effect on table with border-collapse set to collapse!!!
+
 	th,
 	td {
 		padding: rhythm(.5);

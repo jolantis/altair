@@ -22,45 +22,19 @@ Text:
 
 All photos on this page are from [Unsplash](http://unsplash.com).
 
-<!--
-
-## Image tag
-
-(image: unsplash_525b54bcc32ba_1.jpg width: 450)
-
-*Default Kirby image tag --- link to original image*
-
--->
-
 ---
 
-## Thumb tag
-
-(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 quality: 10 alt: Thumb, quality 10)
-
-*Thumb tag --- width is set to 225; quality is set to 50.*
-
-(thumb: unsplash_525b54bcc32ba_1.jpg height: 225 alt: Thumb)
-
-*Thumb tag --- height is set to 225.*
-
-(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 height: 225 crop: true alt: Thumb cropped)
-
-*Thumb tag --- both width and height are set to 225; crop is set to true.*
-
----
-
-## Figure tag
+## Figure (imageset) tag
 
 Examples of the figure tag in action, surrounded by some awesome Star Wars Ipsum body copy.
 
-(figure: unsplash_525b54bcc32ba_1.jpg quality: 80)
+(figure: unsplash_525b54bcc32ba_1.jpg)
 
 ### Rebel Mission to Ord Mantell
 
 I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. You are a part of the Rebel Alliance and a traitor! Take her away! But with the blast shield down, I can't even see! How am I supposed to fight? What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like&hellip;suicide. You're all clear, kid. Let's blow this thing and go home!
 
-(figure: unsplash_525d7892901ff_1.jpg quality: 55 alt: An alt tag)
+(figure: unsplash_525d7892901ff_1.jpg alt: Not an empty 'alt' tag)
 
 (figure: unsplash_525f012329589_1.jpg)
 
@@ -70,7 +44,7 @@ Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for 
 
 I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. You mean it controls your actions?
 
-(figure: unsplash_5263607dd1bfc_1.jpg quality: 40 caption: Remember, a Jedi can feel the Force flowing through him.)
+(figure: unsplash_5263607dd1bfc_1.jpg class: full-width caption: Remember, a Jedi can feel the Force flowing through him.)
 
 ## Return of the Jedi
 
@@ -88,7 +62,7 @@ A tremor in the Force. The last time I felt it was in the presence of my old mas
 
 She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. No! Alderaan is peaceful. We have no weapons. You can't possibly&hellip; What good is a reward if you ain't around to use it?
 
-(figure: unsplash_568gh845d584s_1.jpg width: 2of3 caption: What good is a reward if you ain't around to use it?)
+(figure: unsplash_568gh845d584s_1.jpg class: text-width caption: What good is a reward if you ain't around to use it?)
 
 Besides, attacking that battle station ain't my idea of courage. It's more like&hellip;suicide. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. I suggest you try it again, Luke. This time, let go your conscious self and act on instinct.
 
@@ -96,7 +70,7 @@ What good is a reward if you ain't around to use it? Besides, attacking that bat
 
 What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like… suicide. In my experience, there is no such thing as luck. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.
 
-(figure: unsplash_526360a842e20_1.jpg width: 2of3 align: center caption: In my experience, there is no such thing as luck.)
+(figure: unsplash_526360a842e20_1.jpg caption: In my experience, there is no such thing as luck.)
 
 ## Revenge of the Sith
 
@@ -104,9 +78,9 @@ All right. Well, take care of yourself, Han. I guess that's what you're best at,
 
 She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! As you wish. I care. So, what do you think of her, Han?
 
-(figure: unsplash_527e842bc0615_1.jpg, unsplash_5243e9ef164a5_1.jpg width: 1of2, 1of2)
+(figure: unsplash_527e842bc0615_1.jpg | unsplash_5243e9ef164a5_1.jpg)
 
-(figure: unsplash_52585c3dd6b34_1.jpg griditem: true caption: She must have hidden the plans in the escape pod.)
+(figure: unsplash_52585c3dd6b34_1.jpg caption: She must have hidden the plans in the escape pod.)
 
 Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. You mean it controls your actions? As you wish. I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
 
@@ -114,17 +88,17 @@ Look, I ain't in this for your revolution, and I'm not in it for you, Princess. 
 
 I care. So, what do you think of her, Han? But with the blast shield down, I can't even see! How am I supposed to fight? Your eyes can deceive you. Don't trust them. I find your lack of faith disturbing. I suggest you try it again, Luke. This time, let go your conscious self and act on instinct.
 
-Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. Dantooine. They're on Dantooine. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.
+Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. Dantooine. They're on Dantooine. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like… suicide.
 
-(figure: unsplash_5245b69bc5330_1.jpg, unsplash_5252bb51404f8_1.jpg width: 1of2, 1of2)
+(figure: unsplash_5245b69bc5330_1.jpg:2of3 | unsplash_5252bb51404f8_1.jpg, unsplash_5263605581e32_1.jpg:1of3 class: full-width)
 
-(figure: unsplash_52850d6938211_1.jpg griditem: true caption: Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.)
+(figure: unsplash_52850d6938211_1.jpg class: full-width caption: Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.)
 
 Oh God, my uncle. How am I ever gonna explain this? Still, she's got a lot of spirit. I don't know, what do you think? She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! Hey, Luke! May the Force be with you. I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.
 
-(figure: unsplash_5255beab37be0_1.jpg griditem: true)
+(figure: unsplash_5255beab37be0_1.jpg class: text-width)
 
-(figure: unsplash_5255bf45a4a45_1.jpg, unsplash_5248748fb40ac_1.jpg width: 1of2, 1of2)
+(figure: unsplash_5255bf45a4a45_1.jpg | unsplash_5248748fb40ac_1.jpg class: text-width caption: Several transmissions were beamed to this ship by Rebel spies.)
 
 ### The Republic
 
@@ -134,9 +108,7 @@ You are a part of the Rebel Alliance and a traitor! Take her away! I care. So, w
 
 What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like suicide. I'm trying not to, kid. I'm trying not to, kid. Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
 
-(figure: unsplash_5263605581e32_1.jpg griditem: true)
-
-(figure: unsplash_52424d6a9e278_1.jpg, unsplash_5245b69bc5330_1.jpg width: 1of2, 1of2 caption: The more you tighten your grip, Tarkin, the more star systems will slip through your fingers.)
+(figure: unsplash_104266cc4a5432_1.jpg:1of3 | unsplash_19974445ba982_1.jpg:1of3 | unsplash_184838996aac4_1.jpg:1of3 class: full-width)
 
 #### A New Hope
 
@@ -146,12 +118,28 @@ He is here. Alderaan? I'm not going to Alderaan. I've got to go home. It's late,
 
 Ye-ha! The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Red Five standing by. Your eyes can deceive you. Don't trust them. A tremor in the Force. The last time I felt it was in the presence of my old master.
 
-(figure: unsplash_5255bf45a4a45_1.jpg width: 2of3 griditem: true)
+(figure: unsplash_5255bf45a4a45_1.jpg)
 
-(figure: unsplash_525f012329589_1.jpg, unsplash_5287d4367585d_1.jpg width: 1of2, 1of2)
+(figure: unsplash_525f012329589_1.jpg | unsplash_5287d4367585d_1.jpg)
 
 All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it? I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. The Force is strong with this one. I have you now. As you wish.
 
 ## The Empire Strikes Back
 
 Still, she's got a lot of spirit. I don't know, what do you think? Ye-ha! You don't believe in the Force, do you? Dantooine. They're on Dantooine. He is here. I suggest you try it again, Luke. This time, let go your conscious self and act on instinct.
+
+---
+
+## Thumb tag
+
+(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 quality: 10 class: figure-image text-width)
+
+*Thumb tag --- width is set to 225; quality is set to 10.*
+
+(thumb: unsplash_525b54bcc32ba_1.jpg height: 225 class: figure-image text-width)
+
+*Thumb tag --- height is set to 225; blur is true.*
+
+(thumb: unsplash_525b54bcc32ba_1.jpg width: 225 height: 225 crop: true alt: Thumb cropped grayscale: true class: figure-image text-width)
+
+*Thumb tag --- both width and height are set to 225; crop is true; grayscale is true.*

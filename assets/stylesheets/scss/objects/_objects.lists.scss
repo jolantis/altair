@@ -7,11 +7,11 @@
  */
 
 .list {
-	margin-left: rhythm(1.25); // .75rem + .5 baseline (vertical rhythm)
 	list-style-position: outside;
 
 	li {
 		display: list-item;
+		margin-left: rhythm(1); // .75rem + .5 baseline (vertical rhythm)
 
 		& > ul,
 		& > ol,
@@ -23,11 +23,11 @@
 		& > ol {
 			margin-left: rhythm(1);
 		}
-	}
 
-	// @include breakpoint(medium) {
-	// 	margin-left: 0; // reset left margin from medium and up
-	// }
+		@include breakpoint(medium) {
+			margin-left: 0; // reset left margin from medium and up
+		}
+	}
 }
 
 .list {

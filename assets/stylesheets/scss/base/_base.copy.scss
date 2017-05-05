@@ -8,42 +8,64 @@
 
 .copy {
 
-	/* Baseline
+	/* Contain
 	   ========================================================================== */
 
-	// $lh: 22px;
-	// background: repeating-linear-gradient(to bottom, transparent 0px, transparent #{$lh - 1px}, black #{$lh - 1px}, black $lh);
-	// background-position: 0 2px;
+	&--contain {
+
+		> *:not(.full-width),
+		> .full-width figcaption {
+			@extend %contain-padding;
+		}
+
+		> *:not(.full-width),
+		> .figure-image figcaption {
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		> h1, > h2, > h3, > h4, > h5, > h6,
+		> p,
+		> ul,
+		> ol,
+		> dl,
+		> time,
+		> table,
+		> form,
+		> .figure-image.full-width figcaption,
+		> .figure-image.text-width {
+			max-width: $text-max-width + (2 * rhythm($contain-rhythm-unit)); // Text max width
+		}
+
+		> .blockquote,
+		// > .figure-image.full-width figcaption,
+		> .figure-image:not([class*="-width"]),
+		> .figure-grid:not([class*="-width"]) {
+			max-width: $figure-max-width + (2 * rhythm($contain-rhythm-unit)); // Contain width
+		}
+
+		> .figure-image figcaption {
+			max-width: $text-max-width; // Maximize width
+		}
+
+		> hr {
+			max-width: $text-max-width - (2 * rhythm($contain-rhythm-unit)); // Padding has no effect on <hr>!!!
+		}
+	}
 
 	/* Vertical spacing
 	   ========================================================================== */
 
 	/**
-	 * Set default vertical spacing for all elements:
-	 * 1. every second, third, etc. element that has not a `.grid` class
-	 * 2. every element with a `.grid` class that is not proceded
-	 *    by an element with a `.grid` class
+	 * Set default vertical spacing for all elements that have not a `figure-*`
+	 * class and are not preceded by an element with a `figure-*` class.
 	 *
 	 * Based on 'The "Leftover Glue" problem' solution:
 	 * http://slides.com/heydon/effortless-style/#/22
 	 */
 
-	> * + *:not(.grid), // [1]
-	> *:not(.grid) + .grid { // [2]
+	> *:not(.figure-image) + *:not(.figure-image) {
 		margin-top: rhythm(1);
-	}
-
-	/**
-	 * Set additonal vertical spacing aroundf figure elements:
-	 * 3. every figure with a `figure-image` class that comes direclty
-	 *    after an element without a `.grid` class
-	 * 4. every element that has not a `.grid` class and is proceded
-	 *    by a figure element with `.figure-image` class
-	 */
-
-	> *:not(.grid) + .figure-image, // [3]
-	> .figure-image + *:not(.grid) { // [4]
-		margin-top: rhythm(3);
 	}
 
 	/**
@@ -51,44 +73,69 @@
 	 * See: http://zellwk.com/blog/wrong-about-vertical-rhythm/
 	 */
 
-	> *:not(.grid) + p {
+	> *:not(.figure-image) + p,
+	> *:not(.figure-image) + ul,
+	> *:not(.figure-image) + ol,
+	> *:not(.figure-image) + dl {
 		margin-top: rhythm(.5) !important;
 	}
 
-	> *:not(.grid) + ul,
-	> *:not(.grid) + ol,
-	> *:not(.grid) + dl {
+	> h2 + > *:not(.figure-image),
+	> h3 + > *:not(.figure-image) {
 		margin-top: rhythm(.5) !important;
 	}
 
-	> h2 + *:not(.grid),
-	> h3 + *:not(.grid) {
-		margin-top: rhythm(.5) !important;
-	}
-
-	> h4 + p:not(.grid),
-	> h5 + p:not(.grid),
-	> h6 + p:not(.grid) {
+	> h4 + p:not(.figure-image),
+	> h5 + p:not(.figure-image),
+	> h6 + p:not(.figure-image) {
 		margin-top: 0 !important;
 	}
 
-	/* Text max width
-	========================================================================== */
+	/**
+	 * Set (additonal) vertical spacing 'above' `figure-*` blocks:
+	 */
 
-	> h1, > h2, > h3, > h4, > h5, > h6,
-	> p,
-	> ul li,
-	> ol li,
-	> dl dt,
-	> dl dd,
-	> time,
-	> table,
-	> form,
-	> .blockquote,
-	figcaption p {
-		max-width: $text-max-width;
-		// margin-right: auto; // Center maximized text 'column'
-		// margin-left: auto;
+	> *:not(.figure-image) + .figure-image {
+			margin-top: rhythm(3);
+	}
+
+	/**
+	 * Set (additonal) vertical spacing 'below' `figure-*` blocks:
+	 */
+
+	> .figure-image + *:not(.figure-image) {
+			margin-top: rhythm(3);
+	}
+
+	/**
+	 * Set (rhythm based) vertical spacing 'inbewteen' `figure-*` blocks.
+	 */
+
+	> .figure-image + .figure-image > span,
+	> .figure-image + .figure-image .grid__cell,
+	> *:not(.figure-image) + .figure-image .grid__cell {
+		margin-top: rhythm($grid-spacing-rhythm-unit);
+	}
+
+	> .figure-image .figure-image + .figure-image {
+		margin-top: rhythm($grid-gutter-rhythm-unit);
+	}
+
+	/**
+	 * Undo top margin by negetively offsetting the whole grid row
+	 */
+
+	// > *:not(.figure-image) + .figure-grid .grid {
+	> *:not(.figure-image) + .figure-image .grid {
+		margin-top: rhythm(-$grid-spacing-rhythm-unit);
+	}
+
+	/**
+	 * Grid gutter (horizontal spacing)
+	 */
+
+	> .figure-image .grid {
+		@extend %grid--gutter;
 	}
 
 	/* Hyphenation
@@ -149,7 +196,7 @@
 	/* Figures
 	   ========================================================================== */
 
-	// figcaption {}
+	// figure {}
 
 	/* Pull, block- and run-in quotes
 	   ========================================================================== */
@@ -276,5 +323,4 @@
 		@extend .table;
 		@extend .table--striped;
 	}
-
 }

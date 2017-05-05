@@ -2,6 +2,10 @@
    Contain
    ========================================================================== */
 
+/**
+ * Contain padding
+ */
+
 .contain-padding,
 %contain-padding {
 	padding-right: $contain-percentage !important;
@@ -13,8 +17,16 @@
 	}
 }
 
+/**
+ * Contain width
+ */
+
+.contain-width,
 %contain-width {
-	max-width: 60rem !important;
+	@extend %contain-padding;
+
+	// max-width: $figure-max-width + (2 * rhythm($contain-rhythm-unit)) !important;  // Figure max width
+	max-width: $text-max-width + (2 * rhythm($contain-rhythm-unit)) !important; // Text max width
 	margin-right: auto !important;
 	margin-left: auto !important;
 }

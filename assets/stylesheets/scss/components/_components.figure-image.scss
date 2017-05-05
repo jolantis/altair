@@ -8,21 +8,22 @@
  * Can be generated in (Kirby) Markdown with (figure: ) syntax
  * Contains one image by default, but can handle multiple images (multifigure)
  *
- * The multifigure uses the .grid component to layout the items
+ * The multi-figure uses the .grid component to layout the images.
  *
  * Markup examples:
  *
  * <figure class="figure-image">
- * 		<img src="..." class="figure-image__item" alt="Just a single image (no grid)" />
+ * 		<img src="..." alt="Just a single image (no grid)" />
  * </figure>
  *
  * <figure class="figure-image grid grid--gutter">
- * 		<img src="..." class="figure-image__item grid__cell small-1of2" alt="First image in row" />
- * 		<img src="..." class="figure-image__item grid__cell small-1of2" alt="Secondimage in row" />
+ * 		<img src="..." class="grid__cell small-1of2" alt="First image in row" />
+ * 		<img src="..." class="grid__cell small-1of2" alt="Secondimage in row" />
  * </figure>
  *
  * <figure class="figure-image grid grid--align-center">
- * 		<img src="..." class="figure-image__item grid__cell compact-2of3" alt="A centered image" />
+ * 		<img src="..." class="grid__cell compact-2of3" alt="A centered image" />
+ * 		<figcaption>Caption...</figcaption>
  * </figure>
  *
  */
@@ -30,110 +31,51 @@
 .figure-image {
 	position: relative;
 
-	.no-js & .lazyload {
-		display: none; // Noscript pattern
-	}
+	// a {
+	// 	position: absolute !important;
+	// 	top: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// }
 
-	a {
-		position: absolute !important;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
-}
-
-/**
- * Always occupy available space (even when wider than natural width of image)
- */
-
-.figure-image__item {
-	width: 100%;
-}
-
-/**
- * Align single figure image to center
- */
-
-.figure-image--align-center {
-	text-align: center !important;
-
-	> * {
-		margin-left: auto;
+	&.center {
+		display: block;
 		margin-right: auto;
+		margin-left: auto;
 	}
-	.figure-image__caption {
-		text-align: left;
+
+	&.right {
+		display: block;
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+	figcaption {
+		@include responsive-text-size($text-pico); // (Re)set font-size (it has been set to `0` by wrapping `.grid` element!)
+
+		margin-top: rhythm(.5);
+		margin-bottom: rhythm(1.5);
+		text-align: center; // Center align text in figcaption
 	}
 }
 
 /**
- * Figure image figcaption
- */
-
-.figure-image figcaption {
-	@include responsive-text-size($text-nano); // (Re)set font-size (it has been set to `0` by wrapping `.Grid` element!)
-
-	margin-top: rhythm(.5);
-	margin-bottom: rhythm(1.5);
-}
-
-/**
- * Figureimage gutter/spacing:
- * 1. default (rhythm unit)
- * 2. percentage based
+ * Vertical align images within (figure-)grid
  *
- * For production out-comment the gutter/spacing method that is not being used!
+ * Default alignment is top; see `grid__cell` class in `objects.grid` partial.
+ * Enble styles below to set vertical alignment to bottom.
  */
 
-.figure-image.grid--gutter { // [1]
+// .figure-grid .grid__cell {
 
-	.grid__cell {
-		margin-top: rhythm($grid-gutter-rhythm-unit); /* Set vertical grid spacing */
-	}
-	& figcaption {
-		padding-right: rhythm(.5 * $grid-gutter-rhythm-unit); /* Align caption to image(s) by setting half gutter rhythm units */
-		padding-left: rhythm(.5 * $grid-gutter-rhythm-unit);
-	}
-}
+// 	// Align to bottom when preceded by an `figure-image` element/class
+// 	.figure-image + & {
+// 		vertical-align: bottom;
+// 	}
 
-.figure-image.grid--percentage-gutter { // [2]
-
-	.grid__cell {
-		margin-top: $grid-spacing-percentage; /* Set vertical grid percentages */
-	}
-	& figcaption {
-		padding-right: .5 * $grid-gutter-percentage; /* Align captions image(s) by setting half gutter percentages */
-		padding-left: .5 * $grid-gutter-percentage;
-	}
-}
-
-/**
- * Reset vertical spacing to '0' for both default and percentage based spacing
- * --- from the (default or passed via text) 'breakpoint' and up --- of all
- * elements with `.grid__cell` class, that are wrapped in an element with a
- * `.<Breakpoint>-break` class which is not proceded by an element
- * with a `.figure-image` class.
- */
-
-*:not(.figure-image) {
-
-	&+ .small-break .grid__cell {
-		@include breakpoint(small) { margin-top: 0; }
-	}
-	&+ .compact-break .grid__cell {
-		@include breakpoint(compact) { margin-top: 0; }
-	}
-	&+ .medium-break .grid__cell {
-		@include breakpoint(medium) { margin-top: 0; }
-	}
-	&+ .large-break .grid__cell {
-		@include breakpoint(large) { margin-top: 0; }
-	}
-	&+ .wide-break .grid__cell {
-		@include breakpoint(wide) { margin-top: 0; }
-	}
-	&+ .huge-break .grid__cell {
-		@include breakpoint(huge) { margin-top: 0; }
-	}
-}
+//	// Align to bottom when preceded by anything but a `figure-image` element/class
+//	*:not(.figure-image) + & {
+//		vertical-align: bottom;
+//	}
+// }

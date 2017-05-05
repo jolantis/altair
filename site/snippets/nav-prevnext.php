@@ -57,7 +57,7 @@ else {
 ////////////////////////////////////////////////////////// ?>
 
 <?php if($has_prev || $has_next): ?>
-<nav role="navigation" class="pagination">
+<nav role="navigation" class="pagination contain-width space-trailer-l">
 	<h2 class="is-hidden-visually">Next/previous navigation</h2>
 	<ul>
 		<?php if($has_next): ?>

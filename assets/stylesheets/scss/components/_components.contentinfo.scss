@@ -3,14 +3,12 @@
    ========================================================================== */
 
 .contentinfo {
-	@extend %contain-padding;
-
 	margin-top: 0;
 
 	.ctm & {
-		margin-top: rhythm(1.5);
+		margin-top: rhythm(1);
 	}
 	footer {
-		padding: rhythm(1.5) rhythm(0);
+		padding: rhythm(1) rhythm(0);
 	}
 }

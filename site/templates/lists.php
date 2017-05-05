@@ -17,9 +17,9 @@ else {
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="contain-padding">
+	<main role="main" class="contain-width space-trailer-l">
 
-		<div class="copy">
+		<div class="copy space-trailer-l">
 
 			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
@@ -54,25 +54,24 @@ else {
 			<?php snippet('nav-pagination', array('pagination' => $planets->pagination(), 'start_end' => true, 'range' => 3, 'mod_class' => 'pagination')); ?>
 		<?php endif; ?>
 
-		<h2 class="beta-heading space-leader-m">Block link list</h2>
-		<div class="block-link space-trailer-m">
-			<h3><a href="<?php echo url('base.php'); ?>">Base</a></h3>
+		<h2 class="beta-heading space-leader-l">Block link list</h2>
+		<div class="block-link">
+			<h3>Base</h3>
 			<p>A long list of all base elements and their styling</p>
 			<a href="<?php echo url('base.php'); ?>" class="block-link__anchor">Visit the Base page</a>
 		</div>
-		<div class="block-link space-trailer-m">
-			<h3><a href="<?php echo url('grid.php'); ?>">Grid</a></h3>
+		<div class="block-link">
+			<h3>Grid</h3>
 			<p>Examples of the Altair grid system</p>
-			<a href="<?php echo url('grid.php'); ?>" class="block-link__anchor">Visit the Grid page</a>
+			<a href="<?php echo url('grid'); ?>" class="block-link__anchor">Visit the Grid page</a>
 		</div>
-		<div class="block-link space-trailer-m">
-			<h3><a href="<?php echo url('javascript.php'); ?>">Javascript</a></h3>
+		<div class="block-link">
+			<h3>Javascript</h3>
 			<p>Some nifty javascript magic</p>
-			<a href="<?php echo url('javascript.php'); ?>" class="block-link__anchor">Visit the Javascript page</a>
+			<a href="<?php echo url('javascript'); ?>" class="block-link__anchor">Visit the Javascript page</a>
 		</div>
-
-		<?php snippet('share-page'); ?>
 
 	</main>
 
+<?php snippet('share-page'); ?>
 <?php snippet_detect('footer'); ?>

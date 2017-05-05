@@ -10,7 +10,7 @@
 // With this plugin you can also write this to exclude files that contain a specific string:
 // $page->images()->filterBy('filename', '!*=', 'cover');
 // -----
-// See: http://j.mp/1TNHjO9
+// See: https://forum.getkirby.com/t/filter-to-exclude-files-that-contain-specific-string-in-their-name/573
 // -----
 
 collection::$filters['!*='] = function($collection, $field, $value, $split = false) {

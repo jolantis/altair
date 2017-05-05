@@ -19,7 +19,6 @@ module.exports = function(grunt) {
 			files: {
 				'<%= project.scripts_min %>/main.scripts.min.js': '<%= project.scripts_dev %>/main.scripts.dev.js', // destination: source
 				'<%= project.scripts_min %>/mobile.scripts.min.js': '<%= project.scripts_dev %>/mobile.scripts.dev.js',
-				'<%= project.scripts_min %>/photoswipe.scripts.min.js': '<%= project.scripts_dev %>/photoswipe.scripts.dev.js',
 			},
 		},
 	});

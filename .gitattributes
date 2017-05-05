@@ -45,7 +45,6 @@ design/              export-ignore
 assets/javascript/head.scripts.js           export-ignore
 assets/javascript/main.scripts.js           export-ignore
 assets/javascript/mobile.scripts.js         export-ignore
-assets/javascript/photoswipe.scripts.js     export-ignore
 assets/javascript/dev/                      export-ignore
 assets/javascript/lib/                      export-ignore
 assets/javascript/modules/                  export-ignore

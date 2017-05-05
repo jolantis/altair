@@ -57,10 +57,14 @@
 	@include responsive-text-size($text-gamma);
 }
 
+/* Delta */
+
 .delta-heading {
 	@extend %heading-settings;
 	@include responsive-text-size($text-delta);
 }
+
+/* Epsilon + Zeta */
 
 .epsilon-heading,
 .zeta-heading {

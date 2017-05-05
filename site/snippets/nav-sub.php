@@ -11,7 +11,7 @@ $items = ($open) ? $open->children()->visible() : false;
 ////////////////////////////////////////////////////////// ?>
 
 <?php if($items && $items->count()): ?>
-	<nav role="navigation" class="copy">
+	<nav role="navigation" class="copy copy--contain">
 		<h2>Sub navigation</h2>
 		<ul class="list list--links">
 			<?php foreach($items as $item): ?>

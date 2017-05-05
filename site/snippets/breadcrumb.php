@@ -4,7 +4,7 @@
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 
-<ul class="nav breadcrumb">
+<ul class="nav breadcrumb contain-padding">
 	<?php foreach($site->breadcrumb() as $crumb): ?>
 	<?php if ($crumb->isActive()): ?>
 	<?php continue; else: ?>

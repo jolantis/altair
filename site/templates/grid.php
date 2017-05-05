@@ -4,14 +4,16 @@
 
 	<?php snippet('banner'); ?>
 
-	<main role="main" class="contain-padding copy">
+	<main role="main" class="space-trailer-l">
 
-		<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
+		<div class="copy copy--contain space-trailer-l">
+			<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
-		<?php echo $page->intro()->kirbytext(); ?>
-		<?php echo $page->text()->kirbytext(); ?>
+			<?php echo $page->intro()->kirbytext(); ?>
+			<?php echo $page->text()->kirbytext(); ?>
+		</div>
 
-		<section aria-labelledby="block-grid">
+		<section aria-labelledby="block-grid" class="contain-padding">
 			<h2 id="block-grid" class="space-trailer-m">Block grid &lsquo;grid&rsquo;</h2>
 
 			<div class="block-grid block-grid--gutter compact-2col medium-3to1 large-4col">
@@ -43,7 +45,7 @@
 			</div>
 		</section>
 
-		<section aria-labelledby="grid-grid">
+		<section aria-labelledby="grid-grid" class="contain-padding">
 			<h2 id="grid-grid" class="space-trailer-m">Grid &lsquo;grid&rsquo;</h2>
 
 			<div class="grid grid--gutter">
@@ -75,8 +77,8 @@
 			</div>
 		</section>
 
-		<?php snippet('share-page'); ?>
-
 	</main>
+
+	<?php snippet('share-page'); ?>
 
 <?php snippet_detect('footer'); ?>
