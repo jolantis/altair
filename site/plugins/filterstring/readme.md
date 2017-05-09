@@ -33,7 +33,7 @@ $page->images()->filterBy('filename', '!*=', 'cover');
 
 ## Author
 
-This project is developed and (sometimes) maintained by Jonathan van Wunnik [artlantis.nl](https://artlantis.nl).
+This plugin is developed and (sometimes) maintained by Jonathan van Wunnik [artlantis.nl](https://artlantis.nl).
 
 The code is baded on some code exmples from Nico Hoffmann ([distantnative.com](http://distantnative.com)) and Tobias Weh ([tobiw.de](http://tobiw.de)), posted in the [Kirby forum](https://forum.getkirby.com/t/filter-to-exclude-files-that-contain-specific-string-in-their-name/573).
 
