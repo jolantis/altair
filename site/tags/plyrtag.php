@@ -2,65 +2,119 @@
 /*
  * Plyrtag
  * Implements html syntax for plyr video, vimeo & youtube player
- * add plyr css and js and call plyr.setup(); to initialize videos
+ *
+ * Add plyr css and js and call plyr.setup(); to initialize videos.
  *
  * Syntax:
  * (plyr: video mp4: /path/to/video.mp4 webm: /path/to/video.webm)
  * (plyr: VIMEOID)
  * (plyr: YOUTUBEID)
  *
- * Copyright: Dominik Pschenitschn (pschen.de)
+ * by Dominik Pschenitschni http://pschen.de) | https://github.com/dpschen
+ * based on kirbytag-html5video https://github.com/jbeyerstedt/kirby-kirbytag-html5video by Jannik Beyerstedt
  * license: http://www.gnu.org/licenses/gpl-3.0.txt GPLv3 License
  */
 
 kirbytext::$tags['plyr'] = array(
-		'attr' => array(
+	'attr' => array(
 		'poster',
 		'hls',
 		'mp4',
 		'webm',
-		'id'
+		'mp3',
+		'ogg'
 	),
 	'html' => function($tag) {
 
 		$type = $tag->attr('plyr');
 
-		// check if html5video, youtube or vimeo
+		// check if html5video, audio, youtube or vimeo
 		if (strtolower($type) === 'video') {
 			// is html5video
-			$baseurl =  url('/video/');
+
+			// check if should use globalVideoFolder
+			if (c::get('plyrtag.globalVideoFolder', false) == true) {
+				$globalVideoFolderName = c::get('plyrtag.globalVideoFolderName', 'video');
+				if ($tag->page()->site()->languages()) { // multi-language site
+					$baseVideoPath = $tag->page()->site()->language()->url() . '/' . $globalVideoFolderName . '/';
+				} else { // single-language site
+					$baseVideoPath = $tag->page()->site()->url() . '/' . $globalVideoFolderName . '/';
+				}
+			} else {
+				$baseVideoPath = $tag->page()->url() . '/';
+			}
+
+			if (strtolower($tag->attr('hls')) !== '') {
+				$hlsurl = $baseVideoPath . urlencode($tag->attr('hls'));
+				$hlssource = '<source src="' . $hlsurl . '" type="application/x-mpegurl">';}
+			else {
+				$hlssource = "";
+			}
 
 			if (strtolower($tag->attr('mp4')) !== '') {
-				$mp4source = $tag->attr('mp4');
-				$mp4url = $baseurl . urlencode($mp4source);
+				$mp4url = $baseVideoPath . urlencode($tag->attr('mp4'));
 				$mp4source = '<source src="' . $mp4url . '" type="video/mp4">';
 			} else {
 				$mp4source = "";
 			}
 
 			if (strtolower($tag->attr('webm')) !== '') {
-				$mp4source = $tag->attr('mp4');
-				$webmurl = $baseurl . urlencode($mp4source);
+				$webmurl = $baseVideoPath . urlencode($tag->attr('webm'));
 				$webmsource = '<source src="' . $webmurl . '" type="video/webm">';}
 			else {
 				$webmsource = "";
 			}
 
 			$poster = $tag->attr('poster');
+			if (file_exists($baseVideoPath . urlencode($poster))) {
 
-			if (file_exists($baseurl . urlencode($poster))) {
-				$posterurl = $baseurl . urlencode($poster);
+				$posterurl = $baseVideoPath . urlencode($poster);
 				$postersource = 'poster="' . $posterurl . '"';
 			} else {
 				$postersource = '';
 			}
 
 			return '<video controls="controls" ' . $postersource . '>' .
-								$hlssource .
-								$mp4source .
-								$webmsource .
-								'Dein Browser kann HTML5-Video nicht. Nimm eine aktuelle Version. Your browser does not support the video tag, choose an other browser.' .
-							'</video>';
+				$hlssource .
+				$mp4source .
+				$webmsource .
+				'Dein Browser unterstützt kein HTML5 Video. Bitte verwende eine aktuelle Version.' .
+				'</video>';
+
+		} else if (strtolower($type) === 'audio') {
+			// is audio
+
+			// check if should use globalAudioFolder
+			if (c::get('plyrtag.globalAudioFolder', false) == true) {
+				$globalAudioFolderName = c::get('plyrtag.globalAudioFolderName', 'audio');
+				if ($tag->page()->site()->languages()) { // multi-language site
+					$baseAudioPath = $tag->page()->site()->language()->url() . '/' . $globalAudioFolderName . '/';
+				} else { // single-language site
+					$baseAudioPath = $tag->page()->site()->url() . '/' . $globalAudioFolderName . '/';
+				}
+			} else {
+				$baseAudioPath = $tag->page()->url() . '/';
+			}
+
+			if (strtolower($tag->attr('mp3')) !== '') {
+				$mp3url = $baseAudioPath . urlencode($tag->attr('mp3'));
+				$mp3source = '<source src="' . $mp3url . '" type="audio/mp3">';
+			} else {
+				$mp3source = "";
+			}
+
+			if (strtolower($tag->attr('ogg')) !== '') {
+				$oggurl = $baseAudioPath. urlencode($tag->attr('ogg'));
+				$oggsource = '<source src="' . $oggurl . '" type="audio/ogg">';
+			} else {
+				$oggsource = "";
+			}
+
+			return '<audio controls>' .
+				$mp3source .
+				$oggsource .
+			'</audio>';
+
 		} else {
 			// check if youtube id
 			// https://webapps.stackexchange.com/questions/54443/format-for-id-of-youtube-video/54448#54448
