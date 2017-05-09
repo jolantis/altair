@@ -24,5 +24,5 @@ to `false`.
 
 */
 
-c::set('thumbs.icc.profile', true);                                             // Preserve embedded color (or icc) profile in generated thumb only (any other profile and meta-data is removed)
+c::set('thumbs.icc.profile', true);                                             // Only preserve embedded color (or icc) profile in generated thumb, while any other profile and meta-data is removed
 c::set('thumbs.meta.data', false);                                              // Preserve all embedded meta data in generated thumb (e.g. EXIF, IPTC, color profile, etc.)
