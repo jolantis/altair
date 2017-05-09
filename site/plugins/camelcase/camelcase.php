@@ -3,8 +3,16 @@
 /**
  * Camelcase Plugin
  *
- * @author Jonathan van Wunnik <jonathan@studiodumbar.com>
- * @version 1.0.0
+ * @author      Current authors: Marijn Tijhuis <fatpixelstudio@gmail.com>
+ *                               Jonathan van Wunnik <jonathan@artlantis.nl>
+ *
+ * @license     Code and contributions have 'MIT License'
+ *              More details: ... (link to github license.md)
+ *
+ * @link        GitHub Repo:  ...
+ *              README:       ...
+ *
+ * @version     1.0.0
  */
 
 // Field method

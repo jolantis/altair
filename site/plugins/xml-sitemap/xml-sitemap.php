@@ -3,11 +3,14 @@
 /**
  * Kirby XML Sitemap
  *
- * @version   1.0.0-beta.1
- * @author    Pedro Borges <oi@pedroborg.es>
- * @copyright Pedro Borges <oi@pedroborg.es>
- * @link      https://github.com/pedroborges/kirby-xml-sitemap
- * @license   MIT
+ * @author      Pedro Borges <oi@pedroborg.es>
+ *
+ * @license     Code and contributions have 'MIT License'
+ *
+ * @link        GitHub Repo:  https://github.com/pedroborges/kirby-xml-sitemap
+ *              README:       https://github.com/pedroborges/kirby-xml-sitemap/blob/master/readme.md
+ *
+ * @version     1.0.0-beta.1
  */
 
 kirby()->set('snippet', 'sitemap.page', __DIR__ . '/snippets/page.php');

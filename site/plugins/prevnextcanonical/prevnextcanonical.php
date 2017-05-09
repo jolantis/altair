@@ -1,18 +1,20 @@
 <?php
-/**
- * Prev / next / canonical control plugin
- *
- * @author Marijn Tijhuis <marijn@studiodumbar.com>
- * @version 1.0.0
- */
 
 /**
- * Build a lookup page array based on a page collection with param key and values
- * @param { paramkey } string
- * @param { paramvalue } string
- * @param { page } the kirby page variable
- * @return { lookup_page } array
+ * Camelcase Plugin
+ *
+ * @author      Current authors: Marijn Tijhuis <fatpixelstudio@gmail.com>
+ *                               Jonathan van Wunnik <jonathan@artlantis.nl>
+ *
+ * @license     Code and contributions have 'MIT License'
+ *              More details: ... (link to github license.md)
+ *
+ * @link        GitHub Repo:  ...
+ *              README:       ...
+ *
+ * @version     1.0.0
  */
+
 function get_lookup_page($paramkey, $paramvalue, $page) {
 	// Filter projects by param
 	$page_items = $page->siblings()->visible()->filterBy($paramkey, ($paramvalue), ',')->flip();

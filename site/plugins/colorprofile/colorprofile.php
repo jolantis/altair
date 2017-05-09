@@ -1,12 +1,20 @@
 <?php
 
 /**
- * Color Profile Plugin
- *
- * ImageMagick Driver without -strip
+ * Colorprofile Plugin
  *
  * @author Jonathan van Wunnii <jonathan@artlantis.nl>
  * @version 1.0.0
+ *
+ * @author      Jonathan van Wunnik <jonathan@artlantis.nl>
+ *
+ * @license     Code and contributions have 'MIT License'
+ *              More details: ... (link to github license.md)
+ *
+ * @link        GitHub Repo:  ...
+ *              README:       ...
+ *
+ * @version     1.0.0
  */
 
 thumb::$drivers['im'] = function($thumb) {

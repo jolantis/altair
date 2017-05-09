@@ -1,4 +1,4 @@
-# Tagunslug plugin
+# Kirby CMS Plugin: Tagunslug
 
 A plugin for [Kirby CMS](http://getkirby.com) to convert a tag slug (see *tagslug* plugin) string to a human readable tag name (e.g. convert *interactive-and-web* to *Interactive & Web*).
 
@@ -8,19 +8,25 @@ Call from template:
 
 ```php
 <?php
-	$key = key(param());
-	$tag = tagunslug(param(key(param())));
-	$products = $page->children()->visible()->filterBy($key, ($tag), ',')->flip()->paginate(24);
+  $key = key(param());
+  $tag = tagunslug(param(key(param())));
+  $products = $page->children()->visible()->filterBy($key, ($tag), ',')->flip()->paginate(24);
 ?>
+
 <?php foreach($paintings as $painting):	?>
-	…
+  ...
 <?php endforeach; ?>
 ```
 
+## Requirements
+
+- Kirby 2.x (other versions untested)
+- PHP 7.x (other versions untested)
+
 ## Authors
-Jonathan van Wunnik, Marijn Tijhuis
-<http://www.studiodumbar.com>
 
-## Changelog
+This project is developed and (sometimes) maintained by Marijn Tijhuis [fatpixel.nl](https://fatpixel.nl) and Jonathan van Wunnik [artlantis.nl](https://artlantis.nl).
 
-* **1.0.0** Initial release
+## License
+
+Code and contributions have '[MIT License](./license.md)'.

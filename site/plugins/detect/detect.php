@@ -1,11 +1,18 @@
 <?php
 
 /**
- * (Mobile) Detect Plugin
+ * Detect Plugin
  *
- * @author Marijn Tijhuis <marijn@studiodumbar.com>
- * @author Jonathan van Wunnik <jonathan@studiodumbar.com>
- * @version 2.0.0
+ * @author      Current authors: Marijn Tijhuis <fatpixelstudio@gmail.com>
+ *                               Jonathan van Wunnik <jonathan@artlantis.nl>
+ *
+ * @license     Code and contributions have 'MIT License'
+ *              More details: ... (link to github license.md)
+ *
+ * @link        GitHub Repo:  ...
+ *              README:       ...
+ *
+ * @version     2.0.0
  */
 
 // Load the Mobile_Detect.php script

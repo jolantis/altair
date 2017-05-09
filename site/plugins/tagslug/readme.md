@@ -1,4 +1,4 @@
-# Tagslug plugin
+# Kirby CMS Plugin: Tagslug
 
 A plugin for [Kirby CMS](http://getkirby.com) to convert a tag name to a slug (url) string (e.g. convert *Interactive & Web* to *interactive-and-web*).
 
@@ -7,15 +7,22 @@ A plugin for [Kirby CMS](http://getkirby.com) to convert a tag name to a slug (u
 Call from template:
 
 ```php
-<?php foreach(str::split($page->tags(),’,’) as $tag): ?>
-	<a href="<?php echo $page->parent()->url().'/tag:'.tagslug($tag); ?>"><?php echo $tag; ?></a><?php if($i < (count($tags) -1)): echo ', '; endif; ?>
+<?php foreach(str::split($page->tags(),',') as $tag): ?>
+  <a href="<?php echo $page->parent()->url().'/tag:'.tagslug($tag); ?>">
+    <?php echo $tag; ?>
+  </a><?php if($i < (count($tags) -1)): echo ', '; endif; ?>
 <?php endforeach; ?>
 ```
 
+## Requirements
+
+- Kirby 2.x (other versions untested)
+- PHP 7.x (other versions untested)
+
 ## Authors
-Jonathan van Wunnik, Marijn Tijhuis
-<http://www.studiodumbar.com>
 
-## Changelog
+This project is developed and (sometimes) maintained by Marijn Tijhuis [fatpixel.nl](https://fatpixel.nl) and Jonathan van Wunnik [artlantis.nl](https://artlantis.nl).
 
-* **1.0.0** Initial release
+## License
+
+Code and contributions have '[MIT License](./license.md)'.
