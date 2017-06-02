@@ -18,25 +18,64 @@ class Utils {
 
   static $fileCache;
   
+  /**
+   * Checks, if an array is an associate array.
+   *
+   * @param array $arr
+   * @return bool
+   */
   public static function isArrayAssoc($arr) {
     return (is_array($arr) && array_keys($arr) !== range(0, sizeof($arr) - 1));
   }
 
+  /**
+   * Check, if an array is a sequential array.
+   * 
+   * @param array $arr
+   * @return bool
+   */
   public static function isArraySequential($arr) {
     return (is_array($arr) && array_keys($arr) === range(0, sizeof($arr) - 1));
   }
 
-
+  /**
+   * Formats a float for output in e.g. templates or CSS code
+   * by bypassing automatic local number formatting, when a
+   * locale is set in PHP, assuring that a dot '.' is always
+   * used as decimal separator.
+   * 
+   * @param float $value The value to format.
+   * @param int $precision The maximal amount of digits to keep behind the decimal separator.
+   * @return string The formatted float.
+   */
   public static function formatFloat($value, $precision = 8) {
     return rtrim(rtrim(number_format($value, $precision, '.', ''), '0'), '.');
   }
 
 
+  /**
+   * Tests whether the values are matching with an additinal
+   * accuracy setting. This allows floats that are intended
+   * to have the same value to be compared but is more save
+   * to rounding errors than a direct comparison of the
+   * float values.
+   *
+   * @param float $a
+   * @param float $b
+   * @param int   $presicion
+   * @return bool
+   */
   public static function compareFloats($a, $b, $precision = 3) {
     return (abs(($a - $b) / $b) < 1 / pow(10, $precision));
   }
 
-
+  /**
+   * Return the currently smalles gif known to mankind as
+   * a base64-encoded string that can be used e.g. as a `src`
+   * attribute for an <img> tag.
+   *
+   * @return string
+   */
   public static function blankInlineImage() {
     return 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
   }
@@ -95,11 +134,12 @@ class Utils {
 
           $hash   = md5(microtime(true));
           $params = [
-            'imagekit.lazy' => false,
-            'quality'       => 100,
-            'filename'      => "{safeName}-{$hash}-tmp.{extension}",
-            'overwrite'     => true,
-            'upscale'       => true,
+            'imagekit.lazy'     => false,
+            'imagekit.optimize' => false,
+            'quality'           => 100,
+            'filename'          => "{safeName}-{$hash}-tmp.{extension}",
+            'overwrite'         => true,
+            'upscale'           => true,
           ];
 
           if($width > $height) {
@@ -110,14 +150,18 @@ class Utils {
 
           // Do color caclulation in thumb file and delete
           // it after done.
-          if($media instanceof File) {
-            $destinationRoot = $media->thumb($params)->root();
-          } else {
-            $destinationRoot = (new Thumb($media, $params))->destination()->root;
+          $tmpThumb = new Thumb($media, $params);
+          
+          if(!is_null($tmpThumb->error)) {
+            throw new Exception('Could not create temporary thumbnail for ' . $media->root() . '. Please check your thumb configuration.');
           }
 
-          $color = ColorThief::getColor($destinationRoot);
-          f::remove($destinationRoot);
+          $tmpFile = $tmpThumb->destination->root;
+
+          $color = ColorThief::getColor($tmpFile);
+          
+          f::remove($tmpFile);
+
         } else {
           $color = ColorThief::getColor($file, 10);
         }
@@ -312,25 +356,6 @@ class Utils {
     if(!version_compare($imageKitVersionTrimmed, '1.1.0', '>=')) return false;
 
     return \Kirby\Plugins\ImageKit\Optimizer::available($name);
-  }
-
-
-  public static function base62($num) {
-    
-    $base  = 62;
-    $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    
-    $r = $num  % $base;
-    $res = $chars[$r];
-    $q = floor($num / $base);
-    
-    while($q) {
-      $r   = $q % $base;
-      $q   = floor($q / $base);
-      $res = $chars[$r] . $res;
-    }
-
-    return $res;
   }
 
   /**
