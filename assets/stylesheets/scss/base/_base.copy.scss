@@ -80,8 +80,8 @@
 		margin-top: rhythm(.5) !important;
 	}
 
-	> h2 + > *:not(.figure-image),
-	> h3 + > *:not(.figure-image) {
+	> h2 + *:not(.figure-image),
+	> h3 + *:not(.figure-image) {
 		margin-top: rhythm(.5) !important;
 	}
 
