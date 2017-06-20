@@ -85,9 +85,9 @@
 		margin-top: rhythm(.5) !important;
 	}
 
-	> h4 + p:not(.figure-image),
-	> h5 + p:not(.figure-image),
-	> h6 + p:not(.figure-image) {
+	> h4 + p,
+	> h5 + p,
+	> h6 + p {
 		margin-top: 0 !important;
 	}
 
