@@ -56,8 +56,8 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/domready/domready.js',
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js',
 					'<%= project.scripts_plugins %>/imageset/imageset.js',      // Out-comment when using imageset's lazyload
-					// '<%= project.scripts_plugins %>/lazysizes/ls.bgset.js',     // Out-comment when using imageset's lazyload + (multiple) background image(s) with a width descriptor, similar to how img[srcset] works
-					// '<%= project.scripts_plugins %>/lazysizes/ls.parent-fit.js', // Out-comment when using imageset's lazyload + bgset, to calculate the right sizes for object-fit: contain|cover image elements (e.g. for Edge, IE11 and older, iOS 9, etc.)
+					// '<%= project.scripts_plugins %>/lazysizes/ls.bgset.js',     // Out-comment when using imageset's lazyload + background images with a width descriptor, similar to how `srcset` works (e.g. for Safari 10.x)
+					// '<%= project.scripts_plugins %>/lazysizes/ls.parent-fit.js', // Out-comment when using imageset's lazyload + background images; when `bgset` plugin (background images) is used in combination with data-sizes="auto" and `background-size: cover|contain` (e.g. for Edge, IE11 and older, iOS 9, etc.)
 					'<%= project.scripts_plugins %>/transitionend/transitionend.js',
 					'<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll.js',
 					// '<%= project.scripts_plugins %>/gumshoe/gumshoe.js',
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',
 					// '<%= project.scripts_polyfills %>/promise.js',
-					// '<%= project.scripts_polyfills %>/respimage.js',            // Out-comment when using imageset's lazyload, to add support for the <picture> element to browser that do not provide native support (e.g. for IE11 and older, iOS 9.2 and older, Opera Mini, etc.)!!1
+					// '<%= project.scripts_polyfills %>/respimage.js',            // Out-comment when using imageset's lazyload, to add support for the `srcset` and `picture` element to browsers that do not provide native support (e.g. for IE11 and older, iOS 9.2 and older, Opera Mini, etc.)!!1
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
@@ -89,15 +89,15 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/domready/domready.js',
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js',
 					'<%= project.scripts_plugins %>/imageset/imageset.js',      // Out-comment when using imageset's lazyload
-					// '<%= project.scripts_plugins %>/lazysizes/ls.bgset.js',     // Out-comment when using imageset's lazyload + (multiple) background image(s) with a width descriptor, similar to how img[srcset] works
-					// '<%= project.scripts_plugins %>/lazysizes/ls.parent-fit.js', // Out-comment when using imageset's lazyload + bgset, to calculate the right sizes for object-fit: contain|cover image elements (e.g. for Edge, IE11 and older, iOS 9, etc.)
+					// '<%= project.scripts_plugins %>/lazysizes/ls.bgset.js',     // Out-comment when using imageset's lazyload + background images with a width descriptor, similar to how `srcset` works (e.g. for Safari 10.x)
+					// '<%= project.scripts_plugins %>/lazysizes/ls.parent-fit.js', // Out-comment when using imageset's lazyload + background images; when `bgset` plugin (background images) is used in combination with data-sizes="auto" and `background-size: cover|contain` (e.g. for Edge, IE11 and older, iOS 9, etc.)
 					'<%= project.scripts_plugins %>/transitionend/transitionend.js',
 					'<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll.js',
 				],
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',
 					// '<%= project.scripts_polyfills %>/promise.js',
-					// '<%= project.scripts_polyfills %>/respimage.js',            // Out-comment when using imageset's lazyload, to add support for the <picture> element to browser that do not provide native support (e.g. for IE11 and older, iOS 9.2 and older, Opera Mini, etc.)!!1
+					// '<%= project.scripts_polyfills %>/respimage.js',            // Out-comment when using imageset's lazyload, to add support for the `srcset` and `picture` element to browsers that do not provide native support (e.g. for IE11 and older, iOS 9.2 and older, Opera Mini, etc.)!!1
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
