@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 if($page->isHomepage()) { $shareUrl = $site->url(); } else { $shareUrl = $page->tinyurl(); } // make sure to enable tinyurl in config.php
-$twittertext = 'Check out this “' . $page->title() . '” page on ' . $site->title() . ': ' . $shareUrl;
+$twittertext = 'Check out this &ldquo;' . $page->title() . '&rdquo; page on ' . $site->title() . ': ' . $shareUrl;
 
 ////////////////////////////////////////////////////////// ?>
 
