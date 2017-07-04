@@ -164,6 +164,15 @@
 		hyphens: none;
 	}
 
+	/**
+	 * Overrule no hyphen to auto hyphen
+	 */
+
+	.text-auto-hyphen {
+		hyphens: auto;
+	}
+
+
 	/* Paragraphs
 	   ========================================================================== */
 
