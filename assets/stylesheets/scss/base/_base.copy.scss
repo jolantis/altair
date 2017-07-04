@@ -53,6 +53,24 @@
 		}
 	}
 
+	/* Max-width (without contain class)
+	   ========================================================================== */
+
+	&--max-width {
+		> h1, > h2, > h3, > h4, > h5, > h6,
+		> p,
+		> ul,
+		> ol,
+		> dl,
+		> time,
+		> table,
+		> form,
+		> .figure-image.full-width figcaption,
+		> .figure-image.text-width {
+			max-width: $text-max-width; // Text max width
+		}
+	}
+
 	/* Vertical spacing
 	   ========================================================================== */
 
