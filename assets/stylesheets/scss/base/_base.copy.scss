@@ -149,7 +149,8 @@
 	> time,
 	> table,
 	figcaption p {
-		hyphens: auto;
+		hyphens: none; // Set none as default, because most languages display this poorly
+		// hyphens: auto;
 	}
 
 	/**
