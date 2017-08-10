@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Foundation
+   ========================================================================== */
+
+/**
+ * A bare bones reset + normalize. Add, edit where necessary (from normalize.scss).
+ */
+
+/**
+ * Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+
+html {
+	-webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+	margin: 0;
+}
+
+/**
+ * Reset margin and padding from these core elements to bring them
+ * to the same predictable blank slate as div, section and article.
+ */
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote,
+figure, figcaption,
+dl, dt, dd, ol, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Fix the main tag being unsupported and breaking layout (in IE).
+ * Remove bullets and numbers from list items; no need for those in
+ * a menu or any other component that is semantically a list. When you
+ * actually need bullets or numbering pseudo-elements provide more
+ * customisation options than the standard list-style.
+ */
+
+main,
+li {
+	display: block;
+}
+
+/**
+ * Resets headings to look the same (inherit the same size) as the surrounding
+ * text by default and not some arbitrary larger size. This makes for greater
+ * consistency and overriding less. Headings are styled in copy class.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	// font-weight: inherit;
+	// line-height: inherit;
+}
+
+/**
+ * Correct some browsers defaulting strong to bolder.
+ */
+
+strong {
+	font-weight: bold;
+}
+
+/**
+ * Fix buttons and anchors for not inheriting text color in most browsers.
+ * This, along with `text-decoration: none` makes for less surprises
+ * applying links to things.
+ */
+
+a,
+button {
+	color: inherit;
+}
+
+a {
+	text-decoration: none;
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+
+a:active,
+a:hover {
+	outline-width: 0;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+	font-size: .75rem;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -.2rem;
+}
+
+sup {
+	top: -.3rem;
+}
+
+/**
+ * Change font properties to `inherit` in all browsers (opinionated).
+ */
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+/**
+ * Also show the overflow in IE and Edge (input).
+ */
+
+button,
+input {
+	overflow: visible;
+}
+
+/**
+ * For UX reasons (consistency) give all buttons and a pointer cursor.
+ */
+
+button,
+[type="button"],
+[type="submit"] {
+	cursor: pointer;
+}
+
+
+/**
+ * Correct the odd appearance of search input in Chrome and Safari.
+ * And correct the outline style in Safari.
+ */
+
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * Correct the text style of placeholders in Edge and Safari.
+ */
+
+::-webkit-input-placeholder {
+	color: inherit;
+	opacity: .54;
+}

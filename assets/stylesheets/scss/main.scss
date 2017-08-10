@@ -38,9 +38,8 @@
 // Low-specificity, far-reaching rulesets (e.g. resets).
 // --------------------------------------------------------------------------
 
-@import "generic/generic.reset";
-@import "generic/generic.normalize";
 @import "generic/generic.box-sizing";
+@import "generic/generic.foundation";
 @import "generic/generic.text-selection";
 @import "generic/generic.viewport";
 

@@ -86,13 +86,13 @@
  */
 
 .button--small {
-	margin-bottom: rhythm(.5);
-	padding: rhythm(.25);
+		// margin-bottom: rhythm(.5);
+	padding: rhythm(.25) rhythm(.5);
 }
 
 .button--large {
-	margin-bottom: rhythm(.5);
-	padding: rhythm(.75) rhythm(1);
+	// margin-bottom: rhythm(.5);
+	padding: rhythm(.75) rhythm(1.25);
 }
 
 /* Full width button */

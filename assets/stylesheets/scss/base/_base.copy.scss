@@ -32,6 +32,7 @@
 		> time,
 		> table,
 		> form,
+		// > .blockquote,
 		> .figure-image.full-width figcaption,
 		> .figure-image.text-width {
 			max-width: $text-max-width + (2 * rhythm($contain-rhythm-unit)); // Text max width
@@ -257,8 +258,6 @@
 		@extend %text-time;
 	}
 
-	/* Addresses styling not present in IE7/8/9 */
-
 	mark {
 		background-color: rgb(248,248,0);
 		color: $color-base-black;
@@ -274,11 +273,13 @@
 	del {
 		background-color: rgb(248,0,0);
 		color: $color-base-black;
+		// text-decoration: line-through;
 	}
 
-	/* Addresses styling not present in IE7/8/9, S5, Chrome */
-
 	abbr {
+		border-bottom: none;
+		text-decoration: underline;
+		text-decoration: underline dotted;
 		text-transform: lowercase;
 		letter-spacing: .05em;
 		font-variant: small-caps; // https://developer.mozilla.org/en-US/docs/CSS/font-variant

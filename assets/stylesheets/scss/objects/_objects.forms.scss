@@ -4,14 +4,33 @@
 
 .form {
 	margin-bottom: rhythm(1);
-}
 
-/* Fieldset */
+	/**
+	 * Legend (from normalize.css)
+	 * 1. Correct the text wrapping in Edge and IE.
+	 * 2. Correct the color inheritance from `fieldset` elements in IE.
+	 * 3. Remove the padding so developers are not caught out when they zero out
+	 *    `fieldset` elements in all browsers.
+	 */
 
-.form fieldset {
-	margin: 0 0 rhythm(1);
-	padding: 0;
-	border: 0;
+	legend {
+		box-sizing: border-box; // 1
+		color: inherit; // 2
+		display: table; // 1
+		max-width: 100%; // 1
+		padding: 0; // 3
+		white-space: normal; // 1
+	}
+
+	/**
+	 * Fieldset
+	 */
+
+	fieldset {
+		margin: 0 0 rhythm(1);
+		padding: 0;
+		border: 0;
+	}
 }
 
 /**
@@ -44,12 +63,19 @@
 	}
 }
 
-.form label,
-.form input,
-.form textarea,
-.form select {
-	display: inline-block;
-	vertical-align: middle;
+.form {
+
+	label,
+	input,
+	textarea,
+	select {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	textarea {
+		overflow: auto; // Remove the default vertical scrollbar in IE.
+	}
 }
 
 // .form__select {
@@ -93,14 +119,6 @@
 
 .form__input--full {
 	width: 100%; // Causes iOS 6 orientation viewport issue: http://j.mp/Sa3zh3
-}
-
-/**
- * Override the normalize.css search input `box-sizing` normalization.
- */
-
-.form__input[type="search"] {
-	box-sizing: border-box;
 }
 
 /**

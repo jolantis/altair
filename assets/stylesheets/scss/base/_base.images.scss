@@ -17,7 +17,7 @@ figure {
 img {
 	max-width: 100%;
 	height: auto;
-	// border: 0;
+	border: 0; // Fix images within links gaining a border in IE 8, 9 and 10!
 }
 
 /**

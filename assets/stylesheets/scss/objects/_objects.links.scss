@@ -12,6 +12,7 @@
 
 		position: relative;
 		transition: color .24s ease-out;
+		background-color: transparent; // Remove the gray background on active links in IE 10.
 		text-decoration: underline;
 		text-decoration-skip: ink; // See: https://css-tricks.com/more-control-over-text-decoration/
 		color: $color-base-blue;
