@@ -10,13 +10,13 @@
 }('domready', function () {
 
 	var fns = [], listener
-		, doc = document
-		, hack = doc.documentElement.doScroll
+		, doc = typeof document === 'object' && document
+		, hack = doc && doc.documentElement.doScroll
 		, domContentLoaded = 'DOMContentLoaded'
-		, loaded = (hack ? /^loaded|^c/ : /^loaded|^i|^c/).test(doc.readyState)
+		, loaded = doc && (hack ? /^loaded|^c/ : /^loaded|^i|^c/).test(doc.readyState)
 
 
-	if (!loaded)
+	if (!loaded && doc)
 	doc.addEventListener(domContentLoaded, listener = function () {
 		doc.removeEventListener(domContentLoaded, listener)
 		loaded = 1
@@ -24,7 +24,7 @@
 	})
 
 	return function (fn) {
-		loaded ? fn() : fns.push(fn)
+		loaded ? setTimeout(fn, 0) : fns.push(fn)
 	}
 
 });
