@@ -52,6 +52,7 @@ module.exports = function(grunt) {
 			],
 			main: {
 				plugins: [
+					// '<%= project.scripts_plugins %>/debounce/debounce.js',
 					'<%= project.scripts_plugins %>/domready/domready.js',      // ALWAYS out-comment. It is used in the `main` and `mobile` scripts files!
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js', // Out-comment when loading fonts
 					// '<%= project.scripts_plugins %>/gumshoe/gumshoe.js',
@@ -60,6 +61,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_plugins %>/imageset/ls.parent-fit.js', // Out-comment when using imageset's lazyload + background images; when `bgset` plugin (background images) is used in combination with data-sizes="auto" and `background-size: cover|contain` (e.g. for Edge, IE11 and older, iOS 9, etc.)
 					'<%= project.scripts_plugins %>/transitionend/transitionend.js', // Out-comment when using alerts or navmain module!
 					'<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll.js',
+					// '<%= project.scripts_plugins %>/debounce/throttle.js',
 				],
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
@@ -84,6 +86,7 @@ module.exports = function(grunt) {
 			},
 			mobile: {
 				plugins: [
+					// '<%= project.scripts_plugins %>/debounce/debounce.js',
 					'<%= project.scripts_plugins %>/domready/domready.js',      // ALWAYS out-comment! It is used in the `main` and `mobile` scripts files!
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js', // Out-comment when loading fonts
 					'<%= project.scripts_plugins %>/imageset/imageset.js',      // Out-comment when using imageset's lazyload
@@ -91,6 +94,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_plugins %>/imageset/ls.parent-fit.js', // Out-comment when using imageset's lazyload + background images; when `bgset` plugin (background images) is used in combination with data-sizes="auto" and `background-size: cover|contain` (e.g. for Edge, IE11 and older, iOS 9, etc.)
 					'<%= project.scripts_plugins %>/transitionend/transitionend.js', // Out-comment when using alerts or navmain module!
 					'<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll.js',
+					// '<%= project.scripts_plugins %>/debounce/throttle.js',
 				],
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
