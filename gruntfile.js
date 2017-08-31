@@ -52,7 +52,6 @@ module.exports = function(grunt) {
 			],
 			main: {
 				plugins: [
-					// '<%= project.scripts_plugins %>/domdelegate/domdelegate.js',
 					'<%= project.scripts_plugins %>/domready/domready.js',
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js',
 					'<%= project.scripts_plugins %>/imageset/imageset.js',      // Out-comment when using imageset's lazyload
@@ -85,7 +84,6 @@ module.exports = function(grunt) {
 			},
 			mobile: {
 				plugins: [
-					// '<%= project.scripts_plugins %>/domdelegate/domdelegate.js',
 					'<%= project.scripts_plugins %>/domready/domready.js',
 					'<%= project.scripts_plugins %>/fontfaceobserver/fontfaceobserver.js',
 					'<%= project.scripts_plugins %>/imageset/imageset.js',      // Out-comment when using imageset's lazyload
