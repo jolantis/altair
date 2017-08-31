@@ -845,6 +845,13 @@ class ImageSet extends SourceSet {
       if($multiple) {
         $attr['srcset'] = $this->srcset();
       }
+    // JVW
+    } elseif($this->outputStyle() === 'bgimage') {
+      // Background image output style
+      $attr['src']    = $this->src();
+      if($multiple) {
+        $attr['data-bgset'] = $this->srcset();
+      }
     } else {
       // Full-featured output style
       
