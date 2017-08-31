@@ -74,6 +74,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_utils %>/cookie.util.js',              // Out-comment when enhance (and thus enhance.cookie) is not used
 					// '<%= project.scripts_utils %>/domparents.util.js',
 					'<%= project.scripts_utils %>/extend.util.js',              // Out-comment when using alerts module!
+					// '<%= project.scripts_utils %>/isvisible.util.js',
 				],
 				modules: [
 					'<%= project.scripts_modules %>/alerts.module.js',
@@ -108,6 +109,7 @@ module.exports = function(grunt) {
 					// '<%= project.scripts_utils %>/cookie.util.js',              // Out-comment when enhance (and thus enhance.cookie) is not used
 					// '<%= project.scripts_utils %>/domparents.util.js',
 					'<%= project.scripts_utils %>/extend.util.js',              // Out-comment when using alerts module!
+					// '<%= project.scripts_utils %>/isvisible.util.js',
 				],
 				modules: [
 					'<%= project.scripts_modules %>/alerts.module.js',
