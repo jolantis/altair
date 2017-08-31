@@ -67,6 +67,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
 					// '<%= project.scripts_polyfills %>/promise.js',
 					// '<%= project.scripts_polyfills %>/respimage.js',            // Out-comment when using imageset's lazyload, to add support for the `srcset` and `picture` element to browsers that do not provide native support (e.g. for IE11 and older, iOS 9.2 and older, Opera Mini, etc.)!!1
+					'<%= project.scripts_polyfills %>/ls.respimg.js',           // Only partial `respimage` polyfill (see: https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/respimg)
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
@@ -100,6 +101,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
 					// '<%= project.scripts_polyfills %>/promise.js',
 					// '<%= project.scripts_polyfills %>/respimage.js',            // Out-comment when using imageset's lazyload, to add support for the `srcset` and `picture` element to browsers that do not provide native support (e.g. for IE11 and older, iOS 9.2 and older, Opera Mini, etc.)!!1
+					// '<%= project.scripts_polyfills %>/ls.respimg.js',           // Only partial `respimage` polyfill (see: https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/respimg)
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
