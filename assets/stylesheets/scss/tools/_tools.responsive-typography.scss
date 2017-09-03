@@ -137,6 +137,7 @@
 
 		@if $line-height-only == false {
 			@if $fluid == true {
+				font-size: font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
 				font-size: fluid-font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
 			}
 			@else {
@@ -149,6 +150,7 @@
 		$font-size: $font-bp-val;
 
 		@if $fluid == true {
+			font-size: font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
 			font-size: fluid-font-size($font-size, $breakpoint-key, $text-sizes, $rem, $base);
 		}
 		@else {
