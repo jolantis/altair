@@ -72,7 +72,7 @@
 	$min-bp-key: nth(nth($text-sizes, 2), 1);									// samllest breakpoint key (e.g. `small` key in $text-sizes);
 	$max-bp-key: nth(nth($text-sizes, -1), 1);									// largest breakpoint key
 	$min-font-size: nth((nth((nth($text-sizes, 1)), 2)), 1);					// smallest text size in pixels (e.g. `null` key in $text-sizes)
-	$max-font-size: nth((nth((nth($text-sizes, -1)), 2)), 1);					// biggest text size in pixels (e.g. `null` key in $text-sizes)
+	$max-font-size: nth((nth((nth($text-sizes, -1)), 2)), 1);					// biggest text size in pixels (e.g. largest breakpoint key in $text-sizes)
 	$min-bp-val: map-get($breakpoints, $min-bp-key);
 	$max-bp-val: map-get($breakpoints, $max-bp-key);
 	$min-base-val: font-size($font-size, $min-bp-key, $text-sizes, $rem, $base);
