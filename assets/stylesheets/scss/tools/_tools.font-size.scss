@@ -80,7 +80,7 @@
 	$min-vw-val: strip-unit($min-bp-val) * $min-font-size;
 	$max-vw-val: strip-unit($max-bp-val) * $max-font-size;
 
-	@return calc(#{$min-base-val} + #{strip-unit($max-font-size - $min-font-size)} * (100vw - #{$min-vw-val}) / #{strip-unit($max-vw-val - $min-vw-val)});
+	@return calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * (100vw - #{$min-vw-val}) / #{strip-unit($max-vw-val - $min-vw-val)});
 }
 
 // Base font size (convert font size to percentages)
