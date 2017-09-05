@@ -77,8 +77,8 @@
 	$max-bp-val: map-get($breakpoints, $max-bp-key);
 	$min-base-val: font-size($font-size, $min-bp-key, $text-sizes, $rem, $base);
 	$max-base-val: font-size($max-font-size, $max-bp-key, $text-sizes, $rem, $base);
-	$min-vw-val: strip-unit($min-bp-val) * $min-font-size;
-	$max-vw-val: strip-unit($max-bp-val) * $max-font-size;
+	$min-vw-val: strip-unit($min-bp-val) * 16px;
+	$max-vw-val: strip-unit($max-bp-val) * 16px;
 
 	@return calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * (100vw - #{$min-vw-val}) / #{strip-unit($max-vw-val - $min-vw-val)});
 }
