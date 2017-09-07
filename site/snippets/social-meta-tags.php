@@ -33,10 +33,10 @@ $site_title = $site->title()->smartypants();
 
 // Get page title
 if($page->long_title()->exits() && $page->long_title()->isNotEmpty()) {
-	$page_title = $page->long_title()->smartypants()->titlecase();
+	$page_title = $page->long_title()->smartypants();
 }
 else {
-	$page_title = $page->title()->smartypants()->titlecase();
+	$page_title = $page->title()->smartypants();
 }
 
 // Get page url

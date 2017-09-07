@@ -26,7 +26,7 @@ $site_title = $site->title()->smartypants();
 // Get page title
 if($page->isHomePage()) {
 	if($site->tagline()->exits() && $site->tagline()->isNotEmpty()) {
-		$page_title = $site_title . ': ' . $site->tagline()->smartypants()->titlecase();
+		$page_title = $site_title . ': ' . $site->tagline()->smartypants();
 	}
 	else {
 		$page_title = $site_title;
@@ -34,10 +34,10 @@ if($page->isHomePage()) {
 }
 else {
 	if($page->long_title()->exits() && $page->long_title()->isNotEmpty()) {
-		$page_title = $site_title . ': ' . $page->long_title()->smartypants()->titlecase();
+		$page_title = $site_title . ': ' . $page->long_title()->smartypants();
 	}
 	else {
-		$page_title = $site_title . ': ' . $page->title()->smartypants()->titlecase();
+		$page_title = $site_title . ': ' . $page->title()->smartypants();
 	}
 }
 
