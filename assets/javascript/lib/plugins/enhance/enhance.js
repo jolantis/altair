@@ -17,7 +17,7 @@
 		// this references a meta tag's name whose content attribute should define the path to the enhanced JS file for the site (delivered to qualified browsers)
 		fullJSKey = "fulljs",
 		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
-		fontsKey = "fonts",
+		// fontsKey = "fonts",
 		// classes to be added to the HTML element in qualified browsers
 		htmlClasses = [ "enhanced", "ctm" ],
 		docClasses = htmlClasses;
@@ -172,16 +172,16 @@
 		};
 	}
 
-	/* Load custom fonts
-		We prefer to load fonts asynchronously so that they do not block page rendering.
-		To do this, a meta tag with a name matching the fontsWoffKey should have a content attribute referencing the path to this fonts file.
-		NOTE: You may want to have logic here to choose between one of many font formats before loading it.
-			For example, we often load WOFF, Truetype, or SVG. If so, just define meta tags for each
-		*/
-	var fonts = getMeta( fontsKey );
-	if( fonts ){
-		loadCSS( fonts.content );
-	}
+	///* Load custom fonts
+	//	We prefer to load fonts asynchronously so that they do not block page rendering.
+	//	To do this, a meta tag with a name matching the fontsWoffKey should have a content attribute referencing the path to this fonts file.
+	//	NOTE: You may want to have logic here to choose between one of many font formats before loading it.
+	//		For example, we often load WOFF, Truetype, or SVG. If so, just define meta tags for each
+	//	*/
+	// var fonts = getMeta( fontsKey );
+	// if( fonts ){
+	// 	loadCSS( fonts.content );
+	// }
 
 	// expose the 'enhance' object globally. Use it to expose anything in here that's useful to other parts of your application.
 	if( !window.enchance ){
