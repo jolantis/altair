@@ -25,9 +25,9 @@
 	/* Some commonly used functions - delete anything you don't need! */
 
 	// loadJS: load a JS file asynchronously. Included from https://github.com/filamentgroup/loadJS/
-		var ref = window.document.getElementsByTagName( "script" )[ 0 ];
-		var script = window.document.createElement( "script" );
 	var loadJS = enhance.loadJS = function( src ){
+		var ref = doc.getElementsByTagName( "script" )[ 0 ];
+		var script = doc.createElement( "script" );
 		script.src = src;
 		script.async = true;
 		ref.parentNode.insertBefore( script, ref );
@@ -43,9 +43,9 @@
 		// However, since the order in which stylesheets are referenced matters, you might need a more specific location in your document.
 		// If so, pass a different reference element to the `before` argument and it'll insert before that instead
 		// note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
-		var ss = window.document.createElement( "link" );
-		var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
-		var sheets = window.document.styleSheets;
+		var ss = doc.createElement( "link" );
+		var ref = before || doc.getElementsByTagName( "script" )[ 0 ];
+		var sheets = doc.styleSheets;
 		ss.rel = "stylesheet";
 		ss.href = href;
 		// temporarily, set media to something non-matching to ensure it'll fetch without blocking render
@@ -75,8 +75,8 @@
 
 	// getMeta function: get a meta tag by name
 	// NOTE: meta tag must be in the HTML source before this script is included in order to guarantee it'll be found
-		var metas = window.document.getElementsByTagName( "meta" );
 	var getMeta = enhance.getMeta = function( metaname ){
+		var metas = doc.getElementsByTagName( "meta" );
 		var meta;
 		for( var i = 0; i < metas.length; i ++ ){
 			if( metas[ i ].name && metas[ i ].name === metaname ){
@@ -92,7 +92,7 @@
 	var expires;
 		// if value is undefined, get the cookie value
 		if( value === undefined ){
-			var cookiestring = "; " + window.document.cookie;
+			var cookiestring = "; " + doc.cookie;
 			var cookies = cookiestring.split( "; " + name + "=" );
 			if ( cookies.length == 2 ){
 				return cookies.pop().split( ";" ).shift();
@@ -112,7 +112,7 @@
 			else {
 				expires = "";
 			}
-			window.document.cookie = name + "=" + value + expires + "; path=/";
+			doc.cookie = name + "=" + value + expires + "; path=/";
 		}
 	};
 
