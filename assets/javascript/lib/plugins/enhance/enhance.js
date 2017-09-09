@@ -162,12 +162,12 @@
 	var fullJS = getMeta( fullJSKey );
 	// Add scoping classes to HTML element
 	function addEnhanceClass(){
-		docElem.className += " " + docClasses.join(" ");
+		docElem.className += " " + htmlClasses.join(" ");
 	}
 
 	function removeEnhanceClass(){
-		docElem.className = docElem.className.replace( docClasses.join(" "), " " );
-		}
+		docElem.className = docElem.className.replace( htmlClasses.join(" "), " " );
+	}
 
 	// Add scoping classes to HTML element: useful for upgrading the presentation of elements that will be enhanced with JS behavior
 	addEnhanceClass();
