@@ -108,10 +108,10 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php endif; ?>
 
 	<!--[if (gte IE 7) & (lte IE 8)]>
-	<script src="<?php echo url('/assets/javascript/lib/plugins/html5shiv/html5shiv.min.js'); ?>"></script>
-	<script src="<?php echo url('/assets/javascript/lib/plugins/html5shiv/html5shiv-printshiv.min.js'); ?>"></script>
-	<script src="<?php echo url('/assets/javascript/lib/plugins/nwmatcher/nwmatcher.min.js'); ?>"></script>
-	<script src="<?php echo url('/assets/javascript/lib/plugins/selectivizr/selectivizr.min.js'); ?>"></script>
+	<script src="<?php echo url('/assets/javascript/lib/plugins/polyfills/html5shiv.min.js'); ?>"></script>
+	<script src="<?php echo url('/assets/javascript/lib/plugins/polyfills/html5shiv-printshiv.min.js'); ?>"></script>
+	<script src="<?php echo url('/assets/javascript/lib/plugins/polyfills/nwmatcher.min.js'); ?>"></script>
+	<script src="<?php echo url('/assets/javascript/lib/plugins/polyfills/selectivizr.min.js'); ?>"></script>
 	<![endif;]-->
 
 	<?php // Initialize JS variables for use later on ?>
