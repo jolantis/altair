@@ -67,6 +67,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
 					// '<%= project.scripts_polyfills %>/promise.js',
 					// '<%= project.scripts_polyfills %>/ls.respimg.js',           // Only partial `respimage` polyfill (see: https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/respimg); out-comment when not conditionally loading `respimage.min.js` in `head.scripts.js`
+					'<%= project.scripts_polyfills %>/svg4everybody.js',        // Adds external spritemaps support to otherwise svg-capable browsers (e.g. IE11)
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',
@@ -101,6 +102,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
 					// '<%= project.scripts_polyfills %>/promise.js',
 					// '<%= project.scripts_polyfills %>/ls.respimg.js',           // Only partial `respimage` polyfill (see: https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/respimg); out-comment when not conditionally loading `respimage.min.js` in `head.scripts.js`
+					// '<%= project.scripts_polyfills %>/svg4everybody.js',        // Adds external spritemaps support to otherwise svg-capable browsers (e.g. IE11)
 				],
 				utils: [
 					// '<%= project.scripts_utils %>/ajax.util.js',

@@ -9,8 +9,3 @@
 if(!window.HTMLPictureElement){
 	enhance.loadJS('/assets/javascript/lib/polyfills/respimage.min.js');
 }
-
-// Load SVG 4 everybody, be sure to check SVG support in Modernizr
-if (!Modernizr.svg) {
-	enhance.loadJS('/assets/javascript/lib/polyfills/svg4everybody.min.js');
-}
