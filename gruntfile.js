@@ -21,6 +21,7 @@ module.exports = function(grunt) {
 			scripts_plugins: '<%= project.scripts %>/lib/plugins',
 			scripts_polyfills: '<%= project.scripts %>/lib/polyfills',
 			scripts_utils: '<%= project.scripts %>/lib/utils',
+			design_assets: 'design/assets',
 		},
 
 		// Project banner
