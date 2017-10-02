@@ -47,8 +47,8 @@ URL
 
 */
 
-c::set('url', false);
-c::set('ssl', false);
+c::set('url', 'https://altair.artlantis.nl');
+c::set('ssl', true);
 
 
 /* -----------------------------------------------------------------------------
