@@ -61,12 +61,6 @@ module.exports = function(grunt) {
 				message: 'Mobile stylesheet created', // required
 			},
 		},
-		oldie: {
-			options: {
-				title: "Task Complete (Altair)", // optional; defaults to the name in package.json, or will use project directory's name
-				message: 'Oldie stylesheet created', // required
-			},
-		},
 	});
 
 };

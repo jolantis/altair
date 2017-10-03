@@ -12,11 +12,6 @@ module.exports = function(grunt) {
 				'<%= project.styles_min %>/print.min.css': '<%= project.styles_dev %>/print.dev.css',
 			},
 		},
-		oldie: {
-			files: {
-				'<%= project.styles_min %>/oldie.min.css': '<%= project.styles_dev %>/oldie.dev.css', // destination: source
-			},
-		},
 		criticalcss: {
 			options: {
 				banner: '<%= tag.banner_basic %>',
