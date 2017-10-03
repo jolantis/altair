@@ -20,12 +20,15 @@
 # Grunt
 gruntfile.js         export-ignore
 package.json         export-ignore
-.jshintrc            export-ignore
 grunt/               export-ignore
 node_modules/        export-ignore
 
 # Editor
 .editorconfig        export-ignore
+
+# Linters
+.eslintrc            export-ignore
+.jshintrc            export-ignore
 
 # Readme (text files)
 # readme.txt           export-ignore
