@@ -30,10 +30,7 @@
     "grunt-imageoptim": "^1.4.4",
     "grunt-notify": "^0.4.5",
     "grunt-penthouse": "^0.4.0",
-    "grunt-pixrem": "^0.1.2",
-    "grunt-remfallback": "^0.0.5",
     "grunt-sass": "^2.0.0",
-    "grunt-stripmq": "0.0.6",
     "grunt-svgmin": "^4.0.0",
     "jshint-stylish": "^2.2.1"
   }
