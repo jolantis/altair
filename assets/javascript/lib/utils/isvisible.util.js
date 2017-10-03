@@ -6,10 +6,10 @@
 
 var isVisible = function(el) {
 	var rect    = el.getBoundingClientRect();
-	var vWidth  = window.innerWidth || doc.documentElement.clientWidth;
-	var vHeight = window.innerHeight || doc.documentElement.clientHeight;
+	var vWidth  = window.innerWidth || document.documentElement.clientWidth;
+	var vHeight = window.innerHeight || document.documentElement.clientHeight;
 
-	efp = function (x, y) { return document.elementFromPoint(x, y); };
+	var efp = function (x, y) { return document.elementFromPoint(x, y); };
 
 	// // Return false if it's completely out of the viewport
 	// if(rect.right < 0 || rect.bottom < 0 || rect.left > vWidth || rect.top > vHeight) {
@@ -23,4 +23,4 @@ var isVisible = function(el) {
 
 	// Return true if any of its four corners are visible
 	return (el.contains(efp(rect.left,  rect.top)) ||  el.contains(efp(rect.right, rect.top)) ||  el.contains(efp(rect.right, rect.bottom)) ||  el.contains(efp(rect.left,  rect.bottom)));
-}
+};

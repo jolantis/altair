@@ -33,4 +33,4 @@ var domparents = {
 		}
 		throw('no ancestor found with that element type. Try checking your DOM tree!');
 	}
-}
+};
