@@ -32,14 +32,16 @@ figure > img {
  * Google Maps breaks if `max-width: 100%` acts upon it; use their selector
  * to remove the effects.
  */
+
 .gm-style img {
 	max-width: none;
 }
 
-/**
- * If a `width` and/or `height` attribute have been explicitly defined, let's
- * not make the image fluid. Uncomment this if you want to use these rules!
- */
+// /**
+//  * If a `width` and/or `height` attribute have been explicitly defined, let's
+//  * not make the image fluid. Uncomment this if you want to use these rules!
+//  */
+
 // img[width],
 // img[height] {
 // 	max-width: none;
