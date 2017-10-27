@@ -113,4 +113,4 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 </head>
 <body>
 
-	<?php snippet('oldie-message'); ?>
+	<?php // snippet('oldie-message'); ?>
