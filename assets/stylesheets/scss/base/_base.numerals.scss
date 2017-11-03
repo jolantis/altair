@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Numerals
+   ========================================================================== */
+
+/**
+ * Use old-style numerals in running text (or copy),
+ * and lining (or titling) numerals in headings.
+ *
+ * Read more about the use of numerals:
+ * https://alistapart.com/article/web-typography-numerals
+ */
+
+.numerals {
+	font-feature-settings: "onum" 1;
+
+	@supports (font-variant-numeric: oldstyle-nums) {
+		font-feature-settings: normal;
+		font-variant-numeric: oldstyle-nums;
+	}
+
+	/**
+	 * Elements to use lining numerals instead (for easier scanning a
+	 * sequence of numbers, looking for patterns, making comparisons,
+	 * or hunting for data in a list, table or other setting)
+	 */
+
+	h1,
+	h2,
+	h3,
+	li,
+	table {
+		font-feature-settings: "lnum" 1;
+
+		@supports (font-variant-numeric: lining-nums) {
+			font-variant-numeric: lining-nums;
+		}
+	}
+}
