@@ -36,13 +36,13 @@ Text:
 
 # Heading h1 duis volutpat id metus quis semper
 
-Praesent eu leo eget odio fermentum consequat a sit amet mi. Suspendisse sit amet tellus vel odio scelerisque euismod. Vestibulum nisl ligula, commodo sit.
+Praesent eu leo eget odio fermentum (old-style numerals in running text: 1234567890) consequat a sit amet mi. Suspendisse sit amet tellus vel odio scelerisque euismod. Vestibulum nisl ligula, commodo sit.
 
 ## Heading h2 duis volutpat id metus quis semper
 
 Duis accumsan feugiat eleifend. Morbi in urna nulla. Etiam pretium, ante ultrices euismod euismod, felis velit tempus diam, quis mollis neque enim non purus.
 
-### Heading 3 duis volutpat id metus quis semper
+### Heading h3 duis volutpat id metus quis semper
 
 Vivamus at neque at mi vestibulum condimentum sed sit amet arcu. Morbi mauris augue, ultricies eu semper quis, lacinia id quam. Proin.
 
@@ -167,8 +167,8 @@ I am <mark>the mark tag</mark> example
 I am <small>the small tag</small> example  
 I am <span>the span tag</span> example  
 I am **the strong tag** example  
-I am <sub>the sub tag</sub> example  
-I am <sup>the sup tag</sup> example  
+I am the<sub>sub (1)</sub> tag example  
+I am the<sup>sup (2)</sup> tag example  
 I am <var>the var tag</var> example  
 I am <q>the q tag <q>inside</q> a q tag</q> example	 
 I am <code>the code tag</code> example  
