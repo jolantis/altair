@@ -56,7 +56,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 <html class="no-js<?php echo $page_template . $fontobserver ?>" lang="<?php echo $language_locale; ?>">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<?php // Prefetch DNS for external assets (Typekit, Google APIs, etc). ?>
 	<link rel="dns-prefetch" href="https://use.typekit.net">
