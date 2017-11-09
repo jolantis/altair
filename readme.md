@@ -30,14 +30,14 @@ Kirby and therefore Altair runs on a PHP 7.x (other versions untested for Altair
 If you are familiar with Git, clone Altair's repository from Github.
 
 
-    $ git clone --recursive https://github.com/studiodumbar/altair.git
+    $ git clone --recursive https://github.com/jolantis/altair
 
 
 The `--recursive` flag is necessary to initiate and pull the kirby and toolkit submodules.
 
 1. Make sure that all folders and files within content are writable
 2. Make sure the thumbs folder is writable
-3. Rename both site/config/config.altair.dev.php and site/config/config.altair.studiodumbar.com.php to reflect your own local and staging environments URL's.
+3. Rename both site/config/config.altair.dev.php and site/config/config.altair.artlantis.nl.php to reflect your own local and staging environments URL's.
 4. Make sure to update and/or check in site/config/config.php the following config variables:
 
 ```php
@@ -69,9 +69,3 @@ This project is developed and maintained by Jonathan van Wunnik [artlantis.nl](h
 ## License
 
 Code and contributions have '[MIT License](./license.md)'.
-
-
-
-
-
-
