@@ -1,0 +1,2686 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Box sizing
+   ========================================================================== */
+/**
+ * Set the global `box-sizing` state to `border-box`
+ * (e.g. natural box layout model). See post by Paul Irish:
+ * http://paulirish.com/2012/box-sizing-border-box-ftw/
+ *
+ * Update 2014-07-16!
+ * Inheriting box-sizing Probably Slightly Better Best-Practice:
+ * http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* ==========================================================================
+   Foundation
+   ========================================================================== */
+/**
+ * A bare bones reset + normalize. Add, edit where necessary (from normalize.scss).
+ */
+/**
+ * Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0; }
+
+/**
+ * Reset margin and padding from these core elements to bring them
+ * to the same predictable blank slate as div, section and article.
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote,
+figure, figcaption,
+dl, dt, dd, ol, ul, li {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Fix the main tag being unsupported and breaking layout (in IE).
+ * Remove bullets and numbers from list items; no need for those in
+ * a menu or any other component that is semantically a list. When you
+ * actually need bullets or numbering pseudo-elements provide more
+ * customisation options than the standard list-style.
+ */
+main,
+li {
+  display: block; }
+
+/**
+ * Resets headings to look the same (inherit the same size) as the surrounding
+ * text by default and not some arbitrary larger size. This makes for greater
+ * consistency and overriding less. Headings are styled in copy class.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit; }
+
+/**
+ * Correct some browsers defaulting strong to bolder.
+ */
+strong {
+  font-weight: bold; }
+
+/**
+ * Fix buttons and anchors for not inheriting text color in most browsers.
+ * This, along with `text-decoration: none` makes for less surprises
+ * applying links to things.
+ */
+a,
+button {
+  color: inherit; }
+
+a {
+  text-decoration: none; }
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+a:active,
+a:hover {
+  outline-width: 0; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: smaller;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -.2rem; }
+
+sup {
+  top: -.3rem; }
+
+/**
+ * Change font properties to `inherit` in all browsers (opinionated).
+ */
+button,
+input,
+select,
+textarea {
+  font: inherit; }
+
+/**
+ * Also show the overflow in IE and Edge (input).
+ */
+button,
+input {
+  overflow: visible; }
+
+/**
+ * For UX reasons (consistency) give all buttons and a pointer cursor.
+ */
+button,
+[type="button"],
+[type="submit"] {
+  cursor: pointer; }
+
+/**
+ * Correct the odd appearance of search input in Chrome and Safari.
+ * And correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Correct the text style of placeholders in Edge and Safari.
+ */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54; }
+
+/* ==========================================================================
+   Text selection
+   ========================================================================== */
+/**
+ * Please no text-shadow on text selection
+ * http://twitter.com/miketaylr/status/12228805301
+ */
+::-moz-selection {
+  background-color: #161616;
+  background-color: rgba(20, 20, 20, 0.8);
+  color: #fefefe;
+  text-shadow: none; }
+::selection {
+  background-color: #161616;
+  background-color: rgba(20, 20, 20, 0.8);
+  color: #fefefe;
+  text-shadow: none; }
+
+/* ==========================================================================
+   Viewport
+   ========================================================================== */
+/**
+ * Enable automatic content scaling in IE 10, see: http://j.mp/TT6lHf
+ * In Metro IE10 snap mode works most of the time correct when using: "width: device-width;",
+ * but it doesn't always work as meant on Windows Phone 8 (e.g. Nokia Lumia 820).
+ * To fix this issue on Windows Phone 8 for now see: http://trentwalton.com/?p=5994
+ */
+@-ms-viewport {
+  width: device-width; }
+@viewport {
+  width: device-width; }
+
+/* ==========================================================================
+   Copy
+   ========================================================================== */
+/**
+ * Scoped styles of blocks of (body) content
+ */
+.copy {
+  /* Contain
+	   ========================================================================== */
+  /* Max-width (without contain class)
+	   ========================================================================== */
+  /* Vertical spacing
+	   ========================================================================== */
+  /**
+	 * Set default vertical spacing for all elements that have not a `figure-*`
+	 * class and are not preceded by an element with a `figure-*` class.
+	 *
+	 * Based on 'The "Leftover Glue" problem' solution:
+	 * http://slides.com/heydon/effortless-style/#/22
+	 */
+  /**
+	 * Reset (decrease) some margins for better typography (proximity)
+	 * See: http://zellwk.com/blog/wrong-about-vertical-rhythm/
+	 */
+  /**
+	 * Set (additonal) vertical spacing 'above' `figure-*` blocks:
+	 */
+  /**
+	 * Set (additonal) vertical spacing 'below' `figure-*` blocks:
+	 */
+  /**
+	 * Set (rhythm based) vertical spacing 'inbewteen' `figure-*` blocks.
+	 */
+  /**
+	 * Undo top margin by negetively offsetting the whole grid row
+	 */
+  /**
+	 * Grid gutter (horizontal spacing)
+	 */
+  /* Hyphenation
+	========================================================================== */
+  /**
+	 * Overrule hyphenation
+	 *
+	 * For Kirby tag 'nohyphen';
+	 * Usage: (nohyphen: <your text not to be hyphenated>)
+	 */
+  /**
+	 * Overrule no hyphen to auto hyphen
+	 */
+  /* Paragraphs
+	   ========================================================================== */
+  /* Headings
+	   ========================================================================== */
+  /* Scoped headings (see extend-selectors.scss for corresponding 'unscoped' classes) */
+  /* Figures
+	   ========================================================================== */
+  /* Pull, block- and run-in quotes
+	   ========================================================================== */
+  /* Inline Elements
+	   ========================================================================== */
+  /* Lists
+	   ========================================================================== */
+  /* Unordered lists */
+  /* Definition lists */
+  /* Links
+	   ========================================================================== */
+  /* External page links */
+  /* Secure link */
+  /* PDF link */
+  /* Email link */
+  /* Twitter link */
+  /* Tables
+	   ========================================================================== */
+  /* Numerals
+	   ========================================================================== */ }
+  .copy--contain > *:not(.full-width),
+  .copy--contain > .figure-image figcaption {
+    margin-right: auto;
+    margin-left: auto; }
+  .copy--contain > h1, .copy--contain > h2, .copy--contain > h3, .copy--contain > h4, .copy--contain > h5, .copy--contain > h6,
+  .copy--contain > p,
+  .copy--contain > ul,
+  .copy--contain > ol,
+  .copy--contain > dl,
+  .copy--contain > time,
+  .copy--contain > table,
+  .copy--contain > form,
+  .copy--contain > .figure-image.full-width figcaption,
+  .copy--contain > .figure-image.text-width {
+    max-width: 42.6rem; }
+  .copy--contain > .blockquote, .copy--contain > .pullquote,
+  .copy--contain > .figure-image:not([class*="-width"]),
+  .copy--contain > .figure-grid:not([class*="-width"]) {
+    max-width: 63.6rem; }
+  .copy--contain > .figure-image figcaption {
+    max-width: 37rem; }
+  .copy--contain > hr {
+    max-width: 31.4rem; }
+  .copy--max-width > h1, .copy--max-width > h2, .copy--max-width > h3, .copy--max-width > h4, .copy--max-width > h5, .copy--max-width > h6,
+  .copy--max-width > p,
+  .copy--max-width > ul,
+  .copy--max-width > ol,
+  .copy--max-width > dl,
+  .copy--max-width > time,
+  .copy--max-width > table,
+  .copy--max-width > form,
+  .copy--max-width > .figure-image.full-width figcaption,
+  .copy--max-width > .figure-image.text-width {
+    max-width: 37rem; }
+  .copy > *:not(.figure-image) + *:not(.figure-image) {
+    margin-top: 1.4rem; }
+  .copy > *:not(.figure-image) + p,
+  .copy > *:not(.figure-image) + ul,
+  .copy > *:not(.figure-image) + ol,
+  .copy > *:not(.figure-image) + dl {
+    margin-top: 0.7rem !important; }
+  .copy > h2 + *:not(.figure-image),
+  .copy > h3 + *:not(.figure-image) {
+    margin-top: 0.7rem !important; }
+  .copy > h4 + p,
+  .copy > h5 + p,
+  .copy > h6 + p {
+    margin-top: 0 !important; }
+  .copy > *:not(.figure-image) + .figure-image {
+    margin-top: 4.2rem; }
+  .copy > .figure-image + *:not(.figure-image) {
+    margin-top: 4.2rem; }
+  .copy > .figure-image + .figure-image > span,
+  .copy > .figure-image + .figure-image .grid__cell,
+  .copy > *:not(.figure-image) + .figure-image .grid__cell {
+    margin-top: 0.28rem; }
+  .copy > .figure-image .figure-image + .figure-image {
+    margin-top: 0.28rem; }
+  .copy > *:not(.figure-image) + .figure-image .grid {
+    margin-top: -0.28rem; }
+  .copy > p,
+  .copy > ul li,
+  .copy > ol li,
+  .copy > dl dt,
+  .copy > dl dd,
+  .copy > time,
+  .copy > table,
+  .copy figcaption p {
+    -webkit-hyphens: none;
+       -moz-hyphens: none;
+        -ms-hyphens: none;
+            hyphens: none; }
+  .copy .text-no-hyphen {
+    -webkit-hyphens: none;
+       -moz-hyphens: none;
+        -ms-hyphens: none;
+            hyphens: none; }
+  .copy .text-auto-hyphen {
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto; }
+  .copy mark {
+    background-color: #f8f800;
+    color: #141414; }
+  .copy ins {
+    position: relative;
+    background-image: linear-gradient(to top, transparent, transparent 0.14em, #c7c8c9 0.14em, #c7c8c9 0.18em, transparent 0.18em);
+    text-decoration: none;
+    text-shadow: -1px -1px 0 #fdfece, 1px -1px 0 #fdfece, -1px 1px 0 #fdfece, 1px 1px 0 #fdfece;
+    background-color: #fdfece;
+    color: #141414; }
+    .no-cssgradients .copy ins {
+      text-decoration: underline !important; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), only screen and (min-resolution: 144dpi) {
+      .copy ins {
+        background-image: linear-gradient(to top, transparent, transparent 0.14em, #c7c8c9 0.14em, #c7c8c9 0.16em, transparent 0.16em); } }
+  .copy del {
+    background-color: #f80000;
+    color: #141414; }
+  .copy abbr {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+    text-transform: lowercase;
+    letter-spacing: .05em;
+    font-variant: small-caps; }
+  .copy code,
+  .copy kbd,
+  .copy pre,
+  .copy samp {
+    font-family: Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif; }
+  .copy code {
+    background-color: #f0f0f0; }
+  .copy dt {
+    font-weight: 700; }
+  .copy dd {
+    margin-left: 1.4rem; }
+
+/* ==========================================================================
+-s* ==========================================================================
+   Headings
+   ========================================================================== */
+/**
+ * Shared heading settings
+ *
+ * 1. Enables font kerning in all browsers:
+ *
+ * - http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+ * - http://bocoup.com/weblog/text-rendering/
+ *
+ * The text-rendering options are: `auto` (default), `optimizeLegibility` and
+ * `optimizeSpeed`. Be careful with the `optimizeLegibility` setting, because
+ * it can be really slow and bog down an entire page. For now best to only
+ * apply to bigger headings if using at all.
+ */
+.alpha-heading, .copy h1, .beta-heading, .copy h2, .gamma-heading, .copy h3, .delta-heading, .copy h4, .epsilon-heading, .copy h5,
+.zeta-heading, .copy h6 {
+  font-family: "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold", "Arial Narrow Bold", "ArialNarrow-Bold", "Arial Narrow", "ArialNarrow", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: .01em; }
+  .fonts-loaded .alpha-heading, .fonts-loaded .copy h1, .copy .fonts-loaded h1, .fonts-loaded .beta-heading, .fonts-loaded .copy h2, .copy .fonts-loaded h2, .fonts-loaded .gamma-heading, .fonts-loaded .copy h3, .copy .fonts-loaded h3, .fonts-loaded .delta-heading, .fonts-loaded .copy h4, .copy .fonts-loaded h4, .fonts-loaded .epsilon-heading, .fonts-loaded .copy h5, .copy .fonts-loaded h5, .fonts-loaded
+  .zeta-heading, .fonts-loaded .copy h6, .copy .fonts-loaded h6 {
+    font-family: "Fira Sans"; }
+
+/**
+ * Heading sizes
+ */
+/* Alpha */
+.alpha-heading, .copy h1 {
+  font-size: 2rem;
+  line-height: 1.25; }
+  @media (min-width: 48em) {
+    .alpha-heading, .copy h1 {
+      font-size: 2.25rem; } }
+  @media (min-width: 64em) {
+    .alpha-heading, .copy h1 {
+      font-size: 2.5rem; } }
+
+/* Beta */
+.beta-heading, .copy h2 {
+  font-size: 1.625rem;
+  line-height: 1.154; }
+  @media (min-width: 48em) {
+    .beta-heading, .copy h2 {
+      font-size: 2rem; } }
+  @media (min-width: 64em) {
+    .beta-heading, .copy h2 {
+      font-size: 2.25rem; } }
+
+/* Gamma */
+.gamma-heading, .copy h3 {
+  font-size: 1.375rem;
+  line-height: 1.136; }
+  @media (min-width: 48em) {
+    .gamma-heading, .copy h3 {
+      font-size: 1.5rem; } }
+  @media (min-width: 64em) {
+    .gamma-heading, .copy h3 {
+      font-size: 1.75rem; } }
+
+/* Delta */
+.delta-heading, .copy h4 {
+  font-size: 1.125rem; }
+  @media (min-width: 48em) {
+    .delta-heading, .copy h4 {
+      font-size: 1.125rem; } }
+
+/* Epsilon + Zeta */
+.epsilon-heading, .copy h5,
+.zeta-heading,
+.copy h6 {
+  font-size: 1rem; }
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+/**
+ * Reset 1em 40px margin from figure, set in normalize.css
+ */
+figure {
+  margin: 0; }
+
+/**
+ * Fluid images
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0; }
+
+/**
+ * Images in `figure` elements
+ */
+figure > img {
+  display: block; }
+
+/**
+ * Google Maps breaks if `max-width: 100%` acts upon it; use their selector
+ * to remove the effects.
+ */
+.gm-style img {
+  max-width: none; }
+
+/* ==========================================================================
+   Numerals
+   ========================================================================== */
+/**
+ * Use old-style numerals in running text (or copy),
+ * and lining (or titling) numerals in headings.
+ *
+ * Read more about the use of numerals:
+ * https://alistapart.com/article/web-typography-numerals
+ */
+.numerals, .copy {
+  -webkit-font-feature-settings: "onum" 1;
+     -moz-font-feature-settings: "onum" 1;
+          font-feature-settings: "onum" 1;
+  /**
+	 * Elements to use lining numerals instead (for easier scanning a
+	 * sequence of numbers, looking for patterns, making comparisons,
+	 * or hunting for data in a list, table or other setting)
+	 */ }
+  @supports (font-variant-numeric: oldstyle-nums) {
+    .numerals, .copy {
+      -webkit-font-feature-settings: normal;
+         -moz-font-feature-settings: normal;
+              font-feature-settings: normal;
+      font-variant-numeric: oldstyle-nums; } }
+  .numerals h1, .copy h1,
+  .numerals h2, .copy h2,
+  .numerals h3, .copy h3,
+  .numerals li, .copy li,
+  .numerals table, .copy table {
+    -webkit-font-feature-settings: "lnum" 1;
+       -moz-font-feature-settings: "lnum" 1;
+            font-feature-settings: "lnum" 1; }
+    @supports (font-variant-numeric: lining-nums) {
+      .numerals h1, .copy h1,
+      .numerals h2, .copy h2,
+      .numerals h3, .copy h3,
+      .numerals li, .copy li,
+      .numerals table, .copy table {
+        font-variant-numeric: lining-nums; } }
+
+/* ==========================================================================
+   Base page
+   ========================================================================== */
+/**
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from a `$text-sizes` map. The `font-size` is calculated to exist
+ *    in %, the `line-height` is calculated to exist unitlessly.
+ * 2. The default `font-size` is based on viewport units, when
+ *    `fluid-base-text()` is used instead of the `responsive-base-text()` mixin.
+ * 3. `Font-size` is set to `small` size (without mq) for browsers that don't
+ *    cut the mustard (aka `no-ctm`).
+ * 4. Force scrollbars to always be visible to prevent awkward 'jumps' when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 5. Prevent horizontal scrollbar when using layout grids!
+ * 6. Ensure the page always fills at least the entire height of the viewport.
+ */
+html {
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
+  font-weight: 400;
+  font-size: 87.5%;
+  line-height: 1.4;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100%;
+  color: #141414;
+  background-color: #fefefe; }
+  @media (min-width: 20em) {
+    html {
+      font-size: calc(14px + 8 * (100vw - 320px) / 704); } }
+  @media (min-width: 30em) {
+    html {
+      line-height: 1.5; } }
+  @media (min-width: 64em) {
+    html {
+      font-size: 137.5%;
+      line-height: 1.6; } }
+
+html.fonts-loaded {
+  font-family: "Fira Sans"; }
+
+/* ==========================================================================
+   Quotes
+   ========================================================================== */
+/**
+ * Quote (run-in quote)
+ */
+.quote, .blockquote p, .pullquote p {
+  quotes: none;
+  /**
+	 * Quotes pairs for two levels in multiple languages
+	 * http://nirusu.me/articles/quote-tag
+	 */
+  quotes: '“' '”' "‘" "’"; }
+  .quote:before, .blockquote p:before, .pullquote p:before {
+    content: open-quote; }
+  .quote:after, .blockquote p:after, .pullquote p:after {
+    content: close-quote; }
+  .quote:lang(en), .blockquote p:lang(en), .pullquote p:lang(en) {
+    quotes: '“' '”' "‘" "’"; }
+  .quote:lang(nl), .blockquote p:lang(nl), .pullquote p:lang(nl) {
+    quotes: '“' '”' "‘" "’"; }
+  .quote:lang(de), .blockquote p:lang(de), .pullquote p:lang(de) {
+    quotes: "„" "“" '‚' '‘'; }
+  .quote:lang(fr), .blockquote p:lang(fr), .pullquote p:lang(fr) {
+    quotes: "«" "»" '‹' '›'; }
+  .quote:lang(hu), .blockquote p:lang(hu), .pullquote p:lang(hu) {
+    quotes: "„" "“" '»' '«'; }
+  .quote:lang(jp), .blockquote p:lang(jp), .pullquote p:lang(jp) {
+    quotes: "「" "」" '『' '』'; }
+  .quote:lang(zh), .blockquote p:lang(zh), .pullquote p:lang(zh) {
+    quotes: "「" "」" '『' '』'; }
+
+/**
+ * Blockquote
+ *
+ * A block quotation (also known as a long quotation or extract) is a quotation
+ * in a written document, that is set off from the main text as a paragraph, or
+ * block of text, and typically distinguished visually using indentation and a
+ * different typeface or smaller size quotation. (This is in contrast to a
+ * setting it off with quotation marks in a run-in quote.)
+ * Block quotations are used for the long quotation. The Chicago Manual of Style
+ * recommends using a block quotation when extracted text is 100 words or more,
+ * or at least eight lines.
+ */
+.blockquote, .pullquote {
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  margin-left: 0;
+  quotes: none;
+  text-align: center; }
+  .blockquote p, .pullquote p {
+    display: inline;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700; }
+    .blockquote p:before, .pullquote p:before, .blockquote p:after, .pullquote p:after {
+      -webkit-font-smoothing: antialiased; }
+  .blockquote figcaption:before, .pullquote figcaption:before {
+    content: "— "; }
+  @media (min-width: 48em) {
+    .blockquote, .pullquote {
+      margin-left: -1.05rem; } }
+
+/**
+ * Pull quote
+ *
+ * Also known as a lift-out quote --- is a quotation
+ * or excerpt from an article that is typically placed in a larger or distinctive
+ * typeface on the same page (http://en.wikipedia.org/wiki/Pull_quote)
+ *
+ * Example HTML:
+ * <aside class="Pullquote">
+ *   <blockquote>It is the unofficial force---the Baker Street irregulars.</blockquote>
+ * </aside>
+ */
+/* ==========================================================================
+   Horizontal ruler component
+   ========================================================================== */
+/**
+ * Extends 'hr'.
+ * Demo: jsfiddle.net/inuitcss/L6GuZ
+ */
+hr {
+  margin-top: 1.4rem;
+  margin-bottom: -.125em;
+  margin-left: 0;
+  border: 0;
+  border-top: 0.125em solid #141414; }
+
+/* Dotted rules */
+/* Dashed rules */
+/* Ornamental rules. Places a § over the rule. */
+/* Activate horizontal ruler via @extend */
+/* ==========================================================================
+   Block grid
+   ========================================================================== */
+/**
+ * Loosely based on:
+ * - https://github.com/suitcss/grid/
+ * - https://github.com/suitcss/grid-layouts/
+ * - http://suitcss.github.io/grid-layouts/ <= EXAMPLE
+ *
+ * Browser support:
+ * - Google Chrome (latest)
+ * - Opera (latest)
+ * - Firefox 4+
+ * - Safari 5+
+ * - Internet Explorer 9+
+ *
+ * DO NOT apply dimension or offset utilities to the `block-grid` element. All cell
+ * widths and offsets should be applied to child grid cells.
+ *
+ * Example HTML:
+ * <div class="block-grid small-1col compact-2col medium-4col">
+ *   <div class="block-grid__cell cell-1"></div>
+ *   <div class="block-grid__cell cell-2"></div>
+ *   <div class="block-grid__cell cell-3"></div>
+ *   <div class="block-grid__cell cell-4"></div>
+ * </div>
+ */
+/**
+ * Block grid container
+ *
+ * All content must be contained within child `block-grid__cell` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ * 2. Ensure consistent default alignment.
+ * 3. Remove inter-cell whitespace that appears between `inline-block` child
+ *    elements.
+ */
+.block-grid {
+  display: block;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 0; }
+
+/**
+ * Modifier: center align all grid cells
+ */
+.block-grid--align-center {
+  text-align: center; }
+
+/**
+ * Modifier: right align all grid cells
+ */
+.block-grid--align-right {
+  text-align: right; }
+
+/**
+ * Modifier: middle-align grid cells
+ */
+.block-grid--align-middle > .block-grid__cell {
+  vertical-align: middle; }
+
+/**
+ * Modifier: bottom-align grid cells
+ */
+.block-grid--align-bottom > .block-grid__cell {
+  vertical-align: bottom; }
+
+/**
+ * Block grid cell
+ *
+ * No explicit width by default. Rely on combining `block-grid__cell` with a dimension
+ * utility or a component class that extends 'grid'.
+ *
+ * 1. Fundamentals of the non-float grid layout mechanism.
+ * 2. Make cells full-width by default.
+ * 3. Controls vertical positioning of units.
+ * 4. Keeps content correctly aligned with the grid direction.
+ * 5. Reset font size change made in `Grid`.
+ */
+.block-grid__cell {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  vertical-align: top;
+  text-align: left;
+  font-size: 1rem; }
+
+/**
+ * Modifier: horizontally center one unit
+ *
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `block-grid` object.
+ */
+.block-grid__cell--center {
+  display: block;
+  margin: 0 auto; }
+
+/**
+ * Block grid gutter
+ */
+/* Em gutter */
+.block-grid--gutter {
+  margin-right: -0.14rem;
+  /* Removes the `gutter` right */
+  margin-left: -0.14rem;
+  /* Removes the `gutter` right */ }
+  .block-grid--gutter > .block-grid__cell {
+    padding-right: 0.14rem;
+    padding-left: 0.14rem; }
+
+/* Percentage gutter */
+.block-grid--percentage-gutter {
+  margin-right: -0.5%;
+  /* Removes the `gutter` right */
+  margin-left: -0.5%;
+  /* Removes the `gutter` right */ }
+  .block-grid--percentage-gutter > .block-grid__cell {
+    padding-right: 0.5%;
+    padding-left: 0.5%; }
+
+/**
+ * Responsive block grid sizes
+ */
+/* Compact and up */
+@media (min-width: 30em) {
+  .compact-2col > .block-grid__cell {
+    width: 50% !important; } }
+
+/* Medium and up */
+@media (min-width: 48em) {
+  .medium-3to1 > .cell-1,
+  .medium-3to1 > .cell-3 {
+    width: 66.6666666667% !important; }
+  .medium-3to1 > .cell-2,
+  .medium-3to1 > .cell-4 {
+    width: 33.3333333333% !important; } }
+
+/* Large and up */
+@media (min-width: 64em) {
+  .large-4col > .block-grid__cell {
+    width: 25% !important; } }
+
+/* ==========================================================================
+   Block link
+   ========================================================================== */
+/**
+ * Quasi-nested (post) links; e.g 'read more' links nested within a
+ * block, while the whole block needs to be clickable.
+ *
+ * Example HTML:
+ * <article class="block-link">
+ *   <h2>Post title</h2>
+ *   <p> ... </p>
+ *   <a href="#" class="block-link__anchor">More</a>
+ * </article>
+ *
+ * More on the class naming conventions: http://j.mp/H2b8ai
+ */
+/* Post (block) link, used with a 'read more' link */
+.block-link {
+  position: relative;
+  z-index: inherit;
+  /*
+	 * Position any links in the post excerpt at
+	 * the top of the 'z-index' stack
+	 */ }
+  .block-link a {
+    position: relative;
+    z-index: 2; }
+
+/**
+ * Stretch the 'read more' link over the whole of the post
+ * and hide the 'read more' link's text
+ */
+a.block-link__anchor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  background: #fefefe;
+  opacity: 0; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+/**
+ * The button classes are best applied to links, buttons, and submit inputs.
+ * These components can be used in forms, as calls to action, or as part of the
+ * general UI of the site/app.
+ *
+ * Recommended use:
+ *
+ * <a class="button [button--modifier]" role="button" href="[url]">Button text</a>
+ * <button class="button [button--modifier]" type="submit">Button text</button>
+ * <input class="button [button--modifier]" type="submit" value="Button text">
+ */
+/**
+ * Basic button structural styling. Extend in your theme stylesheet.
+ */
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 0;
+  /* To remove rounded corners in Safari on iOS 5+ */
+  background: #141414;
+  color: #fefefe;
+  line-height: inherit;
+  /* For anchor button to behave nicely */
+  -webkit-tap-highlight-color: transparent;
+  /* Hide transparent highlight color that appears when tapping on iOS/Android */ }
+
+/* Button states */
+.button:hover,
+.button:focus,
+.button:active {
+  text-decoration: none; }
+
+.button:active {
+  top: 1px;
+  outline: none; }
+
+.button:disabled, .button:disabled:hover, .button:disabled:focus, .button:disabled:active,
+.button.is-disabled,
+.button.is-disabled:hover,
+.button.is-disabled:focus,
+.button.is-disabled:active {
+  top: 0 !important;
+  background: #f0f0f0 !important;
+  color: #a8a9ab !important;
+  cursor: default !important; }
+
+/**
+ * Primary button
+ */
+.button--primary {
+  background: #1810f8;
+  color: #fefefe; }
+  .button--primary:hover {
+    background: #100ba9; }
+  .button--primary:active {
+    background: #1810f8; }
+
+/**
+ * Secondary button
+ */
+/**
+ * Button size modifiers
+ */
+.button--small {
+  padding: 0.35rem 0.7rem; }
+
+.button--large {
+  padding: 1.05rem 1.75rem; }
+
+/* Full width button */
+.button--full {
+  display: block;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  text-align: center; }
+
+/* ==========================================================================
+   Fluid embed (http://j.mp/GIHbnu)
+   ========================================================================== */
+/**
+ * Fluid, intrinsic ratio embeds
+ *
+ * For use with media embeds --- such as videos, slideshows, or even images ---
+ * that need to retain a specific aspect ratio but adapt to the width of their
+ * containing element.
+ *
+ * Example HTML:
+ * <div class="fluid-embed default-16by9">
+ *   <iframe class="fluid-embed__item" src="..."></iframe>
+ * </div>
+ *
+ * <div class="fluid-embed default-16by9">
+ *   [iframe|object|embed|img]
+ * </div>
+ */
+.fluid-embed {
+  position: relative;
+  display: block;
+  overflow: hidden; }
+
+/**
+ * A pseudo-element shunt is used to provide support for `max-height`. The
+ * `max-height` property has no affect when using a percentage-padding to set
+ * the aspect ratio.
+ */
+.fluid-embed:before {
+  content: "";
+  display: block;
+  width: 100%; }
+
+/**
+ * Modifier: Different aspect ratio for different breakpoints
+ */
+/* For small and below (default(s)) */
+.default-3by2:before {
+  padding-bottom: 66.6666666667% !important; }
+
+.default-16by9:before {
+  padding-bottom: 56.25% !important; }
+
+/* For large breakpoint and up */
+@media (min-width: 64em) {
+  .large-16by9:before {
+    padding-bottom: 56.25% !important; } }
+
+/* For huge breakpoint and up */
+@media (min-width: 120em) {
+  .huge-2by1:before {
+    padding-bottom: 50% !important; } }
+
+/**
+ * Descendant: media element
+ *
+ * Utility of the component is improved by provide an explicit descendant
+ * class. However, it will work automatically for iframes, embeds, and objects
+ * to account for times when you cannot modify the attributes for 3rd party
+ * widget code.
+ */
+.fluid-embed > div:first-of-type,
+.fluid-embed__item,
+.fluid-embed iframe,
+.fluid-embed embed,
+.fluid-embed object,
+.fluid-embed img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+.form {
+  margin-bottom: 1.4rem;
+  /**
+	 * Legend (from normalize.css)
+	 * 1. Correct the text wrapping in Edge and IE.
+	 * 2. Correct the color inheritance from `fieldset` elements in IE.
+	 * 3. Remove the padding so developers are not caught out when they zero out
+	 *    `fieldset` elements in all browsers.
+	 */
+  /**
+	 * Fieldset
+	 */ }
+  .form legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal; }
+  .form fieldset {
+    margin: 0 0 1.4rem;
+    padding: 0;
+    border: 0; }
+
+/**
+ * Group sets of form fieldsets in a (ordered) list, e.g.:
+ * <form class="form">
+ *    <fieldset>
+ *       <ol class="form__fields">
+ *          <li class="form__item form__item--stacked">
+ *             <label for="text" class="form__label">...</label>
+ *             <input id="text" type="text">
+ *          </li>
+ *          <li class="form__item form__item--stacked">
+ *             ...
+ *          </li>
+ *          <li class="form__item">
+ *             ...
+ *          </li>
+ *       </ol>
+ * </form>
+ */
+.copy .form__fields {
+  margin-left: 0; }
+  .copy .form__fields li {
+    list-style: none; }
+
+.form label,
+.form input,
+.form textarea,
+.form select {
+  display: inline-block;
+  vertical-align: middle; }
+
+.form textarea {
+  overflow: auto; }
+
+.form--inline .form__item {
+  display: inline-block;
+  margin-right: 1.4rem; }
+
+.form__item {
+  margin-bottom: 1.4rem; }
+
+.form__label {
+  font-weight: 700; }
+
+.form__item--stacked .form__label {
+  display: block;
+  margin-bottom: 0.7rem; }
+
+.form__input {
+  padding: 0.35rem;
+  border: 0.125em solid #141414;
+  border-radius: 0;
+  background-color: #fafafa;
+  box-shadow: inset 1px 1px 2px 0 #a8a9ab;
+  -webkit-appearance: none; }
+  .form__input:placeholder {
+    color: #f0f0f0; }
+  .form__input:focus {
+    border-color: #f0f0f0;
+    background-color: #fefefe; }
+
+.form__input--full {
+  width: 100%; }
+
+/**
+ * Extra help text after input on focus:
+ * <li class="form__item form__item--stacked">
+ *    <label class="form__label">Label text</label>
+ *    <input class="form__input"/>
+ *    <small class="form__helper">Helper text</small>
+ * </li>
+ */
+.form__helper {
+  display: inline-block;
+  visibility: hidden; }
+
+.form__input:active + .form__helper,
+.form__input:focus + .form__helper {
+  visibility: visible; }
+
+/**
+ * Set optional label like this:
+ * <label class="form__label">Label text <small class="form__optional">(Optional)</small></label>
+ */
+.form__optional {
+  font-weight: normal; }
+
+/**
+ * Error handling (inline)
+ */
+.form__helper-error {
+  display: inline-block; }
+
+.form .is-error .form__label,
+.form .is-error .form__helperError {
+  color: #d80810; }
+
+.form .is-error .form__input {
+  border: 0.125em solid #d80810; }
+
+/**
+ * Lists of checkboxes and radio buttons, e.g.:
+ * <li class="form__item form__item--stacked">
+ *    <fieldset>
+ *       <span class="form__label">Radio set</span>
+ *       <ul class="input-set input-set--horizontal">
+ *          <li>
+ *             <label class="input-set-label">
+ *                <input type="radio" class="radio" name="radioset" value="Option 1"/>
+ *                <span>Option 1</span>
+ *             </label>
+ *          </li>
+ *          <li>
+ *             ...
+ *          </li>
+ *       </ul>
+ *    </fieldset>
+ * </li>
+ */
+.input-set {
+  margin: 0; }
+
+/* Horizontal */
+.input-set--horizontal > li {
+  display: inline-block;
+  margin-right: 1.4rem; }
+  .input-set--horizontal > li:last-child {
+    margin-right: 0; }
+
+/* Labels of checkboxes/radio buttons  */
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+/**
+ * Loosely based on:
+ * - https://github.com/necolas/griddle
+ * - http://necolas.github.io/griddle/ <= EXAMPLE
+ *
+ * Browser support:
+ * - Google Chrome
+ * - Firefox
+ * - Safari
+ * - Opera
+ * - Internet Explorer 8+
+ *
+ * Example HTML:
+ * <div class="grid">
+ *   <div class="grid__cell compact-1of2"></div>
+ *   <div class="grid__cell compact-1of2"></div>
+ *   <div class="grid__cell compact-1of2"></div>
+ *   <div class="grid__cell compact-1of2"></div>
+ * </div>
+ *
+ * <div class="grid grid--center">
+ *   <div class="grid__cell small-1of2"></div>
+ *   <div class="grid__cell small-2of3"></div>
+ * </div>
+ */
+/* Grid core
+   ========================================================================== */
+/**
+ * Grid container
+ * Must only contain `.grid` or `.grid__cell` components as children.
+ *
+ * 1. Adjustment for child element margins.
+ * 2. Ensure consistent default alignment
+ * 3. Remove inter-cell whitespace that appears between `inline-block` child
+ *    elements.
+ */
+.grid {
+  display: block;
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 0;
+  text-align: left; }
+
+/**
+ * Opera hack
+ */
+/**
+ * Child `Grid` object adjustments
+ * Used for more complex fixed-fluid hybrid grids.
+ */
+.grid > .grid {
+  overflow: hidden;
+  margin-right: 0;
+  margin-left: 0; }
+
+/**
+ * Modifier
+ *
+ * Allows for automatic unit centering irrespective of the number of
+ * units in the grid.
+ */
+/* Modifier: horizontally center all grid units */
+.grid--align-center {
+  text-align: center; }
+
+/**
+ * Modifier: align horizontally all grid units to the right
+ */
+.grid--align-right {
+  text-align: right; }
+
+/**
+ * Modifier: middle-align grid cells
+ */
+.grid--align-middle > .grid__cell {
+  vertical-align: middle; }
+
+/**
+ * Modifier: top-align grid cells
+ */
+.grid--align-bottom > .grid__cell {
+  vertical-align: bottom; }
+
+/**
+ * Grid units
+ * No explicit width by default. Apply `.unit-x-y` classes.
+ *
+ * 1. Fundamentals of the non-float grid layout mechanism.
+ * 2. Make cells full-width by default.
+ * 3. Controls vertical positioning of units.
+ * 4. Keeps content correctly aligned with the grid direction.
+ * 5. Reset font size change made in `Grid`.
+ */
+.grid__cell {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  vertical-align: top;
+  text-align: left;
+  font-size: 1rem; }
+
+/**
+ * Modifier: horizontally center one unit
+ *
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+.grid__cell--center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+/**
+ * Grid gutter
+ */
+/* Rhythm unit gutter/spacing */
+.grid--gutter,
+.copy > .figure-image .grid {
+  margin-right: -0.14rem;
+  margin-left: -0.14rem; }
+  .grid--gutter > .grid__cell, .copy > .figure-image .grid > .grid__cell {
+    padding-right: 0.14rem;
+    padding-left: 0.14rem; }
+
+/* Percentage gutter/spacing */
+.grid--percentage-gutter {
+  margin-right: -0.5%;
+  margin-left: -0.5%; }
+  .grid--percentage-gutter > .grid__cell {
+    padding-right: 0.5%;
+    padding-left: 0.5%; }
+
+/**
+ * Responsive grid sizes
+ */
+/* Small and up */
+@media (min-width: 20em) {
+  .small-1of2 {
+    width: 50% !important; }
+  .small-1of3 {
+    width: 33.3333333333% !important; }
+  .small-2of3 {
+    width: 66.6666666667% !important; }
+  .small-1of3.triptych {
+    width: calc(33.3333333333% - 0.062524rem) !important; }
+  .small-2of3.triptych {
+    width: calc(66.6666666667% + 0.062524rem) !important; }
+  .small-8of17.triptych {
+    width: calc(47.0588235294% + 0.128464rem) !important; }
+  .small-9of17.triptych {
+    width: calc(52.9411764706% - 0.128464rem) !important; }
+  .small-4of13 {
+    width: calc(30.7692307692% + 0.111636rem) !important; }
+  .small-9of13 {
+    width: calc(69.2307692308% - 0.111636rem) !important; } }
+
+/* Compact and up */
+@media (min-width: 30em) {
+  .compact-1of2 {
+    width: 50% !important; }
+  .compact-1of3 {
+    width: 33.3333333333% !important; }
+  .compact-2of3 {
+    width: 66.6666666667% !important; } }
+
+/* Medium and up */
+@media (min-width: 48em) {
+  .medium-1of2 {
+    width: 50% !important; }
+  .medium-1of4 {
+    width: 25% !important; } }
+
+/* Large and up */
+@media (min-width: 64em) {
+  .large-1of6 {
+    width: 16.6666666667% !important; }
+  .large-2of6 {
+    width: 33.3333333333% !important; } }
+
+/* Wide and up */
+/* Huge and up */
+/* ==========================================================================
+   Icons, not via fonts, but with images
+   ========================================================================== */
+.icon {
+  display: inline-block;
+  margin-right: 0.35rem;
+  background-position: 0 16%;
+  background-repeat: no-repeat;
+  width: 1.4rem;
+  height: 1.4rem;
+  vertical-align: middle; }
+
+.icon--right {
+  margin-right: 0;
+  margin-left: 0.35rem; }
+
+.icon--posright {
+  position: absolute;
+  right: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+.link:link, .copy a:link:not(.button), .list--links a:link {
+  position: relative;
+  transition: color .24s ease-out;
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  color: #1810f8; }
+
+.link:visited, .copy a:visited:not(.button), .list--links a:visited {
+  color: #625cfa; }
+
+.link:hover, .copy a:hover:not(.button), .list--links a:hover, .link:focus, .copy a:focus:not(.button), .list--links a:focus {
+  color: #100ba9; }
+
+.link:active, .copy a:active:not(.button), .list--links a:active {
+  color: #625cfa; }
+
+/* No visited link color (browser history) */
+.link--no-history:visited, .list--no-history a:visited {
+  color: #1810f8; }
+
+.link--no-history:hover, .list--no-history a:hover, .link--no-history:focus, .list--no-history a:focus, .link--no-history:active, .list--no-history a:active {
+  color: inherit; }
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+/**
+ * Basic list
+ */
+.list, .copy ul,
+.copy ol {
+  list-style-position: outside; }
+  .list li, .copy ul li,
+  .copy ol li {
+    display: list-item;
+    margin-left: 1.4rem; }
+    .list li > ul, .copy ul li > ul,
+    .copy ol li > ul,
+    .list li > ol, .copy ul li > ol,
+    .copy ol li > ol,
+    .list li + li, .copy ul li + li,
+    .copy ol li + li {
+      margin-top: 0.35rem; }
+    .list li > ul, .copy ul li > ul,
+    .copy ol li > ul,
+    .list li > ol, .copy ul li > ol,
+    .copy ol li > ol {
+      margin-left: 1.4rem; }
+    @media (min-width: 48em) {
+      .list li, .copy ul li,
+      .copy ol li {
+        margin-left: 0; } }
+
+.list > li, .copy ul > li,
+.copy ol > li {
+  list-style-type: square; }
+
+ol.list > li,
+.copy ol > li {
+  list-style-type: decimal; }
+
+/**
+ * Plain list (no bullets, etc.)
+ */
+.list--plain {
+  margin-left: 0; }
+  .list--plain > li {
+    list-style: none; }
+
+/**
+ * Link list
+ */
+.list--links {
+  margin-top: -.2em;
+  margin-left: 0; }
+  .list--links li {
+    margin-right: 0;
+    padding: .2em 0;
+    padding-right: 0;
+    padding-left: 0;
+    list-style: none; }
+
+/**
+ * No visited link color (browser history)
+ */
+/**
+ * Have a numbered `ul` without the semantics implied by using an `ol`
+ */
+.list--numbered > li, .list--numbered.list--links > li {
+  list-style-type: decimal; }
+
+.list--numbered.list--plain, .list--numbered.list--links {
+  margin-left: 1.4rem; }
+  @media (min-width: 48em) {
+    .list--numbered.list--plain, .list--numbered.list--links {
+      margin-left: 0; } }
+
+/* ==========================================================================
+   Media object
+   ========================================================================== */
+/**
+ * Usage:
+ * Place any image- and text-like content side-by-side, as per: http://j.mp/1iqV00F
+ *
+ * Example HTML:
+ * <div class="media">
+ *   <img src="http://placekitten.com/200/300" alt="" class="media__image">
+ *   <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+ *   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+ * </div>
+ */
+.media {
+  display: block; }
+
+.media__image {
+  float: left;
+  margin-right: 1.4rem; }
+
+/* Reversed image location (right instead of left). */
+.media__image--rev {
+  float: right;
+  margin-left: 1.4rem; }
+
+/* For when img element is wrapped in acnhor link */
+.media__image img,
+.media__image--rev img {
+  display: block; }
+
+.media__body {
+  overflow: hidden; }
+
+.media__body,
+.media__body > :last-child {
+  margin-bottom: 0; }
+
+/* ==========================================================================
+   Pseudo-link
+   ========================================================================== */
+/**
+ * Another interactive element, e.g., `button`, styled to look like an anchor.
+ * Relies on the utility selector being added to the link base styles rule.
+ *
+ * `!important` is not used liberally because the root element, like normal
+ * links, is likely to be modified by components.
+ *
+ * Example base CSS:
+ *
+ * a,
+ * .pseudo-link {
+ *     color: lightblue;
+ * }
+ *
+ * a:hover,
+ * a:focus,
+ * a:active,
+ * .pseudo-link:hover,
+ * .pseudo-link:focus,
+ * .pseudo-link:active {
+ *     color: blue;
+ * }
+ *
+ * Example HTML:
+ * <div class="alert alert--bar">
+ *    <button type="button" class="alert__close pseudo-link" data-dismiss="alert" aria-hidden="true" role="presentation">&times;</button>
+ * </div>
+ */
+.pseudo-link, .alert__close {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer !important; }
+  .pseudo-link:hover, .alert__close:hover, .pseudo-link:focus, .alert__close:focus, .pseudo-link:active, .alert__close:active {
+    background: transparent;
+    color: inherit;
+    outline: none; }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Default styles
+ */
+.table, .copy table {
+  margin-bottom: 1.4rem;
+  width: 100%;
+  border-spacing: 0;
+  /* Table head */
+  /* Table cell */
+  /* Table footer */
+  /* Cell alignments */ }
+  .table th, .copy table th,
+  .table td, .copy table td {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    text-align: left; }
+  .table th, .copy table th {
+    font-weight: inherit;
+    vertical-align: middle; }
+  .table td, .copy table td {
+    vertical-align: top; }
+  .table tfoot, .copy table tfoot {
+    font-style: italic; }
+  .table [colspan], .copy table [colspan] {
+    text-align: center; }
+  .table [colspan="1"], .copy table [colspan="1"] {
+    text-align: left; }
+  .table [rowspan], .copy table [rowspan] {
+    vertical-align: middle; }
+  .table [rowspan="1"], .copy table [rowspan="1"] {
+    vertical-align: top; }
+
+.table__numerical {
+  text-align: right; }
+
+/**
+ * Striped tables
+ */
+.table--striped, .copy table {
+  /* Zebra-striping */ }
+  .table--striped th, .copy table th,
+  .table--striped td, .copy table td {
+    padding: 0.7rem; }
+  .table--striped th, .copy table th {
+    background-color: #141414;
+    color: #fefefe; }
+  .table--striped th + th, .copy table th + th,
+  .table--striped td + td, .copy table td + td {
+    border-left: 0.125em solid #fefefe; }
+  .table--striped tbody tr:nth-child(even) td, .copy table tbody tr:nth-child(even) td {
+    background-color: #c7c8c9; }
+  .table--striped tbody tr:hover td, .copy table tbody tr:hover td {
+    background-color: #141414;
+    color: #fefefe; }
+
+/**
+ * Rounded corners
+ */
+.table--rounded thead th:first-child {
+  border-top-left-radius: 0.7rem; }
+
+.table--rounded thead th:last-child {
+  border-top-right-radius: 0.7rem; }
+
+.table--rounded tr:last-of-type td:first-child {
+  border-bottom-left-radius: 0.7rem; }
+
+.table--rounded tr:last-of-type td:last-child {
+  border-bottom-right-radius: 0.7rem; }
+
+/**
+ * Bordered tables
+ */
+.table--bordered th,
+.table--bordered td {
+  padding: 0.7rem;
+  border: 0.125em solid #c7c8c9; }
+  .table--bordered th:empty,
+  .table--bordered td:empty {
+    border: none; }
+
+.table--bordered thead th {
+  border-bottom-width: .125em;
+  border-bottom-color: #141414; }
+
+.table--bordered tfoot tr {
+  border-top-width: .125em; }
+
+/* ==========================================================================
+   Accordion (expand / collapse)
+   ========================================================================== */
+.accordion {
+  position: relative;
+  padding: 1.4rem;
+  margin: 1.4rem 0;
+  background-color: #f0f0f0; }
+
+.is-closed .accordion__target {
+  position: relative;
+  overflow: hidden;
+  height: 0; }
+
+.is-open .accordion__target {
+  height: auto;
+  padding-top: 1.4rem; }
+
+/* ==========================================================================
+   Alerts (inline, bar and modal)
+   ========================================================================== */
+/**
+ * Default
+ */
+.alert {
+  position: relative;
+  z-index: 1020;
+  display: block;
+  overflow: hidden;
+  padding: 1.4rem;
+  width: 100%;
+  border: .25em solid;
+  background: #fefefe;
+  color: #141414; }
+
+/**
+ * Inline alert
+ */
+.alert--inline {
+  border-color: #f0f0f0;
+  z-index: auto; }
+
+/**
+ * Bar alert
+ */
+.alert--bar {
+  border: none;
+  border-bottom: .25em solid; }
+  .alert--bar.js-alert {
+    transition: -webkit-transform .64s ease-out;
+    transition: transform .64s ease-out; }
+    @media (min-width: 48em) {
+      .alert--bar.js-alert {
+        position: fixed;
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+        left: 0; } }
+  .alert--bar.is-visible {
+    display: block; }
+    @media (min-width: 48em) {
+      .alert--bar.is-visible {
+        -webkit-transform: translateY(0);
+                transform: translateY(0); } }
+  .alert--bar.is-hidden {
+    display: none; }
+    @media (min-width: 48em) {
+      .alert--bar.is-hidden {
+        display: block;
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%); } }
+
+/**
+ * Model alert
+ */
+.alert--modal {
+  position: fixed;
+  top: 10%;
+  left: 25%;
+  z-index: 1200;
+  padding: 1.4rem;
+  width: 50%; }
+  .csstransforms .alert--modal {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .alert--modal.js-alert {
+    opacity: 0;
+    transition: opacity .24s ease-out; }
+  .alert--modal.is-visible {
+    opacity: 1; }
+  .alert--modal.is-hidden {
+    opacity: 0;
+    z-index: -10; }
+
+/**
+ * The alert message
+ */
+.alert__message {
+  padding-right: 2.1rem; }
+  .alert__message a {
+    text-decoration: underline; }
+    .alert__message a:hover {
+      text-decoration: none; }
+
+/**
+ * Close alert (`times` text icon)
+ */
+.alert__close {
+  position: absolute !important;
+  top: 1.4rem;
+  right: 1.4rem;
+  display: block; }
+
+/**
+ * Alert functions
+ */
+.alert--success {
+  border-color: #488810;
+  background-color: #e9f1e2;
+  color: #488810; }
+
+.alert--error {
+  border-color: #d80810;
+  background-color: #fae1e2;
+  color: #d80810; }
+
+.alert--warning {
+  border-color: #ff8000;
+  background-color: #fff0e0;
+  color: #ff8000; }
+
+.alert--info {
+  border-color: #1810f8;
+  background-color: #e3e2fe;
+  color: #1810f8; }
+
+/* ==========================================================================
+   Backdrop (dim page)
+   ========================================================================== */
+.backdrop {
+  background-color: #151515;
+  background-color: rgba(20, 20, 20, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1100; }
+  .backdrop.js-backdrop {
+    opacity: 0;
+    transition: opacity .24s ease-out; }
+  .backdrop.is-visible {
+    opacity: 1; }
+  .backdrop.is-hiding {
+    opacity: 0; }
+
+/* ==========================================================================
+   Banner (aka page header)
+   ========================================================================== */
+.banner {
+  position: relative;
+  z-index: 1;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem; }
+
+/* ==========================================================================
+   Bg (background) image
+   ========================================================================== */
+/**
+ * Fluid, intrinsic ratio background images
+ *
+ * Example HTML:
+ * <div class="bg-image default-3by2 large-16by9"
+ *   style="background-image:url(cover.jpg)">
+ * </div>
+ *
+ * See:
+ * - http://nicolasgallagher.com/flexible-css-cover-images/
+ * - http://codepen.io/necolas/pen/Aksni
+ */
+.bg-image {
+  margin: 0 auto 1.4rem;
+  min-height: 20rem;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .no-js .bg-image.lazyload {
+    display: none; }
+
+/**
+ * Different aspect ratio for different breakpoints
+ */
+/* For small and below (default) */
+.default-3by2:before {
+  padding-bottom: 66.6666666667% !important; }
+
+.default-16by9:before {
+  padding-bottom: 56.25% !important; }
+
+/* For large breakpoint and up */
+@media (min-width: 64em) {
+  .large-16by9:before {
+    padding-bottom: 56.25% !important; } }
+
+/* For huge breakpoint and up */
+@media (min-width: 120em) {
+  .huge-2by1:before {
+    padding-bottom: 50% !important; } }
+
+/* ==========================================================================
+   Breadcrumb
+   ========================================================================== */
+/**
+ * Simple breadcrumb styling to apply to (ordered) lists, extends '.Nav'
+ */
+.breadcrumb > li + li:before {
+  content: "\00A0" "\002F" "\00A0"; }
+
+/* ==========================================================================
+   Contentinfo (aka site footer)
+   ========================================================================== */
+.contentinfo {
+  margin-top: 0; }
+  .ctm .contentinfo {
+    margin-top: 1.4rem; }
+  .contentinfo footer {
+    padding: 1.4rem 0; }
+
+/* ==========================================================================
+   Full page (background image) cover
+   ========================================================================== */
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  min-width: 100%;
+  height: 100%;
+  min-height: 529px;
+  background-position: center center;
+  background-size: cover; }
+
+/* ==========================================================================
+   Figure image
+   ========================================================================== */
+/**
+ * A figure element (and image) within a (multifigure) grid
+ *
+ * Can be generated in (Kirby) Markdown with (figure: ) syntax
+ * Contains one image by default, but can handle multiple images (multifigure)
+ *
+ * The multi-figure uses the .grid component to layout the images.
+ *
+ * Markup examples:
+ *
+ * <figure class="figure-image">
+ * 		<img src="..." alt="Just a single image (no grid)" />
+ * </figure>
+ *
+ * <figure class="figure-image grid grid--gutter">
+ * 		<img src="..." class="grid__cell small-1of2" alt="First image in row" />
+ * 		<img src="..." class="grid__cell small-1of2" alt="Secondimage in row" />
+ * </figure>
+ *
+ * <figure class="figure-image grid grid--align-center">
+ * 		<img src="..." class="grid__cell compact-2of3" alt="A centered image" />
+ * 		<figcaption>Caption...</figcaption>
+ * </figure>
+ *
+ */
+.figure-image {
+  position: relative; }
+  .figure-image.center {
+    display: block;
+    margin-right: auto;
+    margin-left: auto; }
+  .figure-image.right {
+    display: block;
+    margin-right: 0;
+    margin-left: auto; }
+  .figure-image figcaption {
+    font-size: 0.7rem;
+    margin-top: 0.7rem;
+    margin-bottom: 2.1rem;
+    text-align: center; }
+
+/**
+ * Vertical align images within (figure-)grid
+ *
+ * Default alignment is top; see `grid__cell` class in `objects.grid` partial.
+ * Enble styles below to set vertical alignment to bottom.
+ */
+/**
+ * ImageSet - responsive, lazy-loading images for Kirby CMS
+ *
+ * @copyright (c) 2016 Fabian Michael <https://fabianmichael.de>
+ * @link https://github.com/fabianmichael/kirby-imageset
+ *
+ */
+/* -----  ImageSet Component  ----------------------------------------------- */
+.imageset {
+  /* Fixes a glitch in Firefox, where (in rare cases) a
+     black border appears for no abvious reason at the
+     left side of an imageset. */
+  overflow: hidden;
+  /* Improve rendering speed in supported browsers. */
+  contain: content; }
+
+/* ·····  ImageSet with Ratio-Placeholder  ·································· */
+.imageset.-ratio {
+  display: inline-block;
+  /* Remove bottom margin (borrowed from Inuit CSS) */
+  vertical-align: middle;
+  width: 100%;
+  position: relative;
+  /* Create a new stacking context for this imageset.
+     See comments below to learn about why this
+     is important. */
+  z-index: 0; }
+
+.imageset.-ratio .imageset-element {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* Override issues introduced by common rules
+     for responsive images,
+     e.g. `img { max-width: 100%; height: auto; }` */
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  zoom: 1; }
+
+.imageset.-ratio .imageset-ratio-fill {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+  /* Setting the width of the placeholder element and
+     adding `overflow: hidden` prevents rendering bugs
+     in IE 11. */
+  width: 100%; }
+
+.imageset.-ratio .imageset-element {
+  z-index: 2; }
+
+.js .imageset.-ratio.-lazyload .imageset-element {
+  /* The actual image is kept behind the placeholder.
+     Rather than fading in the image, the placeholder is
+     faded out instead. This prevents the image layer to
+     switch from hardware-accelerated rendering during the
+     animation to CPU rendering after the animation has
+     ended, because this can cause rendering issues in
+     WebKit- and Blink-based (and possibly any other)
+     browsers. */
+  z-index: 1; }
+
+.js .imageset.-alpha.-lazyload .imageset-element {
+  /* Images with transparency require a different fading
+     technique, as the placeholder would shine through,
+     after the final image was loaded. */
+  opacity: 0;
+  will-change: opacity; }
+  @media screen {
+    .js .imageset.-alpha.-lazyload .imageset-element {
+      transition: opacity 0.5s; } }
+
+.js .imageset.-alpha.-lazyload.is-loaded .imageset-element {
+  opacity: 1;
+  will-change: auto; }
+
+.imageset-placeholder {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden; }
+
+.js .imageset.-lazyload .imageset-placeholder {
+  /* Placeholder will be placed on top of the actual
+     image element. This will only be applied, when
+     JavaScript is enabled. */
+  /* Visibility of placeholder is changed to hidden after
+     the transition. */
+  /* The actual placeholder is in front of the actual
+     image, so we don’t have to fade in the image, which
+     would lead to artifacts in WebKit- and Blink-based
+     browsers. */
+  z-index: 2;
+  /* Prevent user interaction like accidently saving the
+     placeholder via tap/right-click */
+  pointer-events: none;
+  /* Background color is needed to avoid `image-rendering`
+     property beeing ignored when layer is rendered on
+     the GPU during animation
+     Tested in: Chrome 49, Safari 9.1 */
+  background-color: #efefef; }
+  @media screen {
+    .js .imageset.-lazyload .imageset-placeholder {
+      transition: opacity 0.5s 0.05s, visibility 0s 0.8s; } }
+
+.imageset.-alpha .imageset-placeholder {
+  visibility: hidden; }
+
+.js .imageset.-alpha .imageset-placeholder {
+  visibility: visible; }
+  @media screen {
+    .js .imageset.-alpha .imageset-placeholder {
+      transition: opacity 0.5s 0.05s, visibility 0s 0.8s; } }
+
+.js .imageset.-alpha:not(.-placeholder\:color) .imageset-placeholder {
+  background-color: transparent; }
+
+.imageset.-placeholder\:mosaic .imageset-placeholder {
+  /* autoprefixer: off */
+  /* Mosaic placeholders should render crisp! */
+  -ms-interpolation-mode: nearest-neighbor;
+  /* IE 10, 11 */
+  image-rendering: -moz-crisp-edges;
+  /* Firefox */
+  image-rendering: -o-crisp-edges;
+  /* Opera */
+  image-rendering: -webkit-optimize-contrast;
+  /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  /* Safari 10+ */
+  image-rendering: pixelated;
+  /* Opera 26+, Chrome */ }
+
+.js .imageset.is-loaded .imageset-placeholder {
+  /* After image is loaded, the placeholder will fade out
+     and then change visibility to allow mouse interation
+     with the loaded image in browsers, where the
+     `pointer-events` property is not supported. */
+  opacity: 0;
+  visibility: hidden; }
+
+/* ·····  NoScript Fallback  ················································ */
+.imageset.-ratio .imageset-fallback {
+  /* autoprefixer: off */
+  position: absolute;
+  z-index: 5;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-interpolation-mode: bicubic; }
+
+@supports (object-fit: cover) {
+  .imageset.-ratio .imageset-fallback {
+    min-width: none;
+    min-height: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: none;
+            transform: none;
+    object-fit: cover; } }
+
+.no-js .imageset .imageset-element {
+  display: none; }
+
+/* ·····  Opera Mini Fixes  ················································· */
+.operamini .imageset-placeholder {
+  display: none; }
+
+.operamini .imageset.-multiple-ratios .imageset-element {
+  /* autoprefixer: off */
+  -o-object-fit: cover;
+  object-fit: cover; }
+
+/* ==========================================================================
+   Masthead (aka logo)
+   ========================================================================== */
+.masthead {
+  display: block;
+  float: left;
+  width: 144px;
+  height: 48px; }
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+/**
+ * Simple navigation
+ * When used on an `ol` or `ul`, it throws the list into horizontal mode
+ *
+ * Example HTML:
+ * <nav role="navigation" class="nav">
+ *   <ul>
+ *     <li class="nav__item"><a href="">link item 1</a></li>
+ *     <li class="nav__item"><a href="">link item 2</a></li>
+ *   </ul>
+ * </nav>
+ */
+.nav {
+  list-style: none; }
+  .nav > li,
+  .nav > li > a {
+    display: inline-block; }
+
+/**
+ * Simple stacked (vertical) navigation
+ *
+ * Example HTML:
+ * <nav role="navigation">
+ *   <ul class="nav nav--stacked">
+ *     <li><a href="">link item 1</a></li>
+ *     <li><a href="">link item 2</a></li>
+ *     <li><a href="">link item 3</a></li>
+ *   </ul>
+ * </nav>
+ */
+.nav--stacked > li {
+  display: list-item; }
+  .nav--stacked > li > a {
+    display: block; }
+
+/**
+ * Responsive horizontal/stacked (main) navigation
+ *
+ * Example HTML:
+ * <div class="nav-main"
+ *   <nav role="navigation" class="nav-main__list">
+ *     <ul>
+ *       <li class="nav-main__item"><a href="">link item 1</a></li>
+ *       <li class="nav-main__item"><a href="">link item 2</a></li>
+ *     </ul>
+ *   </nav>
+ * </div>
+ */
+/* Nav main (wrapper) */
+.nav-main {
+  background-color: #161616;
+  background-color: rgba(20, 20, 20, 0.96);
+  position: relative;
+  margin-top: 2.1rem;
+  width: 100%; }
+  .ctm .nav-main {
+    position: fixed;
+    top: 0;
+    z-index: -10;
+    opacity: 0;
+    margin-top: 0;
+    height: 100%;
+    -webkit-transform: scale(1.32);
+            transform: scale(1.32); }
+  .ctm.is-open-main-nav .nav-main {
+    z-index: 1010;
+    overflow-y: auto;
+    transition: opacity .32s, -webkit-transform .32s;
+    transition: opacity .32s, transform .32s;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 100;
+    -webkit-overflow-scrolling: touch;
+    /* Adds momentum scrolling on iOS! */ }
+  .ctm.is-closing-main-nav .nav-main {
+    transition: opacity .32s, -webkit-transform .32s;
+    transition: opacity .32s, transform .32s;
+    -webkit-transform: scale(1.32);
+            transform: scale(1.32);
+    opacity: 0; }
+
+/* Main nav (list) */
+.nav-main__list {
+  padding: 2.1rem 6%; }
+  .ctm .nav-main__list {
+    padding-top: 2.8rem;
+    padding-bottom: 2.8rem;
+    min-height: 100%;
+    max-width: 100%; }
+
+/* Stacked (vertical) nav */
+.nav-main__item {
+  display: list-item;
+  border-bottom: 0.1em solid #38393a; }
+  .nav-main__item:last-child {
+    border: none; }
+  .nav-main__item > a {
+    display: block;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    color: #fefefe; }
+    .nav-main__item > a:hover {
+      color: #a8a9ab; }
+
+/**
+ * Prevent double scrollbars when `.nav-main` is open
+ */
+html.is-open-main-nav {
+  overflow: hidden; }
+
+/**
+ * Main nav toggle
+ */
+.nav-main-toggle {
+  position: absolute;
+  top: 1.4rem;
+  right: 6%;
+  z-index: 2;
+  display: block;
+  width: 44pt;
+  /* Touch target sizes: http://j.mp/XJm4uJ */
+  height: 44pt;
+  /* Use padding, or width/height to position icon, so it works nicely on touchdevices */
+  background-position: 50% 50%; }
+  @media (min-width: 48em) {
+    .nav-main-toggle {
+      right: 2.8rem; } }
+
+.nav-main-toggle--close {
+  display: none; }
+  .ctm .nav-main-toggle--close {
+    display: block; }
+
+/* ==========================================================================
+   Oldie message
+   ========================================================================== */
+.oldie-message {
+  display: block;
+  padding: 95px 1em 1em;
+  background: #f0f0f0;
+  border: #7f8184;
+  color: #141414; }
+  .oldie-message a {
+    text-decoration: underline;
+    color: #141414; }
+
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+.pagination {
+  display: block;
+  margin-top: 1.4rem; }
+
+.pagination__count {
+  margin-bottom: 0.7rem;
+  text-align: center; }
+
+.pagination__nav {
+  display: block;
+  margin-bottom: 0.7rem;
+  text-align: center; }
+
+.pagination__item {
+  display: inline-block;
+  margin-left: 1.4rem;
+  color: #a8a9ab; }
+  .pagination__item:first-child {
+    margin-left: 0; }
+  .pagination__item a {
+    color: #141414; }
+
+.pagination-range {
+  display: inline-block; }
+
+.pagination-range__item {
+  display: inline-block;
+  margin-left: 1.4rem; }
+  .pagination-range__item.is-active {
+    font-weight: bold; }
+
+/* ==========================================================================
+   Tooltips (http://jsfiddle.net/csswizardry/whP2F/)
+   ========================================================================== */
+/**
+ * A simple tooltip component. Simply drop a `data-tooltip` attribute onto
+ * (almost) any element and have a tooltip placed center-bottom on hover.
+ *
+ * Because the tooltip text is sourced from a `data-*` attribute, do not use
+ * it for any content which *needs* to be accessible: use it for decorative
+ * information only.
+ *
+ * Example HTML:
+ * <p>
+ *   Please
+ *   <a href="#" data-tooltip="In under 30 seconds">sign up</a>, or
+ *   <a href="#" data-tooltip="Welcome back!">log in</a>!
+ * </p>
+ */
+[data-tooltip] {
+  position: relative;
+  /**
+	 * 1. Hide our tooltips by default. This is still 'accessible' as our tooltip
+	 *    text only exists in generated content anyway.
+	 */
+  /**
+	 * Show the tooltip when we give the element attention.
+	 *
+	 * 1. Fade tooltips in gradually so they don't appear too abruptly.
+	 * 2. Populate the tooltips when we show the element some attention.
+	 * 3. Source the tooltip's content from its `data-tooltip` attribute.
+	 */
+  /**
+	 * Create an arrow (linking the tooltip to its originator) using pure
+	 * CSS triangles.
+	 */
+  /**
+	 * The textual part of the tooltip.
+	 *
+	 * 1. Position the text center, bottom.
+	 */ }
+  [data-tooltip]:before, [data-tooltip]:after {
+    content: none;
+    content: normal; }
+  [data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:active:before, [data-tooltip]:active:after, [data-tooltip]:focus:before, [data-tooltip]:focus:after {
+    -webkit-animation: fade-in .8s linear;
+            animation: fade-in .8s linear;
+    -webkit-animation-delay: .4s;
+            animation-delay: .4s; }
+  [data-tooltip]:hover:before, [data-tooltip]:active:before, [data-tooltip]:focus:before {
+    content: ""; }
+  [data-tooltip]:hover:after, [data-tooltip]:active:after, [data-tooltip]:focus:after {
+    content: attr(data-tooltip); }
+  [data-tooltip]:before {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-bottom-color: #f8f008; }
+  [data-tooltip]:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1;
+    margin-top: 0.7rem;
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+    border-bottom: 1px solid #a9a305;
+    border-radius: 0.35rem;
+    background-color: #f8f008;
+    color: #fff;
+    white-space: nowrap;
+    font-weight: normal;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
+
+/**
+ * Animation to gradually fade tooltips in.
+ */
+@-webkit-keyframes tooltip {
+  from {
+    opacity: 0; }
+  66.666% {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes tooltip {
+  from {
+    opacity: 0; }
+  66.666% {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1; }
+  25%, 75% {
+    opacity: 0; } }
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1; }
+  25%, 75% {
+    opacity: 0; } }
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* ==========================================================================
+   Clearfix
+   ========================================================================== */
+/**
+ * Clearfix
+ * Native "clearfix", with micro clearfix fallback
+ *
+ * See:
+ * - https://helloanselm.com/2017/flow-root-supports/
+ * - http://cssmojo.com/the-very-latest-clearfix-reloaded/
+ *
+ * Extend the clearfix placeholder class `%clearfix` to avoid
+ * the `.clearfix` class appearing over and over in your markup.
+ */
+.media:after, .banner:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+@supports (display: flow-root) {
+  .media, .banner {
+    display: flow-root; }
+    .media:after, .banner:after {
+      content: none; } }
+
+/* ==========================================================================
+   Contain
+   ========================================================================== */
+/**
+ * Contain padding
+ */
+.contain-padding,
+.copy--contain > *:not(.full-width),
+.copy--contain > .full-width figcaption,
+.contain-width {
+  padding-right: 6% !important;
+  padding-left: 6% !important; }
+  @media (min-width: 48em) {
+    .contain-padding,
+    .copy--contain > *:not(.full-width),
+    .copy--contain > .full-width figcaption,
+    .contain-width {
+      padding-right: 2.8rem !important;
+      padding-left: 2.8rem !important; } }
+
+/**
+ * Contain width
+ */
+.contain-width {
+  max-width: 42.6rem !important;
+  margin-right: auto !important;
+  margin-left: auto !important; }
+
+/* ==========================================================================
+   Spacing (https://github.com/suitcss/utils-dimension)
+   ========================================================================== */
+/**
+ * Vertical (rhythm) spacing
+ *
+ * Trailer spacing = bottom margin
+ * Leader spacing = top margin
+ * Rhythm spacing = top + bottom margins
+ */
+.space-trailer-m {
+  margin-bottom: 1.4rem !important; }
+
+.space-trailer-l {
+  margin-bottom: 2.8rem !important; }
+
+.space-leader-m {
+  margin-top: 1.4rem !important; }
+
+.space-leader-l {
+  margin-top: 2.8rem !important; }
+
+/* ==========================================================================
+   States (https://github.com/suitcss/utils-state)
+   ========================================================================== */
+/**
+ * Completely remove from the flow and screen readers.
+ */
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+.is-hidden-visually {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0; }
+
+/**
+ * Control visibility without affecting flow.
+ *
+ * And use for nice trick: http://j.mp/1qhPKiU
+ */
+/**
+ * Hide text (use for image replacement).
+ */
+a.block-link__anchor, .nav-main-toggle {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden; }
+  a.block-link__anchor:before, .nav-main-toggle:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%; }
+
+/* ==========================================================================
+   Text (https://github.com/suitcss/utils-text)
+   ========================================================================== */
+/**
+ * Kerning
+ *
+ * Enables font kerning in all browsers:
+ * http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+ *
+ * Text rendering: http://bocoup.com/weblog/text-rendering/
+ *
+ * The text-rendering options are: `auto` (default), `optimizeLegibility` and
+ * `optimizeSpeed`. Be careful with the `optimizeLegibility` setting, because
+ * it can be really slow and bog down an entire page. For now best to only
+ * apply to bigger headings if using at all.
+ *
+ * Support:
+ * 1. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
+ * 2. Chrome (not Windows), Firefox, IE 10+
+ * 3. Safari 7 and future browsers
+ */
+.alpha-heading, .copy h1, .beta-heading, .copy h2 {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  -webkit-font-kerning: normal;
+     -moz-font-kerning: normal;
+          font-kerning: normal; }
+
+/**
+ * Justify, hyphenate and word breaking
+ *
+ * Use justify text always in combination with text hyphenate and
+ * word breaking (%text-break).
+ *
+ * Word breaking break strings when their length exceeds the width of
+ * their container.
+ *
+ * For more about hyphenate and word breaking see: http://bit.ly/JixVfL
+ */
+/**
+ * Text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+/**
+ * Inline elements
+ */
+.copy b,
+.copy strong {
+  font-weight: 700; }
+
+.copy i,
+.copy em,
+.copy cite {
+  font-weight: 400;
+  font-style: italic; }
+
+.copy small {
+  font-size: 0.875rem; }
+
+.copy time {
+  text-transform: uppercase; }
+
+/*
+	firasans.css
+	-------------------------------------------------------------------
+	Font Information:
+	Mozilla's open source font family.
+	-------------------------------------------------------------------
+	License:
+	Open source
+	-------------------------------------------------------------------
+	Download:
+	http://www.carrois.com/fira-4-1/
+	-------------------------------------------------------------------
+	Syntax:
+	https://css-tricks.com/snippets/css/using-font-face/
+	-------------------------------------------------------------------
+	Support:
+	- Chrome 3.5+
+	- Safari 3+
+	- Firefox 3.5+
+	- Opera 10.1+
+	- IE 9+
+	- Android 2.2+
+	- iOS 4.3+
+*/
+/* Book */
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("/assets/fonts/firasans/firasans-book.woff2") format("woff2"), url("/assets/fonts/firasans/firasans-book.woff") format("woff"), url("/assets/fonts/firasans/firasans-book.ttf") format("truetype");
+  font-display: swap;
+  /* options: auto, block, swap, fallback and optional */
+  font-weight: 400;
+  font-style: normal; }
+
+/* Book Italic */
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("/assets/fonts/firasans/firasans-bookitalic.woff2") format("woff2"), url("/assets/fonts/firasans/firasans-bookitalic.woff") format("woff"), url("/assets/fonts/firasans/firasans-bookitalic.ttf") format("truetype");
+  font-display: swap;
+  /* options: auto, block, swap, fallback and optional */
+  font-weight: 400;
+  font-style: italic; }
+
+/* Bold */
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("/assets/fonts/firasans/firasans-bold.woff2") format("woff2"), url("/assets/fonts/firasans/firasans-bold.woff") format("woff"), url("/assets/fonts/firasans/firasans-bold.ttf") format("truetype");
+  font-display: swap;
+  /* options: auto, block, swap, fallback and optional */
+  font-weight: 700;
+  font-style: normal; }
+
+.nav-main-toggle--close {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%3Cpath%20fill%3D%22%23FEFEFE%22%20d%3D%22M11.743%201.074l2.12%202.12L3.257%2013.8l-2.12-2.12zM1.136%203.195l2.12-2.122L13.865%2011.68l-2.12%202.12z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat; }
+
+.nav-main-toggle--open {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2215%22%20viewBox%3D%220%200%2018%2015%22%3E%3Cpath%20d%3D%22M18%201.5c0%20.828-.67%201.5-1.5%201.5h-15C.67%203%200%202.328%200%201.5%200%20.67.67%200%201.5%200h15c.83%200%201.5.67%201.5%201.5zM18%207.5c0%20.828-.67%201.5-1.5%201.5h-15C.67%209%200%208.327%200%207.5%200%206.67.67%206%201.5%206h15c.83%200%201.5.67%201.5%201.5zM18%2013.5c0%20.828-.67%201.5-1.5%201.5h-15C.67%2015%200%2014.328%200%2013.5c0-.83.67-1.5%201.5-1.5h15c.83%200%201.5.67%201.5%201.5z%22%20fill%3D%22%2303070D%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat; }
+
+.masthead {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20baseProfile%3D%22tiny%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22144%22%20height%3D%2248%22%20viewBox%3D%220%200%20144%2048%22%20overflow%3D%22inherit%22%3E%3Cpath%20d%3D%22M0%200h144v48H0z%22%2F%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M31.577%2042.34l-.755-5.1H19.964l-2.785%205.1H5L25.534%208.917h11.518l5.854%2033.42h-11.33zm-2.644-22.046l-4.768%208.59h5.76l-.992-8.59zM43.708%2042.34L49.986%206.65h10.81L54.518%2042.34h-10.81zM72.172%2025.11l-1.274%206.985c-.032.188-.055.41-.07.66-.017.253-.024.457-.024.614%200%20.725.18%201.202.543%201.438.36.236.874.354%201.534.354.378%200%20.756-.03%201.134-.096.378-.06.692-.124.944-.188l-1.274%207.27c-.41.252-1.133.456-2.17.613-1.04.16-2.048.24-3.023.24-1.038%200-2.06-.094-3.067-.283-1.007-.19-1.904-.52-2.69-.99-.787-.473-1.424-1.118-1.912-1.937s-.73-1.872-.73-3.163c0-.346.023-.738.07-1.18.047-.44.102-.85.166-1.227l1.652-9.11h-3.682l1.322-7.6h3.493l.992-5.62h10.243l-.99%205.62h4.767l-1.322%207.6h-4.628zM99.646%2038.515c-.126.693-.213%201.4-.26%202.125-.047.724-.07%201.29-.07%201.7h-9.064c0-.22.007-.575.023-1.063s.04-.89.07-1.205h-.093c-.913%201.04-1.952%201.788-3.116%202.244-1.164.455-2.454.684-3.87.684-.882%200-1.763-.126-2.644-.377-.882-.253-1.676-.638-2.384-1.158-.708-.52-1.283-1.194-1.723-2.03-.44-.83-.66-1.832-.66-2.996%200-1.92.43-3.502%201.297-4.745.865-1.243%202.03-2.226%203.493-2.95%201.463-.724%203.154-1.235%205.075-1.535%201.92-.3%203.934-.448%206.042-.448.03-.125.047-.228.047-.307v-.212c0-.63-.277-1.11-.827-1.44-.55-.33-1.267-.496-2.147-.496-1.008%200-1.983.197-2.927.59-.945.394-1.812.92-2.598%201.582l-4.626-5.288c.755-.724%201.612-1.36%202.573-1.912.958-.55%201.942-1.015%202.95-1.392%201.006-.378%202.03-.66%203.068-.85%201.038-.188%202.03-.283%202.974-.283%203.776%200%206.615.763%208.52%202.29%201.905%201.526%202.857%203.674%202.857%206.443%200%201.165-.128%202.47-.38%203.918l-1.604%209.11zm-8.167-6.372h-.615c-.787%200-1.527.047-2.22.14-.69.097-1.297.247-1.816.45-.52.205-.938.473-1.252.803-.315.33-.472.748-.472%201.252%200%20.724.228%201.188.685%201.393.457.205.952.307%201.488.307%201.038%200%201.927-.33%202.667-.99.74-.66%201.203-1.51%201.393-2.55l.14-.804zM101.864%2042.34l4.39-24.83h10.574l-4.39%2024.83h-10.574zm10.29-26.672c-.817%200-1.55-.125-2.194-.377-.646-.25-1.188-.59-1.63-1.014-.44-.424-.785-.912-1.036-1.463-.254-.55-.38-1.125-.38-1.723%200-.85.144-1.644.426-2.384.284-.74.69-1.384%201.228-1.935.536-.55%201.164-.982%201.888-1.297.724-.315%201.542-.473%202.454-.473.755%200%201.456.126%202.102.377.644.252%201.194.59%201.65%201.015.456.424.812.913%201.063%201.463.252.55.378%201.125.378%201.723%200%20.85-.142%201.645-.426%202.384-.282.74-.684%201.385-1.202%201.936-.52.55-1.15.984-1.89%201.298-.74.315-1.55.472-2.43.472zM120.062%2020.06c.142-.946.244-1.795.307-2.55h10.146c0%20.158-.015.362-.046.614-.032.252-.07.527-.12.826-.045.3-.093.59-.14.874-.047.283-.088.52-.118.708h.142c.725-1.007%201.606-1.85%202.644-2.526%201.04-.676%202.267-1.015%203.682-1.015.852%200%201.512.08%201.982.237l-1.982%208.97c-.314-.095-.676-.158-1.085-.19-.41-.03-.787-.046-1.133-.046-1.637%200-2.912.434-3.825%201.3-.912.865-1.48%201.88-1.697%203.043l-2.125%2012.037H116.12l3.54-19.968c.124-.598.26-1.37.402-2.313z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat; }
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+*,
+*:before,
+*:after,
+*:first-letter,
+*:first-line {
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  background: transparent !important;
+  color: black !important;
+  text-shadow: none !important;
+  word-spacing: 1.1pt;
+  letter-spacing: .2pt;
+  font-size: 10pt;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  box-shadow: none !important;
+  clear: both; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, sans-serif; }
+
+h1 {
+  font-size: 18pt; }
+
+h2 {
+  font-size: 15pt; }
+
+h3 {
+  font-size: 13pt; }
+
+h4, h5, h6 {
+  font-size: 11pt; }
+
+p, h2, h3 {
+  orphans: 3;
+  widows: 3; }
+
+h2, h3 {
+  page-break-after: avoid; }
+
+pre, blockquote {
+  margin: 1.5em;
+  padding: 1em;
+  border: 1px solid #999999;
+  page-break-inside: avoid; }
+
+hr {
+  background-color: #cccccc; }
+
+/* Page break (define page breaks in HTML for print (add class 'page-break')) */
+@page {
+  margin: .5cm; }
+
+.page-break {
+  display: block;
+  page-break-after: always; }
+
+/* Images (basic styling of images for print) */
+img {
+  max-width: 100% !important;
+  page-break-inside: avoid; }
+
+a img {
+  border: none; }
+
+/* Styling of links (anchors) in print */
+a,
+a:visited {
+  text-decoration: underline; }
+
+a[href]:after {
+  content: " (" attr(href) ")"; }
+
+abbr[title]:after {
+  content: " (" attr(title) ")"; }
+
+/* Don't show links for images (refers to image replacement (.ir) class) */
+.is-hidden-text a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+  content: ""; }
+
+/* Tables (basic table styling for print) */
+table {
+  margin: 1px;
+  text-align: left; }
+
+th {
+  border-bottom: 1px solid #333333;
+  font-weight: bold; }
+
+td {
+  border-bottom: 1px solid #333333; }
+
+th, td {
+  padding: 4px 10px 4px 0; }
+
+tfoot {
+  font-style: italic; }
+
+caption {
+  margin-bottom: 2em;
+  background: white;
+  text-align: left; }
+
+/* http://css-discuss.incutio.com/wiki/Printing_Tables */
+thead {
+  display: table-header-group; }
+
+tr {
+  page-break-inside: avoid; }
+
+/* ==========================================================================
+   Print specific overrides
+   ========================================================================== */
+/* Typography and defaults */
+body {
+  margin: 20pt 15% auto 10% !important;
+  width: 75% !important; }
+
+p {
+  margin-bottom: 1em !important; }
+
+blockquote {
+  margin-bottom: 1em !important;
+  padding: 1em 0 0 1em !important; }
+
+h1, h2, h3 {
+  margin-top: 1em !important;
+  margin-bottom: 0.5em !important;
+  color: black; }
+
+/* Hide components */
+.banner,
+.nav-main,
+.search-results {
+  display: none !important; }

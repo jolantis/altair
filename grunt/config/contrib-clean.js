@@ -6,15 +6,15 @@ module.exports = function(grunt) {
 		},
 		styles: {
 			src: [
-				'<%= project.styles_dev %>/*.concat.css',
-				'<%= project.styles_dev %>/*.map',
-				'<%= project.styles_min %>/*.css',
+				// '<%= project.styles %>/*.concat.css',
+				'<%= project.styles %>/*.map',
+				// '<%= project.styles %>/*.min.css',
 			],
 		},
 		scripts: {
 			src: [
-				'<%= project.scripts_dev %>/*.hint.js',
-				'<%= project.scripts_min %>/*.js',
+				'<%= project.scripts_main %>/*.hint.js',
+				// '<%= project.scripts %>/*.min.js',
 			],
 		},
 		grunticon: {

@@ -11,12 +11,9 @@ module.exports = function(grunt) {
 			assets: 'assets',
 			styles: '<%= project.assets %>/stylesheets',
 			styles_scss: '<%= project.styles %>/scss',
-			styles_dev: '<%= project.styles %>/dev',
-			styles_min: '<%= project.styles %>/min',
 			styles_critical: '<%= project.styles %>/critical',
 			scripts: '<%= project.assets %>/javascript',
-			scripts_dev: '<%= project.scripts %>/dev',
-			scripts_min: '<%= project.scripts %>/min',
+			scripts_main: '<%= project.scripts %>/main',
 			scripts_modules: '<%= project.scripts %>/modules',
 			scripts_plugins: '<%= project.scripts %>/lib/plugins',
 			scripts_polyfills: '<%= project.scripts %>/lib/polyfills',
@@ -30,6 +27,7 @@ module.exports = function(grunt) {
 					' * <%= pkg.description %> — v<%= pkg.version %> — <%= grunt.template.today("yyyy-mm-dd") %>\n' +
 					' * <%= pkg.url %>\n' +
 					' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.copyright %>\n' +
+					' * License <%= pkg.license %>\n' +
 					' */\n',
 			banner_extended: '/**\n' +
 					' * <%= pkg.description %>\n' +
@@ -49,7 +47,7 @@ module.exports = function(grunt) {
 				'<%= project.scripts_plugins %>/enhance/enhance.js',
 				'<%= project.scripts_plugins %>/modernizr/modernizr.dev.js',
 				// '<%= project.scripts_plugins %>/modernizr/modernizr.min.js',    // ALWAYS use custom build modernizr in production!
-				'<%= project.scripts %>/head.scripts.js',
+				'<%= project.scripts_main %>/head.scripts.js',
 			],
 			main: {
 				plugins: [
@@ -84,7 +82,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_modules %>/navmain.module.js',
 					'<%= project.scripts_modules %>/popup.module.js',
 				// Main
-					'<%= project.scripts %>/main.scripts.js',
+					'<%= project.scripts_main %>/main.scripts.js',
 				],
 			},
 			mobile: {
@@ -118,7 +116,7 @@ module.exports = function(grunt) {
 					'<%= project.scripts_modules %>/fontobserver.module.js',
 					'<%= project.scripts_modules %>/navmain.module.js',
 				// Main
-					'<%= project.scripts %>/mobile.scripts.js',
+					'<%= project.scripts_main %>/mobile.scripts.js',
 				],
 			},
 		},

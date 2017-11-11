@@ -6,12 +6,12 @@ module.exports = function(grunt) {
 			sort: true,
 		},
 		main: {
-			src: '<%= project.styles_dev %>/main.dev.css',
-			dest: '<%= project.styles_dev %>/main.dev.css',
+			src: '<%= project.styles %>/main.css',
+			dest: '<%= project.styles %>/main.css',
 		},
 		mobile: {
-			src: '<%= project.styles_dev %>/mobile.dev.css',
-			dest: '<%= project.styles_dev %>/mobile.dev.css',
+			src: '<%= project.styles %>/mobile.css',
+			dest: '<%= project.styles %>/mobile.css',
 		},
 	});
 

@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/default.css',
-				filename: '<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/default_mobile.css',
-				filename: '<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/home.css',
-				filename: '<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/home_mobile.css',
-				filename: '<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/base.css',
-				filename: '<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/base_mobile.css',
-				filename:'<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 				width: 1440,
 				height: 900,
 				outputfile: '<%= project.styles_critical %>/images.css',
-				filename: '<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 				width: 420, // iPhone 6 Plus is 414 points wide
 				height: 960, //iPhone 6 Plus is 736 points high
 				outputfile: '<%= project.styles_critical %>/images_mobile.css',
-				filename:'<%= project.styles_dev %>/main.dev.css',
+				filename: '<%= project.styles %>/main.css',
 				forceInclude: [], // An array of selectors that you want to guarantee will make it from the CSS file into your CriticalCSS output.
 				buffer: 800*1024,
 			},

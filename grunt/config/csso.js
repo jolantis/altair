@@ -7,9 +7,9 @@ module.exports = function(grunt) {
 		},
 		styles: {
 			files: {
-				'<%= project.styles_min %>/main.min.css': '<%= project.styles_dev %>/main.dev.css', // destination: source
-				// '<%= project.styles_min %>/mobile.min.css': '<%= project.styles_dev %>/mobile.dev.css',
-				'<%= project.styles_min %>/print.min.css': '<%= project.styles_dev %>/print.dev.css',
+				'<%= project.styles %>/main.min.css': '<%= project.styles %>/main.css', // destination: source
+				'<%= project.styles %>/mobile.min.css': '<%= project.styles %>/mobile.css',
+				'<%= project.styles %>/print.min.css': '<%= project.styles %>/print.css',
 			},
 		},
 		criticalcss: {

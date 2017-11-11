@@ -17,15 +17,20 @@ module.exports = function(grunt) {
 			tasks: ['scripts'],
 		},
 		jshint: {
-			files: ['<%= project.scripts_dev %>/*.js'],
+			files: [
+				'<%= project.scripts %>/*.js',
+				'<%= project.scripts_main %>/*.js'
+			],
 			tasks: ['scripts-hint'],
 		},
 		livereload: {
 			options: { livereload: false },
 			files: [
-				'<%= project.styles_dev %>/main.dev.css',
-				'<%= project.scripts_dev %>/head.scripts.dev.js',
-				'<%= project.scripts_dev %>/main.scripts.dev.js',
+				'<%= project.styles %>/main.css',
+				'<%= project.scripts %>/head.js',
+				'<%= project.scripts %>/main.js',
+				'<%= project.scripts_main %>/head.scipts.js',
+				'<%= project.scripts_main %>/main.scipts.js',
 				// 'site/plugins/*/*.php',
 				'site/templates/*.php',
 				'site/snippets/*.php',

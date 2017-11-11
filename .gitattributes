@@ -45,13 +45,9 @@ design/              export-ignore
 # content/             export-ignore
 
 # JavaScript files and folders
-assets/javascript/head.scripts.js           export-ignore
-assets/javascript/main.scripts.js           export-ignore
-assets/javascript/mobile.scripts.js         export-ignore
-assets/javascript/dev/                      export-ignore
-assets/javascript/lib/                      export-ignore
-assets/javascript/modules/                  export-ignore
+assets/javascript/main/			export-ignore
+assets/javascript/lib/			export-ignore
+assets/javascript/modules/		export-ignore
 
 # Stylesheet files and folders
-assets/stylesheets/dev/                     export-ignore
-assets/stylesheets/scss/                    export-ignore
+assets/stylesheets/scss/		export-ignore

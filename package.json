@@ -18,7 +18,6 @@
     "grunt-bump": "^0.8.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
@@ -26,10 +25,7 @@
     "grunt-css-mqpacker": "^3.0.1",
     "grunt-csso": "^2.2.0",
     "grunt-grunticon": "^2.3.2",
-    "grunt-hashify": "0.0.7",
-    "grunt-imageoptim": "^1.4.4",
     "grunt-notify": "^0.4.5",
-    "grunt-penthouse": "^0.4.0",
     "grunt-sass": "^2.0.0",
     "grunt-svgmin": "^4.0.0",
     "jshint-stylish": "^2.2.1"

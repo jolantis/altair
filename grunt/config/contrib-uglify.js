@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 				banner: '<%= tag.banner_basic %>',
 			},
 			files: {
-				'<%= project.scripts_min %>/head.scripts.min.js': '<%= project.scripts_dev %>/head.scripts.dev.js', // destination: source
+				'<%= project.scripts %>/head.min.js': '<%= project.scripts %>/head.js', // destination: source
 			},
 		},
 		main: {
@@ -17,8 +17,8 @@ module.exports = function(grunt) {
 				banner: '<%= tag.banner_extended %>',
 			},
 			files: {
-				'<%= project.scripts_min %>/main.scripts.min.js': '<%= project.scripts_dev %>/main.scripts.dev.js', // destination: source
-				'<%= project.scripts_min %>/mobile.scripts.min.js': '<%= project.scripts_dev %>/mobile.scripts.dev.js',
+				'<%= project.scripts %>/main.min.js': '<%= project.scripts %>/main.js', // destination: source
+				'<%= project.scripts %>/mobile.min.js': '<%= project.scripts %>/mobile.js',
 			},
 		},
 	});

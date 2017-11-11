@@ -11,9 +11,9 @@ module.exports = function(grunt) {
 		},
 		dist: {
 			files: {
-				'<%= project.styles_dev %>/main.concat.css': '<%= project.styles_scss %>/main.scss', // destination: source
-				'<%= project.styles_dev %>/mobile.concat.css': '<%= project.styles_scss %>/mobile.scss',
-				'<%= project.styles_dev %>/print.concat.css': '<%= project.styles_scss %>/print.scss',
+				'<%= project.styles %>/main.css': '<%= project.styles_scss %>/main.styles.scss', // destination: source
+				'<%= project.styles %>/mobile.css': '<%= project.styles_scss %>/mobile.styles.scss',
+				'<%= project.styles %>/print.css': '<%= project.styles_scss %>/print.styles.scss',
 			},
 		},
 		main: {
@@ -24,17 +24,17 @@ module.exports = function(grunt) {
 				sourceMapContents: false, // true includes the contents in the source map information
 			},
 			files: {
-				'<%= project.styles_dev %>/main.concat.css': '<%= project.styles_scss %>/main.scss', // destination: source
+				'<%= project.styles %>/main.css': '<%= project.styles_scss %>/main.styles.scss', // destination: source
 			},
 		},
 		mobile: {
 			files: {
-				'<%= project.styles_dev %>/mobile.concat.css': '<%= project.styles_scss %>/mobile.scss', // destination: source
+				'<%= project.styles %>/mobile.css': '<%= project.styles_scss %>/mobile.styles.scss', // destination: source
 			},
 		},
 		print: {
 			files: {
-				'<%= project.styles_dev %>/print.concat.css': '<%= project.styles_scss %>/print.scss', // destination: source
+				'<%= project.styles %>/print.css': '<%= project.styles_scss %>/print.styles.scss', // destination: source
 			},
 		},
 	});

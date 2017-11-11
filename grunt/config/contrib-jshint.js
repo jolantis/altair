@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			},
 			src: [
 				'gruntfile.js',
-				'<%= project.scripts_dev %>/*.hint.js',
+				'<%= project.scripts_main %>/*.hint.js',
 			],
 		},
 

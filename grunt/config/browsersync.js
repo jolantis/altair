@@ -4,10 +4,10 @@ module.exports = function(grunt) {
 		dev: {
 			files: {
 				src: [
-					'<%= project.styles_dev %>/main.dev.css',
-					'<%= project.scripts_dev %>/head.scripts.dev.js',
-					'<%= project.scripts_dev %>/main.scripts.dev.js',
-					'<%= project.scripts_dev %>/mobile.scripts.dev.js',
+					'<%= project.styles %>/main.css',
+					'<%= project.scripts %>/head.js',
+					'<%= project.scripts %>/main.js',
+					'<%= project.scripts %>/mobile.js',
 					'site/templates/*.php',
 					'site/snippets/*.php',
 				]

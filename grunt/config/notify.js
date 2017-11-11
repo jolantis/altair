@@ -19,12 +19,6 @@ module.exports = function(grunt) {
 				message: 'Grunticon finished running', // required
 			},
 		},
-		imageoptim: {
-			options: {
-				title: "Task Complete (Altair)", // optional; defaults to the name in package.json, or will use project directory's name
-				message: 'Optimizing images finished running', // required
-			},
-		},
 		release: {
 			options: {
 				title: "Task Complete (Altair)", // optional; defaults to the name in package.json, or will use project directory's name
@@ -35,12 +29,6 @@ module.exports = function(grunt) {
 			options: {
 				title: "Task Complete (Altair)", // optional; defaults to the name in package.json, or will use project directory's name
 				message: 'Uglify finished running', // required
-			},
-		},
-		scripts_roxy: {
-			options: {
-				title: "Task Complete (Altair)", // optional; defaults to the name in package.json, or will use project directory's name
-				message: 'Roxy head script created', // required
 			},
 		},
 		styles: {
