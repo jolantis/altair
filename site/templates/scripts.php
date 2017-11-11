@@ -1,4 +1,4 @@
-<?php snippet_detect('html-head', array(
+<?php snippet('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 )); ?>
 
@@ -33,4 +33,4 @@
 		push_message.push({status: 'info', type: 'modal', text: 'This page displays a few basic javascript functionality examples available in Altair.'});
 	</script>
 
-<?php snippet_detect('footer'); ?>
+<?php snippet('footer'); ?>

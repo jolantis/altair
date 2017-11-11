@@ -1,4 +1,4 @@
-<?php snippet_detect('html-head', array(
+<?php snippet('html-head', array(
 	'criticalcss' => 'images',
 )); ?>
 
@@ -25,4 +25,4 @@
 
 	<?php snippet('share-page'); ?>
 
-<?php snippet_detect('footer'); ?>
+<?php snippet('footer'); ?>

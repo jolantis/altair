@@ -1,4 +1,4 @@
-<?php snippet_detect('html-head', array(
+<?php snippet('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 	'prev_next' => true
 )); ?>
@@ -37,4 +37,4 @@
 
 	<?php snippet('nav-sub'); ?>
 
-<?php snippet_detect('footer'); ?>
+<?php snippet('footer'); ?>

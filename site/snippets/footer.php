@@ -1,6 +1,6 @@
 <?php ///////////////////////////////////////////////////////
 // ----------------------------------------------------------
-// PARTIAL :: MOBILE
+// PARTIAL :: DESKTOP
 // ----------------------------------------------------------
 ////////////////////////////////////////////////////////// ?>
 
@@ -8,9 +8,8 @@
 
 	<div role="contentinfo" class="contentinfo contain-width">
 		<footer>
-			<?php echo $site->copyright()->kirbytext(); ?>
+			<p>&copy; <?php echo '2014&ndash;' . date("Y"); ?> <a href="<?php echo $site->url(); ?>"><?php echo $site->copyright()->smartypants(); ?></a>.</p>
 			<p><small>All contents licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" title="Creative Commons Attribution-Non-Commercial-No-Derivs 4.0 International">CC BY-NC-ND license</a>.</small></p>
-			<p>mobile</p>
 		</footer>
 	</div>
 

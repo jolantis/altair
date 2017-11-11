@@ -1,4 +1,4 @@
-<?php snippet_detect('html-head', array(
+<?php snippet('html-head', array(
 	// 'criticalcss' => 'other_than_default',
 	'prev_next' => true
 )); ?>
@@ -28,4 +28,4 @@
 	<?php snippet('nav-prevnext', array('back_to_overview_url' => back_to_overview_url($page, 'asc'))); ?>
 	<?php snippet('share-page'); ?>
 
-<?php snippet_detect('footer'); ?>
+<?php snippet('footer'); ?>
