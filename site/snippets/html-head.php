@@ -4,23 +4,11 @@
 // ----------------------------------------------------------
 /////////////////////////////////////////////////////////////
 
-// Read assets json
-$root_url = ((c::get('ssl') == false && (c::get('url') != false) && c::get('url') != '/') ? c::get('url') . '/' : '/');
-$assets_css = f::read(server::get('document_root') . $root_url . 'assets/stylesheets/min/hash.css.json');
-$assets_js = f::read(server::get('document_root') . $root_url . 'assets/javascript/min/hash.js.json');
-
 // Set variable to get minified assets based on environment
 $env_suffix = (c::get('environment', '.min') == 'local') ? '' : '.min';
 
 // Variabel to set language locale on html element
 $language_locale = (c::get('language.multi', false)) ? $site->language()->locale() : c::get('language.locale', 'en');
-
-// Variable to set 'critical' css file name to link to on a template basis.
-// By default the varibale is set to 'default'. To link to another 'critical'
-// css file, add name of another file to the included snippet (at the top
-// of the template), like this:
-// `snippet('html-head', array('criticalcss' => 'another_criticalss_file'));`
-$criticalcss = (isset($criticalcss)) ? $criticalcss : 'default';
 
 // Variable to set next and previous rel="next/prev" links (e.g. news item,
 // project detail, blogpost, etc.). To enable add a 'prev_next' array to the
@@ -39,7 +27,6 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 ////////////////////////////////////////////////////////// ?>
 
 <!doctype html>
-<!--[if lte IE 7]> <html class="no-js lt-ie9 lt-ie8<?php echo $page_template . $fontobserver ?>" lang="<?php echo $language_locale; ?>"><![endif;]-->
 <!--[if IE 8]> <html class="no-js lt-ie9<?php echo $page_template . $fontobserver ?>" lang="<?php echo $language_locale; ?>"><![endif;]-->
 <!--[if gt IE 8]><!--><html class="no-js<?php echo $page_template . $fontobserver; ?>" lang="<?php echo $language_locale; ?>"><!--<![endif;]-->
 <head>
@@ -91,7 +78,7 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 		<link rel="stylesheet" href="<?php echo css('/assets/stylesheets/main' . $env_suffix . '.css', null, true); ?>">
 		<link rel="stylesheet" href="<?php echo css('/assets/stylesheets/print' . $env_suffix . '.css', null, true); ?>" media="print">
 	<?php else: ?>
-		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . $criticalcss . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . $criticalcss . '.css'); ?></style>
+		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . ((isset($criticalcss)) ? $criticalcss : 'default') . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . ((isset($criticalcss)) ? $criticalcss : 'default') . '.css'); ?></style>
 		<noscript><link rel="stylesheet" href="<?php echo css('/assets/stylesheets/' . $env_suffix . '/main.css', null, true); ?>"></noscript>
 	<?php endif; ?>
 
