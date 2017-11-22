@@ -29,6 +29,6 @@
 
 	</main>
 
-	<?php snippet('share-page'); ?>
+	<?php // snippet('share-page'); ?>
 
 <?php snippet('footer'); ?>
