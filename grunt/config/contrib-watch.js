@@ -2,13 +2,15 @@ module.exports = function(grunt) {
 
 	grunt.config('watch', {
 		styles: {
-			files: ['<%= project.styles_scss %>/**/*.scss'],
+			files: [
+				'<%= project.styles_scss %>/**/*.scss',
+			],
 			tasks: ['styles'],
 		},
 		scripts: {
 			files: [
 				'gruntfile.js',
-				'<%= project.scripts %>/*.js',
+				'<%= project.scripts_main %>/*.js',
 				'<%= project.scripts_modules %>/*.js',
 				'<%= project.scripts_polyfills %>/*.js',
 				'<%= project.scripts_plugins %>/*.js',

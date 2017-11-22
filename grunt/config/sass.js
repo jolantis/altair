@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 		dist: {
 			files: {
 				'<%= project.styles %>/main.css': '<%= project.styles_scss %>/main.styles.scss', // destination: source
-				'<%= project.styles %>/mobile.css': '<%= project.styles_scss %>/mobile.styles.scss',
+				// '<%= project.styles %>/mobile.css': '<%= project.styles_scss %>/mobile.styles.scss',
 				'<%= project.styles %>/print.css': '<%= project.styles_scss %>/print.styles.scss',
 			},
 		},
@@ -27,11 +27,11 @@ module.exports = function(grunt) {
 				'<%= project.styles %>/main.css': '<%= project.styles_scss %>/main.styles.scss', // destination: source
 			},
 		},
-		mobile: {
-			files: {
-				'<%= project.styles %>/mobile.css': '<%= project.styles_scss %>/mobile.styles.scss', // destination: source
-			},
-		},
+		// mobile: {
+		// 	files: {
+		// 		'<%= project.styles %>/mobile.css': '<%= project.styles_scss %>/mobile.styles.scss', // destination: source
+		// 	},
+		// },
 		print: {
 			files: {
 				'<%= project.styles %>/print.css': '<%= project.styles_scss %>/print.styles.scss', // destination: source

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 			},
 			files: {
 				'<%= project.scripts %>/main.min.js': '<%= project.scripts %>/main.js', // destination: source
-				'<%= project.scripts %>/mobile.min.js': '<%= project.scripts %>/mobile.js',
+				// '<%= project.scripts %>/mobile.min.js': '<%= project.scripts %>/mobile.js',
 			},
 		},
 	});

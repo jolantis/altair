@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 		styles: {
 			files: {
 				'<%= project.styles %>/main.min.css': '<%= project.styles %>/main.css', // destination: source
-				'<%= project.styles %>/mobile.min.css': '<%= project.styles %>/mobile.css',
+				// '<%= project.styles %>/mobile.min.css': '<%= project.styles %>/mobile.css',
 				'<%= project.styles %>/print.min.css': '<%= project.styles %>/print.css',
 			},
 		},
