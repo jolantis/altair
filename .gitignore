@@ -48,10 +48,13 @@ node_modules
 npm-debug.log
 
 # Styles
-assets/stylesheets/dev/*.css
+assets/stylesheets/*.css
+!assets/stylesheets/*.min.css
 
 # Scripts
-assets/javascript/dev/*.js
+assets/javascript/*.js
+assets/javascript/main/*.hint.js
+!assets/javascript/*.min.js
 
 # Grunticon
 assets/stylesheets/scss/grunticon/preview.html
