@@ -18,6 +18,10 @@ Date: 2012/05/12
 
 ----
 
+Tags: Travel, Mountains, Landscape, Climbing, Ice, Snow
+
+----
+
 Intro:
 
 ----

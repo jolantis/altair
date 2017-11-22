@@ -18,6 +18,10 @@ Date: 2012/04/25
 
 ----
 
+Tags: Travel, Ice, Landscape
+
+----
+
 Intro:
 
 ----
