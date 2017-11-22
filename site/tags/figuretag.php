@@ -99,7 +99,7 @@ kirbytext::$tags['figure'] = array(
 				$images = explode(',', $images);
 
 				// Open grid cell div wrapper
-				$html .= $rss ? '' : '<div class="grid__cell small-' . $size . $triptych . '">';
+				$html .= $rss ? '' : '<div class="grid__cell compact-' . $size . $triptych . '">';
 
 				// Add every image within one grid cell (or container)
 				foreach($images as $image) {

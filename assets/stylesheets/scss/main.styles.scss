@@ -87,10 +87,12 @@
 @import "components/components.backdrop";
 @import "components/components.banner";
 @import "components/components.bg-image";
+@import "components/components.bg-text.scss";
 @import "components/components.breadcrumb";
 @import "components/components.contentinfo";
 @import "components/components.cover";
 @import "components/components.figure-image";
+@import "components/components.filters";
 @import "components/components.imageset.scss";
 @import "components/components.masthead";
 @import "components/components.navigation";
@@ -111,6 +113,7 @@
 // classes (e.g. .is-hidden-visually {}).
 // --------------------------------------------------------------------------
 
+@import "trumps/trumps.aligner";
 @import "trumps/trumps.clearfix";
 @import "trumps/trumps.contain";
 @import "trumps/trumps.spacing";

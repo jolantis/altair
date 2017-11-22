@@ -25,6 +25,15 @@ $text-sizes: (
 	large:                      (22px, 1.6),
 );
 
+$text-bg-title: (                                                                // bg-link heading font size(s) and line height(s)
+	null:                       (1.5rem, 1.136),
+	compact:                    (1.75rem),
+	medium:                     (1.25rem),
+	large:                      (1.5rem),
+	wide:                       (1.75rem),
+	huge:                       (2.5rem),
+);
+
 $text-alpha: (                                                                  // alpha heading font size(s) and line height(s)
 	null:                       (2rem, 1.25),
 	medium:                     (2.25rem),
@@ -73,5 +82,3 @@ $text-nano: (                                                                   
 $text-pico: (                                                                   // pico heading font size(s) and line height(s)
 	null:                       (.7rem),
 );
-
-

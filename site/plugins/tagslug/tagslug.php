@@ -22,7 +22,7 @@ field::$methods['tagslug'] = function($field) {
 };
 
 // Convert tag name to slug (url)
-function tagslug($text){
+function tagslug($text) {
 	// replace & by -and-
 	$text = str_replace('&', '-and-', $text);
 
@@ -36,12 +36,12 @@ function tagslug($text){
 	$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
 
 	// lowercase
-	// $text = strtolower($text);
+	$text = strtolower($text);
 
 	// remove unwanted characters
 	$text = preg_replace('~[^-\w]+~', '', $text);
 
-	if (empty($text)){
+	if (empty($text)) {
 		return 'n-a';
 	}
 

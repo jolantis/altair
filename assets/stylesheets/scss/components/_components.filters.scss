@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Filter
+   ========================================================================== */
+
+.filters {
+	width: 100%;
+	display: flex;
+	// flex-wrap: nowrap;
+	align-items: baseline;
+}
+
+.filterlist {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+	order: 0;
+	// position: relative;
+	// overflow: hidden;
+	// height: rhythm(1.75); // line-height rhythm(1.6) + margin-bottom rhythm(.05) + padding-top rhythm(.1)!!!
+}
+
+.filterlist__item {
+	white-space: nowrap;
+
+	.no-js & {
+		display: inline-block;
+	}
+}
+
+.filterlist__button {
+	display: flex;
+	align-items: center;
+	padding-top: rhythm(.1);
+	padding-right: rhythm(.5);
+	padding-left: rhythm(.5);
+	margin-right: rhythm(.1);
+	margin-bottom: rhythm(.1);
+	line-height: rhythm(1.6);
+	// background-color: $color-gray-x-light;
+	border: rhythm(.05) solid $color-base-black;
+	border-radius: rhythm(.05);
+
+	.no-touchevents & {
+		padding-right: rhythm(.4);
+		padding-left: rhythm(.4);
+		line-height: rhythm(1.3);
+	}
+
+	&:hover {
+		transition: background-color .24s ease-out, color .24s ease-out;
+	}
+
+	&:hover,
+	.is-active & {
+		background-color: $color-base-black;
+		color: $color-base-white;
+	}
+}

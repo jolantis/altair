@@ -2,77 +2,27 @@
 // ----------------------------------------------------------
 // SNIPPET
 // ----------------------------------------------------------
-
-// If there is a param in the url
-if(param()) {
-
-	// Get the first key of the param array, but when the first key in url is `tag` (singular), make sure to use `tags` (plural; used in the text files) as the key value!
-	$paramkey = (key(param()) == 'tag') ? 'tags' : key(param());
-
-	// Unslug the param to a tag
-	$paramvalue = tagunslug(param(key(param())));
-
-	// Save param and tag for use in URL
-	$paramurl = key(param()) . ':' . param(key(param()));
-
-	// Get lookup page array from params, function is in plugins->prevnextcanonical
-	$lookup_page = get_lookup_page($paramkey, $paramvalue, $page);
-
-	// return the key of the array where the current page is located
-	$current_page_index = array_search($page->id(), $lookup_page);
-
-	if(isset($current_page_index)) {
-		// If the current page is not the first of the filtered list
-		if($current_page_index > 0) {
-			$next_page = page($lookup_page[$current_page_index - 1]);
-			$next_title = $next_page->title();
-			$next_url = $next_page->url() . '/' . $paramurl;
-			$has_next = true;
-		}
-		else {
-			$has_next = false;
-		}
-		// If the current page is not the last of the filtered list
-		if(($current_page_index + 1) < count($lookup_page)) {
-			$prev_page = page($lookup_page[$current_page_index + 1]);
-			$prev_title = $prev_page->title();
-			$prev_url = $prev_page->url() . '/' . $paramurl;
-			$has_prev = true;
-		}
-		else {
-			$has_prev = false;
-		}
-	}
-}
-// There is no param in the url
-else {
-	$has_prev = $page->hasPrevVisible();
-	$prev_title = ($page->hasPrevVisible()) ? $page->prevVisible()->title() : false;
-	$prev_url = ($page->hasPrevVisible()) ? $page->prevVisible()->url() : false;
-
-	$has_next = $page->hasNextVisible();
-	$next_title = ($page->hasNextVisible()) ? $page->nextVisible()->title() : false;
-	$next_url = ($page->hasNextVisible()) ? $page->nextVisible()->url() : false;
-}
 ////////////////////////////////////////////////////////// ?>
 
-<?php if($has_prev || $has_next): ?>
-<nav role="navigation" class="pagination contain-width space-trailer-l">
-	<h2 class="is-hidden-visually">Next/previous navigation</h2>
-	<ul>
-		<?php if($has_next): ?>
-			<li class="pagination__newer<?php if($has_prev == false): echo ' pagination__newer--first'; endif; ?>">
-				<a href="<?php echo $next_url; ?>"><?php echo $next_title; ?></a> &rarr;
-			</li>
-		<?php endif; ?>
-			<li>
-				<a href="<?php echo $back_to_overview_url; ?>"><span>Back to overview</span></a>
-			</li>
-		<?php if($has_prev): ?>
-			<li class="pagination__older<?php if($has_next == false): echo ' pagination__older--first'; endif; ?>">
-				&larr; <a href="<?php echo $prev_url; ?>"><?php echo $prev_title; ?></a>
-			</li>
-		<?php endif; ?>
-	</ul>
-</nav>
+<?php if($prev || $next): ?>
+	<div role="navigation" class="pagination contain-padding">
+		<?php /* <h2 class="is-hidden-visually">Page navigation</h2> */ ?>
+		<ul class="pagination__list">
+			<?php if($next): ?>
+				<li class="pagination__item pagination__item--newer">
+					<a href="<?php echo $next->url(); ?>">
+						Newer post <em>(<?php echo $next->title(); ?>)</em>
+					</a>
+				</li>
+			<?php endif ?>
+
+			<?php if($prev): ?>
+				<li class="pagination__item pagination__item--older">
+					<a href="<?php echo $prev->url(); ?>">
+						Older post <em>(<?php echo $prev->title(); ?>)</em>
+					</a>
+				</li>
+			<?php endif ?>
+		</ul>
+	</div>
 <?php endif; ?>

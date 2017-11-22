@@ -10,12 +10,6 @@ $env_suffix = (c::get('environment', '.min') == 'local') ? '' : '.min';
 // Variabel to set language locale on html element
 $language_locale = (c::get('language.multi', false)) ? $site->language()->locale() : c::get('language.locale', 'en');
 
-// Variable to set next and previous rel="next/prev" links (e.g. news item,
-// project detail, blogpost, etc.). To enable add a 'prev_next' array to the
-// include snippet (at top of the template), like this:
-// 'snippet('html-head', array('prev_next' => true));'
-$prev_next = (isset($prev_next)) ? $prev_next : false;
-
 // Variable to set page template name to html element for styling purpose.
 $page_template = ($page->intendedTemplate()) ? ' template-' . $page->intendedTemplate() : '';
 
@@ -43,8 +37,8 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php // Preload assets (fonts, stylesheets, etc.) ?>
 	<link rel="preload" href="<?php echo $site->url(); ?>/assets/fonts/firasans/firasans-bold.woff2" as="font" type="font/woff2" crossorigin>
 
-	<?php // Page title and (meta) description ?>
-	<?php snippet('page-title-description') ?>
+	<title><?php echo $page->window_title(); if(c::get('environment') == 'local'): echo ' [DEV]'; endif; ?></title>
+	<meta name="description" content="<?php echo $page->meta_description(); ?>">
 
 	<meta name="robots" content="<?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo 'noindex, nofollow'; else: echo 'index, follow'; endif; ?>">
 
@@ -58,14 +52,9 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<link rel="icon" href="<?php echo url('/assets/images/favicon.png'); ?>"><?php // For Firefox, Chrome, Safari, IE 11+ and Opera, 192x192 pixels in size ?>
 	<link rel="mask-icon" href="<?php echo url('/assets/images/pinned-icon.svg'); ?>" color="<?php echo ($site->theme_color()->isNotEmpty()) ? $site->theme_color() : '#141414' ; ?>"><?php // For Safari 9+ pinned tab (http://j.mp/2gpNiw9) ?>
 
-	<?php // Next, previous and canonical rel links for all pages ?>
-	<?php meta_prevnextcanonical_general($page); ?>
-
-	<?php // Next and previous rel links on specific pages (to use set $prev_next varibale in template) ?>
-	<?php if($prev_next): meta_prevnextcanonical_single($page); endif; ?>
-
-	<?php // Alternate language rel link(s) for matching languages in config and available text files (e.g. blogarticle.md, blogarticle.en.md) ?>
-	<?php if(c::get('language.multi', false)): foreach($site->languages() as $language): if($site->languages()->count() > 1 && $site->language() != $language && isset($page->inventory()['content'][$language->code()])): ?><link rel="alternate" href="<?php echo $page->url($language->code()); ?>" hreflang="<?php echo $language->locale(); ?>"><?php endif; endforeach; endif; ?>
+	<link rel="canonical" href="<?php echo $page->rel_canonical($filter_value, $page_num); ?>">
+	<?php echo $page->rel_prevnext($filter_key, $filter_value, $pagination, $page_num); ?>
+	<?php echo $page->rel_alternate(); ?>
 
 	<?php // Social meta tags ?>
 	<?php snippet('social-meta-tags') ?>

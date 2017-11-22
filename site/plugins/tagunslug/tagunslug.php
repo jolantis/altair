@@ -35,6 +35,9 @@ function tagunslug($text){
 
 	// uppercase
 	// $text = ucfirst($text);
+	$text = preg_replace_callback('/([&])\s*(\w)/', function ($matches) {
+		return strtoupper($matches[1] . ' ' . $matches[2]);
+	}, ucfirst($text));
 
 	return $text;
 }

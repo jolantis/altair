@@ -3,44 +3,32 @@
    ========================================================================== */
 
 .pagination {
-	display: block;
 	margin-top: rhythm(1);
 }
 
-.pagination__count {
-	margin-bottom: rhythm(.5);
-	text-align: center;
-}
+// .pagination-count {}
 
-.pagination__nav {
-	display: block;
-	margin-bottom: rhythm(.5);
-	text-align: center;
+.pagination__list {
+	display: flex;
+	// justify-content: space-between; // Use margin-left/right to align items instead!
+	// flex-wrap: wrap;
+	// align-items: center;
 }
 
 .pagination__item {
-	display: inline-block;
-	margin-left: rhythm(1);
-	color: $color-gray-light;
-
-	&:first-child {
-		margin-left: 0;
-	}
+	color: $color-base-gray;
 
 	a {
 		color: $color-base-black;
+		padding: rhythm(.25) 0;
 	}
-}
 
-.pagination-range {
-	display: inline-block;
-}
-
-.pagination-range__item {
-	display: inline-block;
-	margin-left: rhythm(1);
-
-	&.is-active {
-		font-weight: bold;
+	&--newer {
+		padding-right: rhythm(.25);
 	}
+
+	// &--older {
+	// 	// margin-left: auto; // Always align next pagination item to the right (on very small screens)!
+	// 	padding-left: rhythm(.25);
+	// }
 }

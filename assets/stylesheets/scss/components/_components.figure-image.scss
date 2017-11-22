@@ -30,6 +30,7 @@
 
 .figure-image {
 	position: relative;
+	overflow: hidden;
 
 	// a {
 	// 	position: absolute !important;
@@ -51,12 +52,16 @@
 		margin-left: auto;
 	}
 
+	// > span { // CHECK IF NOT CLASS NAME!!!
+	// 	box-shadow: 0 .1rem .5rem rgba($color-base-black,.4); // MAKE VARIABLE!!!
+	// }
+
 	figcaption {
 		@include responsive-text-size($text-pico); // (Re)set font-size (it has been set to `0` by wrapping `.grid` element!)
 
-		margin-top: rhythm(.5);
-		margin-bottom: rhythm(1.5);
-		text-align: center; // Center align text in figcaption
+		margin-top: rhythm(.3);
+		// margin-bottom: rhythm(1.5);
+		// text-align: center; // Center align text in figcaption
 	}
 }
 

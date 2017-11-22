@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Aligner
+   ========================================================================== */
+
+.aligner {
+	display: flex;
+	flex-direction: column; // stack items witin flex container
+}
+
+.aligner--center {
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.aligner--top {
+	justify-content: flex-start;
+	// justify-content: space-between;
+	text-align: left;
+	align-items: flex-start;
+}
+
+.aligner--bottom {
+	justify-content: flex-end;
+	// justify-content: space-between;
+	text-align: left;
+	align-items: flex-start;
+}

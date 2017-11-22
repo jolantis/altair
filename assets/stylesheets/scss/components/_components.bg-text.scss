@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Grid link (image) + rollover
+   ========================================================================== */
+
+// .grid-link {}
+
+.bg-text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: block;
+	overflow: hidden;
+	padding-top: rhythm(1);
+	padding-right: rhythm(1);
+	padding-bottom: rhythm(.75);
+	padding-left: rhythm(1);
+	color: $color-base-white;
+	pointer-events: none; // To make events "pass through" the element
+	-webkit-font-smoothing: antialiased; // [2] To prevent flickering of text in Safari (default is subpixel-rendering)
+}
+
+// .bg-text__title-hero {
+// 	@extend %heading-settings;
+// 	@extend %text-kern;
+// 	@include responsive-text-size($text-bg-title-hero);
+// }
+
+// .bg-text__title-plus {
+// 	@extend %heading-settings;
+// 	@extend %text-kern;
+// 	@include responsive-text-size($text-bg-title-plus);
+// }
+
+.bg-text__title {
+	@extend %heading-settings;
+	@extend %text-kern;
+	@include responsive-text-size($text-bg-title);
+}
+
+.bg-text__meta {
+	@extend %text-small;
+
+	// -webkit-font-smoothing: antialiased; // [2] To prevent flickering of text in Safari (default is subpixel-rendering)
+}
+
+// .bg-text__title-hero,
+// .bg-text__title-plus,
+.bg-text__title {
+	margin-bottom: rhythm(.25);
+}

@@ -1,17 +1,25 @@
 <?php snippet('html-head', array(
-	// 'criticalcss' => 'other_than_default',
-	'prev_next' => true
+	// 'criticalcss' => 'other_than_default'
 )); ?>
 
 	<?php snippet('banner'); ?>
 	<?php snippet('breadcrumb'); ?>
 
-	<main class="copy copy--contain space-trailer-l">
+	<main class="copy copy--contain space-leader-m space-trailer-l">
 
 		<h1><?php echo $page->title()->smartypants()->widont(); ?></h1>
 
 		<?php if($page->date($format=true)): ?>
 			<p><small><?php snippet('datetime'); ?></small></p>
+		<?php endif; ?>
+
+		<?php if($page->tags()->isNotEmpty()): ?>
+			<p><small>
+				Tagged with:
+				<?php $i = 0; foreach($tags = str::split($page->tags(),',') as $tag): ?>
+					<a href="<?php echo $page->parent()->url() . '/tags/' . tagslug($tag); ?>"><?php echo $tag; ?></a><?php if($i < (count($tags) -1)): echo '<span>,</span> '; endif; ?>
+				<?php $i++; endforeach; ?>
+			</small></p>
 		<?php endif; ?>
 
 		<?php echo $page->intro()->kirbytext(); ?>
@@ -35,6 +43,8 @@
 
 	</main>
 
-	<?php snippet('nav-sub'); ?>
+	<?php snippet('nav-prevnext'); ?>
+
+	<?php //snippet('nav-sub'); ?>
 
 <?php snippet('footer'); ?>
