@@ -89,6 +89,13 @@ Thumbs
 c::set('thumbs.driver','im');
 c::set('thumbs.bin', '/usr/local/bin/convert');                                 // Path to the convert bin for 'im' thumb driver setting (see: http://j.mp/1LJ8n9E)
 
+/* -----------------------------------------------------------------------------
+Fingerprint (assets files)
+--------------------------------------------------------------------------------
+
+*/
+
+c::set('fingerprint', true);
 
 /* -----------------------------------------------------------------------------
 Analytics, tracking, site stats
