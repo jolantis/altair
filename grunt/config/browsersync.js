@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		dev: {
 			files: {
 				src: [
-					'<%= project.styles %>/main.*.css',
+					'<%= project.styles %>/main.css',
 					// '<%= project.styles %>/mobile.css',
 					'<%= project.scripts %>/head.js',
 					'<%= project.scripts %>/main.js',
