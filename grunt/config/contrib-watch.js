@@ -10,7 +10,8 @@ module.exports = function(grunt) {
 		scripts: {
 			files: [
 				'gruntfile.js',
-				'<%= project.scripts_main %>/*.js',
+				'<%= project.scripts_main %>/head.js',
+				'<%= project.scripts_main %>/main.js',
 				'<%= project.scripts_modules %>/*.js',
 				'<%= project.scripts_polyfills %>/*.js',
 				'<%= project.scripts_plugins %>/*.js',
