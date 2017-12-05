@@ -13,10 +13,10 @@ $language_locale = (c::get('language.multi', false)) ? $site->language()->locale
 // Variable to set page template name to html element for styling purpose.
 $page_template = ($page->intendedTemplate()) ? ' template-' . $page->intendedTemplate() : '';
 
-// Check for the presence of Font Face Observer cookie (e.g. `fonts-loaded`)
+// Check for the presence of Font Face Observer cookie (e.g. `fonts_loaded`)
 // and if so adds `fonts-loaded` class to html element, to avoid re-downloading
 // web fonts over and over again.
-$fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 'true') ? ' fonts-loaded' : '';
+$fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 'true') ? ' fonts-loaded' : '';
 
 ////////////////////////////////////////////////////////// ?>
 
@@ -60,12 +60,12 @@ $fontobserver = (isset($_COOKIE['fonts-loaded']) && $_COOKIE['fonts-loaded'] == 
 	<?php snippet('social-meta-tags') ?>
 
 	<!-- Scripts and Stylesheets -->
-	<meta name="fullcss" content="<?php echo asset('/assets/stylesheets/main' . $env_suffix . '.css'); ?>">
-	<meta name="fulljs" content="<?php echo asset('/assets/javascript/main' . $env_suffix . '.js'); ?>">
+	<meta name="full_css" content="<?php echo css('/assets/stylesheets/main' . $env_suffix . '.css', null, true); ?>">
+	<meta name="full_js" content="<?php echo js('/assets/javascript/main' . $env_suffix . '.js', null, true); ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/head' . $env_suffix . '.js'); ?></script>
-	<?php if(isset($_COOKIE['fullcss']) && $_COOKIE['fullcss'] == 'true'): ?>
-		<link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/main' . $env_suffix . '.css'); ?>">
-		<link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/print' . $env_suffix . '.css'); ?>" media="print">
+	<?php if(isset($_COOKIE['full_css']) && $_COOKIE['full_css'] == 'true'): ?>
+		<link rel="stylesheet" href="<?php echo css('/assets/stylesheets/main' . $env_suffix . '.css', null, true); ?>">
+		<link rel="stylesheet" href="<?php echo css('/assets/stylesheets/print' . $env_suffix . '.css', null, true); ?>" media="print">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . ((isset($criticalcss)) ? $criticalcss : 'default') . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . ((isset($criticalcss)) ? $criticalcss : 'default') . '.css'); ?></style>
 		<noscript><link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/' . $env_suffix . '/main.css'); ?>"></noscript>

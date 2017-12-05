@@ -13,9 +13,9 @@
 		docElem = doc.documentElement,
 		head = doc.head || doc.getElementsByTagName( "head" )[ 0 ],
 		// this references a meta tag's name whose content attribute should define the path to the full CSS file for the site
-		fullCSSKey = "fullcss",
+		fullCSSKey = "full_css",
 		// this references a meta tag's name whose content attribute should define the path to the enhanced JS file for the site (delivered to qualified browsers)
-		fullJSKey = "fulljs",
+		fullJSKey = "full_js",
 		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
 		// fontsKey = "fonts",
 		// classes to be added to the HTML element in qualified browsers

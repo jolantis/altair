@@ -52,8 +52,8 @@ var FontObserverHandler = (function () {
 			.then(function() {
 				// document.documentElement.classList.add('fonts-loaded');
 				document.documentElement.className += ' fonts-loaded';
-				enhance.cookie('fonts-loaded', 'true', 7);
-				// cookie.set('fonts-loaded', 'true', 7);
+				enhance.cookie('fonts_loaded', 'true', 7);
+				// cookie.set('fonts_loaded', 'true', 7);
 			}, function() {
 				console.info('Web fonts could not be loaded in time. Falling back to system fonts.');
 			});
