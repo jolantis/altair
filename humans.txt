@@ -13,8 +13,8 @@
     Names (& URL):
 
 /** SITE **/
-    Standards: HTML5, CSS3, Vanilla JS
-    Components: Mobile Detect, Modernizr, etc.
-    Software: Kirby CMS
+    Standards: HTML5, CSS3, JavaScript
+    Components: Font Face Observer, Modernizr, etc.
+    Software: Kirby CMS, ImageKit + ImageSet
     Webfonts: TeX Gyre Adventor Regular & Bold
     (license: http://www.fontsquirrel.com/license/TeX-Gyre-Adventor)
