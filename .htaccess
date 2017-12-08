@@ -12,7 +12,7 @@
 #     deny from all
 # </Files>
 
-# AuthUserFile /home/studiodu/public_html/stage.altair/.htpasswd
+# AuthUserFile /home/user/public_html/stage.example.com/.htpasswd
 # AuthGroupFile /dev/null
 # AuthName "Please enter your ID and password"
 # AuthType Basic
