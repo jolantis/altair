@@ -32,7 +32,7 @@
 $site_title = $site->title()->smartypants();
 
 // Get page title
-if($page->long_title()->exits() && $page->long_title()->isNotEmpty()) {
+if($page->long_title()->exists() && $page->long_title()->isNotEmpty()) {
 	$page_title = $page->long_title()->smartypants();
 }
 else {
@@ -51,13 +51,13 @@ else {
 }
 
 // Get page (meta) description
-if($page->description()->exits() && $page->description()->isNotEmpty()) {
+if($page->description()->exists() && $page->description()->isNotEmpty()) {
 	$description = $page->description()->smartypants();
 }
-elseif($page->intro()->exits() && $page->intro()->isNotEmpty() ) {
+elseif($page->intro()->exists() && $page->intro()->isNotEmpty() ) {
 	$description = $page->intro()->smartypants();
 }
-elseif($page->text()->exits() && $page->text()->isNotEmpty() ) {
+elseif($page->text()->exists() && $page->text()->isNotEmpty() ) {
 	$description = $page->text()->smartypants();
 }
 else {
@@ -65,7 +65,7 @@ else {
 }
 
 // Get the site's Google+ handle
-if($site->google_plus()->exits() && $site->google_plus()->isNotEmpty()) {
+if($site->google_plus()->exists() && $site->google_plus()->isNotEmpty()) {
 	$google_plus = $site->google_plus();
 }
 else {
@@ -73,7 +73,7 @@ else {
 }
 
 // Get the site's Twitter handle
-if($site->twitter()->exits() && $site->twitter()->isNotEmpty()) {
+if($site->twitter()->exists() && $site->twitter()->isNotEmpty()) {
 	$twitter_publisher = $site->twitter();
 }
 else {
@@ -81,10 +81,10 @@ else {
 }
 
 // Get the authors's twitter handle + fall back to site's twitter handle
-if($page->twitter_author()->exits() && $page->twitter_author()->isNotEmpty()) {
+if($page->twitter_author()->exists() && $page->twitter_author()->isNotEmpty()) {
 	$twitter_author = $page->twitter_author();
 }
-elseif($site->twitter()->exits() && $site->twitter_author()->isNotEmpty()) {
+elseif($site->twitter()->exists() && $site->twitter_author()->isNotEmpty()) {
 	$twitter_author = $site->twitter();
 }
 else {
@@ -92,7 +92,7 @@ else {
 }
 
 // Get the site's Facebook thingy
-if($site->facebook()->exits() && $site->facebook()->isNotEmpty()) {
+if($site->facebook()->exists() && $site->facebook()->isNotEmpty()) {
 	$facebook_publisher = $site->facebook();
 }
 else {
@@ -100,10 +100,10 @@ else {
 }
 
 // Get the authors's Facebook thingy + fall back to site's Facebook thingy
-if($page->facebook_author()->exits() && $page->facebook_author()->isNotEmpty()) {
+if($page->facebook_author()->exists() && $page->facebook_author()->isNotEmpty()) {
 	$facebook_author = $page->facebook_author();
 }
-elseif($site->facebook_author()->exits() && $site->facebook_author()->isNotEmpty()) {
+elseif($site->facebook_author()->exists() && $site->facebook_author()->isNotEmpty()) {
 	$facebook_author = $site->facebook();
 }
 else {
@@ -111,7 +111,7 @@ else {
 }
 
 // Get Facebook admin user id
-if($site->facebook_admin()->exits() && $site->facebook_admin()->isNotEmpty()) {
+if($site->facebook_admin()->exists() && $site->facebook_admin()->isNotEmpty()) {
 	$facebook_admin = $site->facebook_admin();
 }
 else {
@@ -129,14 +129,14 @@ else {
 }
 
 // Check if page or site has a featured image, and if so, get it
-if($page->featured_image()->exits() && $page->featured_image()->isNotEmpty()) {
+if($page->featured_image()->exists() && $page->featured_image()->isNotEmpty()) {
 	$image = $page->featured_image()->toFile();
 	if($image->dimension()->portrait()) {
 		$image = $image->crop(880, 550);
 	}
 	$featured_image = $image->url();
 }
-elseif($site->featured_image()->exits() && $site->featured_image()->isNotEmpty()) {
+elseif($site->featured_image()->exists() && $site->featured_image()->isNotEmpty()) {
 	$image = $site->featured_image()->toFile();
 	if($image->dimension()->portrait()) {
 		$image = $image->crop(880, 550);

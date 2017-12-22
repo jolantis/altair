@@ -19,7 +19,7 @@
 page::$methods['window_title'] = function($page) {
 
 	if($page->isHomePage()) {
-		if(site()->tagline()->exits() && site()->tagline()->isNotEmpty()) {
+		if(site()->tagline()->exists() && site()->tagline()->isNotEmpty()) {
 			$page_title = site()->title()->smartypants()->titlecase() . ': ' . site()->tagline()->smartypants()->titlecase();
 		}
 		else {
@@ -27,7 +27,7 @@ page::$methods['window_title'] = function($page) {
 		}
 	}
 	else {
-		if($page->long_title()->exits() && $page->long_title()->isNotEmpty()) {
+		if($page->long_title()->exists() && $page->long_title()->isNotEmpty()) {
 			$page_title = site()->title()->smartypants()->titlecase() . ': ' . $page->long_title()->smartypants()->titlecase();
 		}
 		else {
@@ -55,13 +55,13 @@ page::$methods['window_title'] = function($page) {
 
 page::$methods['meta_description'] = function($page) {
 
-	if($page->description()->exits() && $page->description()->isNotEmpty()) {
+	if($page->description()->exists() && $page->description()->isNotEmpty()) {
 		$description = $page->description()->smartypants();
 	}
-	elseif($page->intro()->exits() && $page->intro()->isNotEmpty() ) {
+	elseif($page->intro()->exists() && $page->intro()->isNotEmpty() ) {
 		$description = $page->intro()->smartypants();
 	}
-	elseif($page->text()->exits() && $page->text()->isNotEmpty() ) {
+	elseif($page->text()->exists() && $page->text()->isNotEmpty() ) {
 		$description = $page->text()->smartypants();
 	}
 	else {
