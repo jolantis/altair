@@ -20,18 +20,18 @@ page::$methods['window_title'] = function($page) {
 
 	if($page->isHomePage()) {
 		if(site()->tagline()->exits() && site()->tagline()->isNotEmpty()) {
-			$page_title = site()->title() . ': ' . site()->tagline()->smartypants()->titlecase();
+			$page_title = site()->title()->smartypants()->titlecase() . ': ' . site()->tagline()->smartypants()->titlecase();
 		}
 		else {
-			$page_title = site()->title();
+			$page_title = site()->title()->smartypants()->titlecase();
 		}
 	}
 	else {
 		if($page->long_title()->exits() && $page->long_title()->isNotEmpty()) {
-			$page_title = site()->title() . ': ' . $page->long_title()->smartypants()->titlecase();
+			$page_title = site()->title()->smartypants()->titlecase() . ': ' . $page->long_title()->smartypants()->titlecase();
 		}
 		else {
-			$page_title = site()->title() . ': ' . $page->title()->smartypants()->titlecase();
+			$page_title = site()->title()->smartypants()->titlecase() . ': ' . $page->title()->smartypants()->titlecase();
 		}
 	}
 	return $page_title;
