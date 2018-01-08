@@ -1,13 +1,13 @@
 <?php
 
 /* -----------------------------------------------------------------------------
-Fingerprint
+(Asset) cachebuster
 --------------------------------------------------------------------------------
 
-Configuration for (the custom) Fingerprint plugin.
+Configuration for (Asset) Cachebuster plugin.
 
-https://github.com/iksi/kirby-fingerprint
+https://github.com/pedroborges/kirby-asset-cachebuster
 
 */
 
-c::set('fingerprint', true);
+c::set('cachebuster', true);

@@ -50,7 +50,6 @@ c::set('url', false);
 c::set('ssl', false);
 
 
-
 /* -----------------------------------------------------------------------------
 Timezone
 --------------------------------------------------------------------------------
@@ -89,13 +88,15 @@ Thumbs
 c::set('thumbs.driver','im');
 c::set('thumbs.bin', '/usr/local/bin/convert');                                 // Path to the convert bin for 'im' thumb driver setting (see: http://j.mp/1LJ8n9E)
 
+
 /* -----------------------------------------------------------------------------
-Fingerprint (assets files)
+(Asset) cachebuster
 --------------------------------------------------------------------------------
 
 */
 
-c::set('fingerprint', true);
+c::set('cachebuster', false);
+
 
 /* -----------------------------------------------------------------------------
 Analytics, tracking, site stats
