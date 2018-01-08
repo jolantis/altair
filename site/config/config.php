@@ -149,9 +149,9 @@ video, and panel options.
 
 if (file_exists(__DIR__ . DS . 'config.analytics.php'))   include __DIR__ . DS . 'config.analytics.php';
 if (file_exists(__DIR__ . DS . 'config.cache.php'))       include __DIR__ . DS . 'config.cache.php';
-if (file_exists(__DIR__ . DS . 'config.fingerprint.php')) include __DIR__ . DS . 'config.fingerprint.php';
-if (file_exists(__DIR__ . DS . 'config.imagekit.php'))    include __DIR__ . DS . 'config.imagekit.php';
 if (file_exists(__DIR__ . DS . 'config.cachebuster.php')) include __DIR__ . DS . 'config.cachebuster.php';
+if (file_exists(__DIR__ . DS . 'config.imagekit.php'))    include __DIR__ . DS . 'config.imagekit.php';
+if (file_exists(__DIR__ . DS . 'config.imageset.php'))    include __DIR__ . DS . 'config.imageset.php';
 if (file_exists(__DIR__ . DS . 'config.language.php'))    include __DIR__ . DS . 'config.language.php';
 if (file_exists(__DIR__ . DS . 'config.markdown.php'))    include __DIR__ . DS . 'config.markdown.php';
 if (file_exists(__DIR__ . DS . 'config.pagination.php'))  include __DIR__ . DS . 'config.pagination.php';
