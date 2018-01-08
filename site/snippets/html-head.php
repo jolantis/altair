@@ -60,12 +60,12 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 	<?php snippet('social-meta-tags') ?>
 
 	<!-- Scripts and Stylesheets -->
-	<meta name="full_css" content="<?php echo css('/assets/stylesheets/main' . $env_suffix . '.css', null, true); ?>">
-	<meta name="full_js" content="<?php echo js('/assets/javascript/main' . $env_suffix . '.js', null, true); ?>">
+	<meta name="full_css" content="<?php echo asset('/assets/stylesheets/main' . $env_suffix . '.css'); ?>">
+	<meta name="full_js" content="<?php echo asset('/assets/javascript/main' . $env_suffix . '.js'); ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/head' . $env_suffix . '.js'); ?></script>
 	<?php if(isset($_COOKIE['full_css']) && $_COOKIE['full_css'] == 'true'): ?>
-		<link rel="stylesheet" href="<?php echo css('/assets/stylesheets/main' . $env_suffix . '.css', null, true); ?>">
-		<link rel="stylesheet" href="<?php echo css('/assets/stylesheets/print' . $env_suffix . '.css', null, true); ?>" media="print">
+		<link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/main' . $env_suffix . '.css'); ?>">
+		<link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/print' . $env_suffix . '.css'); ?>" media="print">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . ((isset($criticalcss)) ? $criticalcss : 'default') . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . ((isset($criticalcss)) ? $criticalcss : 'default') . '.css'); ?></style>
 		<noscript><link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/' . $env_suffix . '/main.css'); ?>"></noscript>
