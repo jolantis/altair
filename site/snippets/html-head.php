@@ -68,7 +68,7 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 		<link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/print' . $env_suffix . '.css'); ?>" media="print">
 	<?php else: ?>
 		<style><?php if(c::get('environment') == 'local' || c::get('environment') == 'stage'): echo '/* ' . ((isset($criticalcss)) ? $criticalcss : 'default') . ' css */' . "\n"; endif; include_once(server::get('document_root') . '/assets/stylesheets/critical/' . ((isset($criticalcss)) ? $criticalcss : 'default') . '.css'); ?></style>
-		<noscript><link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/' . $env_suffix . '/main.css'); ?>"></noscript>
+		<noscript><link rel="stylesheet" href="<?php echo asset('/assets/stylesheets/main' . $env_suffix . '.css'); ?>"></noscript>
 	<?php endif; ?>
 
 	<?php // Initialize JS variables for use later on ?>
