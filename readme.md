@@ -37,7 +37,7 @@ The `--recursive` flag is necessary to initiate and pull the kirby and toolkit s
 
 1. Make sure that all folders and files within content are writable
 2. Make sure the thumbs folder is writable
-3. Rename both site/config/config.altair.dev.php and site/config/config.altair.artlantis.nl.php to reflect your own local and staging environments URL's.
+3. Rename both site/config/config.altair.test.php and site/config/config.altair.artlantis.nl.php to reflect your own local and staging environments URL's.
 4. Make sure to update and/or check in site/config/config.php the following config variables:
 
 ```php

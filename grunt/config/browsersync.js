@@ -16,8 +16,8 @@ module.exports = function(grunt) {
 			options: {
 				watchTask: true,
 				open: false, // 'external'
-				host: 'altair.dev',
-				proxy: 'altair.dev',
+				host: 'altair.test',
+				proxy: 'altair.test',
 				port: 3000,
 				// tunnel: 'altair',                                               // Attempt to use the URL "http://altair.localtunnel.me"
 				// logConnections: true,
