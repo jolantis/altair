@@ -10,8 +10,8 @@ module.exports = function(grunt) {
 		scripts: {
 			files: [
 				'gruntfile.js',
-				'<%= project.scripts_main %>/head.js',
-				'<%= project.scripts_main %>/main.js',
+				'<%= project.scripts_main %>/head.scripts.js',
+				'<%= project.scripts_main %>/main.scripts.js',
 				'<%= project.scripts_modules %>/*.js',
 				'<%= project.scripts_polyfills %>/*.js',
 				'<%= project.scripts_plugins %>/*.js',
@@ -32,8 +32,8 @@ module.exports = function(grunt) {
 				'<%= project.styles %>/main.css',
 				'<%= project.scripts %>/head.js',
 				'<%= project.scripts %>/main.js',
-				'<%= project.scripts_main %>/head.scipts.js',
-				'<%= project.scripts_main %>/main.scipts.js',
+				'<%= project.scripts_main %>/head.scripts.js',
+				'<%= project.scripts_main %>/main.scripts.js',
 				// 'site/plugins/*/*.php',
 				'site/templates/*.php',
 				'site/snippets/*.php',
