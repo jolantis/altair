@@ -50,12 +50,12 @@ kirbytext::$tags['blockquote'] = array(
 		if($attribution) {
 			if($cite) {
 				if($link) {
-					$html .= '<figcaption>' . smartypants($attribution) . ' <cite><a href="' . html($link) . '" rel="external nofollow">' . smartypants($cite) . '</a></cite></figcaption>';
+					$html .= '<figcaption>' . $attribution . ' <cite><a href="' . html($link) . '" rel="external nofollow">' . $cite . '</a></cite></figcaption>';
 				} else {
-					$html .= '<figcaption>' . smartypants($attribution) . ' <cite>' . smartypants($cite) . '</cite></figcaption>';
+					$html .= '<figcaption>' . $attribution . ' <cite>' . $cite . '</cite></figcaption>';
 				}
 			} else {
-				$html .= '<figcaption>' . smartypants($attribution) . '</figcaption>';
+				$html .= '<figcaption>' . $attribution . '</figcaption>';
 			}
 		}
 

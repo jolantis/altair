@@ -135,7 +135,7 @@ kirbytext::$tags['figure'] = array(
 
 			// Add caption if available
 			if($caption) {
-				$html .= '<figcaption>' . smartypants($caption) . '</figcaption>';
+				$html .= '<figcaption>' . $caption . '</figcaption>';
 			}
 
 			// Close grid div and figure
@@ -160,7 +160,7 @@ kirbytext::$tags['figure'] = array(
 
 			// Add caption if available
 			if($caption) {
-				$html .= '<figcaption>' . smartypants($caption) . '</figcaption>';
+				$html .= '<figcaption>' . $caption . '</figcaption>';
 			}
 
 		}
