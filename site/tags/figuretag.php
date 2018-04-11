@@ -90,9 +90,17 @@ kirbytext::$tags['figure'] = array(
 				// The container string has NOT a colon separator,
 				// meaning there is no size class available
 				else {
-					// Fall back to a default size class of '1of2'
-					$images = $container;
-					$size = '1of2';
+
+					// Add size class of '1of3' when number of containers is 3
+					if(count($containers) === 3) {
+						$images = $container;
+						$size = '1of3';
+					}
+					// Else fall back to a default size class of '1of2'
+					else {
+						$images = $container;
+						$size = '1of2';
+					}
 				}
 
 				// Get the image array
