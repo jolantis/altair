@@ -12,8 +12,15 @@
 	padding-left: $contain-percentage !important;
 
 	@include breakpoint(medium) {
+		// padding-right: rhythm($grid-gutter-rhythm-unit) !important;
+		// padding-left: rhythm($grid-gutter-rhythm-unit) !important;
 		padding-right: rhythm($contain-rhythm-unit) !important;
 		padding-left: rhythm($contain-rhythm-unit) !important;
+	}
+
+	@include breakpoint(huge) {
+		padding-right: rhythm(6 * $contain-rhythm-unit) !important;
+		padding-left: rhythm(6 * $contain-rhythm-unit) !important;
 	}
 }
 
@@ -25,8 +32,8 @@
 %contain-width {
 	@extend %contain-padding;
 
-	// max-width: $figure-max-width + (2 * rhythm($contain-rhythm-unit)) !important;  // Figure max width
-	max-width: $text-max-width + (2 * rhythm($contain-rhythm-unit)) !important; // Text max width
-	margin-right: auto !important;
-	margin-left: auto !important;
+	padding-right: auto !important;
+	padding-left: auto !important;
+	// max-width: strip-unit($figure-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Figure max width in EM's
+	max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Text max width in EM's
 }

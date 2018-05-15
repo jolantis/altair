@@ -28,7 +28,8 @@
 	h2,
 	h3,
 	li,
-	table {
+	table,
+	.vcard {
 		font-feature-settings: "lnum" 1;
 
 		@supports (font-variant-numeric: lining-nums) {

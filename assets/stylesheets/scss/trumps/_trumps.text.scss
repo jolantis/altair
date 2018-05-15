@@ -28,6 +28,19 @@
 }
 
 /**
+ * Hanging punctuation
+ *
+ * Enables hanging punctuation to put some punctuation characters from
+ * start of text elements "outside" of the box.
+ *
+ * https://css-tricks.com/almanac/properties/h/hanging-punctuation/
+ */
+
+%text-hang {
+	hanging-punctuation: first;
+}
+
+/**
  * Justify, hyphenate and word breaking
  *
  * Use justify text always in combination with text hyphenate and

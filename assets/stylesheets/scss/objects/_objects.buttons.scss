@@ -52,7 +52,8 @@
 	&:hover,
 	&:focus,
 	&:active {
-		top: 0 !important;
+		top: 0;
+		margin-top: 0;
 		background: $color-gray-x-light !important;
 		color: $color-gray-light !important;
 		cursor: default !important;
