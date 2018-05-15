@@ -57,11 +57,16 @@ kirbytext::$tags['figure'] = array(
 		// Start figure
 		$html = $rss ? '<figure>' : '<figure class="figure-image' . ($class ? ' ' . $class : '') . '">';
 
-		// Check if the url string has a piper separator
-		if(strpos($url, '|') !== false) {
+		// Check if the url string has a piper or , (comma) separator
+		if((strpos($url, '|') !== false) || (strpos($url, ',') !== false)) {
 
 			// Split the url in its containers
-			$containers = explode('|', $url);
+			if(strpos($url, '|') !== false) {
+				$containers = explode('|', $url);
+			}
+			else if(strpos($url, ',') !== false) {
+				$containers = explode(',', $url);
+			}
 
 			// Check for multiple (stacked) images in each container
 			// If there is comma seperated value, it means there is
