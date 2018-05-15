@@ -14,26 +14,31 @@
 /////////////////////////////////////////////////////////////
 
 // ----------------------------------------------------------
-// Presets for page content
+// Presets for rss feed excerpt
 // ----------------------------------------------------------
 
 imageset::presets([
-  'default' => '200-1000,5',
-  'small'   => '150-500',
-  'square'  => '200x200-1000x1000,4',
+	'default' => '300x200-1620x1080,3',
+	'1of2'    => '300x200-1620x1080,3',
+	'1of3'    => '300x200-1620x1080,3',
+	'2of3'    => '300x200-1620x1080,3',
 ]);
 
-imageset::presets('save', 'content');
+imageset::outputStyle('plain');
+imageset::presets('save', 'rss-excerpt');
 imageset::presets('reset');
 
 // ----------------------------------------------------------
-// Presets for sidebar
+// Presets for rss feed full
 // ----------------------------------------------------------
 
 imageset::presets([
-  'default' => '200-500',
-  'small'   => '100,150,200',
+	'default' => '300-1620,3',
+	'1of2'    => '300-1620,3',
+	'1of3'    => '300-1620,3',
+	'2of3'    => '300-1620,3',
 ]);
 
-imageset::presets('save', 'sidebar');
+imageset::outputStyle('plain');
+imageset::presets('save', 'rss-full');
 imageset::presets('reset');
