@@ -3,8 +3,8 @@
  *
  * @authors   Jonathan van Wunnik <jonathan@artlantis.nl>, Marijn Tijhuis <fatpixelstudio@gmail.com>
  * @link      https://altair.artlantis.nl
- * @version   0.5.10
- * @generated 2018-01-08:02:01
+ * @version   0.5.11
+ * @generated 2018-05-15:03:05
  * @copyright (c) 2018 Artlantis & Fatpixel
  * @license   MIT
  */
