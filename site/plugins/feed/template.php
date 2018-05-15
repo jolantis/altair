@@ -4,8 +4,8 @@
 // ----------------------------------------------------------
 /////////////////////////////////////////////////////////////
 
-// Do not wrap images in Kirbytext in figure elements
-// $kirby->set('option', 'kirbytext.image.figure', true);
+// Set date format
+$date_format = (c::get('date.handler') == 'strftime') ? '%a, %d %b %Y %H:%M:%S %z' : 'r';
 
 // Reset class(es) set on imageset figure (wrapper)
 $kirby->set('option', 'imageset.tags.image.class', '');
@@ -41,7 +41,8 @@ imageset::presets([
 				<title><?php echo xml($item->title()); ?></title>
 				<link><?php echo xml($item->url()); ?></link>
 				<guid><?php echo xml($item->id()); ?></guid>
-				<pubDate><?php echo $datefield == 'modified' ? $item->modified('r') : $item->date('r', $datefield); ?></pubDate>
+				<pubDate><?php echo $datefield == 'modified' ? $item->modified($date_format) : $item->date($date_format, $datefield); ?></pubDate>
+
 				<?php if($excerpt == true): ?>
 					<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
 					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
