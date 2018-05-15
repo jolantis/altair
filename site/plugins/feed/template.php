@@ -27,19 +27,23 @@ snippet('imageset-presets');
 		<?php endif; ?>
 
 		<?php foreach($items as $item): ?>
+
+			<?php $item_image = ($item->images()->filterBy('filename','*=','main')->first()) ? $item->images()->filterBy('filename','*=','main')->first() : $item->images()->sortBy('sort', 'asc')->first(); ?>
+			<?php $caption = ($item_image->caption()->isNotEmpty()) ? $item_image->caption()->smartypants() : ''; ?>
+
 			<item>
-				<title><?php echo xml($item->title()); ?></title>
+				<title><?php echo xml($item->title()->smartypants()); ?></title>
 				<link><?php echo xml($item->url()); ?></link>
 				<guid><?php echo xml($item->id()); ?></guid>
 				<pubDate><?php echo $datefield == 'modified' ? $item->modified($date_format) : $item->date($date_format, $datefield); ?></pubDate>
 
 				<?php if($excerpt == true): ?>
-					<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
-					<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
 
 					<?php imageset::presets('load', 'rss-excerpt'); // Overrule imageset presets; ratio 3:2, croped; 1 image after excerpt ?>
 
 					<description><![CDATA[
+						<?php $excerptlimit = (isset($excerptlimit)) ? $excerptlimit : 'words';  ?>
+						<?php $excerptlenght = (isset($excerptlenght)) ? $excerptlenght : 40;  ?>
 						<?php echo $item->{$textfield}()->kirbytext()->excerpt($excerptlenght, $excerptlimit); ?>
 
 						<?php if($image == true): ?>
@@ -57,6 +61,9 @@ snippet('imageset-presets');
 					<?php imageset::presets('load', 'rss-full'); // Overrule imageset presets (again); keep original ratio; all images in 'kirbytext' field ?>
 
 					<description><![CDATA[
+						<?php if($textfield != 'intro' && $item->intro()->exists() && $item->intro()->isNotEmpty()): ?>
+							<?php echo $item->intro()->kirbytext(); ?>
+						<?php endif; ?>
 						<?php echo $item->{$textfield}()->kirbytext(); ?>
 
 						<?php if($image == true): ?>
