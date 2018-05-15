@@ -29,7 +29,7 @@ More information about language codes, locales and multi-language sitemaps:
 c::set('locale', 'en_US.UTF8');                                                 // Sets the global locale setting for PHP (e.g. format a local time/date according to locale settings)
 c::set('language.multi', false);                                                // Enable multi-language support (also make sure to out-comment the `languages` variabel array below!)
 c::set('language.locale', 'en');                                                // Variable to set (among other things) the lang atribute on the html element when multi-language is disabled
-c::set('language.detect',false);                                                // Enables automatic language detection for multi-language sites
+c::set('language.detect', false);                                               // Enables automatic language detection for multi-language sites
 
 // c::set('languages', array(
 // 	array(
