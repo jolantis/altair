@@ -11,7 +11,7 @@
 			<?php if($next): ?>
 				<li class="pagination__item pagination__item--newer">
 					<a href="<?php echo $next->url(); ?>">
-						Newer post <em>(<?php echo $next->title(); ?>)</em>
+						Newer post <em>(<?php echo $next->title()->smartypants(); ?>)</em>
 					</a>
 				</li>
 			<?php endif ?>
@@ -19,7 +19,7 @@
 			<?php if($prev): ?>
 				<li class="pagination__item pagination__item--older">
 					<a href="<?php echo $prev->url(); ?>">
-						Older post <em>(<?php echo $prev->title(); ?>)</em>
+						Older post <em>(<?php echo $prev->title()->smartypants(); ?>)</em>
 					</a>
 				</li>
 			<?php endif ?>
