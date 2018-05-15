@@ -12,7 +12,7 @@ Pages::$methods['feed'] = function($pages, $params = array()) {
 	// set all default values
 	$defaults = array(
 		'url'         => url(),
-		'title'       => site()->title() . ': ' . page()->title(),
+		'title'       => site()->title()->smartypants()->titlecase() . ': ' . page()->title()->smartypants()->titlecase(),
 		'description' => page()->description(),
 		'link'        => url(),
 		'datefield'   => 'date',
