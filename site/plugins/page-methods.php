@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Custom page methods
+ *
+ * @author      Jonathan van Wunnik <jonathan@artlantis.nl>
+ *
+ * @license     Code and contributions have 'MIT License'
+ *
+ * @link        https://getkirby.com/docs/developer-guide/objects/page
+ *
+ */
+
+/**
  * Window title
  *
  * Field requirements:
