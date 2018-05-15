@@ -134,12 +134,12 @@ Still, she's got a lot of spirit. I don't know, what do you think? Ye-ha! You do
 
 (thumb: unsplash_525b54bcc32ba_1.jpg width: 225 quality: 10 class: figure-image text-width)
 
-*Thumb tag --- width is set to 225; quality is set to 10.*
+*Thumb tag---width is set to 225; quality is set to 10.*
 
 (thumb: unsplash_525b54bcc32ba_1.jpg height: 225 class: figure-image text-width)
 
-*Thumb tag --- height is set to 225; blur is true.*
+*Thumb tag---height is set to 225; blur is true.*
 
 (thumb: unsplash_525b54bcc32ba_1.jpg width: 225 height: 225 crop: true alt: Thumb cropped grayscale: true class: figure-image text-width)
 
-*Thumb tag --- both width and height are set to 225; crop is true; grayscale is true.*
+*Thumb tag---both width and height are set to 225; crop is true; grayscale is true.*

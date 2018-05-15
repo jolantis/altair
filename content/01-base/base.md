@@ -68,7 +68,7 @@ Because we use the widon't kirby extend, and the title contains more than 3 spac
 
 ## Paragraph {#paragraph}
 
-Donec quam felis, ultricies nec, pellentesque eu --- pretium quis, sem. And then Jonathan van Wunnik said, (quote: This is an English inline quote lang: en). Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. **(nohyphen: These words will not be hyphenated)**. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+Donec quam felis, ultricies nec, pellentesque eu---pretium quis, sem. And then Jonathan van Wunnik said, (quote: This is an English inline quote lang: en). Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. **(nohyphen: These words will not be hyphenated)**. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
 
 Donec blandit, quam et tempus egestas, nulla enim viverra orci, ac scelerisque massa felis non libero. Praesent eu dui vel arcu consectetur blandit malesuada a augue. In et.
 
