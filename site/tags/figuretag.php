@@ -6,14 +6,16 @@
  * Based on some example code of Lukas Bestle:
  * https://forum.getkirby.com/t/markdown-grid-for-images/2624/2
  *
- * Syntax:
+ * Syntax examples:
  * 1) (figure: image_a.jpg caption: ...)
  * 2) (figure: image_a.jpg | image_b.jpg)
- * 3) (figure: image_a.jpg:1of2 | image_b.jpg:1of2)
- * 4) (figure: image_a.jpg:2of3 | image_b.jpg, image_c.jpg:1of3 class: full-width)
- * 5) (figure: image_a.jpg:8of17 | image_b.jpg, image_c.jpg:9of17 caption: ...)
- * 6) (figure: image_a.jpg:9of13 | image_b.jpg:4of13 class: text-width caption: ...)
- * 7) (figure: image_a.jpg:1of3 | image_b.jpg:1of3 | image_c.jpg:1of3 class: full-width)
+ * 3) (figure: image_a.jpg, image_b.jpg)
+ * 4) (figure: image_a.jpg:1of2 | image_b.jpg:1of2)
+ * 5) (figure: image_a.jpg:2of3, image_b.jpg + image_c.jpg:1of3 class: full-width)
+ * 6) (figure: image_a.jpg:8of17 | image_b.jpg + image_c.jpg:9of17 caption: ...)
+ * 7) (figure: image_a.jpg:9of13, image_b.jpg:4of13 class: text-width caption: ...)
+ * 8) (figure: image_a.jpg | image_b.jpg | image_c.jpg class: full-width)
+ * 9) (figure: image_a.jpg, image_b.jpg, image_c.jpg class: full-width)
  *
  * Copyright: Jonathan van Wunnik (artlantis.nl)
  * License: http://www.gnu.org/licenses/gpl-3.0.txt GPLv3 License
@@ -69,10 +71,16 @@ kirbytext::$tags['figure'] = array(
 			}
 
 			// Check for multiple (stacked) images in each container
-			// If there is comma seperated value, it means there is
+			// If there is + seperated value, it means there is
 			// more than 1 image in a container (thus a triptych)!
 			for($i = 0; $i < count($containers); $i++) {
-				$triptych = (strpos($containers[$i],',') !== false) ? ' triptych' : '';
+				if(strpos($containers[$i], '+') !== false) {
+					$triptych = ' triptych';
+					break;
+				}
+				else {
+					$triptych = '';
+				}
 			}
 
 			// Add grid div
@@ -108,8 +116,8 @@ kirbytext::$tags['figure'] = array(
 					}
 				}
 
-				// Get the image array
-				$images = explode(',', $images);
+				// Split the image array in case of a triptych (seperated by a +)
+				$images = explode('+', $images);
 
 				// Open grid cell div wrapper
 				$html .= $rss ? '' : '<div class="grid__cell compact-' . $size . $triptych . '">';
