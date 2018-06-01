@@ -105,7 +105,7 @@ kirbytext::$tags['figure'] = array(
 				else {
 
 					// Add size class of '1of3' when number of containers is 3
-					if(count($containers) === 3) {
+					if(count($containers) == 3) {
 						$images = $container;
 						$size = '1of3';
 					}
