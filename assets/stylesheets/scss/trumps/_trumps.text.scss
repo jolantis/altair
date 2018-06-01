@@ -111,6 +111,11 @@
 	@include responsive-text-size($text-nano);
 }
 
+%text-mark {
+	background-color: rgb(248,248,0);
+	color: $color-base-black;
+}
+
 %text-time {
 	text-transform: uppercase;
 }
