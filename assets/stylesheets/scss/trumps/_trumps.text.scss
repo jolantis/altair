@@ -53,11 +53,20 @@
  */
 
 %text-hyphen {
-	hyphens: auto;
+
+	@include breakpoint(compact, max) { // Only hyphenate text on smaller width screens
+
+		:lang(en) & { // Hyphens for English is supported in most browsers
+			hyphens: auto;
+		}
+	}
 }
 
 %text-no-hyphen {
-	hyphens: none;
+
+	:lang(en) & { // Must be the same specicifity as `text-hyphen`
+		hyphens: none;
+	}
 }
 
 %text-justify {
