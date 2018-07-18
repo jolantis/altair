@@ -180,8 +180,8 @@ I am <kbd>the kbd (or HTML Keyboard Input Element) tag</kbd> example
 
 ## Table {#table}
 
-| Table head th | Table head th | Table head th |
-|---------------|---------------|---------------|
+| Table head th | Table head th | Table head th
+|-              |-              |-
 | Table body td | Table body td | Table body td
 | Table body td | Table body td | Table body td
 | Table body td | Table body td | Table body td
