@@ -18,13 +18,13 @@ Markdown Extra
 Enable/disable the Markdown extra parser with additional Markdown features
 like footnotes and tables (http://michelf.com/projects/php-markdown/extra/).
 
-And enable/disable automatic line breaks in Markdown like on Github. Otherwise
+And enable/disable automatic line breaks in Markdown like on Github. If false
 line breaks must be confirmed with three spaces at the end of the line.
 
 */
 
 c::set('markdown.extra', true);
-c::set('markdown.breaks', false);
+c::set('markdown.breaks', true);                                                 // Set to false to create line breaks (<br>'s) with **three** spaces at the end of a line
 
 
 /* -----------------------------------------------------------------------------
