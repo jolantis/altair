@@ -154,24 +154,24 @@ Peer
 
 ## Tags {#tags}
 
-I am [the a tag](http://studiodumbar.com) example  
-I am the abbr tag example  
-I am <b>the b tag</b> example  
-I am <cite>the cite tag</cite> example  
-I am <del>the del tag</del> example  
-I am <dfn>the dfn tag</dfn> example  
-I am *the em tag* example  
-I am <i>the i tag</i> example  
-I am <ins>the ins tag</ins> example  
-I am <mark>the mark tag</mark> example  
-I am <small>the small tag</small> example  
-I am <span>the span tag</span> example  
-I am **the strong tag** example  
-I am the<sub>sub (1)</sub> tag example  
-I am the<sup>sup (2)</sup> tag example  
-I am <var>the var tag</var> example  
-I am <q>the q tag <q>inside</q> a q tag</q> example	 
-I am <code>the code tag</code> example  
+I am [the a tag](http://studiodumbar.com) example
+I am the abbr tag example
+I am <b>the b tag</b> example
+I am <cite>the cite tag</cite> example
+I am <del>the del tag</del> example
+I am <dfn>the dfn tag</dfn> example
+I am *the em tag* example
+I am <i>the i tag</i> example
+I am <ins>the ins tag</ins> example
+I am <mark>the mark tag</mark> example
+I am <small>the small tag</small> example
+I am <span>the span tag</span> example
+I am **the strong tag** example
+I am the<sub>sub (1)</sub> tag example
+I am the<sup>sup (2)</sup> tag example
+I am <var>the var tag</var> example
+I am <q>the q tag <q>inside</q> a q tag</q> example
+I am <code>the code tag</code> example
 I am <kbd>the kbd (or HTML Keyboard Input Element) tag</kbd> example
 
 *[abbr]: abbreviation
