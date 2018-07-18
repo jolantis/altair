@@ -10,13 +10,9 @@ Description:
 
 ----
 
-Intro:
+Text:
 
 This page show basic (typographic) HTML elements and how the scoped _.Copy_ class renders them.
-
-----
-
-Text:
 
 <ul>
 <li><a data-scroll href="#headings">Headings</a></li>
