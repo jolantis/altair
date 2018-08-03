@@ -7,16 +7,19 @@
 // Executed on DOM ready
 domready(function () {
 
-	// Invoke modules
+	/**
+	 * Invoke modules
+	 */
+
 	Alerts.init(push_message);                                                  // Init alerts
 	Expand.init();                                                              // Init expand / collapse
 	FontObserverHandler.init();                                                 // Init font(face)observer
 	NavMain.init();                                                             // Init main navigation
 	// Popup.init();                                                               // Init popup
 
-	// Invoke plugins
-	// gumshoe.init();                                                             // Init gumshoe (scrollspy)
-	smoothScroll.init();                                                        // Init smoothscroll
+	/**
+	 * Invoke plugins
+	 */
 
 	// Run svg4everybody polyfill (e.g. for IE11)
 	// svg4everybody({
@@ -33,4 +36,8 @@ domready(function () {
 	// 	// speed: 500,
 	// 	offset: 32
 	// });
+
+	// Init gumshoe (scrollspy)
+	// gumshoe.init();
+
 });
