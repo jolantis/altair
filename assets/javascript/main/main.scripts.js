@@ -24,4 +24,13 @@ domready(function () {
 	// 	polyfill: true                                                          // Polyfill <use> elements for external content
 	// });
 
+	// Init smoothscroll (with or without hash)
+	new SmoothScroll('a[href*="#"]', {
+		// speed: 500,
+		offset: 32
+	});
+	// smoothScrollWithoutHash('a[href*="#"]', {
+	// 	// speed: 500,
+	// 	offset: 32
+	// });
 });
