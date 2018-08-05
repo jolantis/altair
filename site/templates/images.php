@@ -1,6 +1,4 @@
-<?php snippet('html-head', array(
-	'criticalcss' => 'images',
-)); ?>
+<?php snippet('html-head', array('criticalcss' => 'images')); ?>
 
 	<?php snippet('banner'); ?>
 
