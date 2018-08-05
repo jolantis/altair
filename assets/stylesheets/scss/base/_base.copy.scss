@@ -248,9 +248,9 @@
 	/* Paragraphs
 	   ========================================================================== */
 
-	p:first-of-type:not(.text-no-intro) {
-		@extend .delta-heading;
-	}
+	// p:first-of-type {
+	// 	@extend .delta-heading;
+	// }
 
 	// p:first-child { }
 
