@@ -1,5 +1,5 @@
 <image:image>
-    <image:loc><?= html($image->url()) ?></image:loc>
+	<image:loc><?= html($image->url()) ?></image:loc>
 
     <?php if ($image->caption()->isNotEmpty()) : ?>
     <image:caption><![CDATA[<?= $image->caption() ?>]]></image:caption>

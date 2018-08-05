@@ -1,6 +1,6 @@
 <?php ///////////////////////////////////////////////////////
 // ----------------------------------------------------------
-// PARTIAL :: DESKTOP
+// PARTIAL
 // ----------------------------------------------------------
 /////////////////////////////////////////////////////////////
 
@@ -56,10 +56,8 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 	<?php echo $page->rel_prevnext($filter_key, $filter_value, $pagination, $page_num); ?>
 	<?php echo $page->rel_alternate(); ?>
 
-	<?php // Social meta tags ?>
 	<?php snippet('social-meta-tags') ?>
 
-	<!-- Scripts and Stylesheets -->
 	<meta name="full_css" content="<?php echo asset('/assets/stylesheets/main' . $env_suffix . '.css'); ?>">
 	<meta name="full_js" content="<?php echo asset('/assets/javascript/main' . $env_suffix . '.js'); ?>">
 	<script><?php include_once(server::get('document_root') . '/assets/javascript/head' . $env_suffix . '.js'); ?></script>

@@ -54,7 +54,7 @@
 
 %text-hyphen {
 
-	@include breakpoint(compact, max) { // Only hyphenate text on smaller width screens
+	 @include breakpoint(compact, max) { // Only hyphenate text on smaller width screens
 
 		:lang(en) & { // Hyphens for English is supported in most browsers
 			hyphens: auto;

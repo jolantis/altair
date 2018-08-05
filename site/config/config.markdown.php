@@ -48,4 +48,4 @@ c::get('smartypants.space.marks', '&#160;');                                    
 c::get('smartypants.space.frenchquote', '&#160;');                              // Space inside french quotes. "Voici la «_chose_» qui m'a attaqué."
 c::get('smartypants.space.thousand', '&#160;');                                 // Space as thousand separator. "On compte 10_000 maisons sur cette liste."
 c::get('smartypants.space.unit', '&#160;');                                     // Space before a unit abreviation. "This 12_kg of matter costs 10_$."
-c::get('smartypants.skip', 'pre|code|kbd|script|style|math');                   // SmartyPants will not alter the content of these tags:
+c::get('smartypants.skip', 'pre|code|kbd|script|style|math');                   // SmartyPants will not alter the content of these tags...

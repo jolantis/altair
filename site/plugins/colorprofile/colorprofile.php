@@ -3,9 +3,6 @@
 /**
  * Colorprofile Plugin
  *
- * @author Jonathan van Wunnii <jonathan@artlantis.nl>
- * @version 1.0.0
- *
  * @author      Jonathan van Wunnik <jonathan@artlantis.nl>
  *
  * @license     Code and contributions have 'MIT License'

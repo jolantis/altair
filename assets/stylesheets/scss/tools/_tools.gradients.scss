@@ -14,7 +14,7 @@
 // For more info see: http://css-tricks.com/css3-gradients/
 
 // Some examples of $position for linear gradients:
-//  to left, to right, left top, 45deg, etc.
+//   to left, to right, left top, 45deg, etc.
 @mixin linear-gradient($position, $colors) {
 	$colors: if(type-of($colors) != "list", compact($colors), $colors);
 

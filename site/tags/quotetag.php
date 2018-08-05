@@ -1,7 +1,7 @@
 <?php
 /**
  * Quotetag
- * implements inline quotation with language locale, by wrapping a text string
+ * Implements inline quotation with language locale, by wrapping a text string
  * in a <q> tag, with class `quote` and a (default) language attribute.
  *
  * Syntax:
