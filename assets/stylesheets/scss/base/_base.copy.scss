@@ -368,7 +368,7 @@
 	ul,
 	ol {
 		@extend .list;
-		@extend .list--plain;
+		// @extend .list--plain;
 	}
 
 	/* Definition lists */

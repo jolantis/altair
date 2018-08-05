@@ -11,7 +11,7 @@
 
 	li {
 		display: list-item;
-		margin-left: rhythm(1); // .75rem + .5 baseline (vertical rhythm)
+		// margin-left: rhythm(1);
 
 		& > ul,
 		& > ol,
@@ -19,26 +19,48 @@
 			margin-top: rhythm(.25);
 		}
 
-		& > ul,
-		& > ol {
-			margin-left: rhythm(1);
-		}
+		// & > ul,
+		// & > ol {
 
-		@include breakpoint(medium) {
-			margin-left: 0; // reset left margin from medium and up
-		}
+		// 	> li {
+		// 		margin-left: rhythm(.65);
+		// 	}
+		// }
+
+		// @include breakpoint(medium) {
+		// 	margin-left: 0 !important; // reset left margin from medium and up
+		// }
+	}
+
+	> li {
+		// list-style-type: square; // e.g. disc, circle, square
+		list-style-type: none;
 	}
 }
 
-.list {
+ul.list {
+
 	> li {
-		list-style-type: square; // e.g. disc, circle, square
+		margin-left: rhythm(.65);
+		// margin-left: rhythm(1.25);
+
+		&:before {
+			content: "– ";
+			position: absolute;
+			margin-left: rhythm(-.65);
+		}
+
+		> p:last-of-type {
+			margin-bottom: rhythm(.75);
+		}
 	}
 }
 
 ol.list {
+
 	> li {
 		list-style-type: decimal; // e.g. decimal, decimal-leading-zero, lower-roman, upper-roman, lower-greek, lower-latin, upper-latin, lower-alpha, upper-alpha, hebrew, etc.
+		margin-left: rhythm(1.25);
 	}
 }
 
@@ -49,8 +71,13 @@ ol.list {
 .list--plain {
 	margin-left: 0;
 
-	> li {
+	li {
 		list-style: none;
+		margin-left: 0;
+
+		&:before {
+			content: none;
+		}
 	}
 }
 
