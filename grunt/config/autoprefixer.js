@@ -14,10 +14,10 @@ module.exports = function(grunt) {
 			src: '<%= project.styles %>/main.css',
 			dest: '<%= project.styles %>/main.css',
 		},
-		mobile: {
-			// 	src: '<%= project.styles %>/mobile.css',
-			// 	dest: '<%= project.styles %>/mobile.css',
-		},
+		// mobile: {
+		// 	src: '<%= project.styles %>/mobile.css',
+		// 	dest: '<%= project.styles %>/mobile.css',
+		// },
 		print: {
 			src: '<%= project.styles %>/print.css',
 			dest: '<%= project.styles %>/print.css',
