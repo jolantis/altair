@@ -136,6 +136,13 @@ if($page->featured_image()->exists() && $page->featured_image()->isNotEmpty()) {
 	}
 	$featured_image = $image->url();
 }
+elseif($page->images()->filterBy('filename','*=','main')->first()) {
+	$image = $page->images()->filterBy('filename','*=','main')->first();
+	if($image->dimension()->portrait()) {
+		$image = $image->crop(880, 550);
+	}
+	$featured_image = $image->url();
+}
 elseif($site->featured_image()->exists() && $site->featured_image()->isNotEmpty()) {
 	$image = $site->featured_image()->toFile();
 	if($image->dimension()->portrait()) {
