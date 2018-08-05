@@ -36,6 +36,7 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 
 	<?php // Preload assets (fonts, stylesheets, etc.) ?>
 	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/firasans/firasans-bold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site()->url(); ?>/assets/fonts/firasans/firasans-book.woff2" as="font" type="font/woff2" crossorigin>
 
 	<title><?php echo $page->window_title(); if(c::get('environment') == 'local'): echo ' [DEV]'; endif; ?></title>
 	<meta name="description" content="<?php echo $page->meta_description(); ?>">
