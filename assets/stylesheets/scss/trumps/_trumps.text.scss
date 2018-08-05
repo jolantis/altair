@@ -73,6 +73,7 @@
 	text-align: inherit;
 
 	@include breakpoint(medium) {
+
 		& {
 			text-align: justify;
 		}

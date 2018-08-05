@@ -34,7 +34,6 @@
 // Striped (or rainbow) gradients
 // Some examples of $position for radial gradients:
 //   to left, to right, to top, to bottom, 45deg, etc.
-
 @mixin stripes($position, $colors) {
 	// $colors: if(type-of($colors) != "list", compact($colors), $colors);
 	$stripes: 100% / length($colors);

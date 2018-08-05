@@ -6,6 +6,7 @@
  */
 
 var cookie = {
+
 	set: function(name, value, days) {
 		var expires;
 		if (days) {
