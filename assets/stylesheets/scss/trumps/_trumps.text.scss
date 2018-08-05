@@ -69,6 +69,10 @@
 	}
 }
 
+%text-break {
+	word-wrap: break-word;
+}
+
 %text-justify {
 	text-align: inherit;
 
@@ -78,10 +82,6 @@
 			text-align: justify;
 		}
 	}
-}
-
-%text-break {
-	word-wrap: break-word;
 }
 
 /**
