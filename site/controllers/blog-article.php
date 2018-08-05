@@ -22,6 +22,11 @@ return function($site, $pages, $page, $args) {
 	$page_items   = ($filter_key && $filter_value) ? $page->siblings()->visible()->filterBy($filter_key, tagunslug($filter_value), ',') : $page->siblings()->visible();
 	// $index      = $page_items->indexOf($page);
 
+	# Filter by date to exclude future posts (on production only)
+	if(c::get('environment') != 'local' && c::get('environment') !== 'stage') {
+		$page_items = $page_items->filterBy('date', '<', time());
+	}
+
 	// Set next and prev (sibling) pages
 	$prev = $page->prev_sibling($page_items);
 	$next = $page->next_sibling($page_items);

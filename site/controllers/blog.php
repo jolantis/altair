@@ -48,8 +48,10 @@ return function($site, $pages, $page, $args) {
 		$pagination = false;
 	}
 
-	# Filter by date to exclude future posts
-	$page_items = $page_items->filterBy('date', '<', time());
+	# Filter by date to exclude future posts (on production only)
+	if(c::get('environment') != 'local' && c::get('environment') != 'stage') {
+		$page_items = $page_items->filterBy('date', '<', time());
+	}
 
 	# Set pagination
 	$pagination = $page_items->pagination();
