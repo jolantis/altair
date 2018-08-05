@@ -17,15 +17,22 @@
 // --------------------------------------------------------------------------
 
 
-@mixin breakpoint($breakpoint-name) {
+@mixin breakpoint($breakpoint-name, $max-width: false) {
 
 	// Check if breakpoint name is valid (exists in `$breakpoints` list)
 	@if map-get($breakpoints, $breakpoint-name) != null {
 			$breakpoint-value: map-get($breakpoints, $breakpoint-name);
 
 			@if $breakpoint-value != null {
-				@media (min-width: $breakpoint-value) {
-					@content;
+				@if $max-width == 'max' {
+					@media (max-width: $breakpoint-value) {
+						@content;
+					}
+				}
+				@else {
+					@media (min-width: $breakpoint-value) {
+						@content;
+					}
 				}
 			}
 			@else {
