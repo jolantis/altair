@@ -33,4 +33,6 @@
 		push_message.push({status: 'info', type: 'modal', text: 'This page displays a few basic javascript functionality examples available in Altair.'});
 	</script>
 
-<?php snippet('footer'); ?>
+	<?php snippet('contentinfo'); ?>
+
+<?php snippet('html-foot'); ?>

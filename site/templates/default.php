@@ -31,4 +31,6 @@
 
 	<?php // snippet('share-page'); ?>
 
-<?php snippet('footer'); ?>
+	<?php snippet('contentinfo'); ?>
+
+<?php snippet('html-foot'); ?>

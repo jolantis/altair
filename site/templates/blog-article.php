@@ -47,4 +47,6 @@
 
 	<?php //snippet('nav-sub'); ?>
 
-<?php snippet('footer'); ?>
+	<?php snippet('contentinfo'); ?>
+
+<?php snippet('html-foot'); ?>
