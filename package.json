@@ -1,7 +1,7 @@
 {
   "name": "altair",
   "description": "Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS",
-  "version": "0.5.14",
+  "version": "0.5.15",
   "url": "https://altair.artlantis.nl",
   "author": "Jonathan van Wunnik <jonathan@artlantis.nl>, Marijn Tijhuis <fatpixelstudio@gmail.com>",
   "copyright": "Artlantis & Fatpixel",
