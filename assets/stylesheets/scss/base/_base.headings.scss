@@ -17,13 +17,16 @@
  */
 
 %heading-settings {
-	@extend %text-hang;
+	font-weight: normal;
+	hanging-punctuation: first;
+	letter-spacing: .01rem;
+}
+
+%heading-font {
 	@include heading-font(700);
 
-	letter-spacing: .01em;
-
 	.fonts-loaded & {
-		font-family: $heading-web-font;
+		font-family: $heading-web-font; // FiraSans Bold
 	}
 }
 
@@ -39,7 +42,10 @@
 
 .alpha-heading {
 	@extend %heading-settings;
+	@extend %heading-font; // FiraSans Bold
 	@extend %text-kern;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@include responsive-text-size($text-alpha);
 }
 
@@ -47,7 +53,10 @@
 
 .beta-heading {
 	@extend %heading-settings;
+	@extend %heading-font; // FiraSans Bold
 	@extend %text-kern;
+	@extend %text-break;
+	@extend %text-hyphen;
 	@include responsive-text-size($text-beta);
 }
 
@@ -55,6 +64,9 @@
 
 .gamma-heading {
 	@extend %heading-settings;
+	@extend %heading-font; // FiraSans Bold
+	@extend %text-break;
+	@extend %text-hyphen;
 	@include responsive-text-size($text-gamma);
 }
 
@@ -62,6 +74,7 @@
 
 .delta-heading {
 	@extend %heading-settings;
+	@extend %heading-font; // FiraSans Bold
 	@include responsive-text-size($text-delta);
 }
 
@@ -70,5 +83,8 @@
 .epsilon-heading,
 .zeta-heading {
 	@extend %heading-settings;
+	@extend %heading-font; // FiraSans Bold
+	@extend %text-break;
+	@extend %text-hyphen;
 	@include responsive-text-size($text-epsilon);
 }
