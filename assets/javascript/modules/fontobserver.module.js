@@ -15,10 +15,10 @@ var FontObserverHandler = (function () {
 		}
 
 		// Define the fonts and font variants to observed
-		var firasans_book = new FontFaceObserver('FiraSans Book', {
+		var firasans_book = new FontFaceObserver('FiraSans', {
 			weight: 400
 		});
-		var firasans_bold = new FontFaceObserver('FiraSans Bold', {
+		var firasans_bold = new FontFaceObserver('FiraSans', {
 			weight: 700
 		});
 
