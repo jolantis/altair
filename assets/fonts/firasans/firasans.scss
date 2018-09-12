@@ -10,7 +10,7 @@
 	Open source
 	-------------------------------------------------------------------
 	Download:
-	http://www.carrois.com/fira-4-1/
+	https://github.com/bBoxType/FiraSans
 	-------------------------------------------------------------------
 	Syntax:
 	https://css-tricks.com/snippets/css/using-font-face/
@@ -28,7 +28,7 @@
 /* Book */
 
 @font-face {
-	font-family: 'Fira Sans';
+	font-family: 'FiraSans Book';
 	src: url('/assets/fonts/firasans/firasans-book.woff2') format('woff2'),
 		 url('/assets/fonts/firasans/firasans-book.woff') format('woff'),
 		 url('/assets/fonts/firasans/firasans-book.ttf') format('truetype');
@@ -40,7 +40,7 @@
 /* Bold */
 
 @font-face {
-	font-family: 'Fira Sans';
+	font-family: 'FiraSans Bold';
 	src: url('/assets/fonts/firasans/firasans-bold.woff2') format('woff2'),
 		 url('/assets/fonts/firasans/firasans-bold.woff') format('woff'),
 		 url('/assets/fonts/firasans/firasans-bold.ttf') format('truetype');

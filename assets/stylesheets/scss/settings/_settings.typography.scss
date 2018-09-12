@@ -6,10 +6,10 @@
 // --------------------------------------------------------------------------
 
 $sans-font-stack:               "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, ArialMT, sans-serif;
-$sans-web-font:                 "Fira Sans";
+$sans-web-font:                 "FiraSans Book", $sans-font-stack;
 
-$heading-font-stack:            "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold", "Arial Narrow Bold", "ArialNarrow-Bold", "Arial Narrow", "ArialNarrow", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-$heading-web-font:              "Fira Sans";
+$heading-font-stack:            "Helvetica Neue Bold", "HelveticaNeue-Bold", "Helvetica Bold", "Helvetica-Bold", "Arial Bold", Arial-BoldMT, sans-serif;
+$heading-web-font:              "FiraSans Bold", $heading-font-stack;
 
 $serif-font-stack:              "Lucida Bright", "LucidaBright", Georgia, serif;
 $mono-font-stack:               Monaco, "Courier New", "CourierNewPSMT", Courier, monospace, serif;
