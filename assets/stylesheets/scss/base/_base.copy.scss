@@ -295,7 +295,9 @@
 
 	i,
 	em,
-	cite {
+	cite,
+	dfn,
+	var {
 		@extend %text-italic;
 	}
 
