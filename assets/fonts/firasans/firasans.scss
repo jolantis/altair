@@ -37,19 +37,6 @@
 	font-style: normal;
 }
 
-
-/* Book Italic */
-
-@font-face {
-	font-family: 'Fira Sans';
-	src: url('/assets/fonts/firasans/firasans-bookitalic.woff2') format('woff2'),
-		 url('/assets/fonts/firasans/firasans-bookitalic.woff') format('woff'),
-		 url('/assets/fonts/firasans/firasans-bookitalic.ttf') format('truetype');
-	font-display: swap;                                                         /* options: auto, block, swap, fallback and optional */
-	font-weight: 400;
-	font-style: italic;
-}
-
 /* Bold */
 
 @font-face {
