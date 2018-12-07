@@ -30,10 +30,6 @@ LinkedIn: jvanwunnik
 
 ----
 
-Google Plus: jonathanvanwunnik
-
-----
-
 Author: Jonathan van Wunnik, Marijn Tijhuis
 
 ----

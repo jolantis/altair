@@ -64,14 +64,6 @@ else {
 	$description = $site->tagline()->smartypants();
 }
 
-// Get the site's Google+ handle
-if($site->google_plus()->exists() && $site->google_plus()->isNotEmpty()) {
-	$google_plus = $site->google_plus();
-}
-else {
-	$google_plus = false;
-}
-
 // Get the site's Twitter handle
 if($site->twitter()->exists() && $site->twitter()->isNotEmpty()) {
 	$twitter_publisher = $site->twitter();
@@ -162,8 +154,7 @@ else {
 }
 ?>
 
-<!-- Google+ / Schema.org -->
-<?php if($google_plus): ?><link rel="publisher" href="https://plus.google.com/+<?php echo $site->google_plus(); ?>"><?php endif; ?>
+<!-- Schema.org -->
 <meta itemprop="name" content="<?php echo $page_title ?>">
 <meta itemprop="description" content="<?php echo $description->excerpt(300); ?>">
 <?php if($featured_image): ?><meta itemprop="image" content="<?php echo $featured_image ?>">
