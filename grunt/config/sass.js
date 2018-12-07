@@ -1,8 +1,11 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
 
 	grunt.config('sass', {
 		options: {
-			outputStyle: 'nested', // nested or compressed
+			implementation: sass,
+			outputStyle: 'nested', // nested, expanded, compact, compressed
 			precision: 10, // number of digits to preserve after the dot (default is `10`)
 			sourceComments: false, // true enables additional debugging information in the output file as CSS comments
 			sourceMap: false, // enable/disable source maps (when 'true' make sure sourceComments is set to 'map')
