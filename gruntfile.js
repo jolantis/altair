@@ -66,6 +66,7 @@ module.exports = function(grunt) {
 				],
 				polyfills: [
 					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
+					'<%= project.scripts_polyfills %>/closest.js',
 					// '<%= project.scripts_polyfills %>/promise.js',
 					// '<%= project.scripts_polyfills %>/ls.respimg.js',           // Only partial `respimage` polyfill (see: https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/respimg); out-comment when not conditionally loading `respimage.min.js` in `head.scripts.js`
 					// '<%= project.scripts_polyfills %>/svg4everybody.js',        // Adds external spritemaps support to otherwise svg-capable browsers (e.g. IE11)
