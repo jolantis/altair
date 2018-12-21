@@ -27,7 +27,7 @@ domready(function () {
 	// 	polyfill: true                                                          // Polyfill <use> elements for external content
 	// });
 
-	// Init smoothscroll (with or without hash)
+	// Init smoothscroll
 	new SmoothScroll('a[href*="#"]', {
 		// ignore: '[data-scroll-ignore]',                                         // Selector for links to ignore (must be a valid CSS selector)
 		// header: null,                                                           // Selector for fixed headers (must be a valid CSS selector)
@@ -41,10 +41,6 @@ domready(function () {
 		popstate: false,                                                        // Animate scrolling with the forward/backward browser buttons (requires updateURL to be true)
 		emitEvents: false                                                       // Emit custom events (e.g. scrollStart, scrollStop and scrollCancel)
 	});
-	// smoothScrollWithoutHash('a[href*="#"]', {
-	// 	// speed: 500,
-	// 	offset: 32
-	// });
 
 	// Init gumshoe (scrollspy)
 	// gumshoe.init();
