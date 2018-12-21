@@ -1,5 +1,5 @@
 /**
- * Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS — v0.5.15 — 2018-12-14
+ * Altair — A Sass- and Grunt-based development front-end starter kit, running on file-based Kirby CMS — v0.5.16 — 2018-12-21
  * https://altair.artlantis.nl
  * Copyright (c) 2018 Artlantis & Fatpixel
  * License MIT
