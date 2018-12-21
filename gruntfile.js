@@ -60,13 +60,12 @@ module.exports = function(grunt) {
 					'<%= project.scripts_plugins %>/imageset/ls.parent-fit.js', // Out-comment when using imageset's lazyload + background images; when `bgset` plugin (background images) is used in combination with data-sizes="auto" and `background-size: cover|contain` (e.g. for Edge, IE11 and older, iOS 9, etc.)
 					'<%= project.scripts_plugins %>/transitionend/transitionend.js', // Out-comment when using alerts or navmain module!
 					'<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll.js',
-					// '<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll.polyfills.js',
-					// '<%= project.scripts_plugins %>/smooth-scroll/smooth-scroll-without-hash.js',
 					// '<%= project.scripts_plugins %>/throttle/throttle.js',
 				],
 				polyfills: [
-					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList` support (IE11)
-					'<%= project.scripts_polyfills %>/closest.js',              // Adds cross-browser `element.closest` support (IE11)
+					'<%= project.scripts_polyfills %>/classlist.js',            // Adds cross-browser full `element.classList()` support (e.g. IE11)
+					'<%= project.scripts_polyfills %>/closest.js',              // Adds cross-browser `element.closest()` support (e.g. for smooth-scroll support in IE11)
+					'<%= project.scripts_polyfills %>/customevent.js',          // Adds cross-browser `new CustomEvent()` support (e.g. for smooth-scroll support in IE11)
 					// '<%= project.scripts_polyfills %>/promise.js',
 					// '<%= project.scripts_polyfills %>/ls.respimg.js',           // Only partial `respimage` polyfill (see: https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/respimg); out-comment when not conditionally loading `respimage.min.js` in `head.scripts.js`
 					// '<%= project.scripts_polyfills %>/svg4everybody.js',        // Adds external spritemaps support to otherwise svg-capable browsers (e.g. IE11)

@@ -29,8 +29,17 @@ domready(function () {
 
 	// Init smoothscroll (with or without hash)
 	new SmoothScroll('a[href*="#"]', {
-		// speed: 500,
-		offset: 32
+		// ignore: '[data-scroll-ignore]',                                         // Selector for links to ignore (must be a valid CSS selector)
+		// header: null,                                                           // Selector for fixed headers (must be a valid CSS selector)
+		speed: 500,                                                             // Integer. Amount of time in milliseconds it should take to scroll 1000px
+		// speedAsDuration: false,                                                 // If true, use speed as the total duration of the scroll animation
+		clip: true,                                                             // If true, adjust scroll distance to prevent abrupt stops near the bottom of the page
+		offset: 32,                                                             // Integer or Function returning an integer. How far to offset the scrolling anchor location in pixels
+		topOnEmptyHash: true,                                                   // Scroll to the top of the page for links with href="#"
+		easing: 'easeInOutQuad',                                                // Easing pattern to use (e.g. easeInQuad, easeInOutQuad, easeInOutCubic, easeOutCubic, etc.)
+		updateURL: false,                                                       // Update the URL on scroll
+		popstate: false,                                                        // Animate scrolling with the forward/backward browser buttons (requires updateURL to be true)
+		emitEvents: false                                                       // Emit custom events (e.g. scrollStart, scrollStop and scrollCancel)
 	});
 	// smoothScrollWithoutHash('a[href*="#"]', {
 	// 	// speed: 500,
