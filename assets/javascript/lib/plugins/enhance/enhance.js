@@ -1,17 +1,17 @@
 /*! EnhanceJS: a progressive enhancement boilerplate. Copyright 2014 @scottjehl, Filament Group, Inc. Licensed MIT */
-(function( window, undefined ) {
+(function (window, undefined) {
 
 	// Enable JS strict mode
 	"use strict";
 
-  	var setTimeout = window.setTimeout;
+	var setTimeout = window.setTimeout;
 
 	var enhance = {};
 
 	// Define some variables to be used throughout this file
 	var doc = window.document,
 		docElem = doc.documentElement,
-		head = doc.head || doc.getElementsByTagName( "head" )[ 0 ],
+		head = doc.head || doc.getElementsByTagName("head")[0],
 		// this references a meta tag's name whose content attribute should define the path to the full CSS file for the site
 		fullCSSKey = "full_css",
 		// this references a meta tag's name whose content attribute should define the path to the enhanced JS file for the site (delivered to qualified browsers)
@@ -19,23 +19,23 @@
 		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
 		// fontsKey = "fonts",
 		// classes to be added to the HTML element in qualified browsers
-		htmlClasses = [ "enhanced", "ctm" ],
+		htmlClasses = ["enhanced", "ctm"],
 		docClasses = htmlClasses;
 
 	/* Some commonly used functions - delete anything you don't need! */
 
 	// loadJS: load a JS file asynchronously. Included from https://github.com/filamentgroup/loadJS/
-	var loadJS = enhance.loadJS = function( src ){
-		var ref = doc.getElementsByTagName( "script" )[ 0 ];
-		var script = doc.createElement( "script" );
+	var loadJS = enhance.loadJS = function (src) {
+		var ref = doc.getElementsByTagName("script")[0];
+		var script = doc.createElement("script");
 		script.src = src;
 		script.async = true;
-		ref.parentNode.insertBefore( script, ref );
+		ref.parentNode.insertBefore(script, ref);
 		return script;
 	};
 
 	// loadCSS: load a CSS file asynchronously. Included from https://github.com/filamentgroup/loadCSS/
-	var loadCSS = enhance.loadCSS = function( href, before, media ){
+	var loadCSS = enhance.loadCSS = function (href, before, media) {
 		// Arguments explained:
 		// `href` is the URL for your CSS file.
 		// `before` optionally defines the element we'll use as a reference for injecting our <link>
@@ -43,29 +43,29 @@
 		// However, since the order in which stylesheets are referenced matters, you might need a more specific location in your document.
 		// If so, pass a different reference element to the `before` argument and it'll insert before that instead
 		// note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
-		var ss = doc.createElement( "link" );
-		var ref = before || doc.getElementsByTagName( "script" )[ 0 ];
+		var ss = doc.createElement("link");
+		var ref = before || doc.getElementsByTagName("script")[0];
 		var sheets = doc.styleSheets;
 		ss.rel = "stylesheet";
 		ss.href = href;
 		// temporarily, set media to something non-matching to ensure it'll fetch without blocking render
 		ss.media = "only x";
 		// inject link
-		ref.parentNode.insertBefore( ss, ref );
+		ref.parentNode.insertBefore(ss, ref);
 		// This function sets the link's media back to `all` so that the stylesheet applies once it loads
 		// It is designed to poll until document.styleSheets includes the new sheet.
-		function toggleMedia(){
+		function toggleMedia() {
 			var defined;
-			for( var i = 0; i < sheets.length; i++ ){
-				if( sheets[ i ].href && sheets[ i ].href.indexOf( href ) > -1 ){
+			for (var i = 0; i < sheets.length; i++) {
+				if (sheets[i].href && sheets[i].href.indexOf(href) > -1) {
 					defined = true;
 				}
 			}
-			if( defined ){
+			if (defined) {
 				ss.media = media || "all";
 			}
 			else {
-				setTimeout( toggleMedia );
+				setTimeout(toggleMedia);
 			}
 		}
 
@@ -75,12 +75,12 @@
 
 	// getMeta function: get a meta tag by name
 	// NOTE: meta tag must be in the HTML source before this script is included in order to guarantee it'll be found
-	var getMeta = enhance.getMeta = function( metaname ){
-		var metas = doc.getElementsByTagName( "meta" );
+	var getMeta = enhance.getMeta = function (metaname) {
+		var metas = doc.getElementsByTagName("meta");
 		var meta;
-		for( var i = 0; i < metas.length; i ++ ){
-			if( metas[ i ].name && metas[ i ].name === metaname ){
-				meta = metas[ i ];
+		for (var i = 0; i < metas.length; i++) {
+			if (metas[i].name && metas[i].name === metaname) {
+				meta = metas[i];
 				break;
 			}
 		}
@@ -88,26 +88,26 @@
 	};
 
 	// cookie function from https://github.com/filamentgroup/cookie/
-	var cookie = enhance.cookie = function( name, value, days ){
-	var expires;
+	var cookie = enhance.cookie = function (name, value, days) {
+		var expires;
 		// if value is undefined, get the cookie value
-		if( value === undefined ){
+		if (value === undefined) {
 			var cookiestring = "; " + doc.cookie;
-			var cookies = cookiestring.split( "; " + name + "=" );
-			if ( cookies.length == 2 ){
-				return cookies.pop().split( ";" ).shift();
+			var cookies = cookiestring.split("; " + name + "=");
+			if (cookies.length == 2) {
+				return cookies.pop().split(";").shift();
 			}
 			return null;
 		}
 		else {
 			// if value is a false boolean, we'll treat that as a delete
-			if( value === false ){
+			if (value === false) {
 				days = -1;
 			}
-			if ( days ) {
+			if (days) {
 				var date = new Date();
-				date.setTime( date.getTime() + ( days * 24 * 60 * 60 * 1000 ) );
-				expires = "; expires="+date.toGMTString();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toGMTString();
 			}
 			else {
 				expires = "";
@@ -124,11 +124,11 @@
 		If no cookie is set to specify that the full CSS has already been fetched, load it asynchronously and set the cookie.
 		Once the cookie is set, the full CSS is assumed to be in cache, and the server-side templates should reference the full CSS directly from the head of the page with a link element, in place of inline critical styles.
 		*/
-	var fullCSS = getMeta( fullCSSKey );
-	if( fullCSS && !cookie( fullCSSKey ) ){
-		loadCSS( fullCSS.content );
+	var fullCSS = getMeta(fullCSSKey);
+	if (fullCSS && !cookie(fullCSSKey)) {
+		loadCSS(fullCSS.content);
 		// set cookie to mark this file fetched
-		cookie( fullCSSKey, "true", 7 );
+		cookie(fullCSSKey, "true", 7);
 	}
 
 	/* Enhancements for qualified browsers - "Cutting the Mustard"
@@ -136,7 +136,7 @@
 		For example, you might choose to only enhance browsers that support document.querySelector (IE8+, etc).
 		Use case will vary.
 		*/
-	if( !( "querySelector" in doc ) ){
+	if (!("querySelector" in doc)) {
 		// basic browsers: last stop here!
 		return;
 	}
@@ -147,26 +147,26 @@
 		Your DOM framework and dependent component scripts should be concatenated and minified into one file that we'll load dynamically (keep that file as small as possible!)
 		A meta tag with a name matching the fullJSKey should have a content attribute referencing the path to this JavaScript file.
 		*/
-	var fullJS = getMeta( fullJSKey );
+	var fullJS = getMeta(fullJSKey);
 	// Add scoping classes to HTML element
-	function addEnhanceClass(){
+	function addEnhanceClass() {
 		docElem.className += " " + htmlClasses.join(" ");
 	}
 
-	function removeEnhanceClass(){
-		docElem.className = docElem.className.replace( htmlClasses.join(" "), " " );
+	function removeEnhanceClass() {
+		docElem.className = docElem.className.replace(htmlClasses.join(" "), " ");
 	}
 
 	// Add scoping classes to HTML element: useful for upgrading the presentation of elements that will be enhanced with JS behavior
 	addEnhanceClass();
 
 	// load global js on any template
-	if( fullJS ){
-		var script = loadJS( fullJS.content );
-		var fallback = setTimeout( removeEnhanceClass, 8000 );
+	if (fullJS) {
+		var script = loadJS(fullJS.content);
+		var fallback = setTimeout(removeEnhanceClass, 8000);
 
-		script.onload = function(){
-			clearTimeout( fallback );
+		script.onload = function () {
+			clearTimeout(fallback);
 			// just in case it was removed already (we can't cancel this request so it might arrive any time)
 			addEnhanceClass();
 		};
@@ -184,8 +184,8 @@
 	// }
 
 	// expose the 'enhance' object globally. Use it to expose anything in here that's useful to other parts of your application.
-	if( !window.enchance ){
+	if (!window.enchance) {
 		window.enhance = enhance;
 	}
 
-}( this ));
+}(this));
