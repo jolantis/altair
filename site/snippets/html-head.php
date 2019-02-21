@@ -25,7 +25,7 @@ $fontobserver = (isset($_COOKIE['fonts_loaded']) && $_COOKIE['fonts_loaded'] == 
 <!--[if gt IE 8]><!--><html class="no-js<?php echo $page_template . $fontobserver; ?>" lang="<?php echo $language_locale; ?>"><!--<![endif;]-->
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 	<?php // Prefetch DNS for external assets (Typekit, Google APIs, etc). ?>
 	<link rel="dns-prefetch" href="https://use.typekit.net">
