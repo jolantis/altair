@@ -43,7 +43,7 @@ Now make sure there are tablet device specific snippets by adding the `.tablet` 
 
 ## Authors
 
-This plugin is developed and (sometimes) maintained by Marijn Tijhuis [fatpixel.nl](https://fatpixel.nl) and Jonathan van Wunnik [artlantis.nl](https://artlantis.nl).
+This plugin is developed and (sometimes) maintained by Marijn Tijhuis [fatpixel.nl](https://fatpixel.nl) and Jonathan van Wunnik [jonathanvanwunnik.com](https://jonathanvanwunnik.com).
 
 ## License
 

@@ -30,7 +30,7 @@ TBA
 
 ## Authors
 
-This plugin is developed and (sometimes) maintained by Jonathan van Wunnik [artlantis.nl](https://artlantis.nl).
+This plugin is developed and (sometimes) maintained by Jonathan van Wunnik [jonathanvanwunnik.com](https://jonathanvanwunnik.com).
 
 ## License
 
