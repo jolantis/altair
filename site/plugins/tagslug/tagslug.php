@@ -26,6 +26,12 @@ function tagslug($text) {
 	// replace & by -and-
 	$text = str_replace('&', '-and-', $text);
 
+	// replace ø by oe
+	$text = str_replace('ø', 'oe', $text);
+
+	// replace å by aa
+	$text = str_replace('å', 'aa', $text);
+
 	// replace non letter or digits by -
 	$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
 

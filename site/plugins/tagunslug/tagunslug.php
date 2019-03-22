@@ -30,6 +30,12 @@ function tagunslug($text){
 	// replace -and- by <space>&<space>
 	$text = str_replace('-and-', ' & ', $text);
 
+	// replace oe by ø
+	$text = str_replace('oe', 'ø', $text);
+
+	// replace aa by å
+	$text = str_replace('aa', 'å', $text);
+
 	// replace - buy <space>
 	$text = str_replace('-', ' ', $text);
 
