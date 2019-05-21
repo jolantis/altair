@@ -231,7 +231,8 @@
 	> time,
 	> table,
 	figcaption p {
-		hyphens: auto;
+		hyphens: none;
+		// hyphens: auto; // set this rule to activate auto hyphens.s
 	}
 
 	/**
@@ -243,6 +244,10 @@
 
 	.text-no-hyphen {
 		hyphens: none;
+	}
+
+	.text-auto-hyphen {
+		hyphens: auto;
 	}
 
 	/* Paragraphs
