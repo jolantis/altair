@@ -32,8 +32,8 @@
 %contain-width {
 	@extend %contain-padding;
 
-	padding-right: auto !important;
-	padding-left: auto !important;
+	margin-right: auto !important;
+	margin-left: auto !important;
 	// max-width: strip-unit($figure-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Figure max width in EM's
 	max-width: strip-unit($text-max-width) + (2 * strip-unit(rhythm($contain-rhythm-unit))) * 1em; // Text max width in EM's
 }
