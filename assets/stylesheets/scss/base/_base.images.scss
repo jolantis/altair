@@ -46,3 +46,42 @@ figure > img {
 // img[height] {
 // 	max-width: none;
 // }
+
+/**
+ * Wordpress image aligns
+ */
+
+.copy {
+	.alignleft {
+		float: left;
+		margin-top: rhythm(1);
+		margin-right: rhythm(1);
+		margin-bottom: rhythm(.5);
+	}
+
+	.alignright {
+		float: right;
+		margin-top: rhythm(1);
+		margin-left: rhythm(1);
+		margin-bottom: rhythm(.5);
+	}
+
+	.aligncenter {
+		display: block;
+		margin-top: rhythm(1);
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.size-content-width-full {
+		width: 100%;
+	}
+
+	.size-content-width-half {
+		width: 50%;
+	}
+
+	.size-content-width-quarter {
+		width: 25%;
+	}
+}
