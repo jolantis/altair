@@ -18,10 +18,10 @@
 		padding-left: rhythm($contain-rhythm-unit) !important;
 	}
 
-	@include breakpoint(huge) {
-		padding-right: rhythm(6 * $contain-rhythm-unit) !important;
-		padding-left: rhythm(6 * $contain-rhythm-unit) !important;
-	}
+	// @include breakpoint(huge) {
+	// 	padding-right: rhythm(6 * $contain-rhythm-unit) !important;
+	// 	padding-left: rhythm(6 * $contain-rhythm-unit) !important;
+	// }
 }
 
 /**
