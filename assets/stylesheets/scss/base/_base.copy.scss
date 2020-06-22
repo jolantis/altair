@@ -109,12 +109,12 @@
 	> *:not(.figure-image) + ul,
 	> *:not(.figure-image) + ol,
 	> *:not(.figure-image) + dl {
-		margin-top: rhythm(.5) !important;
+		margin-top: rhythm(1) !important;
 	}
 
 	> h2 + *:not(.figure-image),
 	> h3 + *:not(.figure-image) {
-		margin-top: rhythm(.5) !important;
+		margin-top: rhythm(1) !important;
 	}
 
 	> h4 + p,
