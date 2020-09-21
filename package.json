@@ -25,7 +25,6 @@
     "grunt-criticalcss": "^2.1.0",
     "grunt-css-mqpacker": "^3.0.1",
     "grunt-csso": "^2.2.4",
-    "grunt-grunticon": "^2.3.2",
     "grunt-notify": "^0.4.5",
     "grunt-sass": "^3.0.2",
     "grunt-svgmin": "^5.0.0",
