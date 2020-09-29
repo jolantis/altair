@@ -112,7 +112,7 @@
 			else {
 				expires = "";
 			}
-			doc.cookie = name + "=" + value + expires + "; path=/";
+			doc.cookie = name + "=" + value + expires + "; path=/; SameSite=Lax";
 		}
 	};
 
